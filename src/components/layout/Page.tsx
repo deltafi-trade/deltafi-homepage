@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet-async'
-import { useLocation } from 'react-router'
-import { DEFAULT_META, getCustomMeta } from 'config/constants/meta'
+import { DEFAULT_META } from 'config/constants/meta'
 import Container from './Container'
 
 const StyledPage = styled(Container)`
@@ -22,15 +21,11 @@ const StyledPage = styled(Container)`
 `
 
 const PageMeta = () => {
-  const { pathname } = useLocation()
-
-  const pageMeta = getCustomMeta(pathname) || {}
-  const { title, description } = { ...DEFAULT_META, ...pageMeta }
-  const pageTitle = title
+  const { title, description } = { ...DEFAULT_META }
 
   return (
     <Helmet>
-      <title>{pageTitle}</title>
+      <title>{title}</title>
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
     </Helmet>
@@ -40,7 +35,7 @@ const PageMeta = () => {
 const Page: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => {
   return (
     <>
-      {/* <PageMeta /> */}
+      <PageMeta />
       <StyledPage {...props}>{children}</StyledPage>
     </>
   )

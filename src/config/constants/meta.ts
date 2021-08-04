@@ -5,14 +5,3 @@ export const DEFAULT_META: PageMeta = {
   description:
     'Description Template'
 }
-
-export const getCustomMeta = (path: string): PageMeta => {
-  switch (path) {
-    case '/':
-      return {
-        title: `Home | DeltaFi`,
-      }
-    default:
-      return null
-  }
-}
