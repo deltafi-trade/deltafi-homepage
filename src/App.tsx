@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy } from 'react';
+import { Router, Route, Switch } from 'react-router-dom'
 
-function App() {
+import SuspenseWithChunkError from './components/SuspenseWithChunkError'
+import PageLoader from './components/PageLoader'
+
+import GlobalStyle from './style/Global'
+import history from './routerHistory'
+
+const Home = lazy(() => import('./views/Home'))
+const NotFound = lazy(() => import('./views/NotFound'))
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router history={history}>
+      <GlobalStyle />
+        <SuspenseWithChunkError fallback={<PageLoader />}>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route component={NotFound} />
+          </Switch>
+        </SuspenseWithChunkError>
+    </Router>
+  )
 }
 
-export default App;
+export default React.memo(App)

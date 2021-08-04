@@ -1,6 +1,6 @@
 import { Colors, Breakpoints, MediaQueries, Spacing, Shadows, Radii, ZIndices } from "./types";
 
-export interface DefaultTheme {
+export interface AppTheme {
   siteWidth: number;
   isDark: boolean;
   colors: Colors;
