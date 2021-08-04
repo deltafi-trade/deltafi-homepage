@@ -43,7 +43,7 @@ const zIndices = {
 };
 
 const base = {
-  siteWidth: 1200,
+  siteWidth: 1320,
   breakpoints,
   mediaQueries,
   spacing,

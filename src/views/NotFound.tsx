@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-// import { Button, Heading, Text, LogoIcon } from 'uikit'
+import { Button, Text, Heading } from 'components'
 import Page from 'components/layout/Page'
 
 const StyledNotFound = styled.div`
@@ -15,15 +15,13 @@ const NotFound = () => {
 
   return (
     <Page>
-      Not Found
-      {/* <StyledNotFound>
-        <LogoIcon width="64px" mb="8px" />
+      <StyledNotFound>
         <Heading scale="xxl">404</Heading>
         <Text mb="16px">Oops, page not found.</Text>
         <Button as="a" href="/" scale="sm">
           Back Home
         </Button>
-      </StyledNotFound> */}
+      </StyledNotFound>
     </Page>
   )
 }
