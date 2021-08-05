@@ -2,22 +2,26 @@ import React from 'react'
 import styled from 'styled-components'
 import Logo from './Logo'
 import LaunchApp from './LaunchApp'
-import LinkList from './LinkList'
 import DarkMode from './DarkMode'
+
+import { StyledLink } from './LinkList'
+
 import useTheme from 'hooks/useTheme'
-import { HOMEPAGE_LINK } from 'config/constants/constant'
+import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK } from 'config/constants/constant'
+
+import { PinterestIcon, BlogIcon, TwitterIcon, YoutubeIcon } from 'components'
 
 const FlexWrapper = styled.div`
 	flex: 1;
   display: flex;
   align-items: center;
 	justify-content: space-between;
-	margin: 16px 0;
+	margin: 5px 0;
 	padding-left: 16px;
   padding-right: 16px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-		margin: 24px 0;
+		margin: 12px 0;
     padding-left: 24px;
     padding-right: 24px;
 		max-width: 1500px;
@@ -26,29 +30,72 @@ const FlexWrapper = styled.div`
 
 const Container = styled.div`
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	justify-content: center;
+  background-color: ${({ theme }) => theme.colors.footerMain};
+  color: ${({ theme }) => theme.colors.footerText};
 `
 
 const StyledDiv = styled.div`
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 `
 
+const StyledDivMt = styled(StyledDiv)`
+  padding-top: 32px;
+  .social-icon {
+    width: 40px;
+  }
+`
+
+const Wrapper = styled.div``
+
+const FooterContaier = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.footer};
+  color: ${({ theme }) => theme.colors.footerText};
+`
+const IconWrapper = styled.div`
+  margin: 0 16px;
+`
 const Footer: React.FC = () => {
 	const { isDark, toggleTheme } = useTheme()
-
+  const textColor = isDark ? '#FFF' : '#000' 
   return (
-		<Container>
-			<FlexWrapper>
-				<Logo href={HOMEPAGE_LINK} isDark={isDark}/>
-				<StyledDiv>
-					<LinkList isDark={isDark}/>
-					<DarkMode toggleTheme={toggleTheme} isDark={isDark}/>
-					<LaunchApp />
-				</StyledDiv>
-			</FlexWrapper>
-		</Container>
+    <Wrapper>
+      <Container>
+        <FlexWrapper>
+          <Wrapper>
+            <Logo href={HOMEPAGE_LINK} isDark={isDark}/>
+            <StyledDivMt>
+              <StyledLink color={textColor} href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">Twitter</StyledLink>
+              <StyledLink color={textColor} href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">Discord</StyledLink>
+              <StyledLink color={textColor} href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">Github</StyledLink>
+              <StyledLink color={textColor} href={BLOG_LINK} target="_blank" rel="noreferrer noopener">Blog</StyledLink>
+              <StyledLink color={textColor} href="/career">Careers</StyledLink>
+              <StyledLink color={textColor} href="/privacy">Privacy Policy</StyledLink>
+            </StyledDivMt>
+          </Wrapper>
+          <StyledDiv>
+            <DarkMode toggleTheme={toggleTheme} isDark={isDark}/>
+            <LaunchApp />
+          </StyledDiv>
+        </FlexWrapper>
+      </Container>
+      <FooterContaier>
+        <FlexWrapper>
+          <Wrapper>© 2021 DeltaFi. All rights reserved</Wrapper>
+          <StyledDiv>
+            <IconWrapper><PinterestIcon isDark={isDark} width="40px"/></IconWrapper>
+            <IconWrapper><BlogIcon isDark={isDark} width="40px"/></IconWrapper>
+            <IconWrapper><TwitterIcon isDark={isDark} width="40px"/></IconWrapper>
+            <IconWrapper><YoutubeIcon isDark={isDark} width="40px"/></IconWrapper>
+          </StyledDiv>
+        </FlexWrapper>
+      </FooterContaier>
+    </Wrapper>
   )
 }
 

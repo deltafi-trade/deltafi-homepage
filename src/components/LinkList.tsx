@@ -6,7 +6,7 @@ interface Props {
   isDark: boolean;
 }
 
-const StyledLink = styled.a`
+export const StyledLink = styled.a`
   text-decoration: none;
   font-family: 'Inter';
   font-size: 18px;
