@@ -7,7 +7,7 @@ import DarkMode from './DarkMode'
 import { StyledLink } from './LinkList'
 
 import useTheme from 'hooks/useTheme'
-import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK } from 'config/constants/constant'
+import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, PINTEREST_LINK, YOUTUBE_LINK } from 'config/constants/constant'
 
 import { PinterestIcon, BlogIcon, TwitterIcon, YoutubeIcon } from 'components'
 
@@ -88,10 +88,18 @@ const Footer: React.FC = () => {
         <FlexWrapper>
           <Wrapper>© 2021 DeltaFi. All rights reserved</Wrapper>
           <StyledDiv>
-            <IconWrapper><PinterestIcon isDark={isDark} width="40px"/></IconWrapper>
-            <IconWrapper><BlogIcon isDark={isDark} width="40px"/></IconWrapper>
-            <IconWrapper><TwitterIcon isDark={isDark} width="40px"/></IconWrapper>
-            <IconWrapper><YoutubeIcon isDark={isDark} width="40px"/></IconWrapper>
+            <IconWrapper>
+              <StyledLink href={PINTEREST_LINK} target="_blank" rel="noreferrer noopener"><PinterestIcon isDark={isDark} width="40px"/></StyledLink>
+            </IconWrapper>
+            <IconWrapper>
+              <StyledLink href={BLOG_LINK} target="_blank" rel="noreferrer noopener"><BlogIcon isDark={isDark} width="40px"/></StyledLink>
+            </IconWrapper>
+            <IconWrapper>
+              <StyledLink href={TWITTER_LINK} target="_blank" rel="noreferrer noopener"><TwitterIcon isDark={isDark} width="40px"/></StyledLink>
+            </IconWrapper>
+            <IconWrapper>
+              <StyledLink href={YOUTUBE_LINK} target="_blank" rel="noreferrer noopener"><YoutubeIcon isDark={isDark} width="40px"/></StyledLink>
+            </IconWrapper>
           </StyledDiv>
         </FlexWrapper>
       </FooterContaier>
