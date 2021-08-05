@@ -3,6 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom'
 
 import SuspenseWithChunkError from './components/SuspenseWithChunkError'
 import PageLoader from './components/PageLoader'
+import Header from './components/Header'
 
 import GlobalStyle from './style/Global'
 import history from './routerHistory'
@@ -14,14 +15,15 @@ const App: React.FC = () => {
   return (
     <Router history={history}>
       <GlobalStyle />
-        <SuspenseWithChunkError fallback={<PageLoader />}>
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route component={NotFound} />
-          </Switch>
-        </SuspenseWithChunkError>
+      <Header />
+      <SuspenseWithChunkError fallback={<PageLoader />}>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route component={NotFound} />
+        </Switch>
+      </SuspenseWithChunkError>
     </Router>
   )
 }
