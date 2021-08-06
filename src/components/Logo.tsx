@@ -17,7 +17,7 @@ const StyledLink = styled(Link)`
       width: 120px;
     }
     ${({ theme }) => theme.mediaQueries.md} {
-      width: 137px;
+      width: 137px; 
     }
     ${({ theme }) => theme.mediaQueries.lg} {
       width: 178px;

@@ -16,10 +16,14 @@ const FlexWrapper = styled.div`
   display: flex;
   align-items: center;
 	justify-content: space-between;
+  flex-direction: column;
 	margin: 5px 0;
 	padding-left: 16px;
   padding-right: 16px;
 
+  ${({ theme }) => theme.mediaQueries.sm} {
+    flex-direction: row;
+  }
   ${({ theme }) => theme.mediaQueries.md} {
 		margin: 24px 0;
     padding-left: 76px;
@@ -33,16 +37,25 @@ const FlexWrapper = styled.div`
 `
 
 const Container = styled.div`
-	display: flex;
+	display: none;
 	align-items: flex-end;
 	justify-content: center;
   background-color: ${({ theme }) => theme.colors.footerMain};
   color: ${({ theme }) => theme.colors.footerText};
+  ${({ theme }) => theme.mediaQueries.md} {
+    display: flex;
+  }
 `
 
 const StyledDiv = styled.div`
 	display: flex;
 	align-items: flex-end;
+  order: 1;
+  margin-bottom: 10px;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    order: 2;
+    margin-bottom: 0;
+  }
 `
 
 const StyledDivMt = styled(StyledDiv)`
@@ -52,7 +65,12 @@ const StyledDivMt = styled(StyledDiv)`
   }
 `
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  order: 2;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    order: 1;
+  }
+`
 
 const FooterContaier = styled.div`
   display: flex;
