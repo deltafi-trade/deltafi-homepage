@@ -1,11 +1,15 @@
 import React from "react";
 import { Button } from "components";
 import { APP_LINK } from "config/constants/constant";
+import { Variant } from 'components/Button/types'
 
-const LaunchApp: React.FC = () => {
+interface Props {
+  primary?: Variant;
+}
+const LaunchApp: React.FC<Props> = ({primary}) => {
 
   return (
-    <Button as="a" href={APP_LINK} mr="8px" external width="240px">
+    <Button variant={primary} as="a" href={APP_LINK} mr="8px" external width="240px">
       LAUNCH APP
     </Button>
   );

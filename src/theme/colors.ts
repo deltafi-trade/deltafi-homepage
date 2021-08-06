@@ -2,7 +2,7 @@ import { Colors } from "./types";
 
 export const baseColors = {
   failure: "#ED4B9E",
-  primary: "#1FC7D4",
+  primary: "#F43F5E",
   primaryBright: "#53DEE9",
   primaryDark: "#0098A1",
   secondary: "#7645D9",
@@ -29,13 +29,14 @@ export const lightColors: Colors = {
   input: "#eeeaf4",
   inputSecondary: "#d7caec",
   tertiary: "#EFF4F5",
-  text: "#280D5F",
+  text: "#000000",
   textDisabled: "#BDC2C4",
   textSubtle: "#7A6EAA",
   disabled: "#E9EAEB",
   footer: "#EBECF1",
   footerText: "#000000",
   footerMain: "#FFFFFF",
+  btnColor: "#F43F5E",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #E5FDFF 0%, #F3EFFF 100%)",
     inverseBubblegum: "linear-gradient(139.73deg, #F3EFFF 0%, #E5FDFF 100%)",
@@ -44,7 +45,7 @@ export const lightColors: Colors = {
     violet: "linear-gradient(180deg, #E2C9FB 0%, #CDB8FA 100%)",
     violetAlt: "linear-gradient(180deg, #CBD7EF 0%, #9A9FD0 100%)",
     gold: "linear-gradient(180deg, #FFD800 0%, #FDAB32 100%)",
-    asset: "radial-gradient(to right, #FFFFFF, #EBECF1, #EFCBD7, #88809C, #B84074, #F43F5E, #000000)",
+    asset: "linear-gradient(to right, #FFFFFF, #EBECF1, #EFCBD7, #88809C, #B84074, #F43F5E, #000000)",
   },
 };
 
@@ -64,13 +65,14 @@ export const darkColors: Colors = {
   inputSecondary: "#262130",
   primaryDark: "#0098A1",
   tertiary: "#353547",
-  text: "#F4EEFF",
+  text: "#FFFFFF",
   textDisabled: "#666171",
   textSubtle: "#B8ADD2",
   disabled: "#524B63",
   footer: "#23242F",
   footerText: "#FFFFFF",
   footerMain: "#000000",
+  btnColor: "#FFF",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",
     inverseBubblegum: "linear-gradient(139.73deg, #3D2A54 0%, #313D5C 100%)",
@@ -79,6 +81,6 @@ export const darkColors: Colors = {
     violet: "linear-gradient(180deg, #6C4999 0%, #6D4DB2 100%)",
     violetAlt: "linear-gradient(180deg, #434575 0%, #66578D 100%)",
     gold: "linear-gradient(180deg, #FFD800 0%, #FDAB32 100%)",
-    asset: "radial-gradient(to right, #000000, #15161D, #23242F, #1B0D3F, #B84074, #F43F5E, #FFFFFF)",
+    asset: "linear-gradient(to right, #000000, #15161D, #23242F, #1B0D3F, #B84074, #F43F5E, #FFFFFF)",
   },
 };

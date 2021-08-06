@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
           </Wrapper>
           <StyledDiv>
             <DarkMode toggleTheme={toggleTheme} isDark={isDark}/>
-            <LaunchApp />
+            <LaunchApp primary="primary"/>
           </StyledDiv>
         </FlexWrapper>
       </Container>

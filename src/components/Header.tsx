@@ -54,7 +54,7 @@ const Header: React.FC = () => {
 				<StyledDiv>
 					<LinkList isDark={isDark}/>
 					<DarkMode toggleTheme={toggleTheme} isDark={isDark}/>
-					<LaunchApp />
+					<LaunchApp primary="primary"/>
 				</StyledDiv>
 			</FlexWrapper>
 		</Container>

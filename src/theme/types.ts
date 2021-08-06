@@ -65,6 +65,7 @@ export type Colors = {
   footer: string;
   footerMain: string;
   footerText: string;
+  btnColor: string;
 
   // Gradients
   gradients: Gradients;

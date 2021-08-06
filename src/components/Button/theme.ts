@@ -23,13 +23,11 @@ export const styleVariants = {
   },
   [variants.SECONDARY]: {
     backgroundColor: "white",
-    border: "2px solid",
-    borderColor: "primary",
-    boxShadow: "none",
     color: "primary",
-    ":disabled": {
-      backgroundColor: "transparent",
-    },
+  },
+  [variants.DARK]: {
+    backgroundColor: "black",
+    color: "white",
   },
   [variants.TEXT]: {
     backgroundColor: "transparent",

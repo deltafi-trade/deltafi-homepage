@@ -19,7 +19,7 @@ const Text = styled.div<TextProps>`
   color: ${getColor};
   font-size: ${getFontSize};
   font-weight: ${({ bold }) => (bold ? 600 : 400)};
-  line-height: 1.5;
+  ${({ lineHeight }) => lineHeight && `line-height: ${lineHeight};`}
   ${({ textTransform }) => textTransform && `text-transform: ${textTransform};`}
   ${({ ellipsis }) =>
     ellipsis &&
