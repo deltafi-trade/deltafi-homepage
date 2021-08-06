@@ -1,7 +1,9 @@
-import { Text } from 'components'
-import LaunchApp from 'components/LaunchApp'
 import React from 'react'
 import styled from 'styled-components'
+
+import { Text } from 'components'
+import LaunchApp from 'components/LaunchApp'
+
 import useTheme from 'hooks/useTheme'
 
 const StyledDiv = styled.div`
@@ -9,8 +11,9 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   position: relative;
-  background: url('/images/bg.png') center center no-repeat;
+  background: ${({ theme }) => theme.colors.mobileBackground};
   background-size: 100% 100%;
+  font-family: 'Inter', sans-serif;
 
   min-height: 570px;
   padding-left: 24px;
@@ -21,12 +24,14 @@ const StyledDiv = styled.div`
     padding-left: 60px;
     padding-right: 60px;
     font-size: 16px;
+    background: ${({ theme }) => theme.colors.tabletBackground};
   }
   ${({ theme }) => theme.mediaQueries.xxl} {
 		min-height: 1099px;
     padding-left: 200px;
     padding-right: 200px;
     font-size: 20px;
+    background: ${({ theme }) => theme.colors.mainBackground};
   }
 `
 

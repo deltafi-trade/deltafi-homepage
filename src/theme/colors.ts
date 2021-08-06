@@ -40,6 +40,11 @@ export const lightColors: Colors = {
   investBackground: '#EBECF1',
   cardBackground: '#FBFBFB',
   cardBoxShadow: '0px 30px 40px rgba(212, 217, 232, 0.2)',
+  cardOpacity: '1',
+  boxShadow: '0px 4px 4px rgba(77, 76, 76, 0.29)',
+  mainBackground: "url('/images/Deltafi_LT.png') center center no-repeat",
+  tabletBackground: "url('/images/Tablet_LT.png') center center no-repeat",
+  mobileBackground: "url('/images/Mobile_LT.png') center center no-repeat",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #E5FDFF 0%, #F3EFFF 100%)",
     inverseBubblegum: "linear-gradient(139.73deg, #F3EFFF 0%, #E5FDFF 100%)",
@@ -49,6 +54,7 @@ export const lightColors: Colors = {
     violetAlt: "linear-gradient(180deg, #CBD7EF 0%, #9A9FD0 100%)",
     gold: "linear-gradient(180deg, #FFD800 0%, #FDAB32 100%)",
     asset: "linear-gradient(to right, #FFFFFF, #EBECF1, #EFCBD7, #88809C, #B84074, #F43F5E, #000000)",
+    deltafi: "linear-gradient(21.97deg, rgba(27, 13, 63, 0.5) 50.72%, rgba(132, 65, 144, 0.5) 70.58%, rgba(136, 23, 82, 0.5) 82.88%, rgba(226, 116, 45, 0.5) 94.68%)"
   },
 };
 
@@ -79,6 +85,11 @@ export const darkColors: Colors = {
   investBackground: '#23242F',
   cardBackground: '#15161D',
   cardBoxShadow: 'inset 0px -2px 2px rgba(61, 63, 82, 0.8)',
+  cardOpacity: '0.4',
+  boxShadow: '0px 4px 4px rgba(255, 254, 254, 0.6)',
+  mainBackground: "url('/images/Deltafi_DT.png') center center no-repeat",
+  tabletBackground: "url('/images/Tablet_DT.png') center center no-repeat",
+  mobileBackground: "url('/images/Mobile_DT.png') center center no-repeat",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",
     inverseBubblegum: "linear-gradient(139.73deg, #3D2A54 0%, #313D5C 100%)",
@@ -88,5 +99,6 @@ export const darkColors: Colors = {
     violetAlt: "linear-gradient(180deg, #434575 0%, #66578D 100%)",
     gold: "linear-gradient(180deg, #FFD800 0%, #FDAB32 100%)",
     asset: "linear-gradient(to right, #000000, #15161D, #23242F, #1B0D3F, #B84074, #F43F5E, #FFFFFF)",
+    deltafi: "linear-gradient(21.97deg, #1B0D3F 50.72%, #844190 70.58%, #881752 82.88%, #E2742D 94.68%)"
   },
 };

@@ -37,6 +37,7 @@ export type Gradients = {
   violetAlt: string;
   gold: string;
   asset: string;
+  deltafi: string;
 };
 
 export type Colors = {
@@ -69,6 +70,11 @@ export type Colors = {
   investBackground: string;
   cardBackground: string;
   cardBoxShadow: string;
+  cardOpacity: string;
+  boxShadow: string;
+  mainBackground: string;
+  tabletBackground: string;
+  mobileBackground: string;
 
   // Gradients
   gradients: Gradients;

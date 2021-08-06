@@ -15,6 +15,7 @@ const FlexWrapper = styled.div`
 	margin: 16px 0;
 	padding-left: 16px;
   padding-right: 16px;
+  font-family: 'Inter', sans-serif;
 
   ${({ theme }) => theme.mediaQueries.md} {
 		margin: 24px 0;

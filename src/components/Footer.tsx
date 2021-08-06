@@ -66,6 +66,7 @@ const StyledDivMt = styled(StyledDiv)`
 `
 
 const Wrapper = styled.div`
+  font-family: 'Inter', sans-serif;
   order: 2;
   ${({ theme }) => theme.mediaQueries.sm} {
     order: 1;

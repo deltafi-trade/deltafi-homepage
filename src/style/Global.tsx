@@ -7,10 +7,8 @@ declare module 'styled-components' {
 }
 
 const GlobalStyle = createGlobalStyle`
-  * {
-    font-family: 'Inter';
-  }
   body {
+    margin: 0;
     background-color: ${({ theme }) => theme.colors.background};
 
     img {

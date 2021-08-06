@@ -10,6 +10,7 @@ const StyledDiv = styled.div`
   align-items: center;
   padding: 62px 0;
   font-size: 14px;
+  font-family: 'Inter', sans-serif;
   background-color: ${({ theme }) => theme.colors.investBackground};
   ${({ theme }) => theme.mediaQueries.xs} {
     font-size: 18px;
@@ -64,8 +65,8 @@ const Investors: React.FC = () => {
     <StyledDiv>
       <Text textTransform='uppercase' fontSize="100%" color='#C94A75'>Our Investors</Text>
       <FlexWrapper>
-        <Text fontSize="200%" mr="8px">Backed & Trusted</Text>
-        <Text fontSize="200%" color={isDark ? "#949292" : "#6B7280"}> by the best</Text>
+        <Text fontSize="200%" mr="8px" fontFamily="'DM Sans', sans-serif">Backed & Trusted</Text>
+        <Text fontSize="200%" color={isDark ? "#949292" : "#6B7280"} fontFamily="'DM Sans', sans-serif"> by the best</Text>
       </FlexWrapper>
       <Text fontSize="100%" mb="12px" color={isDark ? "#ECECEC" : "#23242F"}>We partner with leading funds & trading firms</Text>
       <DivWrapper>

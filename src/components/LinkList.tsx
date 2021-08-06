@@ -8,7 +8,6 @@ interface Props {
 
 export const StyledLink = styled.a`
   text-decoration: none;
-  font-family: 'Inter';
   font-size: 18px;
   color: ${(props) => props.color};
   padding: 0 10px;

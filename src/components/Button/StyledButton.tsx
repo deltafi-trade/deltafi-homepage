@@ -58,6 +58,7 @@ const StyledButton = styled.button<BaseButtonProps>`
   outline: 0;
   transition: background-color 0.2s, opacity 0.2s;
   text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
 
   &:hover:not(:disabled):not(.delta-button--disabled):not(.delta-button--disabled):not(:active) {
     opacity: 0.65;
