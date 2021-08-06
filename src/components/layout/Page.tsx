@@ -6,17 +6,14 @@ import Container from './Container'
 
 const StyledPage = styled(Container)`
   min-height: calc(100vh - 64px);
-  padding-top: 16px;
-  padding-bottom: 16px;
+  margin-top: 16px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding-top: 24px;
-    padding-bottom: 24px;
+    margin-top: 24px;
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    padding-top: 32px;
-    padding-bottom: 32px;
+    margin-top: 108px;
   }
 `
 

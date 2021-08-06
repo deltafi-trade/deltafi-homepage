@@ -16,11 +16,15 @@ const FlexWrapper = styled.div`
 	padding-left: 16px;
   padding-right: 16px;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({ theme }) => theme.mediaQueries.md} {
 		margin: 24px 0;
-    padding-left: 24px;
-    padding-right: 24px;
-		max-width: 1500px;
+    padding-left: 76px;
+    padding-right: 76px;
+  }
+  ${({ theme }) => theme.mediaQueries.xxl} {
+		margin: 24px 0;
+    padding-left: 200px;
+    padding-right: 200px;
   }
 `
 
@@ -28,6 +32,11 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+  background: transparent;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  top: 0;
 `
 
 const StyledDiv = styled.div`

@@ -20,11 +20,15 @@ const FlexWrapper = styled.div`
 	padding-left: 16px;
   padding-right: 16px;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
-		margin: 12px 0;
-    padding-left: 24px;
-    padding-right: 24px;
-		max-width: 1500px;
+  ${({ theme }) => theme.mediaQueries.md} {
+		margin: 24px 0;
+    padding-left: 76px;
+    padding-right: 76px;
+  }
+  ${({ theme }) => theme.mediaQueries.xxl} {
+		margin: 24px 0;
+    padding-left: 200px;
+    padding-right: 200px;
   }
 `
 

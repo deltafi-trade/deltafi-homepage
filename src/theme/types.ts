@@ -6,6 +6,7 @@ export type MediaQueries = {
   md: string;
   lg: string;
   xl: string;
+  xxl: string;
   nav: string;
 };
 
@@ -35,6 +36,7 @@ export type Gradients = {
   violet: string;
   violetAlt: string;
   gold: string;
+  asset: string;
 };
 
 export type Colors = {
