@@ -6,13 +6,13 @@ import Container from './Container'
 
 const StyledPage = styled(Container)`
   min-height: calc(100vh - 64px);
-  margin-top: 16px;
+  margin-top: 92px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    margin-top: 24px;
+    margin-top: 92px;
   }
 
-  ${({ theme }) => theme.mediaQueries.lg} {
+  ${({ theme }) => theme.mediaQueries.md} {
     margin-top: 108px;
   }
 `

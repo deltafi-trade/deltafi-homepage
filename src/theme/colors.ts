@@ -37,6 +37,9 @@ export const lightColors: Colors = {
   footerText: "#000000",
   footerMain: "#FFFFFF",
   btnColor: "#F43F5E",
+  investBackground: '#EBECF1',
+  cardBackground: '#FBFBFB',
+  cardBoxShadow: '0px 30px 40px rgba(212, 217, 232, 0.2)',
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #E5FDFF 0%, #F3EFFF 100%)",
     inverseBubblegum: "linear-gradient(139.73deg, #F3EFFF 0%, #E5FDFF 100%)",
@@ -73,6 +76,9 @@ export const darkColors: Colors = {
   footerText: "#FFFFFF",
   footerMain: "#000000",
   btnColor: "#FFF",
+  investBackground: '#23242F',
+  cardBackground: '#15161D',
+  cardBoxShadow: 'inset 0px -2px 2px rgba(61, 63, 82, 0.8)',
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",
     inverseBubblegum: "linear-gradient(139.73deg, #3D2A54 0%, #313D5C 100%)",

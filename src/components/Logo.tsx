@@ -12,7 +12,16 @@ const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   .desktop-icon {
-    width: 178px;
+    width: 100px;
+    ${({ theme }) => theme.mediaQueries.sm} {
+      width: 120px;
+    }
+    ${({ theme }) => theme.mediaQueries.md} {
+      width: 137px;
+    }
+    ${({ theme }) => theme.mediaQueries.lg} {
+      width: 178px;
+    }
   }
 `;
 

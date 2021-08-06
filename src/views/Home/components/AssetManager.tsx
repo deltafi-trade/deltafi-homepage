@@ -16,17 +16,11 @@ const StyledDiv = styled.div`
   padding-left: 24px;
   padding-right: 24px;
   font-size: 12px;
-  ${({ theme }) => theme.mediaQueries.xs} {
+  ${({ theme }) => theme.mediaQueries.md} {
 		min-height: 1000px;
     padding-left: 60px;
     padding-right: 60px;
     font-size: 16px;
-  }
-  ${({ theme }) => theme.mediaQueries.md} {
-		min-height: 755px;
-    padding-left: 76px;
-    padding-right: 76px;
-    font-size: 14px;
   }
   ${({ theme }) => theme.mediaQueries.xxl} {
 		min-height: 1099px;
