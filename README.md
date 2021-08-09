@@ -6,7 +6,7 @@ An open source interface for DeltaFi.
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn install`
 
 Install relevant packages.
 
