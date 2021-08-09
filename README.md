@@ -6,6 +6,10 @@ An open source interface for DeltaFi.
 
 In the project directory, you can run:
 
+### `yarn install`
+
+Install relevant packages.
+
 ### `yarn start`
 
 Runs the app in the development mode.\
