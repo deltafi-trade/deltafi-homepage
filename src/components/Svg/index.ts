@@ -10,5 +10,6 @@ export { default as BlogIcon } from "./icons/Blog";
 export { default as TwitterIcon } from "./icons/Twitter";
 export { default as YoutubeIcon } from "./icons/Youtube";
 export { default as DeltaIcon } from "./icons/Delta";
+export { default as MenuIcon } from "./icons/Menu";
 export { default as Svg } from "./Svg";
 export type { SvgProps } from "./types";

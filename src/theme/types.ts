@@ -75,6 +75,7 @@ export type Colors = {
   mainBackground: string;
   tabletBackground: string;
   mobileBackground: string;
+  menuBackground: string;
 
   // Gradients
   gradients: Gradients;

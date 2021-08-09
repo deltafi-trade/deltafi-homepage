@@ -18,13 +18,20 @@ const FlexWrapper = styled.div`
 	justify-content: space-between;
   flex-direction: column;
 	margin: 5px 0;
-	padding-left: 16px;
-  padding-right: 16px;
+	padding-left: 14px;
+  padding-right: 14px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
+    padding-left: 14px;
+    padding-right: 14px;
   }
   ${({ theme }) => theme.mediaQueries.md} {
+		margin: 16px 0;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  ${({ theme }) => theme.mediaQueries.xl} {
 		margin: 24px 0;
     padding-left: 76px;
     padding-right: 76px;
@@ -63,6 +70,12 @@ const StyledDivMt = styled(StyledDiv)`
   .social-icon {
     width: 40px;
   }
+  .font-size-14 {
+    font-size: 14px;
+    ${({ theme }) => theme.mediaQueries.xl} {
+      font-size: 18px;
+    }
+  }
 `
 
 const Wrapper = styled.div`
@@ -77,11 +90,20 @@ const FooterContaier = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.footer};
+  background-color: ${({ theme }) => theme.colors.footerMain};
   color: ${({ theme }) => theme.colors.footerText};
+  padding: 24px;
+  ${({ theme }) => theme.mediaQueries.xs} {
+    background-color: ${({ theme }) => theme.colors.footer};
+    flex-direction: row;
+    padding: 0;
+  }
 `
 const IconWrapper = styled.div`
-  margin: 0 16px;
+  margin: 0 6px;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    margin: 0 16px;
+  }
 `
 const Footer: React.FC = () => {
 	const { isDark, toggleTheme } = useTheme()
@@ -93,12 +115,12 @@ const Footer: React.FC = () => {
           <Wrapper>
             <Logo href={HOMEPAGE_LINK} isDark={isDark}/>
             <StyledDivMt>
-              <StyledLink color={textColor} href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">Twitter</StyledLink>
-              <StyledLink color={textColor} href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">Discord</StyledLink>
-              <StyledLink color={textColor} href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">Github</StyledLink>
-              <StyledLink color={textColor} href={BLOG_LINK} target="_blank" rel="noreferrer noopener">Blog</StyledLink>
-              <StyledLink color={textColor} href="/career">Careers</StyledLink>
-              <StyledLink color={textColor} href="/privacy">Privacy Policy</StyledLink>
+              <StyledLink color={textColor} href={TWITTER_LINK} target="_blank" rel="noreferrer noopener" className="font-size-14">Twitter</StyledLink>
+              <StyledLink color={textColor} href={DISCORD_LINK} target="_blank" rel="noreferrer noopener" className="font-size-14">Discord</StyledLink>
+              <StyledLink color={textColor} href={GITHUB_LINK} target="_blank" rel="noreferrer noopener" className="font-size-14">Github</StyledLink>
+              <StyledLink color={textColor} href={BLOG_LINK} target="_blank" rel="noreferrer noopener" className="font-size-14">Blog</StyledLink>
+              <StyledLink color={textColor} href="/career" className="font-size-14">Careers</StyledLink>
+              <StyledLink color={textColor} href="/privacy" className="font-size-14">Privacy Policy</StyledLink>
             </StyledDivMt>
           </Wrapper>
           <StyledDiv>

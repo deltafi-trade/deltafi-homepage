@@ -12,21 +12,55 @@ const StyledDiv = styled.div`
   justify-content: center;
   align-items: center;
   padding: 62px 0;
+  text-align: center;
   font-size: 14px;
   font-family: 'DM Sans', sans-serif;
   background-color: "#F6F5FB";
   background-image: ${({ theme }) => theme.colors.gradients.deltafi};
-  ${({ theme }) => theme.mediaQueries.xs} {
+  .delta-title {
+    font-size: 14px;
+    ${({ theme }) => theme.mediaQueries.xs} {
+      font-size: 18px;
+    }
+    ${({ theme }) => theme.mediaQueries.xl} {
+      font-size: 24px;
+    }
+    ${({ theme }) => theme.mediaQueries.xxl} {
+      font-size: 24px;
+    }
+  }
+  .delta-content {
+    font-size: 16px;
+    ${({ theme }) => theme.mediaQueries.xs} {
+      font-size: 24px;
+    }
+    ${({ theme }) => theme.mediaQueries.xl} {
+      font-size: 36px;
+    }
+    ${({ theme }) => theme.mediaQueries.xxl} {
+      font-size: 48px;
+    }
+  }
+  .deposit-earn {
     font-size: 18px;
+    ${({ theme }) => theme.mediaQueries.xs} {
+      font-size: 18px;
+    }
+    ${({ theme }) => theme.mediaQueries.xl} {
+      font-size: 36px;
+    }
+    ${({ theme }) => theme.mediaQueries.xxl} {
+      font-size: 36px;
+    }
+  }
+  ${({ theme }) => theme.mediaQueries.xs} {
     padding: 92px 0;
   }
   ${({ theme }) => theme.mediaQueries.md} {
     padding: 150px 0;
-    font-size: 24px;
   }
   ${({ theme }) => theme.mediaQueries.xxl} {
     padding: 150px 0;
-    font-size: 24px;
   }
 `
 const Card = styled.div`
@@ -37,15 +71,44 @@ const Card = styled.div`
   margin: 10px 0;
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   opacity: ${({ theme }) => theme.colors.cardOpacity};
-  border-radius: 20px;
+  border-radius: 10px;
+  .card-title {
+    font-size: 14px;
+    ${({ theme }) => theme.mediaQueries.xs} {
+      font-size: 14px;
+    }
+    ${({ theme }) => theme.mediaQueries.xl} {
+      font-size: 36px;
+    }
+    ${({ theme }) => theme.mediaQueries.xxl} {
+      font-size: 36px;
+    }
+  }
+  .card-content {
+    font-size: 14px;
+    padding: 0 24px;
+    ${({ theme }) => theme.mediaQueries.xs} {
+      padding: 0 55px;
+      font-size: 14px;
+    }
+    ${({ theme }) => theme.mediaQueries.xl} {
+      padding: 0 93px;
+      font-size: 32px;
+    }
+    ${({ theme }) => theme.mediaQueries.xxl} {
+      padding: 0 150px;
+      font-size: 24px;
+    }
+  }
   ${({ theme }) => theme.mediaQueries.sm} {
+    border-radius: 20px;
     flex-direction: row;
   }
-  ${({ theme }) => theme.mediaQueries.xs} {
+  ${({ theme }) => theme.mediaQueries.md} {
     width: 695px;
     height: 343px;
   }
-  ${({ theme }) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.mediaQueries.xl} {
     width: 1086px;
     height: 535px;
   }
@@ -55,11 +118,15 @@ const Card = styled.div`
   }
 `
 const Img = styled.img`
-  width: 50%;
-  border-radius: 0 20px 20px 0;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
   order: 1;
+  height: 50%;
   ${({ theme }) => theme.mediaQueries.sm} {
+    width: 50%;
+    height: 100%;
     order: 2;
+    border-radius: 0 20px 20px 0;
   }
 `
 const CustomDiv = styled.div`
@@ -68,23 +135,16 @@ const CustomDiv = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 50%;
+  width: 100%;
   order: 2;
-  padding: 0 32px;
   background-color: ${({ theme }) => theme.colors.footerMain};
-  height: 100%;
-  border-radius: 20px 0 0 20px;
+  height: 50%;
+  border-radius: 0 0 10px 10px;
   ${({ theme }) => theme.mediaQueries.sm} {
     order: 1;
-  }
-  ${({ theme }) => theme.mediaQueries.xs} {
-    padding: 0 55px;
-  }
-  ${({ theme }) => theme.mediaQueries.md} {
-    padding: 0 93px;
-  }
-  ${({ theme }) => theme.mediaQueries.xxl} {
-    padding: 0 150px;
+    border-radius: 20px 0 0 20px;
+    width: 50%;
+    height: 100%;
   }
 `
 
@@ -97,34 +157,34 @@ const DeltaFi: React.FC = () => {
 
   return (
     <StyledDiv>
-      <Text textTransform='uppercase' fontSize="100%" color='#C94A75' fontFamily="'Inter', sans-serif" mb="10px">HIGHER RETURNS, LESS RISK</Text> 
-      <Text fontSize="200%">DeltaFi optimizes yields with high capital efficiency,</Text>
-      <Text fontSize="200%" color={isDark ? "#949292" : "#6B7280"}>tailored to your investoment goals</Text>
+      <Text textTransform='uppercase' color='#C94A75' fontFamily="'Inter', sans-serif" mb="10px" className="delta-title">HIGHER RETURNS, LESS RISK</Text> 
+      <Text className="delta-content">DeltaFi optimizes yields with high capital efficiency,</Text>
+      <Text color={isDark ? "#949292" : "#6B7280"} className="delta-content">tailored to your investoment goals</Text>
       <Card>
         <CustomDiv>
-          <DeltaIcon width="84px"/>
-          <Text fontSize="150%" color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="10px">Fixed Income & <br/> Variable Yields</Text>
-          <Text fontSize="100%" color={isDark ? "#F2F2F2" : "#4F4F4F"}>Earn fixed income or invest with high leverage for variable yields, given your investment goals.</Text>
+          <DeltaIcon width="15%"/>
+          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="10px" className="card-title">Fixed Income &<br/> Variable Yields</Text>
+          <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">Earn fixed income or invest with high leverage for variable yields, given your investment goals.</Text>
         </CustomDiv>
         <Img src={YIELD_IMG_URL} alt="Yields"/>
       </Card>
       <Card>
         <CustomDiv>
-          <DeltaIcon width="84px"/>
-          <Text fontSize="150%" color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="10px">Automated Portofolio<br/>Rebalancing</Text>
-          <Text fontSize="100%" color={isDark ? "#F2F2F2" : "#4F4F4F"}>DeltaFi’s solutions are algorithmically designed to maximize returns and protect against loss.</Text>
+          <DeltaIcon width="15%"/>
+          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="10px" className="card-title">Automated Portofolio<br/>Rebalancing</Text>
+          <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">DeltaFi’s solutions are algorithmically designed to maximize returns and protect against loss.</Text>
         </CustomDiv>
-        <Img src={REBALANCE_IMG_URL} alt="Yields"/>
+        <Img src={REBALANCE_IMG_URL} alt="Rebalance"/>
       </Card>
       <Card>
         <CustomDiv>
-          <DeltaIcon width="84px"/>
-          <Text fontSize="150%" color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="10px">Investing, Hedging &<br/> Speculating</Text>
-          <Text fontSize="100%" color={isDark ? "#F2F2F2" : "#4F4F4F"}>Liquidity providers can invest in yields vaults, hedge against risks, and speculate volatilities.</Text>
+          <DeltaIcon width="15%"/>
+          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="10px" className="card-title">Investing, Hedging &<br/> Speculating</Text>
+          <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">Liquidity providers can invest in yields vaults, hedge against risks, and speculate volatilities.</Text>
         </CustomDiv>
-        <Img src={INVEST_IMG_URL} alt="Yields"/>
+        <Img src={INVEST_IMG_URL} alt="Invest"/>
       </Card>
-      <Text fontSize="150%" color="#FFF" mb="20px" mt="20px">Deposit and Earn!</Text>
+      <Text color="#FFF" mb="20px" mt="20px" className="deposit-earn">Deposit and Earn!</Text>
       <LaunchApp primary={primary}/>
     </StyledDiv>
   )

@@ -1,11 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import Logo from './Logo'
 import LaunchApp from './LaunchApp'
 import LinkList from './LinkList'
 import DarkMode from './DarkMode'
+
 import useTheme from 'hooks/useTheme'
 import { HOMEPAGE_LINK } from 'config/constants/constant'
+
+import { Menu } from 'components'
 
 const FlexWrapper = styled.div`
 	flex: 1;
@@ -28,7 +32,6 @@ const FlexWrapper = styled.div`
     padding-right: 200px;
   }
 `
-
 const Container = styled.div`
 	display: flex;
 	align-items: center;
@@ -39,10 +42,21 @@ const Container = styled.div`
   width: 100%;
   top: 0;
 `
-
 const StyledDiv = styled.div`
 	display: flex;
 	align-items: center;
+`
+const DesktopDiv = styled.div`
+  display: none;
+  ${({ theme }) => theme.mediaQueries.lg} {
+		display: flex;
+  }
+`
+const MobileDiv = styled.div`
+  display: flex;
+  ${({ theme }) => theme.mediaQueries.lg} {
+		display: none;
+  }
 `
 
 const Header: React.FC = () => {
@@ -55,7 +69,12 @@ const Header: React.FC = () => {
 				<StyledDiv>
 					<LinkList isDark={isDark}/>
 					<DarkMode toggleTheme={toggleTheme} isDark={isDark}/>
-					<LaunchApp primary="primary"/>
+          <DesktopDiv>
+					  <LaunchApp primary="primary"/>
+          </DesktopDiv > 
+          <MobileDiv>
+            <Menu isDark={isDark}/>
+          </MobileDiv>
 				</StyledDiv>
 			</FlexWrapper>
 		</Container>

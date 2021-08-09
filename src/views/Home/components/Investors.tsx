@@ -9,6 +9,7 @@ const StyledDiv = styled.div`
   justify-content: center;
   align-items: center;
   padding: 62px 0;
+  text-align: center;
   font-size: 14px;
   font-family: 'Inter', sans-serif;
   background-color: ${({ theme }) => theme.colors.investBackground};
@@ -26,8 +27,8 @@ const StyledDiv = styled.div`
   }
 `
 const FlexWrapper = styled.div`
-  text-align: center;
   display: block;
+  padding-bottom: 16px;
   ${({ theme }) => theme.mediaQueries.md} {
     display: flex;
   }

@@ -45,6 +45,7 @@ export const lightColors: Colors = {
   mainBackground: "url('/images/Deltafi_LT.png') center center no-repeat",
   tabletBackground: "url('/images/Tablet_LT.png') center center no-repeat",
   mobileBackground: "url('/images/Mobile_LT.png') center center no-repeat",
+  menuBackground: '#FFFFFF',
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #E5FDFF 0%, #F3EFFF 100%)",
     inverseBubblegum: "linear-gradient(139.73deg, #F3EFFF 0%, #E5FDFF 100%)",
@@ -90,6 +91,7 @@ export const darkColors: Colors = {
   mainBackground: "url('/images/Deltafi_DT.png') center center no-repeat",
   tabletBackground: "url('/images/Tablet_DT.png') center center no-repeat",
   mobileBackground: "url('/images/Mobile_DT.png') center center no-repeat",
+  menuBackground: '#242430',
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",
     inverseBubblegum: "linear-gradient(139.73deg, #3D2A54 0%, #313D5C 100%)",

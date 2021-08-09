@@ -15,7 +15,7 @@ export const StyledLink = styled.a`
 
 const StyledDiv = styled.div`
   display: none;
-  ${({ theme }) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.mediaQueries.lg} {
 		display: flex;
   }
 `
