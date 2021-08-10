@@ -37,7 +37,6 @@ export type Gradients = {
   violetAlt: string;
   gold: string;
   asset: string;
-  deltafi: string;
 };
 
 export type Colors = {
@@ -76,6 +75,7 @@ export type Colors = {
   tabletBackground: string;
   mobileBackground: string;
   menuBackground: string;
+  backgroundDelta: string;
 
   // Gradients
   gradients: Gradients;

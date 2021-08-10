@@ -15,8 +15,8 @@ const StyledDiv = styled.div`
   text-align: center;
   font-size: 14px;
   font-family: 'DM Sans', sans-serif;
-  background-color: "#F6F5FB";
-  background-image: ${({ theme }) => theme.colors.gradients.deltafi};
+  background: ${({ theme }) => theme.colors.backgroundDelta};
+  background-size: 100% 100%;
   .delta-title {
     font-size: 14px;
     ${({ theme }) => theme.mediaQueries.xs} {
