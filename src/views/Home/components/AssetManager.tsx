@@ -12,8 +12,8 @@ const StyledDiv = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  background: ${({ theme }) => theme.colors.mobileBackground};
-  background-size: 100% 100%;
+  background-image: ${({ theme }) => theme.colors.mobileBackground};
+  background-size: cover;
   font-family: 'Inter', sans-serif;
   text-align: center;
 
@@ -89,7 +89,7 @@ const StyledDiv = styled.div`
     padding-left: 60px;
     padding-right: 60px;
     font-size: 16px;
-    background: ${({ theme }) => theme.colors.tabletBackground};
+    background-image: ${({ theme }) => theme.colors.tabletBackground};
   }
   ${({ theme }) => theme.mediaQueries.lg} {
     align-items: flex-start;
@@ -99,7 +99,7 @@ const StyledDiv = styled.div`
     padding-left: 200px;
     padding-right: 200px;
     font-size: 20px;
-    background: ${({ theme }) => theme.colors.mainBackground};
+    background-image: ${({ theme }) => theme.colors.mainBackground};
   }
 `
 

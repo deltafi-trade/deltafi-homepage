@@ -15,8 +15,8 @@ const StyledDiv = styled.div`
   text-align: center;
   font-size: 14px;
   font-family: 'DM Sans', sans-serif;
-  background: ${({ theme }) => theme.colors.backgroundDelta};
-  background-size: 100% 100%;
+  background-image: ${({ theme }) => theme.colors.backgroundDelta};
+  background-size: cover;
   .delta-title {
     font-size: 14px;
     ${({ theme }) => theme.mediaQueries.xs} {
@@ -151,9 +151,9 @@ const CustomDiv = styled.div`
 const DeltaFi: React.FC = () => {
   const { isDark } = useTheme()
   const primary = isDark ? 'dark' : 'secondary'
-  const YIELD_IMG_URL = isDark ? '/images/dark-yield.png' : '/images/light-yield.png'
-  const REBALANCE_IMG_URL = isDark ? '/images/dark-rebalance.png' : '/images/light-rebalance.png'
-  const INVEST_IMG_URL = isDark ? '/images/dark-invest.png' : '/images/light-invest.png'
+  const YIELD_IMG_URL = isDark ? '/images/dark-yield.svg' : '/images/light-yield.svg'
+  const REBALANCE_IMG_URL = isDark ? '/images/dark-rebalance.svg' : '/images/light-rebalance.svg'
+  const INVEST_IMG_URL = isDark ? '/images/dark-invest.svg' : '/images/light-invest.svg'
 
   return (
     <StyledDiv>
