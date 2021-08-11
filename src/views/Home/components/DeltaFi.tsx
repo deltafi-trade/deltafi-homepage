@@ -43,6 +43,7 @@ const StyledDiv = styled.div`
   }
   .deposit-earn {
     font-size: 18px;
+    font-weight: bold;
     ${({ theme }) => theme.mediaQueries.xs} {
       font-size: 18px;
     }
@@ -70,10 +71,10 @@ const Card = styled.div`
   height: 480px;
   margin: 10px 0;
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
-  opacity: ${({ theme }) => theme.colors.cardOpacity};
   border-radius: 10px;
   .card-title {
     font-size: 14px;
+    font-weight: 500;
     ${({ theme }) => theme.mediaQueries.xs} {
       font-size: 14px;
     }
@@ -151,19 +152,19 @@ const CustomDiv = styled.div`
 const DeltaFi: React.FC = () => {
   const { isDark } = useTheme()
   const primary = isDark ? 'dark' : 'secondary'
-  const YIELD_IMG_URL = isDark ? '/images/dark-yield.svg' : '/images/light-yield.svg'
-  const REBALANCE_IMG_URL = isDark ? '/images/dark-rebalance.svg' : '/images/light-rebalance.svg'
-  const INVEST_IMG_URL = isDark ? '/images/dark-invest.svg' : '/images/light-invest.svg'
+  const YIELD_IMG_URL = isDark ? '/images/dark-yield.png' : '/images/light-yield.png'
+  const REBALANCE_IMG_URL = isDark ? '/images/dark-rebalance.png' : '/images/light-rebalance.png'
+  const INVEST_IMG_URL = isDark ? '/images/dark-invest.png' : '/images/light-invest.png'
 
   return (
     <StyledDiv>
-      <Text textTransform='uppercase' color='#C94A75' fontFamily="'Inter', sans-serif" mb="10px" className="delta-title">HIGHER RETURNS, LESS RISK</Text> 
+      <Text textTransform='uppercase' color='#C94A75' fontFamily="'Inter', sans-serif" mb="24px" className="delta-title">HIGHER RETURNS, LESS RISK</Text> 
       <Text className="delta-content">DeltaFi optimizes yields with high capital efficiency,</Text>
-      <Text color={isDark ? "#949292" : "#6B7280"} className="delta-content">tailored to your investoment goals</Text>
+      <Text color={isDark ? "#949292" : "#6B7280"} className="delta-content" mb="36px">tailored to your investoment goals</Text>
       <Card>
         <CustomDiv>
           <DeltaIcon width="15%"/>
-          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="10px" className="card-title">Fixed Income &<br/> Variable Yields</Text>
+          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="16px" className="card-title">Fixed Income &<br/> Variable Yields</Text>
           <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">Earn fixed income or invest with high leverage for variable yields, given your investment goals.</Text>
         </CustomDiv>
         <Img src={YIELD_IMG_URL} alt="Yields"/>
@@ -171,7 +172,7 @@ const DeltaFi: React.FC = () => {
       <Card>
         <CustomDiv>
           <DeltaIcon width="15%"/>
-          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="10px" className="card-title">Automated Portofolio<br/>Rebalancing</Text>
+          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="16px" className="card-title">Automated Portofolio<br/>Rebalancing</Text>
           <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">DeltaFi’s solutions are algorithmically designed to maximize returns and protect against loss.</Text>
         </CustomDiv>
         <Img src={REBALANCE_IMG_URL} alt="Rebalance"/>
@@ -179,12 +180,12 @@ const DeltaFi: React.FC = () => {
       <Card>
         <CustomDiv>
           <DeltaIcon width="15%"/>
-          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="10px" className="card-title">Investing, Hedging &<br/> Speculating</Text>
+          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="16px" className="card-title">Investing, Hedging &<br/> Speculating</Text>
           <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">Liquidity providers can invest in yields vaults, hedge against risks, and speculate volatilities.</Text>
         </CustomDiv>
         <Img src={INVEST_IMG_URL} alt="Invest"/>
       </Card>
-      <Text color="#FFF" mb="20px" mt="20px" className="deposit-earn">Deposit and Earn!</Text>
+      <Text color="#FFF" mb="20px" mt="36px" className="deposit-earn">Deposit and Earn!</Text>
       <LaunchApp primary={primary}/>
     </StyledDiv>
   )

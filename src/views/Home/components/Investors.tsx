@@ -64,10 +64,10 @@ const Investors: React.FC = () => {
 
   return (
     <StyledDiv>
-      <Text textTransform='uppercase' fontSize="100%" color='#C94A75'>Our Investors</Text>
+      <Text textTransform='uppercase' fontSize="100%" color='#C94A75' mb="24px" fontWeight="bold">Our Investors</Text>
       <FlexWrapper>
-        <Text fontSize="200%" mr="8px" fontFamily="'DM Sans', sans-serif">Backed & Trusted</Text>
-        <Text fontSize="200%" color={isDark ? "#949292" : "#6B7280"} fontFamily="'DM Sans', sans-serif"> by the best</Text>
+        <Text fontSize="200%" mr="8px" fontFamily="'DM Sans', sans-serif" fontWeight="bold">Backed & Trusted</Text>
+        <Text fontSize="200%" color={isDark ? "#949292" : "#6B7280"} fontFamily="'DM Sans', sans-serif" fontWeight="bold"> by the best</Text>
       </FlexWrapper>
       <Text fontSize="100%" mb="12px" color={isDark ? "#ECECEC" : "#23242F"}>We partner with leading funds & trading firms</Text>
       <DivWrapper>

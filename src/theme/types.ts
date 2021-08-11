@@ -69,7 +69,6 @@ export type Colors = {
   investBackground: string;
   cardBackground: string;
   cardBoxShadow: string;
-  cardOpacity: string;
   boxShadow: string;
   mainBackground: string;
   tabletBackground: string;
