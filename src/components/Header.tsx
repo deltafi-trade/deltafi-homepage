@@ -36,7 +36,7 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-  background: transparent;
+  background-color: ${({ theme }) => theme.colors.background};
   z-index: 100;
   position: fixed;
   width: 100%;

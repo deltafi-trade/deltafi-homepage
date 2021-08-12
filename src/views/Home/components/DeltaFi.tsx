@@ -163,29 +163,29 @@ const DeltaFi: React.FC = () => {
       <Text color={isDark ? "#949292" : "#6B7280"} className="delta-content" mb="36px">tailored to your investoment goals</Text>
       <Card>
         <CustomDiv>
-          <DeltaIcon width="15%"/>
-          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="16px" className="card-title">Fixed Income &<br/> Variable Yields</Text>
+          <DeltaIcon width="10%"/>
+          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mt="16px" mb="24px" className="card-title">Fixed Income &<br/> Variable Yields</Text>
           <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">Earn fixed income or invest with high leverage for variable yields, given your investment goals.</Text>
         </CustomDiv>
         <Img src={YIELD_IMG_URL} alt="Yields"/>
       </Card>
       <Card>
         <CustomDiv>
-          <DeltaIcon width="15%"/>
-          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="16px" className="card-title">Automated Portofolio<br/>Rebalancing</Text>
+          <DeltaIcon width="10%"/>
+          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mt="16px" mb="24px" className="card-title">Automated Portofolio<br/>Rebalancing</Text>
           <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">DeltaFi’s solutions are algorithmically designed to maximize returns and protect against loss.</Text>
         </CustomDiv>
         <Img src={REBALANCE_IMG_URL} alt="Rebalance"/>
       </Card>
       <Card>
         <CustomDiv>
-          <DeltaIcon width="15%"/>
-          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mb="16px" className="card-title">Investing, Hedging &<br/> Speculating</Text>
+          <DeltaIcon width="10%"/>
+          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mt="16px" mb="24px" className="card-title">Investing, Hedging &<br/> Speculating</Text>
           <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">Liquidity providers can invest in yields vaults, hedge against risks, and speculate volatilities.</Text>
         </CustomDiv>
         <Img src={INVEST_IMG_URL} alt="Invest"/>
       </Card>
-      <Text color="#FFF" mb="20px" mt="36px" className="deposit-earn">Deposit and Earn!</Text>
+      <Text color="#FFF" mb="20px" mt="48px" className="deposit-earn">Deposit and Earn!</Text>
       <LaunchApp primary={primary}/>
     </StyledDiv>
   )
