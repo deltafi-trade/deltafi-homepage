@@ -6,3 +6,5 @@ export const DISCORD_LINK = 'https://discord.com/invite/6maaM2cYqr'
 export const GITHUB_LINK = 'https://github.com'
 export const PINTEREST_LINK = "https://pinterest.com"
 export const YOUTUBE_LINK = "https://youtube.com"
+export const CAREERS_LINK = "/career"
+export const PRIVACY_LINK = "/privacy"

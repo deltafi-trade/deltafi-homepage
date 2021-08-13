@@ -7,7 +7,7 @@ import DarkMode from './DarkMode'
 import { StyledLink } from './LinkList'
 
 import useTheme from 'hooks/useTheme'
-import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, PINTEREST_LINK, YOUTUBE_LINK } from 'config/constants/constant'
+import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, PINTEREST_LINK, YOUTUBE_LINK, CAREERS_LINK, PRIVACY_LINK } from 'config/constants/constant'
 
 import { PinterestIcon, BlogIcon, TwitterIcon, YoutubeIcon } from 'components'
 
@@ -119,8 +119,8 @@ const Footer: React.FC = () => {
               <StyledLink color={textColor} href={DISCORD_LINK} target="_blank" rel="noreferrer noopener" className="font-size-14">Discord</StyledLink>
               <StyledLink color={textColor} href={GITHUB_LINK} target="_blank" rel="noreferrer noopener" className="font-size-14">Github</StyledLink>
               <StyledLink color={textColor} href={BLOG_LINK} target="_blank" rel="noreferrer noopener" className="font-size-14">Blog</StyledLink>
-              <StyledLink color={textColor} href="/career" className="font-size-14">Careers</StyledLink>
-              <StyledLink color={textColor} href="/privacy" className="font-size-14">Privacy Policy</StyledLink>
+              <StyledLink color={textColor} href={CAREERS_LINK} className="font-size-14">Careers</StyledLink>
+              <StyledLink color={textColor} href={PRIVACY_LINK} className="font-size-14">Privacy Policy</StyledLink>
             </StyledDivMt>
           </Wrapper>
           <StyledDiv>

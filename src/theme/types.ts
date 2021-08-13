@@ -75,6 +75,9 @@ export type Colors = {
   mobileBackground: string;
   menuBackground: string;
   backgroundDelta: string;
+  panelBackground: string;
+  expandMenu: string;
+  subMenu: string;
 
   // Gradients
   gradients: Gradients;

@@ -46,6 +46,9 @@ export const lightColors: Colors = {
   tabletBackground: "url('/images/Tablet_LT.svg')",
   mobileBackground: "url('/images/Mobile_LT.svg')",
   backgroundDelta: "url('/images/light-bg.svg')",
+  panelBackground: "rgba(255, 255, 255, 0.5)",
+  expandMenu: "#EBECF1",
+  subMenu: "#F5F6F6",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #E5FDFF 0%, #F3EFFF 100%)",
     inverseBubblegum: "linear-gradient(139.73deg, #F3EFFF 0%, #E5FDFF 100%)",
@@ -91,6 +94,9 @@ export const darkColors: Colors = {
   tabletBackground: "url('/images/Tablet_DT.svg')",
   mobileBackground: "url('/images/Mobile_DT.svg')",
   backgroundDelta: "url('/images/dark-bg.svg')",
+  panelBackground: "rgba(0, 0, 0, 0.6)",
+  expandMenu: "#070709",
+  subMenu: "#15161D",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",
     inverseBubblegum: "linear-gradient(139.73deg, #3D2A54 0%, #313D5C 100%)",
