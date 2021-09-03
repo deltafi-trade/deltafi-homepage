@@ -111,8 +111,8 @@ const AssetManager: React.FC = () => {
     <StyledDiv>
       <Text textTransform='uppercase' className="asset-title">POWERED BY MACHINE LEARNING</Text>
       <Text color="#F43F5E" mt="16px" className="asset-sub-title">DeFi's</Text>
-      <Text mb="16px" className="asset-sub-titles">Asset Manager</Text>
-      <Text mb="24px" className="asset-content">Move your crypto assets to higher yields</Text>
+      <Text mb="16px" className="asset-sub-titles">Trading Platform</Text>
+      <Text mb="24px" className="asset-content">Build the optimal decentralized exchange experience</Text>
       <LaunchApp primary={primary}/>
     </StyledDiv>
   )

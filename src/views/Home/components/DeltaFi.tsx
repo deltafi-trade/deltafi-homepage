@@ -158,7 +158,7 @@ const DeltaFi: React.FC = () => {
 
   return (
     <StyledDiv>
-      <Text textTransform='uppercase' color='#C94A75' fontFamily="'Inter', sans-serif" mb="24px" className="delta-title">HIGHER RETURNS, LESS RISK</Text> 
+      <Text textTransform='uppercase' color='#C94A75' fontFamily="'Inter', sans-serif" mb="24px" className="delta-title">HIGHER EFFICIENCY, LOWER SLIPPAGE</Text> 
       <Text className="delta-content">DeltaFi optimizes yields with high capital efficiency,</Text>
       <Text color={isDark ? "#949292" : "#6B7280"} className="delta-content" mb="36px">tailored to your investoment goals</Text>
       <Card>
