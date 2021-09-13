@@ -5,101 +5,138 @@ import { Text } from 'components'
 import LaunchApp from 'components/LaunchApp'
 
 import useTheme from 'hooks/useTheme'
+import Container from 'components/layout/Container'
 
-const StyledDiv = styled.div`
+const Main = styled.div`
+  background-image: ${({ theme }) => theme.colors.backgroundDelta};
+  background-size: cover;
+`
+
+const StyledDiv = styled(Container)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   position: relative;
-  background-image: ${({ theme }) => theme.colors.mobileBackground};
-  background-size: cover;
-  font-family: 'Inter', sans-serif;
-  text-align: center;
+  padding: 82px 0 40px;
+  min-height: auto;
 
-  min-height: 570px;
-  padding-left: 24px;
-  padding-right: 24px;
+  ${({ theme }) => theme.mediaQueries.md} {
+    min-height: calc(100vh - 82px);
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    flex-direction: row;
+    padding: 98px 0 40px;
+    min-height: calc(100vh - 98px);
+  }
+`
+const Wrapper = styled.div`
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    width: 50%;
+    align-items: start;
+    padding: 0;
+  }
+
+  img {
+    max-height: 150px;
+
+    ${({ theme }) => theme.mediaQueries.md} {
+      max-height: 328px;
+    }
+    ${({ theme }) => theme.mediaQueries.lg} {
+      max-height: 100%;
+    }
+  }
+
   .asset-title {
+    font-weight: normal;
     font-size: 12px;
     line-height: 22px;
-    ${({ theme }) => theme.mediaQueries.xs} {
+    text-align: center;
+    font-size: 12px;
+    line-height: 22px;
+
+    ${({ theme }) => theme.mediaQueries.md} {
       font-size: 16px;
       line-height: 30px;
+      font-weight: 500;
+    }
+    ${({ theme }) => theme.mediaQueries.lg} {
+      text-align: left;
+      font-size: 14px;
     }
     ${({ theme }) => theme.mediaQueries.xl} {
-      font-size: 14px;
-      line-height: 30px;
-    }
-    ${({ theme }) => theme.mediaQueries.xxl} {
       font-size: 20px;
-      line-height: 30px;
     }
   }
   .asset-sub-title {
-    font-size: 36px;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
     line-height: 32px;
-    font-weight: 700;
-    ${({ theme }) => theme.mediaQueries.xs} {
-      font-size: 96px;
+    text-align: center;
+
+    ${({ theme }) => theme.mediaQueries.md} {
+      font-size: 72px;
+      line-height: 60px;
+    }
+    ${({ theme }) => theme.mediaQueries.lg} {
+      font-size: 80px;
       line-height: 80px;
+      text-align: left;
     }
     ${({ theme }) => theme.mediaQueries.xl} {
-      font-weight: 900;
-    }
-    ${({ theme }) => theme.mediaQueries.xxl} {
+      font-size: 120px;
       line-height: 100px;
     }
   }
   .asset-sub-titles {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
     font-size: 24px;
     line-height: 32px;
-    font-weight: 500;
-    ${({ theme }) => theme.mediaQueries.xs} {
-      font-size: 72px;
-      line-height: 80px;
+    text-align: center;
+
+    ${({ theme }) => theme.mediaQueries.md} {
+      font-size: 48px;
+      line-height: 60px;
     }
-    ${({ theme }) => theme.mediaQueries.xl} {
+    ${({ theme }) => theme.mediaQueries.lg} {
       font-size: 60px;
       line-height: 65px;
+      text-align: left;
     }
-    ${({ theme }) => theme.mediaQueries.xxl} {
+    ${({ theme }) => theme.mediaQueries.xl} {
+      font-weight: normal;
       font-size: 96px;
       line-height: 100px;
     }
   }
   .asset-content {
+    font-style: normal;
+    font-weight: normal;
     font-size: 14px;
     line-height: 20px;
-    ${({ theme }) => theme.mediaQueries.xs} {
-      font-size: 26px;
-      line-height: 50px;
-    }
-    ${({ theme }) => theme.mediaQueries.xl} {
+    text-align: center;
+
+    ${({ theme }) => theme.mediaQueries.md} {
       font-size: 24px;
       line-height: 50px;
     }
-    ${({ theme }) => theme.mediaQueries.xxl} {
-      font-size: 34px;
-      line-height: 50px;
+    ${({ theme }) => theme.mediaQueries.lg} {
+      text-align: left;
     }
-  }
-  ${({ theme }) => theme.mediaQueries.md} {
-		min-height: 1000px;
-    padding-left: 60px;
-    padding-right: 60px;
-    font-size: 16px;
-    background-image: ${({ theme }) => theme.colors.tabletBackground};
-  }
-  ${({ theme }) => theme.mediaQueries.lg} {
-    align-items: flex-start;
-  }
-  ${({ theme }) => theme.mediaQueries.xxl} {
-		min-height: 1099px;
-    padding-left: 200px;
-    padding-right: 200px;
-    font-size: 20px;
-    background-image: ${({ theme }) => theme.colors.mainBackground};
+    ${({ theme }) => theme.mediaQueries.xl} {
+      font-size: 34px;
+    }
   }
 `
 
@@ -108,13 +145,20 @@ const AssetManager: React.FC = () => {
   const primary = isDark ? 'dark' : 'secondary'
 
   return (
-    <StyledDiv>
-      <Text textTransform='uppercase' className="asset-title">POWERED BY MACHINE LEARNING</Text>
-      <Text color="#F43F5E" mt="16px" className="asset-sub-title">DeFi's</Text>
-      <Text mb="16px" className="asset-sub-titles">Trading Platform</Text>
-      <Text mb="24px" className="asset-content">Build the optimal decentralized exchange experience</Text>
-      <LaunchApp primary={primary}/>
-    </StyledDiv>
+    <Main>
+      <StyledDiv>
+        <Wrapper>
+          <Text textTransform='uppercase' className="asset-title">POWERED BY SOLANA</Text>
+          <Text color="#F43F5E" mt="16px" className="asset-sub-title">Trade</Text>
+          <Text mb="16px" className="asset-sub-titles">Everything</Text>
+          <Text mb="24px" className="asset-content">Lightning speed and DAO governed</Text>
+          <LaunchApp primary={primary} />
+        </Wrapper>
+        <Wrapper>
+          <img src="/images/asset.png" alt="asset" />
+        </Wrapper>
+      </StyledDiv>
+    </Main>
   )
 }
 

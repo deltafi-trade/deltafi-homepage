@@ -11,5 +11,8 @@ export { default as TwitterIcon } from "./icons/Twitter";
 export { default as YoutubeIcon } from "./icons/Youtube";
 export { default as DeltaIcon } from "./icons/Delta";
 export { default as MenuIcon } from "./icons/Menu";
+export { default as IntelligentMarketIcon } from "./icons/IntelligentMarket";
+export { default as BoundedLiquidityIcon } from "./icons/BoundedLiquidity";
+export { default as CrossChainIcon } from "./icons/CrossChain";
 export { default as Svg } from "./Svg";
 export type { SvgProps } from "./types";

@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import DeltaIcon from "./Svg/icons/DeltaIcon";
+import { DeltaIcon } from "components";
 
 interface SpinnerProps {
   size?: number;

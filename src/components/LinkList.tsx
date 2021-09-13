@@ -15,13 +15,13 @@ export const StyledLink = styled.a`
 
 const StyledDiv = styled.div`
   display: none;
-  ${({ theme }) => theme.mediaQueries.lg} {
+  ${({ theme }) => theme.mediaQueries.md} {
 		display: flex;
   }
 `
 
 const LinkList: React.FC<Props> = ({ isDark }) => {
-  const textColor = isDark ? '#AEA7A7' : '#6F6F6F' 
+  const textColor = isDark ? '#FFFFFF' : '#000000' 
   return (
     <StyledDiv>
       <StyledLink color={textColor} href={BLOG_LINK} target="_blank" rel="noreferrer noopener">Blog</StyledLink>

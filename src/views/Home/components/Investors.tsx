@@ -10,20 +10,56 @@ const StyledDiv = styled.div`
   align-items: center;
   padding: 62px 0;
   text-align: center;
-  font-size: 14px;
-  font-family: 'Inter', sans-serif;
-  background-color: ${({ theme }) => theme.colors.investBackground};
-  ${({ theme }) => theme.mediaQueries.xs} {
-    font-size: 18px;
-    padding: 92px 0;
+  background-image: ${({ theme }) => theme.colors.investBackground};
+  background-size: cover;
+
+  .investors {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
   }
+  .investors-title {
+    font-family: DM Sans;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px;
+  }
+  .investors-desc {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
   ${({ theme }) => theme.mediaQueries.md} {
-    padding: 150px 0;
-    font-size: 24px;
+    padding: 92px 0;
+    .investors {
+      font-size: 18px;
+      line-height: 44px;
+    }
+    .investors-title {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 50px;
+    }
+    .investors-desc {
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
-  ${({ theme }) => theme.mediaQueries.xxl} {
+  ${({ theme }) => theme.mediaQueries.lg} {
     padding: 150px 0;
-    font-size: 24px;
+    .investors {
+      font-size: 24px;
+      line-height: 44px;
+    }
+    .investors-title {
+      font-size: 48px;
+      line-height: 50px;
+    }
+    .investors-desc {
+      font-size: 24px;
+      line-height: 24px;
+    }
   }
 `
 const FlexWrapper = styled.div`
@@ -43,19 +79,22 @@ const Card = styled.div`
   margin: 0 8px;
   width: 128px;
   height: 77px;
-  background-color: ${({ theme }) => theme.colors.cardBackground};
+  background-color: ${({ theme }) => theme.colors.footerMain};
   box-shadow: ${({ theme }) => theme.colors.cardBoxShadow};
   border-radius: 5px;
+
   ${({ theme }) => theme.mediaQueries.md} {
     width: 284px;
     height: 160px;
   }
-  ${({ theme }) => theme.mediaQueries.xxl} {
-    width: 365px;
-    height: 206px;
+`
+const Img = styled.img`
+  max-width: 67px;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    max-width: 138px;
   }
 `
-const Img = styled.img``
 
 const Investors: React.FC = () => {
   const { isDark } = useTheme()
@@ -64,12 +103,12 @@ const Investors: React.FC = () => {
 
   return (
     <StyledDiv>
-      <Text textTransform='uppercase' fontSize="100%" color='#C94A75' mb="24px" fontWeight="bold">Our Investors</Text>
+      <Text textTransform='uppercase' color='#EFCBD7' mb="24px" className="investors">Our Investors</Text>
       <FlexWrapper>
-        <Text fontSize="200%" mr="8px" fontFamily="'DM Sans', sans-serif" fontWeight="bold">Backed & Trusted</Text>
-        <Text fontSize="200%" color={isDark ? "#949292" : "#6B7280"} fontFamily="'DM Sans', sans-serif" fontWeight="bold"> by the best</Text>
+        <Text mr="8px" className="investors-title">Backed & Trusted</Text>
+        <Text color={isDark ? "#949292" : "#6B7280"} className="investors-title"> by the best</Text>
       </FlexWrapper>
-      <Text fontSize="100%" mb="12px" color={isDark ? "#ECECEC" : "#23242F"}>We partner with leading funds & trading firms</Text>
+      <Text mb="52px" color={isDark ? "#ECECEC" : "#23242F"} className="investors-desc">We partner with leading funds & trading firms</Text>
       <DivWrapper>
         <Card><Img src={HASHED_IMG_URL} alt="HASHED INVESTOR"/></Card>
         <Card><Img src={HASHKEY_IMG_URL} alt="HASHKEY INVESTOR"/></Card>

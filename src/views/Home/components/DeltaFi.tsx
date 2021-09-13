@@ -1,120 +1,131 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Text, DeltaIcon } from 'components'
+import { Text, BoundedLiquidityIcon, CrossChainIcon, IntelligentMarketIcon } from 'components'
 import LaunchApp from 'components/LaunchApp'
 
 import useTheme from 'hooks/useTheme'
+import Container from 'components/layout/Container'
 
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 62px 0;
+  padding: 64px 0;
   text-align: center;
-  font-size: 14px;
-  font-family: 'DM Sans', sans-serif;
-  background-image: ${({ theme }) => theme.colors.backgroundDelta};
-  background-size: cover;
+
   .delta-title {
+    font-weight: bold;
     font-size: 14px;
-    ${({ theme }) => theme.mediaQueries.xs} {
-      font-size: 18px;
-    }
-    ${({ theme }) => theme.mediaQueries.xl} {
-      font-size: 24px;
-    }
-    ${({ theme }) => theme.mediaQueries.xxl} {
-      font-size: 24px;
-    }
+    line-height: 17px;
   }
   .delta-content {
+    font-family: DM Sans;
+    font-weight: 500;
     font-size: 16px;
-    ${({ theme }) => theme.mediaQueries.xs} {
-      font-size: 24px;
-    }
-    ${({ theme }) => theme.mediaQueries.xl} {
-      font-size: 36px;
-    }
-    ${({ theme }) => theme.mediaQueries.xxl} {
-      font-size: 48px;
-    }
+    line-height: 23px;
   }
   .deposit-earn {
-    font-size: 18px;
+    font-family: DM Sans;
     font-weight: bold;
-    ${({ theme }) => theme.mediaQueries.xs} {
-      font-size: 18px;
-    }
-    ${({ theme }) => theme.mediaQueries.xl} {
-      font-size: 36px;
-    }
-    ${({ theme }) => theme.mediaQueries.xxl} {
-      font-size: 36px;
-    }
-  }
-  ${({ theme }) => theme.mediaQueries.xs} {
-    padding: 92px 0;
+    font-size: 18px;
+    line-height: 32px;
   }
   ${({ theme }) => theme.mediaQueries.md} {
-    padding: 150px 0;
+    padding: 70px 0 47px;
+    .delta-title {
+      font-size: 18px;
+      line-height: 44px;
+    }
+    .delta-content {
+      font-size: 24px;
+      line-height: 31px;
+    }
   }
-  ${({ theme }) => theme.mediaQueries.xxl} {
-    padding: 150px 0;
+  ${({ theme }) => theme.mediaQueries.lg} {
+    padding: 109px 0 71px;
+    .delta-title {
+      font-size: 24px;
+    }
+    .delta-content {
+      font-size: 36px;
+      line-height: 47px;
+    }
+    .deposit-earn {
+      font-size: 36px;
+      line-height: 32px;
+    }
+  }
+  ${({ theme }) => theme.mediaQueries.xl} {
+    padding: 181px 0 148px;
+    .delta-title {
+      font-weight: 500;
+    }
+    .delta-content {
+      font-weight: bold;
+      font-size: 48px;
+      line-height: 62px;
+    }
   }
 `
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
   height: 480px;
-  margin: 10px 0;
+  margin: 10px 24px;
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   border-radius: 10px;
+
   .card-title {
-    font-size: 14px;
-    font-weight: 500;
-    ${({ theme }) => theme.mediaQueries.xs} {
-      font-size: 14px;
+    font-family: DM Sans;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    max-width: 50%;
+
+    ${({ theme }) => theme.mediaQueries.md} {
+      font-size: 20px;
+      line-height: 30px;
+      max-width: 40%;
+    }
+    ${({ theme }) => theme.mediaQueries.lg} {
+      font-size: 32px;
+      line-height: 44px;
     }
     ${({ theme }) => theme.mediaQueries.xl} {
       font-size: 36px;
-    }
-    ${({ theme }) => theme.mediaQueries.xxl} {
-      font-size: 36px;
+      line-height: 54px;
     }
   }
   .card-content {
+    font-weight: 300;
     font-size: 14px;
-    padding: 0 24px;
-    ${({ theme }) => theme.mediaQueries.xs} {
-      padding: 0 55px;
-      font-size: 14px;
+    line-height: 22px;
+    max-width: 70%;
+    ${({ theme }) => theme.mediaQueries.lg} {
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 28px;
     }
     ${({ theme }) => theme.mediaQueries.xl} {
-      padding: 0 93px;
-      font-size: 32px;
-    }
-    ${({ theme }) => theme.mediaQueries.xxl} {
-      padding: 0 150px;
       font-size: 24px;
+      line-height: 40px;
     }
   }
+
   ${({ theme }) => theme.mediaQueries.sm} {
     border-radius: 20px;
     flex-direction: row;
-  }
-  ${({ theme }) => theme.mediaQueries.md} {
-    width: 695px;
     height: 343px;
   }
-  ${({ theme }) => theme.mediaQueries.xl} {
-    width: 1086px;
+  ${({ theme }) => theme.mediaQueries.md} {
+    margin: 10px 0;
+  }
+  ${({ theme }) => theme.mediaQueries.lg} {
     height: 535px;
   }
-  ${({ theme }) => theme.mediaQueries.xxl} {
-    width: 1520px;
+  ${({ theme }) => theme.mediaQueries.xl} {
     height: 750px;
   }
 `
@@ -122,7 +133,7 @@ const Img = styled.img`
   width: 100%;
   border-radius: 10px 10px 0 0;
   order: 1;
-  height: 50%;
+  height: 40%;
   ${({ theme }) => theme.mediaQueries.sm} {
     width: 50%;
     height: 100%;
@@ -138,56 +149,76 @@ const CustomDiv = styled.div`
   text-align: center;
   width: 100%;
   order: 2;
-  background-color: ${({ theme }) => theme.colors.footerMain};
-  height: 50%;
+  background-color: ${({ theme }) => theme.colors.cardBackground};
+  height: 60%;
   border-radius: 0 0 10px 10px;
+
   ${({ theme }) => theme.mediaQueries.sm} {
     order: 1;
     border-radius: 20px 0 0 20px;
     width: 50%;
     height: 100%;
   }
+
+  svg {
+    width: 40px;
+    ${({ theme }) => theme.mediaQueries.md} {
+      width: 50px;
+    }
+    ${({ theme }) => theme.mediaQueries.lg} {
+      width: 70px;
+    }
+    ${({ theme }) => theme.mediaQueries.xl} {
+      width: 80px;
+    }
+  }
 `
 
 const DeltaFi: React.FC = () => {
   const { isDark } = useTheme()
   const primary = isDark ? 'dark' : 'secondary'
-  const YIELD_IMG_URL = isDark ? '/images/dark-yield.png' : '/images/light-yield.png'
-  const REBALANCE_IMG_URL = isDark ? '/images/dark-rebalance.png' : '/images/light-rebalance.png'
-  const INVEST_IMG_URL = isDark ? '/images/dark-invest.png' : '/images/light-invest.png'
+
+  const CARD_LIST = [
+    {
+      icon: <IntelligentMarketIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
+      title: `Intelligent Market Making`,
+      content: "Adaptive algorithms are developed for efficient pricing under various market dynamics.",
+      image: isDark ? '/images/intelligent-market-making-dark.png' : '/images/intelligent-market-making-light.png',
+    },
+    {
+      icon: <BoundedLiquidityIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
+      title: "Bounded Liquidity Risk",
+      content: "Liquidity providers customize their risk tolerances and DeltaFi automatically adjust the provisioned liquidity.",
+      image: isDark ? '/images/bounded-liquidity-risk-dark.png' : '/images/bounded-liquidity-risk-light.png',
+    },
+    {
+      icon: <CrossChainIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
+      title: "Cross Chain Trading",
+      content: "Ease of cross chain swaps build the optimal trading experience for DeFi users with Solana as the liquidity hub.",
+      image: isDark ? '/images/cross-chain-trading-dark.png' : '/images/cross-chain-trading-light.png',
+    },
+  ]
 
   return (
-    <StyledDiv>
-      <Text textTransform='uppercase' color='#C94A75' fontFamily="'Inter', sans-serif" mb="24px" className="delta-title">HIGHER EFFICIENCY, LOWER SLIPPAGE</Text> 
-      <Text className="delta-content">DeltaFi optimizes yields with high capital efficiency,</Text>
-      <Text color={isDark ? "#949292" : "#6B7280"} className="delta-content" mb="36px">tailored to your investoment goals</Text>
-      <Card>
-        <CustomDiv>
-          <DeltaIcon width="10%"/>
-          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mt="16px" mb="24px" className="card-title">Fixed Income &<br/> Variable Yields</Text>
-          <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">Earn fixed income or invest with high leverage for variable yields, given your investment goals.</Text>
-        </CustomDiv>
-        <Img src={YIELD_IMG_URL} alt="Yields"/>
-      </Card>
-      <Card>
-        <CustomDiv>
-          <DeltaIcon width="10%"/>
-          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mt="16px" mb="24px" className="card-title">Automated Portofolio<br/>Rebalancing</Text>
-          <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">DeltaFi’s solutions are algorithmically designed to maximize returns and protect against loss.</Text>
-        </CustomDiv>
-        <Img src={REBALANCE_IMG_URL} alt="Rebalance"/>
-      </Card>
-      <Card>
-        <CustomDiv>
-          <DeltaIcon width="10%"/>
-          <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mt="16px" mb="24px" className="card-title">Investing, Hedging &<br/> Speculating</Text>
-          <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">Liquidity providers can invest in yields vaults, hedge against risks, and speculate volatilities.</Text>
-        </CustomDiv>
-        <Img src={INVEST_IMG_URL} alt="Invest"/>
-      </Card>
-      <Text color="#FFF" mb="20px" mt="48px" className="deposit-earn">Deposit and Earn!</Text>
-      <LaunchApp primary={primary}/>
-    </StyledDiv>
+    <Container>
+      <StyledDiv>
+        <Text textTransform='uppercase' color='#C94A75' mb="24px" className="delta-title">HIGHER EFFICIENCY, LOWER SLIPPAGE</Text> 
+        <Text className="delta-content">DeltaFi optimizes capital efficiency with lower slippage,</Text>
+        <Text color={isDark ? "#949292" : "#6B7280"} className="delta-content" mb="36px">while enabling cross chain trading.</Text>
+        {CARD_LIST.map((card, index) => (
+          <Card key={`card-${index}`}>
+            <CustomDiv>
+              {card.icon}
+              <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mt="16px" mb="24px" className="card-title">{card.title}</Text>
+              <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">{card.content}</Text>
+            </CustomDiv>
+            <Img src={card.image} alt="Yields"/>
+          </Card>
+        ))}
+        <Text color={isDark ? "#FFFFFF" : "#23242F"} mb="20px" mt="48px" className="deposit-earn">Deposit and Earn!</Text>
+        <LaunchApp primary={primary}/>
+      </StyledDiv>
+    </Container>
   )
 }
 

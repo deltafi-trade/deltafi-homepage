@@ -9,7 +9,7 @@ interface Props {
 const LaunchApp: React.FC<Props> = ({primary}) => {
 
   return (
-    <Button variant={primary} as="a" href={APP_LINK} mr="8px" external width="158px">
+    <Button variant={primary} as="a" href={APP_LINK} external width="158px">
       LAUNCH APP
     </Button>
   );

@@ -1,56 +1,55 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import Logo from './Logo'
 import LaunchApp from './LaunchApp'
 import DarkMode from './DarkMode'
-
+import Container from './layout/Container'
 import { StyledLink } from './LinkList'
 
 import useTheme from 'hooks/useTheme'
 import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, PINTEREST_LINK, YOUTUBE_LINK, CAREERS_LINK, PRIVACY_LINK } from 'config/constants/constant'
-
 import { PinterestIcon, BlogIcon, TwitterIcon, YoutubeIcon } from 'components'
 
-const FlexWrapper = styled.div`
+const Wrapper = styled.div`
+  font-family: 'Inter', sans-serif;
+  order: 2;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    order: 1;
+  }
+`
+const FlexWrapper = styled(Container)`
 	flex: 1;
   display: flex;
   align-items: center;
 	justify-content: space-between;
   flex-direction: column;
-	margin: 5px 0;
-	padding-left: 14px;
-  padding-right: 14px;
+	padding: 5px 0;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
-    padding-left: 14px;
-    padding-right: 14px;
   }
   ${({ theme }) => theme.mediaQueries.md} {
-		margin: 16px 0;
-    padding-left: 24px;
-    padding-right: 24px;
+		padding: 16px 0;
   }
   ${({ theme }) => theme.mediaQueries.xl} {
-		margin: 24px 0;
-    padding-left: 76px;
-    padding-right: 76px;
-  }
-  ${({ theme }) => theme.mediaQueries.xxl} {
-		margin: 24px 0;
-    padding-left: 200px;
-    padding-right: 200px;
+		padding: 24px 0;
   }
 `
-
-const Container = styled.div`
+const SiteMapWrapper = styled.div`
 	display: none;
 	align-items: flex-end;
 	justify-content: center;
   background-color: ${({ theme }) => theme.colors.footerMain};
   color: ${({ theme }) => theme.colors.footerText};
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    display: flex;
+    padding: 12px 14px;
+  }
   ${({ theme }) => theme.mediaQueries.md} {
     display: flex;
+    padding: 0;
   }
 `
 
@@ -77,24 +76,18 @@ const StyledDivMt = styled(StyledDiv)`
     }
   }
 `
-
-const Wrapper = styled.div`
-  font-family: 'Inter', sans-serif;
-  order: 2;
-  ${({ theme }) => theme.mediaQueries.sm} {
-    order: 1;
-  }
-`
-
-const FooterContaier = styled.div`
+const CopyrightWrapper = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.footerMain};
   color: ${({ theme }) => theme.colors.footerText};
   padding: 24px;
-  ${({ theme }) => theme.mediaQueries.xs} {
+  ${({ theme }) => theme.mediaQueries.sm} {
     background-color: ${({ theme }) => theme.colors.footer};
+    padding: 12px 24px;
+  }
+  ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: row;
     padding: 0;
   }
@@ -104,13 +97,22 @@ const IconWrapper = styled.div`
   ${({ theme }) => theme.mediaQueries.sm} {
     margin: 0 16px;
   }
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+    a {
+      padding-right: 0;
+    }
+  }
 `
 const Footer: React.FC = () => {
 	const { isDark, toggleTheme } = useTheme()
   const textColor = isDark ? '#FFF' : '#000' 
   return (
     <Wrapper>
-      <Container>
+      <SiteMapWrapper>
         <FlexWrapper>
           <Wrapper>
             <Logo href={HOMEPAGE_LINK} isDark={isDark}/>
@@ -128,8 +130,8 @@ const Footer: React.FC = () => {
             <LaunchApp primary="primary"/>
           </StyledDiv>
         </FlexWrapper>
-      </Container>
-      <FooterContaier>
+      </SiteMapWrapper>
+      <CopyrightWrapper>
         <FlexWrapper>
           <Wrapper>© 2021 DeltaFi. All rights reserved</Wrapper>
           <StyledDiv>
@@ -147,7 +149,7 @@ const Footer: React.FC = () => {
             </IconWrapper>
           </StyledDiv>
         </FlexWrapper>
-      </FooterContaier>
+      </CopyrightWrapper>
     </Wrapper>
   )
 }
