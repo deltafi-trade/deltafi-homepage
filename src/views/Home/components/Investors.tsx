@@ -71,33 +71,50 @@ const FlexWrapper = styled.div`
 `
 const DivWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    flex-direction: row;
+  }
 `
 const Card = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 8px;
-  width: 128px;
-  height: 77px;
+  margin-bottom: 16px;
+  width: 284px;
+  height: 160px;
   background-color: ${({ theme }) => theme.colors.footerMain};
   box-shadow: ${({ theme }) => theme.colors.cardBoxShadow};
   border-radius: 5px;
 
   ${({ theme }) => theme.mediaQueries.md} {
+    width: 192px;
+    height: 100px;
+    margin: 0 8px;
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
     width: 284px;
     height: 160px;
+    margin: 0 16px;
   }
 `
 const Img = styled.img`
-  max-width: 67px;
+  max-width: 236px;
 
   ${({ theme }) => theme.mediaQueries.md} {
     max-width: 138px;
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    max-width: 236px;
   }
 `
 
 const Investors: React.FC = () => {
   const { isDark } = useTheme()
+  const JUMP_IMG_URL = isDark ? '/images/dark-jumpcaptal.png' : '/images/light-jumpcaptal.png'
   const HASHED_IMG_URL = isDark ? '/images/dark-hashed.svg' : '/images/light-hashed.svg'
   const HASHKEY_IMG_URL = isDark ? '/images/dark-hashkey.svg' : '/images/light-hashkey.svg'
 
@@ -110,6 +127,7 @@ const Investors: React.FC = () => {
       </FlexWrapper>
       <Text mb="52px" color={isDark ? "#ECECEC" : "#23242F"} className="investors-desc">We partner with leading funds & trading firms</Text>
       <DivWrapper>
+        <Card><Img src={JUMP_IMG_URL} alt="JUMPCAPITAL INVESTOR"/></Card>
         <Card><Img src={HASHED_IMG_URL} alt="HASHED INVESTOR"/></Card>
         <Card><Img src={HASHKEY_IMG_URL} alt="HASHKEY INVESTOR"/></Card>
       </DivWrapper>
