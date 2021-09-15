@@ -188,13 +188,13 @@ const DeltaFi: React.FC = () => {
     {
       icon: <BoundedLiquidityIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
       title: "Bounded Liquidity Risk",
-      content: "Liquidity providers customize their risk tolerances and DeltaFi automatically adjust the provisioned liquidity.",
+      content: "Provisioned liquidity is protected from impermanent loss despite market volatilities.",
       image: isDark ? '/images/bounded-liquidity-risk-dark.png' : '/images/bounded-liquidity-risk-light.png',
     },
     {
       icon: <CrossChainIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
       title: "Cross Chain Trading",
-      content: "Ease of cross chain swaps build the optimal trading experience for DeFi users with Solana as the liquidity hub.",
+      content: "Ease of trading for any token builds the liquidity hub and optimal user experience.",
       image: isDark ? '/images/cross-chain-trading-dark.png' : '/images/cross-chain-trading-light.png',
     },
   ]
@@ -203,8 +203,8 @@ const DeltaFi: React.FC = () => {
     <Container>
       <StyledDiv>
         <Text textTransform='uppercase' color='#C94A75' mb="24px" className="delta-title">HIGHER EFFICIENCY, LOWER SLIPPAGE</Text> 
-        <Text className="delta-content">DeltaFi optimizes capital efficiency with lower slippage,</Text>
-        <Text color={isDark ? "#949292" : "#6B7280"} className="delta-content" mb="36px">while enabling cross chain trading.</Text>
+        <Text className="delta-content">DeltaFi optimizes capital efficiency with zero slippage,</Text>
+        <Text color={isDark ? "#949292" : "#6B7280"} className="delta-content" mb="36px">while minimizing impermanent loss.</Text>
         {CARD_LIST.map((card, index) => (
           <Card key={`card-${index}`}>
             <CustomDiv>
