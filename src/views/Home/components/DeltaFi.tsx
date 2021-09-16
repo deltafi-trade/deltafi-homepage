@@ -186,15 +186,15 @@ const DeltaFi: React.FC = () => {
       image: isDark ? '/images/intelligent-market-making-dark.png' : '/images/intelligent-market-making-light.png',
     },
     {
-      icon: <BoundedLiquidityIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
-      title: "Bounded Liquidity Risk",
-      content: "Provisioned liquidity is protected from impermanent loss despite market volatilities.",
-      image: isDark ? '/images/cross-chain-trading-dark.png' : '/images/cross-chain-trading-light.png',
-    },
-    {
       icon: <CrossChainIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
       title: "Cross Chain Trading",
       content: "Ease of trading for any token builds the liquidity hub and optimal user experience.",
+      image: isDark ? '/images/cross-chain-trading-dark.png' : '/images/cross-chain-trading-light.png',
+    },
+    {
+      icon: <BoundedLiquidityIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
+      title: "Bounded Liquidity Risk",
+      content: "Provisioned liquidity is protected from impermanent loss despite market volatilities.",
       image: isDark ? '/images/bounded-liquidity-risk-dark.png' : '/images/bounded-liquidity-risk-light.png',
     },
   ]
