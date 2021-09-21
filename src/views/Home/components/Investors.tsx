@@ -127,7 +127,7 @@ const Investors: React.FC = () => {
       </FlexWrapper>
       <Text mb="52px" color={isDark ? "#ECECEC" : "#23242F"} className="investors-desc">We partner with leading funds & trading firms</Text>
       <DivWrapper>
-        <Card><Img src={JUMP_IMG_URL} alt="JUMPCAPITAL INVESTOR"/></Card>
+        {/* <Card><Img src={JUMP_IMG_URL} alt="JUMPCAPITAL INVESTOR"/></Card> */}
         <Card><Img src={HASHED_IMG_URL} alt="HASHED INVESTOR"/></Card>
         <Card><Img src={HASHKEY_IMG_URL} alt="HASHKEY INVESTOR"/></Card>
       </DivWrapper>
