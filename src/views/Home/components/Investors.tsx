@@ -114,7 +114,7 @@ const Img = styled.img`
 
 const Investors: React.FC = () => {
   const { isDark } = useTheme()
-  const JUMP_IMG_URL = isDark ? '/images/dark-jumpcaptal.png' : '/images/light-jumpcaptal.png'
+  // const JUMP_IMG_URL = isDark ? '/images/dark-jumpcaptal.png' : '/images/light-jumpcaptal.png'
   const HASHED_IMG_URL = isDark ? '/images/dark-hashed.svg' : '/images/light-hashed.svg'
   const HASHKEY_IMG_URL = isDark ? '/images/dark-hashkey.svg' : '/images/light-hashkey.svg'
 
