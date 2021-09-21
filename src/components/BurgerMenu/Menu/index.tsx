@@ -9,7 +9,7 @@ import { SunIcon, MoonIcon } from "components";
 import { Text } from 'components/Text';
 
 import useTheme from 'hooks/useTheme'
-import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, CAREERS_LINK, PRIVACY_LINK } from 'config/constants/constant'
+import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, CAREERS_LINK, PRIVACY_LINK, APP_LINK } from 'config/constants/constant'
 
 interface MenuProps {
   readonly open: boolean;
@@ -67,6 +67,8 @@ const ExpandMenu = styled.div<ExpandProps>`
   cursor: pointer;
   .expand-title {
     font-size: 14px;
+    text-transform: uppercase;
+    padding: 0;
     ${({ theme }) => theme.mediaQueries.md} {
       font-weight: 500;
     }
@@ -104,7 +106,7 @@ const Menu = ({ open, setOpen, ...props }) => {
         <Close onClick={() => setOpen(false)}>&#10006;</Close>
       </MenuHeader>
       <ExpandMenu className='one-line' my="0px">
-        <Text textTransform='uppercase' className="expand-title">Launch App</Text>
+        <StyledLink color={textColor} href={APP_LINK} target="_blank" rel="noreferrer noopener" className="expand-title">Launch App</StyledLink>
         <Text>&#8594;</Text>
       </ExpandMenu>
       <ExpandMenu className='one-line' my="2px" onClick={() => setCommunity(!community)}>

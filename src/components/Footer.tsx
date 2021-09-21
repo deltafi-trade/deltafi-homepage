@@ -8,8 +8,8 @@ import Container from './layout/Container'
 import { StyledLink } from './LinkList'
 
 import useTheme from 'hooks/useTheme'
-import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, PINTEREST_LINK, YOUTUBE_LINK, CAREERS_LINK, PRIVACY_LINK } from 'config/constants/constant'
-import { PinterestIcon, BlogIcon, TwitterIcon, YoutubeIcon } from 'components'
+import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, YOUTUBE_LINK, CAREERS_LINK, PRIVACY_LINK } from 'config/constants/constant'
+import { BlogIcon, TwitterIcon, YoutubeIcon } from 'components'
 
 const Wrapper = styled.div`
   font-family: 'Inter', sans-serif;
@@ -135,9 +135,6 @@ const Footer: React.FC = () => {
         <FlexWrapper>
           <Wrapper>© 2021 DeltaFi. All rights reserved</Wrapper>
           <StyledDiv>
-            <IconWrapper>
-              <StyledLink href={PINTEREST_LINK} target="_blank" rel="noreferrer noopener"><PinterestIcon isDark={isDark} width="40px"/></StyledLink>
-            </IconWrapper>
             <IconWrapper>
               <StyledLink href={BLOG_LINK} target="_blank" rel="noreferrer noopener"><BlogIcon isDark={isDark} width="40px"/></StyledLink>
             </IconWrapper>

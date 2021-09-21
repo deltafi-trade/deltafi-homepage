@@ -17,16 +17,13 @@ const StyledDiv = styled(Container)`
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: 82px 0 40px;
+  padding: 82px 0 0;
   min-height: auto;
+  min-height: calc(100vh - 82px);
 
   ${({ theme }) => theme.mediaQueries.md} {
-    min-height: calc(100vh - 82px);
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
     flex-direction: row;
-    padding: 98px 0 40px;
+    padding: 98px 0 0;
     min-height: calc(100vh - 98px);
   }
 `
@@ -139,6 +136,30 @@ const Wrapper = styled.div`
     }
   }
 `
+const MobileWrapper = styled.div`
+  display: flex;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    display: none;
+  }
+`
+const TabletWrapper = styled.div`
+  display: none;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    display: flex;
+  }
+  ${({ theme }) => theme.mediaQueries.md} {
+    display: none;
+  }
+`
+const DesktopWrapper = styled.div`
+  display: none;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    display: flex;
+  }
+`
 
 const AssetManager: React.FC = () => {
   const { isDark } = useTheme()
@@ -152,11 +173,13 @@ const AssetManager: React.FC = () => {
           <Text color="#F43F5E" mt="16px" className="asset-sub-title">Trade</Text>
           <Text mb="16px" className="asset-sub-titles">Everything</Text>
           <Text mb="24px" className="asset-content">Lightning speed and DAO governed</Text>
-          <LaunchApp primary={primary} />
+          <DesktopWrapper><LaunchApp primary={primary} /></DesktopWrapper>
         </Wrapper>
+        <TabletWrapper><LaunchApp primary={primary} /></TabletWrapper>
         <Wrapper>
           <img src="/images/asset.png" alt="asset" />
         </Wrapper>
+        <MobileWrapper><LaunchApp primary={primary} /></MobileWrapper>
       </StyledDiv>
     </Main>
   )

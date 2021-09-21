@@ -29,7 +29,7 @@ const FlexWrapper = styled.div`
   display: flex;
   align-items: center;
 	justify-content: space-between;
-	margin: 16px 0;
+	margin: 9px 0;
   font-family: 'Inter', sans-serif;
   padding: 0 24px;
 

@@ -120,7 +120,7 @@ const Investors: React.FC = () => {
 
   return (
     <StyledDiv>
-      <Text textTransform='uppercase' color='#EFCBD7' mb="24px" className="investors">Our Investors</Text>
+      <Text textTransform='uppercase' color="#C94A75" mb="24px" className="investors">Our Investors</Text>
       <FlexWrapper>
         <Text mr="8px" className="investors-title">Backed & Trusted</Text>
         <Text color={isDark ? "#949292" : "#6B7280"} className="investors-title"> by the best</Text>

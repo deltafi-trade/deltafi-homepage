@@ -215,7 +215,7 @@ const DeltaFi: React.FC = () => {
             <Img src={card.image} alt="Yields"/>
           </Card>
         ))}
-        <Text color={isDark ? "#FFFFFF" : "#23242F"} mb="20px" mt="48px" className="deposit-earn">Trade and Earn!</Text>
+        <Text color={isDark ? "#FFFFFF" : "#23242F"} mb="20px" mt="48px" className="deposit-earn">Deposit and Earn!</Text>
         <LaunchApp primary={primary}/>
       </StyledDiv>
     </Container>
