@@ -9,7 +9,7 @@ import { SunIcon, MoonIcon } from "components";
 import { Text } from 'components/Text';
 
 import useTheme from 'hooks/useTheme'
-import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, CAREERS_LINK, PRIVACY_LINK, APP_LINK } from 'config/constants/constant'
+import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, CAREERS_LINK, PRIVACY_LINK, APP_LINK, TELEGRAM_LINK } from 'config/constants/constant'
 
 interface MenuProps {
   readonly open: boolean;
@@ -117,6 +117,7 @@ const Menu = ({ open, setOpen, ...props }) => {
         <StyledLink color={textColor} href={GITHUB_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">Github</StyledLink>
         <StyledLink color={textColor} href={TWITTER_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">Twitter</StyledLink>
         <StyledLink color={textColor} href={DISCORD_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">Discord</StyledLink>
+        <StyledLink color={textColor} href={TELEGRAM_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">Telegram</StyledLink>
       </SubMenu>}
       <ExpandMenu className='one-line' my={community ? "2px" : '0px 2px'} onClick={() => setAbout(!about)}>
         <Text textTransform='uppercase' className="expand-title">About</Text>

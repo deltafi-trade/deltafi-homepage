@@ -14,5 +14,7 @@ export { default as MenuIcon } from "./icons/Menu";
 export { default as IntelligentMarketIcon } from "./icons/IntelligentMarket";
 export { default as BoundedLiquidityIcon } from "./icons/BoundedLiquidity";
 export { default as CrossChainIcon } from "./icons/CrossChain";
+export { default as GithubIcon } from "./icons/Github";
+export { default as TelegramIcon } from "./icons/Telegram";
 export { default as Svg } from "./Svg";
 export type { SvgProps } from "./types";
