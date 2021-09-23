@@ -129,15 +129,29 @@ const Card = styled.div`
     height: 750px;
   }
 `
-const Img = styled.img`
-  width: 100%;
-  border-radius: 10px 10px 0 0;
-  order: 1;
-  height: 40%;
+const DesktopDiv = styled.div`
+  display: none;
   ${({ theme }) => theme.mediaQueries.sm} {
+		display: flex;
+    order: 2;
     width: 50%;
     height: 100%;
-    order: 2;
+  }
+`
+const MobileDiv = styled.div`
+  display: flex;
+  order: 1;
+  width: 100%;
+  height: 45%;
+  ${({ theme }) => theme.mediaQueries.sm} {
+		display: none;
+  }
+`
+const Img = styled.img`
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  object-fit: cover;
+  ${({ theme }) => theme.mediaQueries.sm} {
     border-radius: 0 20px 20px 0;
   }
 `
@@ -184,18 +198,21 @@ const DeltaFi: React.FC = () => {
       title: `Intelligent Market Making`,
       content: "Adaptive algorithms are developed for efficient pricing under various market dynamics.",
       image: isDark ? '/images/intelligent-market-making-dark.png' : '/images/intelligent-market-making-light.png',
+      imageMobile: isDark ? '/images/intelligent-market-making-mobile-dark.png' : '/images/intelligent-market-making-mobile-light.png',
     },
     {
       icon: <CrossChainIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
       title: "Cross Chain Trading",
       content: "Ease of trading for any token builds the liquidity hub and optimal user experience.",
       image: isDark ? '/images/cross-chain-trading-dark.png' : '/images/cross-chain-trading-light.png',
+      imageMobile: isDark ? '/images/cross-chain-trading-mobile-dark.png' : '/images/cross-chain-trading-mobile-light.png',
     },
     {
       icon: <BoundedLiquidityIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
       title: "Bounded Liquidity Risk",
       content: "Provisioned liquidity is protected from impermanent loss despite market volatilities.",
       image: isDark ? '/images/bounded-liquidity-risk-dark.png' : '/images/bounded-liquidity-risk-light.png',
+      imageMobile: isDark ? '/images/bounded-liquidity-risk-mobile-dark.png' : '/images/bounded-liquidity-risk-mobile-light.png',
     },
   ]
 
@@ -212,7 +229,8 @@ const DeltaFi: React.FC = () => {
               <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mt="16px" mb="24px" className="card-title">{card.title}</Text>
               <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">{card.content}</Text>
             </CustomDiv>
-            <Img src={card.image} alt="Yields"/>
+            <DesktopDiv><Img src={card.image} alt="Yields"/></DesktopDiv>
+            <MobileDiv><Img src={card.imageMobile} alt="Yields"/></MobileDiv>
           </Card>
         ))}
         <Text color={isDark ? "#FFFFFF" : "#23242F"} mb="20px" mt="48px" className="deposit-earn">Deposit and Earn!</Text>
