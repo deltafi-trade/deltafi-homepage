@@ -8,7 +8,7 @@ import Container from './layout/Container'
 import { StyledLink } from './LinkList'
 
 import useTheme from 'hooks/useTheme'
-import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, YOUTUBE_LINK, CAREERS_LINK, PRIVACY_LINK, TELEGRAM_LINK } from 'config/constants/constant'
+import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, YOUTUBE_LINK, CAREERS_LINK, PRIVACY_LINK, TELEGRAM_LINK, DOC_LINK } from 'config/constants/constant'
 import { BlogIcon, GithubIcon, TelegramIcon, TwitterIcon, YoutubeIcon } from 'components'
 
 const Wrapper = styled.div`
@@ -121,6 +121,7 @@ const Footer: React.FC = () => {
               <StyledLink color={textColor} href={DISCORD_LINK} target="_blank" rel="noreferrer noopener" className="font-size-14">Discord</StyledLink>
               <StyledLink color={textColor} href={GITHUB_LINK} target="_blank" rel="noreferrer noopener" className="font-size-14">Github</StyledLink>
               <StyledLink color={textColor} href={BLOG_LINK} target="_blank" rel="noreferrer noopener" className="font-size-14">Blog</StyledLink>
+              <StyledLink color={textColor} href={DOC_LINK} target="_blank" rel="noreferrer noopener" className="font-size-14">Docs</StyledLink>
               <StyledLink color={textColor} href={CAREERS_LINK} className="font-size-14">Careers</StyledLink>
               <StyledLink color={textColor} href={PRIVACY_LINK} className="font-size-14">Privacy Policy</StyledLink>
             </StyledDivMt>
