@@ -8,3 +8,4 @@ export const TELEGRAM_LINK = 'https://t.me/deltafi_ai'
 export const YOUTUBE_LINK = "https://youtube.com"
 export const CAREERS_LINK = "/career"
 export const PRIVACY_LINK = "/privacy"
+export const DOC_LINK = "https://docs.deltafi.ai"
