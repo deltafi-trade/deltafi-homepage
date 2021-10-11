@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, DOC_LINK } from 'config/constants/constant'
+import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, DOC_LINK, TEAM_LINK } from 'config/constants/constant'
 
 interface Props {
   isDark: boolean;
@@ -28,6 +28,7 @@ const LinkList: React.FC<Props> = ({ isDark }) => {
       <StyledLink color={textColor} href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">Twitter</StyledLink>
       <StyledLink color={textColor} href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">Discord</StyledLink>
       <StyledLink color={textColor} href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">Github</StyledLink>
+      <StyledLink color={textColor} href={TEAM_LINK} target="_blank" rel="noreferrer noopener">Team</StyledLink>
       <StyledLink color={textColor} href={DOC_LINK} target="_blank" rel="noreferrer noopener">Docs</StyledLink>
     </StyledDiv>
   );
