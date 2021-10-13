@@ -9,6 +9,7 @@ import CustomRoute from './CustomRoute'
 import GlobalStyle from './style/Global'
 
 const Home = lazy(() => import('./views/Home'))
+const Team = lazy(() => import('./views/Team'))
 const NotFound = lazy(() => import('./views/NotFound'))
 
 const App: React.FC = () => {
@@ -18,6 +19,7 @@ const App: React.FC = () => {
       <SuspenseWithChunkError fallback={<PageLoader />}>
         <Switch>
           <CustomRoute path="/" exact component={Home} />
+          <CustomRoute path="/team" exact component={Team} />
           <Route component={NotFound} />
         </Switch>
       </SuspenseWithChunkError>
