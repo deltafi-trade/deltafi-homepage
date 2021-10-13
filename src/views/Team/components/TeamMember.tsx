@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Text } from 'components'
 import Container from 'components/layout/Container'
-
+import memberList from 'constant/member.json'
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -83,9 +83,6 @@ const Column = styled.div`
   ${({ theme }) => theme.mediaQueries.lg} {
     width: 25%;
   }
-  ${({ theme }) => theme.mediaQueries.xl} {
-    width: 25%;
-  }
 `;
 const Img = styled.img`
   border-radius: 50%;
@@ -97,63 +94,6 @@ const StyledLink = styled.a`
   text-decoration: none;
 `;
 const DeltaFi: React.FC = () => {
-
-  const memberList = [
-    {
-      avatar: `/avatar.jpg`,
-      role: `Network Economist & Engineer`,
-      name: `Xin Jin`,
-      linkedin: `https://www.linkedin.com/in/xin-jin-482638211/`
-    },
-    {
-      avatar: `/avatar.jpg`,
-      role: `Smart Contract Engineer`,
-      name: `Jie Li`,
-      linkedin: `https://www.linkedin.com/in/jie-li-0805a821b/`
-    },
-    {
-      avatar: `/avatar.jpg`,
-      role: `Smart Contract Engineer`,
-      name: `Jesse Liu`,
-      linkedin: `https://www.linkedin.com/in/jesseliu-dk/`
-    },
-    {
-      avatar: `/avatar.jpg`,
-      role: `Smart Contract Engineer`,
-      name: `Jesse Liu`,
-      linkedin: `https://www.linkedin.com/in/jesseliu-dk/`
-    },
-    {
-      avatar: `/avatar.jpg`,
-      role: `Researcher`,
-      name: `Feng Sun`,
-      linkedin: `https://www.linkedin.com/in/feng-sun-483b0044/`
-    },
-    {
-      avatar: `/avatar.jpg`,
-      role: `Frontend Engineer`,
-      name: `Taylor Chen`,
-      linkedin: `https://www.linkedin.com/in/taylor-chen-80a2311a7/`
-    },
-    {
-      avatar: `/avatar.jpg`,
-      role: `Frontend Engineer`,
-      name: `Kai Jack`,
-      linkedin: `https://www.linkedin.com/in/kai-jack-45206b222/`
-    },
-    {
-      avatar: `/avatar.jpg`,
-      role: `Frontend Engineer`,
-      name: `Kevin Dev`,
-      linkedin: `https://www.linkedin.com/in/kevin-dev725/`
-    },
-    {
-      avatar: `/avatar.jpg`,
-      role: `Marketing`,
-      name: `Sam Welch`,
-      linkedin: `https://www.linkedin.com/in/sam-welch/`
-    }
-  ]
 
   return (
     <Container>
