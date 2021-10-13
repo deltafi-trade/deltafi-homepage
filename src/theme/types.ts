@@ -1,4 +1,10 @@
-export type Breakpoints = string[]
+export interface Breakpoints extends Array<number> {
+  xs?: number
+  sm?: number
+  md?: number
+  lg?: number
+  xl?: number
+}
 
 export type MediaQueries = {
   xs: string

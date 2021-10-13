@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { Text } from 'components'
 import LaunchApp from 'components/LaunchApp'
 
-import useTheme from 'hooks/useTheme'
 import Container from 'components/layout/Container'
+import useDarkMode from 'hooks/useDarkMode'
 
 const Main = styled.div`
   background-image: ${({ theme }) => theme.colors.backgroundDelta};
@@ -162,24 +162,38 @@ const DesktopWrapper = styled.div`
 `
 
 const AssetManager: React.FC = () => {
-  const { isDark } = useTheme()
+  const { isDark } = useDarkMode()
   const primary = isDark ? 'dark' : 'secondary'
 
   return (
     <Main>
       <StyledDiv>
         <Wrapper>
-          <Text textTransform='uppercase' className="asset-title">POWERED BY SOLANA</Text>
-          <Text color="#F43F5E" mt="16px" className="asset-sub-title">Trade</Text>
-          <Text mb="16px" className="asset-sub-titles">Everything</Text>
-          <Text mb="24px" className="asset-content">Lightning speed and DAO governed</Text>
-          <DesktopWrapper><LaunchApp primary={primary} /></DesktopWrapper>
+          <Text textTransform="uppercase" className="asset-title">
+            POWERED BY SOLANA
+          </Text>
+          <Text color="#F43F5E" mt="16px" className="asset-sub-title">
+            Trade
+          </Text>
+          <Text mb="16px" className="asset-sub-titles">
+            Everything
+          </Text>
+          <Text mb="24px" className="asset-content">
+            Lightning speed and DAO governed
+          </Text>
+          <DesktopWrapper>
+            <LaunchApp primary={primary} />
+          </DesktopWrapper>
         </Wrapper>
-        <TabletWrapper><LaunchApp primary={primary} /></TabletWrapper>
+        <TabletWrapper>
+          <LaunchApp primary={primary} />
+        </TabletWrapper>
         <Wrapper>
           <img src="/images/asset.png" alt="asset" />
         </Wrapper>
-        <MobileWrapper><LaunchApp primary={primary} /></MobileWrapper>
+        <MobileWrapper>
+          <LaunchApp primary={primary} />
+        </MobileWrapper>
       </StyledDiv>
     </Main>
   )

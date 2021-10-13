@@ -1,7 +1,7 @@
 import { Text } from 'components'
+import useDarkMode from 'hooks/useDarkMode'
 import React from 'react'
 import styled from 'styled-components'
-import useTheme from 'hooks/useTheme'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -113,23 +113,36 @@ const Img = styled.img`
 `
 
 const Investors: React.FC = () => {
-  const { isDark } = useTheme()
+  const { isDark } = useDarkMode()
   // const JUMP_IMG_URL = isDark ? '/images/dark-jumpcaptal.png' : '/images/light-jumpcaptal.png'
   const HASHED_IMG_URL = isDark ? '/images/dark-hashed.svg' : '/images/light-hashed.svg'
   const HASHKEY_IMG_URL = isDark ? '/images/dark-hashkey.svg' : '/images/light-hashkey.svg'
 
   return (
     <StyledDiv>
-      <Text textTransform='uppercase' color="#C94A75" mb="24px" className="investors">Our Investors</Text>
+      <Text textTransform="uppercase" color="#C94A75" mb="24px" className="investors">
+        Our Investors
+      </Text>
       <FlexWrapper>
-        <Text mr="8px" className="investors-title">Backed & Trusted</Text>
-        <Text color={isDark ? "#949292" : "#6B7280"} className="investors-title"> by the best</Text>
+        <Text mr="8px" className="investors-title">
+          Backed & Trusted
+        </Text>
+        <Text color={isDark ? '#949292' : '#6B7280'} className="investors-title">
+          {' '}
+          by the best
+        </Text>
       </FlexWrapper>
-      <Text mb="52px" color={isDark ? "#ECECEC" : "#23242F"} className="investors-desc">We partner with leading funds & trading firms</Text>
+      <Text mb="52px" color={isDark ? '#ECECEC' : '#23242F'} className="investors-desc">
+        We partner with leading funds & trading firms
+      </Text>
       <DivWrapper>
         {/* <Card><Img src={JUMP_IMG_URL} alt="JUMPCAPITAL INVESTOR"/></Card> */}
-        <Card><Img src={HASHED_IMG_URL} alt="HASHED INVESTOR"/></Card>
-        <Card><Img src={HASHKEY_IMG_URL} alt="HASHKEY INVESTOR"/></Card>
+        <Card>
+          <Img src={HASHED_IMG_URL} alt="HASHED INVESTOR" />
+        </Card>
+        <Card>
+          <Img src={HASHKEY_IMG_URL} alt="HASHKEY INVESTOR" />
+        </Card>
       </DivWrapper>
     </StyledDiv>
   )

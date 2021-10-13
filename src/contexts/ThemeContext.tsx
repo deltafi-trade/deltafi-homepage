@@ -1,27 +1,38 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { ThemeProvider as SCThemeProvider } from 'styled-components'
-import { light, dark } from 'theme'
+import { CssBaseline, ThemeProvider as MuiThemeProvider, StylesProvider, Theme } from '@material-ui/core'
+import { darkTheme, lightTheme } from 'theme'
+import GlobalStyle from 'style/Global'
 
-const CACHE_KEY = 'IS_DARK'
-
-const ThemeContext = React.createContext({ isDark: null, toggleTheme: () => null })
+const ThemeContext = React.createContext({ isDark: null, toggleDarkMode: () => null })
 
 const ThemeContextProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(() => {
-    const isDarkUserSetting = localStorage.getItem(CACHE_KEY)
-    return isDarkUserSetting ? JSON.parse(isDarkUserSetting) : true
-  })
+  const [theme, setTheme] = useState<Theme>(darkTheme)
+  const isDark = useMemo(() => theme.palette.type === 'dark', [theme])
+  const sctheme = useMemo(
+    () => ({
+      ...theme,
+      muibreakpoints: theme.breakpoints,
+      breakpoints: Object.values(theme.breakpoints.values).map((breakpoint) => `${breakpoint}px`),
+    }),
+    [theme],
+  )
 
-  const toggleTheme = () => {
-    setIsDark((prevState) => {
-      localStorage.setItem(CACHE_KEY, JSON.stringify(!prevState))
-      return !prevState
-    })
+  const toggleDarkMode = () => {
+    setTheme(isDark ? { ...lightTheme } : { ...darkTheme })
   }
 
   return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
-      <SCThemeProvider theme={isDark ? dark : light}>{children}</SCThemeProvider>
+    <ThemeContext.Provider value={{ isDark, toggleDarkMode }}>
+      <StylesProvider injectFirst>
+        <MuiThemeProvider theme={theme}>
+          <SCThemeProvider theme={sctheme}>
+            <GlobalStyle />
+            <CssBaseline />
+            {children}
+          </SCThemeProvider>
+        </MuiThemeProvider>
+      </StylesProvider>
     </ThemeContext.Provider>
   )
 }

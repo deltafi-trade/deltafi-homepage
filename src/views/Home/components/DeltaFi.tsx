@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { Text, BoundedLiquidityIcon, CrossChainIcon, IntelligentMarketIcon } from 'components'
 import LaunchApp from 'components/LaunchApp'
 
-import useTheme from 'hooks/useTheme'
 import Container from 'components/layout/Container'
+import useDarkMode from 'hooks/useDarkMode'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -132,7 +132,7 @@ const Card = styled.div`
 const DesktopDiv = styled.div`
   display: none;
   ${({ theme }) => theme.mediaQueries.sm} {
-		display: flex;
+    display: flex;
     order: 2;
     width: 50%;
     height: 100%;
@@ -144,7 +144,7 @@ const MobileDiv = styled.div`
   width: 100%;
   height: 45%;
   ${({ theme }) => theme.mediaQueries.sm} {
-		display: none;
+    display: none;
   }
 `
 const Img = styled.img`
@@ -189,52 +189,72 @@ const CustomDiv = styled.div`
 `
 
 const DeltaFi: React.FC = () => {
-  const { isDark } = useTheme()
+  const { isDark } = useDarkMode()
   const primary = isDark ? 'dark' : 'secondary'
 
   const CARD_LIST = [
     {
-      icon: <IntelligentMarketIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
+      icon: <IntelligentMarketIcon width="70" color={isDark ? '#FFFFFF' : '#000000'} />,
       title: `Intelligent Market Making`,
-      content: "Adaptive algorithms are developed for efficient pricing under various market dynamics.",
+      content: 'Adaptive algorithms are developed for efficient pricing under various market dynamics.',
       image: isDark ? '/images/intelligent-market-making-dark.png' : '/images/intelligent-market-making-light.png',
-      imageMobile: isDark ? '/images/intelligent-market-making-mobile-dark.png' : '/images/intelligent-market-making-mobile-light.png',
+      imageMobile: isDark
+        ? '/images/intelligent-market-making-mobile-dark.png'
+        : '/images/intelligent-market-making-mobile-light.png',
     },
     {
-      icon: <CrossChainIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
-      title: "Cross Chain Trading",
-      content: "Ease of trading for any token builds the liquidity hub and optimal user experience.",
+      icon: <CrossChainIcon width="70" color={isDark ? '#FFFFFF' : '#000000'} />,
+      title: 'Cross Chain Trading',
+      content: 'Ease of trading for any token builds the liquidity hub and optimal user experience.',
       image: isDark ? '/images/cross-chain-trading-dark.png' : '/images/cross-chain-trading-light.png',
-      imageMobile: isDark ? '/images/cross-chain-trading-mobile-dark.png' : '/images/cross-chain-trading-mobile-light.png',
+      imageMobile: isDark
+        ? '/images/cross-chain-trading-mobile-dark.png'
+        : '/images/cross-chain-trading-mobile-light.png',
     },
     {
-      icon: <BoundedLiquidityIcon width="70" color={isDark ? "#FFFFFF" : "#000000"}/>,
-      title: "Bounded Liquidity Risk",
-      content: "Provisioned liquidity is protected from impermanent loss despite market volatilities.",
+      icon: <BoundedLiquidityIcon width="70" color={isDark ? '#FFFFFF' : '#000000'} />,
+      title: 'Bounded Liquidity Risk',
+      content: 'Provisioned liquidity is protected from impermanent loss despite market volatilities.',
       image: isDark ? '/images/bounded-liquidity-risk-dark.png' : '/images/bounded-liquidity-risk-light.png',
-      imageMobile: isDark ? '/images/bounded-liquidity-risk-mobile-dark.png' : '/images/bounded-liquidity-risk-mobile-light.png',
+      imageMobile: isDark
+        ? '/images/bounded-liquidity-risk-mobile-dark.png'
+        : '/images/bounded-liquidity-risk-mobile-light.png',
     },
   ]
 
   return (
     <Container>
       <StyledDiv>
-        <Text textTransform='uppercase' color='#C94A75' mb="24px" className="delta-title">HIGHER EFFICIENCY, LOWER SLIPPAGE</Text> 
+        <Text textTransform="uppercase" color="#C94A75" mb="24px" className="delta-title">
+          HIGHER EFFICIENCY, LOWER SLIPPAGE
+        </Text>
         <Text className="delta-content">DeltaFi optimizes capital efficiency with zero slippage,</Text>
-        <Text color={isDark ? "#949292" : "#6B7280"} className="delta-content" mb="36px">while minimizing impermanent loss.</Text>
+        <Text color={isDark ? '#949292' : '#6B7280'} className="delta-content" mb="36px">
+          while minimizing impermanent loss.
+        </Text>
         {CARD_LIST.map((card, index) => (
           <Card key={`card-${index}`}>
             <CustomDiv>
               {card.icon}
-              <Text color={isDark ? "#FFFFFF" : "#4F4F4F"} mt="16px" mb="24px" className="card-title">{card.title}</Text>
-              <Text color={isDark ? "#F2F2F2" : "#4F4F4F"} className="card-content">{card.content}</Text>
+              <Text color={isDark ? '#FFFFFF' : '#4F4F4F'} mt="16px" mb="24px" className="card-title">
+                {card.title}
+              </Text>
+              <Text color={isDark ? '#F2F2F2' : '#4F4F4F'} className="card-content">
+                {card.content}
+              </Text>
             </CustomDiv>
-            <DesktopDiv><Img src={card.image} alt="Yields"/></DesktopDiv>
-            <MobileDiv><Img src={card.imageMobile} alt="Yields"/></MobileDiv>
+            <DesktopDiv>
+              <Img src={card.image} alt="Yields" />
+            </DesktopDiv>
+            <MobileDiv>
+              <Img src={card.imageMobile} alt="Yields" />
+            </MobileDiv>
           </Card>
         ))}
-        <Text color={isDark ? "#FFFFFF" : "#23242F"} mb="20px" mt="48px" className="deposit-earn">Deposit and Earn!</Text>
-        <LaunchApp primary={primary}/>
+        <Text color={isDark ? '#FFFFFF' : '#23242F'} mb="20px" mt="48px" className="deposit-earn">
+          Deposit and Earn!
+        </Text>
+        <LaunchApp primary={primary} />
       </StyledDiv>
     </Container>
   )

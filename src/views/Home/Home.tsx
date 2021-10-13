@@ -6,12 +6,11 @@ import Investors from './components/Investors'
 import DeltaFi from './components/DeltaFi'
 
 const Home: React.FC = () => {
-
   return (
     <Page>
-      <AssetManager />
+      {/* <AssetManager />
       <DeltaFi />
-      <Investors />
+      <Investors /> */}
     </Page>
   )
 }
