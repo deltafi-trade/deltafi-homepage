@@ -93,7 +93,8 @@ const StyledLink = styled.a`
   align-items: center;
   text-decoration: none;
 `;
-const DeltaFi: React.FC = () => {
+
+const Team: React.FC = () => {
 
   return (
     <Container>
@@ -115,4 +116,4 @@ const DeltaFi: React.FC = () => {
   )
 }
 
-export default DeltaFi
+export default Team
