@@ -7,13 +7,8 @@ import { createGlobalStyle } from 'styled-components'
 // }
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-
-    img {
-      height: auto;
-      max-width: 100%;
-    }
+  html, body {
+    font-family: 'Inter', sans-serif;
   }
 `
 

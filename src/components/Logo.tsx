@@ -13,12 +13,12 @@ const StyledLink = styled(Link)`
   align-items: center;
 
   .logo {
-    width: 100px;
-    ${({ theme }) => theme.muibreakpoints.up('sm')} {
-      width: 137px;
+    width: 178px;
+    ${({ theme }) => theme.muibreakpoints.down('sm')} {
+      width: 100px;
     }
-    ${({ theme }) => theme.muibreakpoints.up('md')} {
-      width: 178px;
+    ${({ theme }) => theme.muibreakpoints.down('md')} {
+      width: 137px;
     }
   }
 `

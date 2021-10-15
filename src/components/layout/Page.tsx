@@ -5,7 +5,6 @@ import { DEFAULT_META } from 'config/constants/meta'
 
 const StyledPage = styled.div`
   background: ${({ theme }) => theme.palette.background.default};
-  font-family: 'Inter', sans-serif;
 `
 
 const PageMeta = () => {

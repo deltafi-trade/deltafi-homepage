@@ -3,15 +3,12 @@ import styled from 'styled-components'
 import { AppBar, Container, Toolbar } from '@material-ui/core'
 
 import Logo from './Logo'
-import LaunchApp from './LaunchApp'
 import LinkList from './LinkList'
-import DarkMode from './DarkMode'
 
 import { HOMEPAGE_LINK } from 'config/constants/constant'
 
-import { Menu } from 'components'
+import { LaunchButton, Menu, ThemeButton } from 'components'
 import useDarkMode from 'hooks/useDarkMode'
-// import Container from './layout/Container'
 
 interface ContainerProps {
   theme: any
@@ -19,36 +16,27 @@ interface ContainerProps {
 }
 
 const HeaderWrapper = styled(AppBar)<ContainerProps>`
-  background-color: ${({ theme, isShrunk }) => (isShrunk ? theme.palette.primary.main : 'none')};
-`
-const FlexWrapper = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 9px 0;
-  font-family: 'Inter', sans-serif;
-  padding: 0 24px;
+  background-color: ${({ theme, isShrunk }) => (isShrunk ? theme.palette.background.primary : 'none')};
+  box-shadow: none;
 
-  ${({ theme }) => theme.muibreakpoints.up('md')} {
-    margin: 24px 0;
-    padding: 0;
+  .theme-button {
+    margin-left: ${({ theme }) => theme.spacing(1)}px;
   }
-`
-const StyledDiv = styled.div`
-  display: flex;
-  align-items: center;
 `
 const DesktopSection = styled.div`
-  display: none;
-  ${({ theme }) => theme.muibreakpoints.up('md')} {
-    display: flex;
+  display: flex;
+  margin-left: ${({ theme }) => theme.spacing(1)}px;
+  ${({ theme }) => theme.muibreakpoints.down('md')} {
+    display: none;
   }
 `
+const FlexGrow = styled.div`
+  flex-grow: 1;
+`
 const MobileSection = styled.div`
-  display: flex;
-  ${({ theme }) => theme.muibreakpoints.up('md')} {
-    display: none;
+  display: none;
+  ${({ theme }) => theme.muibreakpoints.down('md')} {
+    display: flex;
   }
 `
 
@@ -78,28 +66,18 @@ const Header: React.FC = () => {
   return (
     <HeaderWrapper position="fixed" color="transparent" isShrunk={isShrunk}>
       <Container>
-        <Toolbar>
+        <Toolbar disableGutters>
           <Logo href={HOMEPAGE_LINK} isDark={isDark} />
+          <FlexGrow />
+          <LinkList />
+          <ThemeButton toggleDarkMode={toggleDarkMode} isDark={isDark} className="theme-button" />
           <DesktopSection>
-            <LinkList isDark={isDark} />
-            <DarkMode toggleDarkMode={toggleDarkMode} isDark={isDark} />
+            <LaunchButton color="primary" />
           </DesktopSection>
           <MobileSection>
-            <Menu isDark={isDark} />
+            <Menu />
           </MobileSection>
         </Toolbar>
-        {/* <FlexWrapper>
-          <StyledDiv>
-            <LinkList isDark={isDark} />
-            <DarkMode toggleDarkMode={toggleDarkMode} isDark={isDark} />
-            <DesktopDiv>
-              <LaunchApp primary="primary" />
-            </DesktopDiv>
-            <MobileDiv>
-              <Menu isDark={isDark} />
-            </MobileDiv>
-          </StyledDiv>
-        </FlexWrapper> */}
       </Container>
     </HeaderWrapper>
   )

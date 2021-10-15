@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { bool, func } from 'prop-types'
 import styled from 'styled-components'
+import { IconButton, Typography } from '@material-ui/core'
+import AddIcon from '@material-ui/icons/Add'
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt'
+import CloseIcon from '@material-ui/icons/Close'
+import RemoveIcon from '@material-ui/icons/Remove'
 
 import { StyledLink } from 'components/LinkList'
 import { Logo, SunIcon, MoonIcon } from 'components'
-import { Text } from 'components/Text'
 import {
   HOMEPAGE_LINK,
   BLOG_LINK,
@@ -39,36 +43,44 @@ const StyledMenu = styled.nav<MenuProps>`
   transition: transform 0.3s ease-in-out;
   z-index: 999;
   width: 275px;
-  .one-line {
-    display: flex;
-    align-items: center;
-    padding: 22px;
-    width: calc(100% - 44px);
-  }
-  ${({ theme }) => theme.muibreakpoints.up('md')} {
+  ${({ theme }) => theme.muibreakpoints.up('sm')} {
     width: 320px;
   }
 `
 const BlurBackground = styled.div`
   position: absolute;
   width: 100vw;
-  filter: blur(100px);
+  backdrop-filter: blur(10px);
   height: 100vh;
   left: 0;
   top: 0;
-  background: ${({ theme }) => theme.colors.panelBackground};
+  background: ${({ theme }) => theme.shadows[1]};
   z-index: 10;
 `
 const MenuHeader = styled.div`
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: ${({ theme }) => theme.spacing(2)}px;
+
+  button {
+    padding: 0;
+  }
 `
-const Close = styled.div`
-  cursor: pointer;
+const StyledDiv = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: ${({ theme }) => theme.spacing(1)}px;
+  padding: ${({ theme }) => theme.spacing(2)}px;
 `
-const StyledDiv = styled.div``
 const ExpandMenu = styled.div<ExpandProps>`
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  background: ${({ theme }) => theme.palette.background.default};
+  padding: ${({ theme }) => theme.spacing(2)}px;
+  width: 100%;
+  background: ${({ theme }) => theme.palette.background.primary};
   margin: ${({ my }) => `${my} 0px`};
   cursor: pointer;
   .expand-title {
@@ -81,7 +93,6 @@ const ExpandMenu = styled.div<ExpandProps>`
   }
 `
 const SubMenu = styled.div`
-  padding: 22px;
   width: calc(100% - 44px);
   display: flex;
   flex-direction: column;
@@ -101,18 +112,19 @@ const Menu = ({ open, setOpen, ...props }) => {
   const { isDark, toggleDarkMode } = useDarkMode()
   const [community, setCommunity] = useState(false)
   const [about, setAbout] = useState(false)
-  const textColor = isDark ? '#FFF' : '#000'
 
   return (
     <>
       <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
         <MenuHeader className="one-line">
           <Logo href={HOMEPAGE_LINK} isDark={isDark} />
-          <Close onClick={() => setOpen(false)}>&#10006;</Close>
+          <IconButton onClick={() => setOpen(false)}>
+            <CloseIcon />
+          </IconButton>
         </MenuHeader>
         <ExpandMenu className="one-line" my="0px">
           <StyledLink
-            color={textColor}
+            color="inherit"
             href={APP_LINK}
             target="_blank"
             rel="noreferrer noopener"
@@ -120,18 +132,16 @@ const Menu = ({ open, setOpen, ...props }) => {
           >
             Launch App
           </StyledLink>
-          <Text>&#8594;</Text>
+          <ArrowRightAltIcon />
         </ExpandMenu>
         <ExpandMenu className="one-line" my="2px" onClick={() => setCommunity(!community)}>
-          <Text textTransform="uppercase" className="expand-title">
-            Community
-          </Text>
-          <Text>{community ? '+' : '-'}</Text>
+          <Typography variant="subtitle2">COMMUNITY</Typography>
+          {community ? <RemoveIcon /> : <AddIcon />}
         </ExpandMenu>
         {community && (
           <SubMenu>
             <StyledLink
-              color={textColor}
+              color="inherit"
               href={GITHUB_LINK}
               target="_blank"
               rel="noreferrer noopener"
@@ -140,7 +150,7 @@ const Menu = ({ open, setOpen, ...props }) => {
               Github
             </StyledLink>
             <StyledLink
-              color={textColor}
+              color="inherit"
               href={TWITTER_LINK}
               target="_blank"
               rel="noreferrer noopener"
@@ -149,7 +159,7 @@ const Menu = ({ open, setOpen, ...props }) => {
               Twitter
             </StyledLink>
             <StyledLink
-              color={textColor}
+              color="inherit"
               href={DISCORD_LINK}
               target="_blank"
               rel="noreferrer noopener"
@@ -158,7 +168,7 @@ const Menu = ({ open, setOpen, ...props }) => {
               Discord
             </StyledLink>
             <StyledLink
-              color={textColor}
+              color="inherit"
               href={TELEGRAM_LINK}
               target="_blank"
               rel="noreferrer noopener"
@@ -169,33 +179,25 @@ const Menu = ({ open, setOpen, ...props }) => {
           </SubMenu>
         )}
         <ExpandMenu className="one-line" my={community ? '2px' : '0px 2px'} onClick={() => setAbout(!about)}>
-          <Text textTransform="uppercase" className="expand-title">
-            About
-          </Text>
-          <Text>{about ? '+' : '-'}</Text>
+          <Typography variant="subtitle2">ABOUT</Typography>
+          {about ? <RemoveIcon /> : <AddIcon />}
         </ExpandMenu>
         {about && (
           <SubMenu>
-            <StyledLink
-              color={textColor}
-              href={BLOG_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="sub-menu"
-            >
+            <StyledLink color="inherit" href={BLOG_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">
               Blog
             </StyledLink>
-            <StyledLink color={textColor} href={CAREERS_LINK} className="sub-menu">
+            <StyledLink color="inherit" href={CAREERS_LINK} className="sub-menu">
               Careers
             </StyledLink>
-            <StyledLink color={textColor} href={PRIVACY_LINK} className="sub-menu">
+            <StyledLink color="inherit" href={PRIVACY_LINK} className="sub-menu">
               Privacy Policy
             </StyledLink>
           </SubMenu>
         )}
         <StyledDiv onClick={toggleDarkMode} className="one-line">
           {isDark ? <SunIcon /> : <MoonIcon />}
-          <Text ml="12px">{isDark ? 'Light Mode' : 'Dark Mode'}</Text>
+          <Typography variant="subtitle1">{isDark ? 'Light Mode' : 'Dark Mode'}</Typography>
         </StyledDiv>
       </StyledMenu>
       {open && <BlurBackground onClick={() => setOpen(false)} />}
