@@ -3,8 +3,7 @@ import Page from 'components/layout/Page'
 
 import TeamMember from './components/TeamMember'
 
-const Home: React.FC = () => {
-
+const Team: React.FC = () => {
   return (
     <Page>
       <TeamMember />
@@ -12,4 +11,4 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home
+export default Team

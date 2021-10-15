@@ -4,8 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { DEFAULT_META } from 'config/constants/meta'
 
 const StyledPage = styled.div`
-  background: ${({ theme }) => theme.colors.mainBackground};
-  font-family: 'Inter', sans-serif;
+  background: ${({ theme }) => theme.palette.background.default};
 `
 
 const PageMeta = () => {

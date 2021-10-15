@@ -1,6 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
-import { Button, Text, Heading } from 'components'
+import { Button, Typography } from '@material-ui/core'
 
 const StyledNotFound = styled.div`
   align-items: center;
@@ -11,14 +10,11 @@ const StyledNotFound = styled.div`
 `
 
 const NotFound = () => {
-
   return (
     <StyledNotFound>
-      <Heading scale="xxl">404</Heading>
-      <Text mb="16px">Oops, page not found.</Text>
-      <Button as="a" href="/" scale="sm">
-        Back Home
-      </Button>
+      <Typography variant="h5">404</Typography>
+      <Typography variant="subtitle2">Oops, page not found.</Typography>
+      <Button href="/">Back Home</Button>
     </StyledNotFound>
   )
 }

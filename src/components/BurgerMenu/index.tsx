@@ -1,22 +1,25 @@
-import React, { useState, useRef } from 'react';
-import FocusLock from 'react-focus-lock';
+import React, { useState, useRef } from 'react'
+import FocusLock from 'react-focus-lock'
+import { IconButton } from '@material-ui/core'
+import MenuIcon from '@material-ui/icons/Menu'
 
-import Burger from "./Burger";
-import Menu from "./Menu";
+import Menu from './Menu'
 
-import { useOnClickOutside } from 'hooks';
+import { useOnClickOutside } from 'hooks'
 
-const BurgerMenu = ({isDark}) => {
-  const [open, setOpen] = useState(false);
-  const node = useRef();
-  const menuId = "main-menu";
+const BurgerMenu: React.FC = () => {
+  const [open, setOpen] = useState(false)
+  const node = useRef()
+  const menuId = 'main-menu'
 
-  useOnClickOutside(node, () => setOpen(false));
+  useOnClickOutside(node, () => setOpen(false))
 
   return (
     <div ref={node}>
       <FocusLock disabled={!open}>
-        <Burger isDark={isDark} open={open} setOpen={setOpen} aria-controls={menuId} />
+        <IconButton onClick={() => setOpen(true)}>
+          <MenuIcon />
+        </IconButton>
         <Menu open={open} setOpen={setOpen} id={menuId} />
       </FocusLock>
     </div>
