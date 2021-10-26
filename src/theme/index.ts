@@ -1,19 +1,23 @@
-import { Colors, Breakpoints, MediaQueries, Spacing, Shadows, Radii, ZIndices } from "./types";
+import { darkTheme, lightTheme } from './theme'
 
-export interface AppTheme {
-  siteWidth: number;
-  isDark: boolean;
-  colors: Colors;
-  breakpoints: Breakpoints;
-  mediaQueries: MediaQueries;
-  spacing: Spacing;
-  shadows: Shadows;
-  radii: Radii;
-  zIndices: ZIndices;
-}
+export { darkTheme, lightTheme }
 
-export { default as dark } from "./dark";
-export { default as light } from "./light";
+// import { Colors, Breakpoints, MediaQueries, Spacing, Shadows, Radii, ZIndices } from "./types";
 
-export { lightColors } from "./colors";
-export { darkColors } from "./colors";
+// export interface AppTheme {
+//   siteWidth: number;
+//   isDark: boolean;
+//   colors: Colors;
+//   breakpoints: Breakpoints;
+//   mediaQueries: MediaQueries;
+//   spacing: Spacing;
+//   shadows: Shadows;
+//   radii: Radii;
+//   zIndices: ZIndices;
+// }
+
+// export { default as dark } from "./dark";
+// export { default as light } from "./light";
+
+// export { lightColors } from "./colors";
+// export { darkColors } from "./colors";

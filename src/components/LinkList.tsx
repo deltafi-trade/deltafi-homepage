@@ -1,49 +1,49 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link, Typography } from '@material-ui/core'
 import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, DOC_LINK, TEAM_LINK } from 'config/constants/constant'
 
-interface Props {
-  isDark: boolean
-}
-
-export const StyledLink = styled.a`
+export const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 18px;
-  color: ${(props) => props.color};
   padding: 0 10px;
 `
 
-const StyledDiv = styled.div`
-  display: none;
-  ${({ theme }) => theme.mediaQueries.md} {
+const StyledDiv = styled(Typography)`
+  display: flex;
+  a {
+    margin-left: ${({ theme }) => theme.spacing(2)}px;
     display: flex;
+    align-items: center;
+  }
+  ${({ theme }) => theme.muibreakpoints.down('md')} {
+    display: none;
   }
 `
 
-const LinkList: React.FC<Props> = ({ isDark }) => {
-  const textColor = isDark ? '#FFFFFF' : '#000000'
+const LinkList: React.FC = () => {
   return (
     <StyledDiv>
-      <StyledLink color={textColor} href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
+      <Link color="inherit" underline="none" href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
         Blog
-      </StyledLink>
-      <StyledLink color={textColor} href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
+      </Link>
+      <Link color="inherit" underline="none" href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
         Twitter
-      </StyledLink>
-      <StyledLink color={textColor} href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">
+      </Link>
+      <Link color="inherit" underline="none" href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">
         Discord
-      </StyledLink>
-      <StyledLink color={textColor} href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
+      </Link>
+      <Link color="inherit" underline="none" href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
         Github
-      </StyledLink>
-      <StyledLink color={textColor} href={TEAM_LINK} rel="noreferrer noopener">
+      </Link>
+      <Link color="inherit" underline="none" href={TEAM_LINK} rel="noreferrer noopener">
         Team
-      </StyledLink>
-      <StyledLink color={textColor} href={DOC_LINK} target="_blank" rel="noreferrer noopener">
+      </Link>
+      <Link color="inherit" underline="none" href={DOC_LINK} target="_blank" rel="noreferrer noopener">
         Docs
-      </StyledLink>
+      </Link>
     </StyledDiv>
   )
 }
 
-export default React.memo(LinkList, (prev, next) => prev.isDark === next.isDark)
+export default LinkList

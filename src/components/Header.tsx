@@ -1,80 +1,57 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { AppBar, Container, Toolbar } from '@material-ui/core'
 
 import Logo from './Logo'
-import LaunchApp from './LaunchApp'
 import LinkList from './LinkList'
-import DarkMode from './DarkMode'
 
-import useTheme from 'hooks/useTheme'
 import { HOMEPAGE_LINK } from 'config/constants/constant'
 
-import { Menu } from 'components'
-import Container from './layout/Container'
+import { LaunchButton, Menu, ThemeButton } from 'components'
+import useDarkMode from 'hooks/useDarkMode'
 
 interface ContainerProps {
-  theme: any,
-  isShrunk: boolean,
+  theme: any
+  isShrunk: boolean
 }
 
-const HeaderWrapper = styled.div<ContainerProps>`
-  z-index: 100;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background-color: ${({ theme, isShrunk }) => isShrunk ? theme.colors.background : 'none'};
-`
-const FlexWrapper = styled.div`
-	flex: 1;
-  display: flex;
-  align-items: center;
-	justify-content: space-between;
-	margin: 9px 0;
-  font-family: 'Inter', sans-serif;
-  padding: 0 24px;
+const HeaderWrapper = styled(AppBar)<ContainerProps>`
+  background-color: ${({ theme, isShrunk }) => (isShrunk ? theme.palette.background.primary : 'none')};
+  box-shadow: none;
 
-  ${({ theme }) => theme.mediaQueries.md} {
-		margin: 24px 0;
-    padding: 0;
+  .theme-button {
+    margin-left: ${({ theme }) => theme.spacing(1)}px;
   }
 `
-const StyledDiv = styled.div`
-	display: flex;
-	align-items: center;
-`
-const DesktopDiv = styled.div`
-  display: none;
-  ${({ theme }) => theme.mediaQueries.md} {
-		display: flex;
-  }
-`
-const MobileDiv = styled.div`
+const DesktopSection = styled.div`
   display: flex;
-  ${({ theme }) => theme.mediaQueries.md} {
-		display: none;
+  margin-left: ${({ theme }) => theme.spacing(1)}px;
+  ${({ theme }) => theme.muibreakpoints.down('md')} {
+    display: none;
+  }
+`
+const FlexGrow = styled.div`
+  flex-grow: 1;
+`
+const MobileSection = styled.div`
+  display: none;
+  ${({ theme }) => theme.muibreakpoints.down('md')} {
+    display: flex;
   }
 `
 
 const Header: React.FC = () => {
-	const { isDark, toggleTheme } = useTheme()
+  const { isDark, toggleDarkMode } = useDarkMode()
   const [isShrunk, setShrunk] = useState(false)
 
   useEffect(() => {
     const onScroll = () => {
       setShrunk((isShrunk) => {
-        if (
-          !isShrunk &&
-          (document.body.scrollTop > 98 ||
-            document.documentElement.scrollTop > 98)
-        ) {
+        if (!isShrunk && (document.body.scrollTop > 98 || document.documentElement.scrollTop > 98)) {
           return true
         }
 
-        if (
-          isShrunk &&
-          document.body.scrollTop < 4 &&
-          document.documentElement.scrollTop < 4
-        ) {
+        if (isShrunk && document.body.scrollTop < 4 && document.documentElement.scrollTop < 4) {
           return false
         }
 
@@ -82,28 +59,27 @@ const Header: React.FC = () => {
       })
     }
 
-    window.addEventListener("scroll", onScroll)
-    return () => window.removeEventListener("scroll", onScroll)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
-		<HeaderWrapper isShrunk={isShrunk}>
+    <HeaderWrapper position="fixed" color="transparent" isShrunk={isShrunk}>
       <Container>
-        <FlexWrapper>
-          <Logo href={HOMEPAGE_LINK} isDark={isDark}/>
-          <StyledDiv>
-            <LinkList isDark={isDark}/>
-            <DarkMode toggleTheme={toggleTheme} isDark={isDark}/>
-            <DesktopDiv>
-              <LaunchApp primary="primary"/>
-            </DesktopDiv > 
-            <MobileDiv>
-              <Menu isDark={isDark}/>
-            </MobileDiv>
-          </StyledDiv>
-        </FlexWrapper>
+        <Toolbar disableGutters>
+          <Logo href={HOMEPAGE_LINK} isDark={isDark} />
+          <FlexGrow />
+          <LinkList />
+          <ThemeButton toggleDarkMode={toggleDarkMode} isDark={isDark} className="theme-button" />
+          <DesktopSection>
+            <LaunchButton color="primary" />
+          </DesktopSection>
+          <MobileSection>
+            <Menu />
+          </MobileSection>
+        </Toolbar>
       </Container>
-		</HeaderWrapper>
+    </HeaderWrapper>
   )
 }
 

@@ -1,29 +1,40 @@
-import React, { useState } from 'react';
-import { bool, func } from 'prop-types';
-import styled from 'styled-components';
+import { useState } from 'react'
+import { bool, func } from 'prop-types'
+import styled from 'styled-components'
+import { IconButton, Typography } from '@material-ui/core'
+import AddIcon from '@material-ui/icons/Add'
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt'
+import CloseIcon from '@material-ui/icons/Close'
+import RemoveIcon from '@material-ui/icons/Remove'
 
-import Logo from 'components/Logo';
-import { StyledLink } from 'components/LinkList';
-
-import { SunIcon, MoonIcon } from "components";
-import { Text } from 'components/Text';
-
-import useTheme from 'hooks/useTheme'
-import { HOMEPAGE_LINK, BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, CAREERS_LINK, PRIVACY_LINK, APP_LINK, TELEGRAM_LINK } from 'config/constants/constant'
+import { StyledLink } from 'components/LinkList'
+import { Logo, SunIcon, MoonIcon } from 'components'
+import {
+  HOMEPAGE_LINK,
+  BLOG_LINK,
+  TWITTER_LINK,
+  GITHUB_LINK,
+  DISCORD_LINK,
+  CAREERS_LINK,
+  PRIVACY_LINK,
+  APP_LINK,
+  TELEGRAM_LINK,
+} from 'config/constants/constant'
+import useDarkMode from 'hooks/useDarkMode'
 
 interface MenuProps {
-  readonly open: boolean;
-};
+  readonly open: boolean
+}
 interface ExpandProps {
-  my: string;
+  my: string
 }
 
 const StyledMenu = styled.nav<MenuProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: ${({ theme }) => theme.colors.menuBackground};
-  transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+  background: ${({ theme }) => theme.palette.background.default};
+  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
   height: 100vh;
   text-align: left;
   position: fixed;
@@ -32,108 +43,164 @@ const StyledMenu = styled.nav<MenuProps>`
   transition: transform 0.3s ease-in-out;
   z-index: 999;
   width: 275px;
-  .one-line {
-    display: flex;
-    align-items: center;
-    padding: 22px;
-    width: calc(100% - 44px);
-  }
-  ${({ theme }) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.muibreakpoints.up('sm')} {
     width: 320px;
   }
-`;
+`
 const BlurBackground = styled.div`
   position: absolute;
   width: 100vw;
-  filter: blur(100px);
+  backdrop-filter: blur(10px);
   height: 100vh;
   left: 0;
   top: 0;
-  background: ${({ theme }) => theme.colors.panelBackground};
+  background: ${({ theme }) => theme.shadows[1]};
   z-index: 10;
 `
 const MenuHeader = styled.div`
+  display: flex;
   justify-content: space-between;
-`
-const Close = styled.div`
-  cursor: pointer;
+  align-items: center;
+  width: 100%;
+  padding: ${({ theme }) => theme.spacing(2)}px;
+
+  button {
+    padding: 0;
+  }
 `
 const StyledDiv = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: ${({ theme }) => theme.spacing(1)}px;
+  padding: ${({ theme }) => theme.spacing(2)}px;
 `
 const ExpandMenu = styled.div<ExpandProps>`
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  background: ${({ theme }) => theme.colors.expandMenu};
+  padding: ${({ theme }) => theme.spacing(2)}px;
+  width: 100%;
+  background: ${({ theme }) => theme.palette.background.primary};
   margin: ${({ my }) => `${my} 0px`};
   cursor: pointer;
   .expand-title {
     font-size: 14px;
     text-transform: uppercase;
     padding: 0;
-    ${({ theme }) => theme.mediaQueries.md} {
+    ${({ theme }) => theme.muibreakpoints.up('md')} {
       font-weight: 500;
     }
   }
 `
 const SubMenu = styled.div`
-  padding: 22px;
   width: calc(100% - 44px);
   display: flex;
   flex-direction: column;
-  background: ${({ theme }) => theme.colors.subMenu};
+  background: ${({ theme }) => theme.palette.background.default};
   .sub-menu {
     font-size: 14px;
     padding: 9px 0;
     font-size: 14px;
-    ${({ theme }) => theme.mediaQueries.md} {
+    ${({ theme }) => theme.muibreakpoints.up('md')} {
       font-weight: 400;
     }
   }
 `
 
 const Menu = ({ open, setOpen, ...props }) => {
-  
-  const isHidden = open ? true : false;
-  const { isDark, toggleTheme } = useTheme()
+  const isHidden = open ? true : false
+  const { isDark, toggleDarkMode } = useDarkMode()
   const [community, setCommunity] = useState(false)
   const [about, setAbout] = useState(false)
-  const textColor = isDark ? '#FFF' : '#000' 
 
   return (
     <>
-    <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-      <MenuHeader className='one-line'>
-        <Logo href={HOMEPAGE_LINK} isDark={isDark}/>
-        <Close onClick={() => setOpen(false)}>&#10006;</Close>
-      </MenuHeader>
-      <ExpandMenu className='one-line' my="0px">
-        <StyledLink color={textColor} href={APP_LINK} target="_blank" rel="noreferrer noopener" className="expand-title">Launch App</StyledLink>
-        <Text>&#8594;</Text>
-      </ExpandMenu>
-      <ExpandMenu className='one-line' my="2px" onClick={() => setCommunity(!community)}>
-        <Text textTransform='uppercase' className="expand-title">Community</Text>
-        <Text>{community ? '+' : '-'}</Text>
-      </ExpandMenu>
-      {community && <SubMenu>
-        <StyledLink color={textColor} href={GITHUB_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">Github</StyledLink>
-        <StyledLink color={textColor} href={TWITTER_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">Twitter</StyledLink>
-        <StyledLink color={textColor} href={DISCORD_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">Discord</StyledLink>
-        <StyledLink color={textColor} href={TELEGRAM_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">Telegram</StyledLink>
-      </SubMenu>}
-      <ExpandMenu className='one-line' my={community ? "2px" : '0px 2px'} onClick={() => setAbout(!about)}>
-        <Text textTransform='uppercase' className="expand-title">About</Text>
-        <Text>{about ? '+' : '-'}</Text>
-      </ExpandMenu>
-      {about && <SubMenu>
-        <StyledLink color={textColor} href={BLOG_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">Blog</StyledLink>
-        <StyledLink color={textColor} href={CAREERS_LINK} className="sub-menu">Careers</StyledLink>
-        <StyledLink color={textColor} href={PRIVACY_LINK} className="sub-menu">Privacy Policy</StyledLink>
-      </SubMenu>}
-      <StyledDiv onClick={() => toggleTheme()} className='one-line'>
-        {isDark ? <SunIcon /> : <MoonIcon />}
-        <Text ml="12px">{isDark ? "Light Mode" : "Dark Mode"}</Text>
-      </StyledDiv>
-    </StyledMenu>
-    {open && <BlurBackground onClick={() => setOpen(false)}/>}
+      <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
+        <MenuHeader className="one-line">
+          <Logo href={HOMEPAGE_LINK} isDark={isDark} />
+          <IconButton onClick={() => setOpen(false)}>
+            <CloseIcon />
+          </IconButton>
+        </MenuHeader>
+        <ExpandMenu className="one-line" my="0px">
+          <StyledLink
+            color="inherit"
+            href={APP_LINK}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="expand-title"
+          >
+            REQUEST A DEMO
+          </StyledLink>
+          <ArrowRightAltIcon />
+        </ExpandMenu>
+        <ExpandMenu className="one-line" my="2px" onClick={() => setCommunity(!community)}>
+          <Typography variant="subtitle2">COMMUNITY</Typography>
+          {community ? <RemoveIcon /> : <AddIcon />}
+        </ExpandMenu>
+        {community && (
+          <SubMenu>
+            <StyledLink
+              color="inherit"
+              href={GITHUB_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="sub-menu"
+            >
+              Github
+            </StyledLink>
+            <StyledLink
+              color="inherit"
+              href={TWITTER_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="sub-menu"
+            >
+              Twitter
+            </StyledLink>
+            <StyledLink
+              color="inherit"
+              href={DISCORD_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="sub-menu"
+            >
+              Discord
+            </StyledLink>
+            <StyledLink
+              color="inherit"
+              href={TELEGRAM_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="sub-menu"
+            >
+              Telegram
+            </StyledLink>
+          </SubMenu>
+        )}
+        <ExpandMenu className="one-line" my={community ? '2px' : '0px 2px'} onClick={() => setAbout(!about)}>
+          <Typography variant="subtitle2">ABOUT</Typography>
+          {about ? <RemoveIcon /> : <AddIcon />}
+        </ExpandMenu>
+        {about && (
+          <SubMenu>
+            <StyledLink color="inherit" href={BLOG_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">
+              Blog
+            </StyledLink>
+            <StyledLink color="inherit" href={CAREERS_LINK} className="sub-menu">
+              Careers
+            </StyledLink>
+            <StyledLink color="inherit" href={PRIVACY_LINK} className="sub-menu">
+              Privacy Policy
+            </StyledLink>
+          </SubMenu>
+        )}
+        <StyledDiv onClick={toggleDarkMode} className="one-line">
+          {isDark ? <SunIcon /> : <MoonIcon />}
+          <Typography variant="subtitle1">{isDark ? 'Light Mode' : 'Dark Mode'}</Typography>
+        </StyledDiv>
+      </StyledMenu>
+      {open && <BlurBackground onClick={() => setOpen(false)} />}
     </>
   )
 }
@@ -143,4 +210,4 @@ Menu.propTypes = {
   setOpen: func.isRequired,
 }
 
-export default Menu;
+export default Menu
