@@ -18,7 +18,7 @@ const LaunchButton: React.FC<CTAButtonProps> = (props) => {
   if (props.cta) {
     return (
       <CTAButton variant="contained" {...props} size="large" href={APP_LINK} style={{ borderRadius: 50 }}>
-        LAUNCH APP
+        REQUEST A DEMO
       </CTAButton>
     )
   }
@@ -30,7 +30,7 @@ const LaunchButton: React.FC<CTAButtonProps> = (props) => {
       href={APP_LINK}
       style={{ borderRadius: 50, fontWeight: 'bold' }}
     >
-      LAUNCH APP
+      REQUEST A DEMO
     </Button>
   )
 }
