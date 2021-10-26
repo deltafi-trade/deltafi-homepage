@@ -130,7 +130,7 @@ const Menu = ({ open, setOpen, ...props }) => {
             rel="noreferrer noopener"
             className="expand-title"
           >
-            Launch App
+            REQUEST A DEMO
           </StyledLink>
           <ArrowRightAltIcon />
         </ExpandMenu>
