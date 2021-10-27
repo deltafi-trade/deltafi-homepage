@@ -1,38 +1,38 @@
-import React from 'react'
-import { Button, ButtonProps } from '@material-ui/core'
+import React from 'react';
+import { Button, ButtonProps, Theme } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { APP_LINK } from 'config/constants/constant'
-import styled from 'styled-components'
 
-const CTAButton = styled(Button)`
-  background: ${({ theme }) => theme.palette.gradient.cta};
-  color: ${({ theme }) => theme.palette.text.primary};
-  font-weight: bold;
-`
+const useStyles = makeStyles(({ palette }: Theme) => ({
+  ctaButton: {
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), ${palette.gradient.cta}`,
+    color: palette.text.secondary,
+    borderRadius: 100,
+    border: 'solid 1px transparent',
+    backgroundOrigin: 'border-box',
+    backgroundClip: 'content-box, border-box',
+    boxShadow: `2px 1000px 1px ${palette.background.primary} inset`,
+
+    '&:hover': {
+      color: palette.text.primary,
+      boxShadow: 'none',
+    }
+  },
+}));
 
 interface CTAButtonProps extends ButtonProps {
   cta?: boolean
 }
 
 const LaunchButton: React.FC<CTAButtonProps> = (props) => {
-  if (props.cta) {
-    return (
-      <CTAButton variant="contained" {...props} size="large" href={APP_LINK} style={{ borderRadius: 50 }}>
-        REQUEST A DEMO
-      </CTAButton>
-    )
-  }
+  const classes = useStyles(props);
+
   return (
-    <Button
-      variant="contained"
-      {...props}
-      size="large"
-      href={APP_LINK}
-      style={{ borderRadius: 50, fontWeight: 'bold' }}
-    >
+    <Button variant="contained" className={classes.ctaButton} size="large" href={APP_LINK}>
       REQUEST A DEMO
     </Button>
-  )
+  );
 }
 
 export default React.memo(LaunchButton)
