@@ -82,12 +82,13 @@ const darkTheme: Theme = createTheme({
     background: {
       cta: 'url(/images/dark-bg.png)',
       investorBg: 'url(/images/investors-bg-dark.png)',
-      primary: '#000000',
+      primary: '#13111A',
       default: 'rgb(35, 36, 47)',
     },
     gradient: {
-      cta: 'linear-gradient(rgb(35, 36, 47) 0%, rgb(12, 12, 19) 100%)',
+      cta: 'linear-gradient(90deg, #7A6FFF 0%, #B372CE 50.52%, #FF7586 100%)',
     },
+
   },
 })
 

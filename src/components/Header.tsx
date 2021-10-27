@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { AppBar, Container, Toolbar } from '@material-ui/core'
+import { AppBar, Container, makeStyles, Toolbar, Theme } from '@material-ui/core'
 
 import Logo from './Logo'
 import LinkList from './LinkList'
@@ -15,14 +15,6 @@ interface ContainerProps {
   isShrunk: boolean
 }
 
-const HeaderWrapper = styled(AppBar)<ContainerProps>`
-  background-color: ${({ theme, isShrunk }) => (isShrunk ? theme.palette.background.primary : 'none')};
-  box-shadow: none;
-
-  .theme-button {
-    margin-left: ${({ theme }) => theme.spacing(1)}px;
-  }
-`
 const DesktopSection = styled.div`
   display: flex;
   margin-left: ${({ theme }) => theme.spacing(1)}px;
@@ -39,10 +31,22 @@ const MobileSection = styled.div`
     display: flex;
   }
 `
+const useStyles = makeStyles((theme: Theme) => ({
+  headerWrapper: {
+    backgroundColor: theme.palette.background.primary,
+    boxShadow: 'none',
+  
+    '$.theme-button': {
+      marginLeft: theme.spacing(1),
+    }
+  },
+  toolbar: {},
+}));
 
 const Header: React.FC = () => {
   const { isDark, toggleDarkMode } = useDarkMode()
   const [isShrunk, setShrunk] = useState(false)
+  const classes = useStyles();
 
   useEffect(() => {
     const onScroll = () => {
@@ -64,9 +68,9 @@ const Header: React.FC = () => {
   }, [])
 
   return (
-    <HeaderWrapper position="fixed" color="transparent" isShrunk={isShrunk}>
+    <AppBar position="fixed" color="transparent" className={classes.headerWrapper}>
       <Container>
-        <Toolbar disableGutters>
+        <Toolbar disableGutters className={classes.toolbar}>
           <Logo href={HOMEPAGE_LINK} isDark={isDark} />
           <FlexGrow />
           <LinkList />
@@ -79,7 +83,7 @@ const Header: React.FC = () => {
           </MobileSection>
         </Toolbar>
       </Container>
-    </HeaderWrapper>
+    </AppBar>
   )
 }
 
