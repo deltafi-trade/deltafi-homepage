@@ -9,8 +9,8 @@ const Home: React.FC = () => {
   return (
     <Page>
       <AssetManager />
-      <DeltaFi />
       <Investors />
+      <DeltaFi />
     </Page>
   )
 }
