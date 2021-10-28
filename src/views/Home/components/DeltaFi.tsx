@@ -130,7 +130,8 @@ const CustomDiv = styled.div`
 `
 
 const DeltaFi: React.FC = () => {
-  const { isDark } = useDarkMode()
+  const { isDark } = useDarkMode();
+
   const CARD_LIST = [
     {
       icon: <img src="/images/homepage/intelligent-market.svg" />,
@@ -197,10 +198,6 @@ const DeltaFi: React.FC = () => {
             </Grid>
           ))}
         </Grid>
-        <Typography variant="h2" paragraph className="deposit-text">
-          Ready to join us?
-        </Typography>
-        <Button>Join Us</Button>
       </StyledDiv>
     </Container>
   )
