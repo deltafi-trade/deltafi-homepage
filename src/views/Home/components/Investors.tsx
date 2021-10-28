@@ -11,7 +11,6 @@ const StyledDiv = styled.div`
   align-items: center;
   padding: 80px 0;
   text-align: center;
-  background-image: ${({ theme }) => theme.palette.background.investorBg};
   background-size: cover;
 
   .subtitle {
@@ -38,10 +37,10 @@ const LogoWrapper = styled.div`
 const Card = styled.div`
   display: flex;
   align-items: center;
-  background-color: ${({ theme }) => theme.palette.background.primary};
+  background-color: ${({ theme }) => theme.palette.background.secondary};
   justify-content: center;
   box-shadow: ${({ theme }) => theme.shadows[3]};
-  border-radius: 5px;
+  border-radius: 22px;
   width: 284px;
   margin: 0 16px;
   height: 160px;
@@ -72,7 +71,7 @@ const Img = styled.img`
 
 const Investors: React.FC = () => {
   const { isDark } = useDarkMode()
-  // const JUMP_IMG_URL = isDark ? '/images/dark-jumpcaptal.png' : '/images/light-jumpcaptal.png'
+  const JUMP_IMG_URL = isDark ? '/images/dark-jumpcaptal.png' : '/images/light-jumpcaptal.png'
   const HASHED_IMG_URL = isDark ? '/images/dark-hashed.svg' : '/images/light-hashed.svg'
   const HASHKEY_IMG_URL = isDark ? '/images/dark-hashkey.svg' : '/images/light-hashkey.svg'
 
@@ -82,17 +81,19 @@ const Investors: React.FC = () => {
         <Typography color="primary" variant="h6" paragraph>
           OUR INVESTORS
         </Typography>
-        <Typography variant="h5" paragraph>
-          Backed & Trusted
-          <span className="subtitle">{' by the best'}</span>
+        <Typography variant="h2" paragraph>
+          Trusted by the best
         </Typography>
         <Typography variant="subtitle2" paragraph>
           We partner with leading funds & trading firms
         </Typography>
+        <br />
         <LogoWrapper>
-          {/* <Card><Img src={JUMP_IMG_URL} alt="JUMPCAPITAL INVESTOR"/></Card> */}
           <Card>
-            <Img src={HASHED_IMG_URL} alt="HASHED INVESTOR" />
+            <Img src={JUMP_IMG_URL} alt="JUMP CAPITAL INVESTOR" />
+          </Card>
+          <Card>
+            <Img src={HASHED_IMG_URL} alt="HASHKEY INVESTOR" />
           </Card>
           <Card>
             <Img src={HASHKEY_IMG_URL} alt="HASHKEY INVESTOR" />
