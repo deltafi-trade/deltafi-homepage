@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Container } from '@material-ui/core'
 
 import Logo from './Logo'
-import { LaunchButton, ThemeButton } from 'components'
+import { Button, ThemeButton } from 'components'
 import { StyledLink } from './LinkList'
 
 import {
@@ -162,7 +162,7 @@ const Footer: React.FC = () => {
           </Wrapper>
           <StyledDiv>
             <ThemeButton toggleDarkMode={toggleDarkMode} isDark={isDark} className="theme-button" />
-            <LaunchButton color="primary" className="launch-button" />
+            <Button color="primary" className="launch-button">REQUEST A DEMO</Button>
           </StyledDiv>
         </FlexWrapper>
       </SiteMapWrapper>

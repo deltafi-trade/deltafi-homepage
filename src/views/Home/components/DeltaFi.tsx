@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { LaunchButton, BoundedLiquidityIcon, CrossChainIcon, IntelligentMarketIcon } from 'components'
+import { Button, BoundedLiquidityIcon, CrossChainIcon, IntelligentMarketIcon } from 'components'
 
 import useDarkMode from 'hooks/useDarkMode'
 import { Container, Grid, Typography } from '@material-ui/core'
@@ -197,10 +197,10 @@ const DeltaFi: React.FC = () => {
             </Grid>
           ))}
         </Grid>
-        <Typography variant="h6" paragraph className="deposit-text">
-          Deposit and Earn!
+        <Typography variant="h2" paragraph className="deposit-text">
+          Ready to join us?
         </Typography>
-        <LaunchButton cta />
+        <Button>Join Us</Button>
       </StyledDiv>
     </Container>
   )

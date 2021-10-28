@@ -7,7 +7,7 @@ import LinkList from './LinkList'
 
 import { HOMEPAGE_LINK } from 'config/constants/constant'
 
-import { LaunchButton, Menu, ThemeButton } from 'components'
+import { Button, Menu, ThemeButton } from 'components'
 import useDarkMode from 'hooks/useDarkMode'
 
 interface ContainerProps {
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
           <LinkList />
           <ThemeButton toggleDarkMode={toggleDarkMode} isDark={isDark} className="theme-button" />
           <DesktopSection>
-            <LaunchButton color="primary" />
+            <Button color="primary">REQUEST A DEMO</Button>
           </DesktopSection>
           <MobileSection>
             <Menu />

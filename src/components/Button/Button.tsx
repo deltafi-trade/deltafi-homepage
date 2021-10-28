@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonProps, Theme } from '@material-ui/core';
+import { Button as MUIButton, ButtonProps, Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { APP_LINK } from 'config/constants/constant'
@@ -21,18 +21,19 @@ const useStyles = makeStyles(({ palette }: Theme) => ({
   },
 }));
 
-interface CTAButtonProps extends ButtonProps {
-  cta?: boolean
+interface IButtonProps extends ButtonProps {
+  children: React.ReactNode;
 }
 
-const LaunchButton: React.FC<CTAButtonProps> = (props) => {
+const Button: React.FC<IButtonProps> = (props) => {
+  const { children } = props;
   const classes = useStyles(props);
 
   return (
-    <Button variant="contained" className={classes.ctaButton} size="large" href={APP_LINK}>
-      REQUEST A DEMO
-    </Button>
+    <MUIButton variant="contained" className={classes.ctaButton} size="large" href={APP_LINK}>
+      {children}
+    </MUIButton>
   );
 }
 
-export default React.memo(LaunchButton)
+export default React.memo(Button)

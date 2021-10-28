@@ -35,6 +35,7 @@ declare module '@material-ui/core/styles/createPalette' {
     cta?: string
     investorBg?: string
     primary?: React.CSSProperties['color'],
+    secondary?: React.CSSProperties['color']
   }
 }
 
