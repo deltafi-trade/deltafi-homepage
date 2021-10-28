@@ -33,7 +33,6 @@ const MobileSection = styled.div`
 `
 const useStyles = makeStyles((theme: Theme) => ({
   headerWrapper: {
-    backgroundColor: theme.palette.background.primary,
     boxShadow: 'none',
   
     '$.theme-button': {
