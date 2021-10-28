@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Container } from '@material-ui/core'
 
 import Logo from './Logo'
-import { Button, ThemeButton } from 'components'
+import { Button, TelegramIcon, ThemeButton } from 'components'
 import { StyledLink } from './LinkList'
 
 import {
@@ -18,7 +18,7 @@ import {
   TELEGRAM_LINK,
   DOC_LINK,
 } from 'config/constants/constant'
-import { BlogIcon, GithubIcon, TelegramIcon, TwitterIcon, YoutubeIcon } from 'components'
+import { BlogIcon, GithubIcon, DiscordIcon, TwitterIcon, MediumIcon } from 'components'
 import useDarkMode from 'hooks/useDarkMode'
 
 const Wrapper = styled.div`
@@ -72,8 +72,8 @@ const CopyrightWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
-  background-color: ${({ theme }) => theme.palette.background.default};
+  flex-direction: column;
+  background-color: ${({ theme }) => theme.palette.background.primary};
   color: ${({ theme }) => theme.palette.text.primary};
   padding: 24px 0;
 
@@ -82,11 +82,13 @@ const CopyrightWrapper = styled.div`
     flex-direction: column;
   }
 `
+
+const CopyrightText = styled.div`
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 20px;
+`
+
 const IconWrapper = styled.div`
-  margin: 0 16px;
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
-    margin: 0 6px;
-  }
   &:first-child {
     margin-left: 0;
   }
@@ -167,36 +169,34 @@ const Footer: React.FC = () => {
         </FlexWrapper>
       </SiteMapWrapper>
       <CopyrightWrapper>
-        <FlexWrapper>
-          <Wrapper>© 2021 DeltaFi. All rights reserved</Wrapper>
-          <StyledDiv>
-            <IconWrapper>
-              <StyledLink href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
-                <GithubIcon isDark={isDark} width="40px" />
-              </StyledLink>
-            </IconWrapper>
-            <IconWrapper>
-              <StyledLink href={TELEGRAM_LINK} target="_blank" rel="noreferrer noopener">
-                <TelegramIcon isDark={isDark} width="40px" />
-              </StyledLink>
-            </IconWrapper>
-            <IconWrapper>
-              <StyledLink href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
-                <BlogIcon isDark={isDark} width="40px" />
-              </StyledLink>
-            </IconWrapper>
-            <IconWrapper>
-              <StyledLink href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
-                <TwitterIcon isDark={isDark} width="40px" />
-              </StyledLink>
-            </IconWrapper>
-            <IconWrapper>
-              <StyledLink href={YOUTUBE_LINK} target="_blank" rel="noreferrer noopener">
-                <YoutubeIcon isDark={isDark} width="40px" />
-              </StyledLink>
-            </IconWrapper>
-          </StyledDiv>
-        </FlexWrapper>
+        <CopyrightText>© 2021 DeltaFi. All rights reserved</CopyrightText>
+        <StyledDiv>
+          <IconWrapper>
+            <StyledLink href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
+              <TwitterIcon isDark={isDark} width="40px" />
+            </StyledLink>
+          </IconWrapper>
+          <IconWrapper>
+            <StyledLink href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">
+              <DiscordIcon isDark={isDark} width="40px" />
+            </StyledLink>
+          </IconWrapper>
+          <IconWrapper>
+            <StyledLink href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
+              <GithubIcon isDark={isDark} width="40px" />
+            </StyledLink>
+          </IconWrapper>
+          <IconWrapper>
+            <StyledLink href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
+              <MediumIcon isDark={isDark} width="40px" />
+            </StyledLink>
+          </IconWrapper>
+          <IconWrapper>
+            <StyledLink href={TELEGRAM_LINK} target="_blank" rel="noreferrer noopener">
+              <TelegramIcon isDark={isDark} width="40px" />
+            </StyledLink>
+          </IconWrapper>
+        </StyledDiv>
       </CopyrightWrapper>
     </div>
   )

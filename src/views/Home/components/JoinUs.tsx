@@ -21,6 +21,7 @@ const JoinUs = () => {
       <Typography variant="h2" paragraph className="deposit-text">
         Ready to join us?
       </Typography>
+      <br />
       <Button>Join Us</Button>
     </div>
   );
