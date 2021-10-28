@@ -1,24 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Grid, Typography } from '@material-ui/core'
+import { Container, Grid, Theme, Typography } from '@material-ui/core'
 
 import { LaunchButton } from 'components'
 
 import useDarkMode from 'hooks/useDarkMode'
+import { makeStyles } from '@material-ui/styles'
 
 interface ContainerProps {
   isDark: boolean
 }
 
 const Main = styled.div<ContainerProps>`
-  background-image: ${({ theme }) => theme.palette.background.cta};
-  background-size: cover;
 `
 
 const StyledDiv = styled(Container)`
   display: flex;
   align-items: center;
   min-height: 100vh;
+  max-width: 652px;
 `
 const Wrapper = styled.div`
   display: flex;
@@ -58,38 +58,38 @@ const DesktopWrapper = styled.div`
   }
 `
 
+const useStyles = makeStyles(({ palette }: Theme) => ({
+  title: {
+    fontSize: '78px',
+    lineHeight: '80px',
+  },
+  subTitle: {
+    maxWidth: '526px'
+  },
+}));
+
 const AssetManager: React.FC = () => {
-  const { isDark } = useDarkMode()
+  const { isDark } = useDarkMode();
+  const classes = useStyles();
 
   return (
     <Main isDark={isDark}>
       <StyledDiv>
         <Grid container spacing={2} justifyContent="center" alignItems="center">
-          <Grid item sm={12} md={6}>
+          <Grid item sm={12} md={12}>
             <Wrapper>
-              <Typography variant="subtitle1" paragraph>
-                POWERED BY SOLANA
+              <img src="/images/poweredby.png" alt="Powered by solala" />
+              <br />
+              <Typography variant="h2" align="center" className={classes.title}>
+                The world’s most efficient DEX
               </Typography>
-              <Typography variant="h1" color="primary" className="asset-title">
-                Trade
-              </Typography>
-              <Typography variant="h2" gutterBottom>
-                Everything
-              </Typography>
-              <Typography variant="h4" align="center" paragraph>
-                Lightning speed and DAO governed
+              <br />
+              <Typography variant="h5" align="center" paragraph className={classes.subTitle}>
+                High Yields, Deep Liquidity, and DAO Governed
               </Typography>
               <DesktopWrapper>
                 <LaunchButton cta color="secondary" />
               </DesktopWrapper>
-            </Wrapper>
-          </Grid>
-          <Grid item sm={12} md={6}>
-            <Wrapper>
-              <MobileWrapper>
-                <LaunchButton cta color="secondary" />
-              </MobileWrapper>
-              <img src="/images/asset.png" alt="asset" />
             </Wrapper>
           </Grid>
         </Grid>
