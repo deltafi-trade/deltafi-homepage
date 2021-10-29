@@ -16,7 +16,8 @@ const StyledDiv = styled.div`
   font-family: DM Sans;
 
   .subtitle {
-    color: #949292;
+    margin-top: 16px;
+    margin-bottom: 68px;
   }
   .deposit-text {
     margin-top: 48px;
@@ -45,14 +46,10 @@ const Card = styled(Grid)`
   .card-title {
     font-family: DM Sans;
     font-weight: bold;
-    max-width: 40%;
 
     ${({ theme }) => theme.muibreakpoints.down('sm')} {
       max-width: 50%;
     }
-  }
-  .card-content {
-    max-width: 70%;
   }
 
   ${({ theme }) => theme.muibreakpoints.down('lg')} {
@@ -67,11 +64,16 @@ const Card = styled(Grid)`
     height: 500px;
   }
 `
-const DesktopDiv = styled.div`
+const DesktopDiv = styled.div<{bg: string}>`
   display: flex;
   order: 2;
   width: 50%;
   height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: ${(props) => props.bg};
+  border-top-right-radius: 18.1159px;
+  border-bottom-right-radius: 18.1159px;
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     display: none;
   }
@@ -86,9 +88,9 @@ const MobileDiv = styled.div`
   }
 `
 const Img = styled.img`
-  width: 100%;
+  max-width: 329px;
+  max-height: 212px;
   object-fit: cover;
-  border-radius: 0 20px 20px 0;
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     border-radius: 10px 10px 0 0;
   }
@@ -96,14 +98,15 @@ const Img = styled.img`
 const CustomDiv = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  text-align: center;
-  background-color: ${({ theme }) => theme.palette.background.primary};
+  text-align: start;
+  background-color: ${({ theme }) => theme.palette.background.secondary};
   width: 50%;
   height: 100%;
   order: 1;
   border-radius: 20px 0 0 20px;
+  padding: 109.52px 54.35px;
 
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     order: 2;
@@ -130,31 +133,34 @@ const DeltaFi: React.FC = () => {
   const { isDark } = useDarkMode()
   const CARD_LIST = [
     {
-      icon: <IntelligentMarketIcon width="70" color={isDark ? '#FFFFFF' : '#000000'} />,
+      icon: <img src="/images/homepage/intelligent-market.svg" />,
       title: `Intelligent Market Making`,
       content: 'Adaptive algorithms are developed for efficient pricing under various market dynamics.',
-      image: isDark ? '/images/intelligent-market-making-dark.png' : '/images/intelligent-market-making-light.png',
+      image: isDark ? '/images/homepage/intelligent-market-desktop1.png' : '/images/homepage/intelligent-market-desktop1.png',
       imageMobile: isDark
         ? '/images/intelligent-market-making-mobile-dark.png'
         : '/images/intelligent-market-making-mobile-light.png',
+      background: 'linear-gradient(314.49deg, #434BFF 0%, #FF4B81 97.42%)'
     },
     {
-      icon: <CrossChainIcon width="70" color={isDark ? '#FFFFFF' : '#000000'} />,
+      icon: <img src="/images/homepage/exchange.svg" />,
       title: 'Cross Chain Trading',
       content: 'Ease of trading for any token builds the liquidity hub and optimal user experience.',
-      image: isDark ? '/images/cross-chain-trading-dark.png' : '/images/cross-chain-trading-light.png',
+      image: isDark ? '/images/homepage/intelligent-market-desktop1.png' : '/images/homepage/intelligent-market-desktop1.png',
       imageMobile: isDark
         ? '/images/cross-chain-trading-mobile-dark.png'
         : '/images/cross-chain-trading-mobile-light.png',
+        background: 'linear-gradient(134.99deg, #94CB90 1.39%, #7061A3 109.29%)'
     },
     {
-      icon: <BoundedLiquidityIcon width="70" color={isDark ? '#FFFFFF' : '#000000'} />,
+      icon: <img src="/images/homepage/chart.svg" />,
       title: 'Bounded Liquidity Risk',
       content: 'Provisioned liquidity is protected from impermanent loss despite market volatilities.',
-      image: isDark ? '/images/bounded-liquidity-risk-dark.png' : '/images/bounded-liquidity-risk-light.png',
+      image: isDark ? '/images/homepage/intelligent-market-desktop1.png' : '/images/homepage/intelligent-market-desktop1.png',
       imageMobile: isDark
         ? '/images/bounded-liquidity-risk-mobile-dark.png'
         : '/images/bounded-liquidity-risk-mobile-light.png',
+        background: 'linear-gradient(314.49deg, #E2CE85 0%, #FE316F 97.42%)'
     },
   ]
 
@@ -162,11 +168,11 @@ const DeltaFi: React.FC = () => {
     <Container>
       <StyledDiv>
         <Typography color="primary" variant="h6" paragraph>
-          HIGHER EFFICIENCY, LOWER SLIPPAGE
+          OUR MISSION
         </Typography>
-        <Typography variant="h5">DeltaFi optimizes capital efficiency with zero slippage,</Typography>
+        <Typography variant="h2">Built for traders, market makers, and liquidity providers</Typography>
         <Typography color="inherit" variant="h5" paragraph className="subtitle">
-          while minimizing impermanent loss.
+          Machine Learning Design, Optimal User Experience
         </Typography>
         <Grid container spacing={3}>
           {CARD_LIST.map((card, index) => (
@@ -174,14 +180,14 @@ const DeltaFi: React.FC = () => {
               <Card>
                 <CustomDiv>
                   <Typography paragraph>{card.icon}</Typography>
-                  <Typography variant="h6" paragraph className="card-title">
+                  <Typography variant="h4" paragraph className="card-title">
                     {card.title}
                   </Typography>
-                  <Typography variant="subtitle1" paragraph className="card-content">
+                  <Typography variant="h6" paragraph className="card-content">
                     {card.content}
                   </Typography>
                 </CustomDiv>
-                <DesktopDiv>
+                <DesktopDiv bg={card.background}>
                   <Img src={card.image} alt="Yields" />
                 </DesktopDiv>
                 <MobileDiv>
