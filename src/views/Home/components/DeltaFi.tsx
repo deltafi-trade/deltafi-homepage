@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import useDarkMode from 'hooks/useDarkMode'
-import { Container, Grid, Typography } from '@material-ui/core'
+import { Container, Grid, makeStyles, Theme, Typography } from '@material-ui/core'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -131,8 +131,16 @@ const CustomDiv = styled.div`
   }
 `
 
+const useStyles = makeStyles(({ palette }: Theme) => ({
+  title: {
+    maxWidth: 592,
+    marginBottom: 10,
+  },
+}))
+
 const DeltaFi: React.FC = () => {
   const { isDark } = useDarkMode()
+  const classes = useStyles()
 
   const CARD_LIST = [
     {
@@ -152,7 +160,7 @@ const DeltaFi: React.FC = () => {
       title: 'Cross Chain Trading',
       content: 'Ease of trading for any token builds the liquidity hub and optimal user experience.',
       image: isDark
-        ? '/images/homepage/intelligent-market-desktop1.png'
+        ? '/images/homepage/feature2.svg'
         : '/images/homepage/intelligent-market-desktop1.png',
       imageMobile: isDark
         ? '/images/cross-chain-trading-mobile-dark.png'
@@ -179,8 +187,8 @@ const DeltaFi: React.FC = () => {
         <Typography color="primary" variant="h6" paragraph>
           OUR MISSION
         </Typography>
-        <Typography variant="h2">The DEX built for traders, market makers, and liquidity providers</Typography>
-        <Typography color="inherit" variant="h5" paragraph className="subtitle">
+        <Typography variant="h2" className={classes.title}>Built for traders, market makers, and liquidity providers</Typography>
+        <Typography color="inherit" variant="h6" paragraph className="subtitle">
           Machine Learning Design, Optimal User Experience
         </Typography>
         <Grid container spacing={3}>

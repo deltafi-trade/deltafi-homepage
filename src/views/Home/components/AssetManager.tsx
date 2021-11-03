@@ -73,7 +73,7 @@ const AssetManager: React.FC = () => {
               <img src="/images/poweredby.png" alt="Powered by solala" />
               <br />
               <Typography variant="h2" align="center" className={classes.title}>
-                The world’s most efficient DEX
+                The World’s Most Efficient DEX
               </Typography>
               <br />
               <Typography variant="h5" align="center" paragraph className={classes.subTitle}>
