@@ -7,7 +7,7 @@ const StyledPage = styled('div')(({
   theme
 }) => ({
   backgroundColor: theme.palette.background.primary,
-  backgroundImage: 'url(/images/home-bg.png)',
+  backgroundImage: 'url(/images/homepage/landing-bg.png)',
   backgroundSize: 'cover'
 }));
 

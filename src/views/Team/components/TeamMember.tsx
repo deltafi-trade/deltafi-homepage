@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Grid, Typography } from '@material-ui/core'
+import { Container, Grid, makeStyles, Theme, Typography } from '@material-ui/core'
 
 import memberList from './member.json'
+import advisorList from './advisor.json'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -27,16 +28,56 @@ const StyledLink = styled.a`
   text-decoration: none;
 `
 
+const useStyles = makeStyles(({ palette }: Theme) => ({
+  title: {
+    fontSize: '78px',
+    lineHeight: '80px',
+  },
+  subTitle: {
+    maxWidth: '526px'
+  },
+}));
+
 const TeamMember: React.FC = () => {
+  const classes = useStyles();
+
   return (
     <Container>
       <StyledDiv>
-        <Typography variant="h5" paragraph>
-          Our Team
+        <Typography color="primary" variant="h6" paragraph>
+          Who we are
         </Typography>
-        <Grid container spacing={4}>
+        <Typography variant="h2" align="center" className={classes.title}>
+          Meet our team
+        </Typography>
+        <br />
+        <br />
+        <br />
+        <br />
+        <Grid container spacing={4} justifyContent="center">
           {memberList.map((member, index) => (
-            <Grid item key={`card-${index}`} sm={6} md={4} lg={3}>
+            <Grid item key={`card-${index}`} xs={6} sm={3}>
+              <StyledLink href={member.linkedin} target="_blank">
+                <Img src={member.avatar} alt="avatar" />
+              </StyledLink>
+              <Typography variant="subtitle1">{member.name}</Typography>
+              <Typography variant="subtitle2" paragraph>
+                {member.role}
+              </Typography>
+            </Grid>
+          ))}
+        </Grid>
+        <br />
+        <br />
+        <br />
+        <br />
+        <Typography color="primary" variant="h6" paragraph>
+          Advisors
+        </Typography>
+        <br />
+        <Grid container spacing={4} justifyContent="center">
+          {advisorList.map((member, index) => (
+            <Grid item key={`card-${index}`} xs={6} sm={3}>
               <StyledLink href={member.linkedin} target="_blank">
                 <Img src={member.avatar} alt="avatar" />
               </StyledLink>

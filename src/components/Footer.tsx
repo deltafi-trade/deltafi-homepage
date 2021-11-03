@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container } from '@material-ui/core'
+import { Container, Grid, makeStyles, Theme, Typography } from '@material-ui/core'
 
 import Logo from './Logo'
-import { LaunchButton, ThemeButton } from 'components'
+import { Button, TelegramIcon, ThemeButton } from 'components'
 import { StyledLink } from './LinkList'
 
 import {
@@ -18,8 +18,9 @@ import {
   TELEGRAM_LINK,
   DOC_LINK,
 } from 'config/constants/constant'
-import { BlogIcon, GithubIcon, TelegramIcon, TwitterIcon, YoutubeIcon } from 'components'
+import { BlogIcon, GithubIcon, DiscordIcon, TwitterIcon, MediumIcon } from 'components'
 import useDarkMode from 'hooks/useDarkMode'
+import { PeopleTwoTone } from '@material-ui/icons'
 
 const Wrapper = styled.div`
   font-family: 'Inter', sans-serif;
@@ -72,21 +73,22 @@ const CopyrightWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
-  background-color: ${({ theme }) => theme.palette.background.default};
+  flex-direction: column;
+  background-color: ${({ theme }) => theme.palette.background.primary};
   color: ${({ theme }) => theme.palette.text.primary};
   padding: 24px 0;
 
   ${({ theme }) => theme.muibreakpoints.down('md')} {
-    background-color: ${({ theme }) => theme.palette.background.default};
     flex-direction: column;
   }
 `
+
+const CopyrightText = styled.div`
+  font-family: 'Stapel';
+  margin-bottom: 20px;
+`
+
 const IconWrapper = styled.div`
-  margin: 0 16px;
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
-    margin: 0 6px;
-  }
   &:first-child {
     margin-left: 0;
   }
@@ -96,107 +98,150 @@ const IconWrapper = styled.div`
       padding-right: 0;
     }
   }
-`
+`;
+
+const useStyles = makeStyles(({ palette }: Theme) => ({
+  row: {
+    maxWidth: '768px',
+  },
+  column: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  listTitle: {
+    color: palette.text.secondary,
+  },
+  listItem: {
+    '&:hover': {
+      textDecoration: 'none'
+    }
+  }
+}));
+
 const Footer: React.FC = () => {
   const { isDark, toggleDarkMode } = useDarkMode()
+  const classes = useStyles()
 
   return (
     <div>
       <SiteMapWrapper>
-        <FlexWrapper>
-          <Wrapper>
+        <Grid container justifyContent="space-between" className={classes.row}>
+          <Grid item>
             <Logo href={HOMEPAGE_LINK} isDark={isDark} />
-            <StyledDivMt>
-              <StyledLink
-                color="inherit"
-                href={TWITTER_LINK}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="font-size-14"
-              >
-                Twitter
-              </StyledLink>
-              <StyledLink
-                color="inherit"
-                href={DISCORD_LINK}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="font-size-14"
-              >
-                Discord
-              </StyledLink>
-              <StyledLink
-                color="inherit"
-                href={GITHUB_LINK}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="font-size-14"
-              >
-                Github
-              </StyledLink>
-              <StyledLink
-                color="inherit"
-                href={BLOG_LINK}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="font-size-14"
-              >
-                Blog
-              </StyledLink>
-              <StyledLink
-                color="inherit"
-                href={DOC_LINK}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="font-size-14"
-              >
-                Docs
-              </StyledLink>
-              <StyledLink color="inherit" href={CAREERS_LINK} className="font-size-14">
-                Careers
-              </StyledLink>
-              <StyledLink color="inherit" href={PRIVACY_LINK} className="font-size-14">
-                Privacy Policy
-              </StyledLink>
-            </StyledDivMt>
-          </Wrapper>
-          <StyledDiv>
-            <ThemeButton toggleDarkMode={toggleDarkMode} isDark={isDark} className="theme-button" />
-            <LaunchButton color="primary" className="launch-button" />
-          </StyledDiv>
-        </FlexWrapper>
+          </Grid>
+          <Grid item className={classes.column}>
+            <Typography variant="h6" align="center" paragraph className={classes.listTitle}>
+              Company
+            </Typography>
+            <StyledLink
+              color="inherit"
+              href={TWITTER_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={classes.listItem}
+            >
+              Twitter
+            </StyledLink>
+            <br />
+            <StyledLink
+              color="inherit"
+              href={DISCORD_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={classes.listItem}
+            >
+              Discord
+            </StyledLink>
+            <br />
+            <StyledLink
+              color="inherit"
+              href={TELEGRAM_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={classes.listItem}
+            >
+              Telegram
+            </StyledLink>
+          </Grid>
+          <Grid item className={classes.column}>
+            <Typography variant="h6" align="center" paragraph className={classes.listTitle}>
+              Resources
+            </Typography>
+            <StyledLink
+              color="inherit"
+              href={GITHUB_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={classes.listItem}
+            >
+              Github
+            </StyledLink>
+            <br />
+            <StyledLink
+              color="inherit"
+              href={DISCORD_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={classes.listItem}
+            >
+              Whitepaper
+            </StyledLink>
+          </Grid>
+          <Grid item className={classes.column}>
+            <Typography variant="h6" paragraph className={classes.listTitle}>
+              About
+            </Typography>
+            <StyledLink
+              color="inherit"
+              href={BLOG_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={classes.listItem}
+            >
+              Blog
+            </StyledLink>
+            <br />
+            <StyledLink
+              color="inherit"
+              href={DISCORD_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={classes.listItem}
+            >
+              Contact Us
+            </StyledLink>
+          </Grid>
+        </Grid>
       </SiteMapWrapper>
       <CopyrightWrapper>
-        <FlexWrapper>
-          <Wrapper>© 2021 DeltaFi. All rights reserved</Wrapper>
-          <StyledDiv>
-            <IconWrapper>
-              <StyledLink href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
-                <GithubIcon isDark={isDark} width="40px" />
-              </StyledLink>
-            </IconWrapper>
-            <IconWrapper>
-              <StyledLink href={TELEGRAM_LINK} target="_blank" rel="noreferrer noopener">
-                <TelegramIcon isDark={isDark} width="40px" />
-              </StyledLink>
-            </IconWrapper>
-            <IconWrapper>
-              <StyledLink href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
-                <BlogIcon isDark={isDark} width="40px" />
-              </StyledLink>
-            </IconWrapper>
-            <IconWrapper>
-              <StyledLink href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
-                <TwitterIcon isDark={isDark} width="40px" />
-              </StyledLink>
-            </IconWrapper>
-            <IconWrapper>
-              <StyledLink href={YOUTUBE_LINK} target="_blank" rel="noreferrer noopener">
-                <YoutubeIcon isDark={isDark} width="40px" />
-              </StyledLink>
-            </IconWrapper>
-          </StyledDiv>
-        </FlexWrapper>
+        <CopyrightText>© 2021 DeltaFi. All rights reserved</CopyrightText>
+        <StyledDiv>
+          <IconWrapper>
+            <StyledLink href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
+              <TwitterIcon isDark={isDark} width="40px" />
+            </StyledLink>
+          </IconWrapper>
+          <IconWrapper>
+            <StyledLink href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">
+              <DiscordIcon isDark={isDark} width="40px" />
+            </StyledLink>
+          </IconWrapper>
+          <IconWrapper>
+            <StyledLink href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
+              <GithubIcon isDark={isDark} width="40px" />
+            </StyledLink>
+          </IconWrapper>
+          <IconWrapper>
+            <StyledLink href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
+              <MediumIcon isDark={isDark} width="40px" />
+            </StyledLink>
+          </IconWrapper>
+          <IconWrapper>
+            <StyledLink href={TELEGRAM_LINK} target="_blank" rel="noreferrer noopener">
+              <TelegramIcon isDark={isDark} width="40px" />
+            </StyledLink>
+          </IconWrapper>
+        </StyledDiv>
       </CopyrightWrapper>
     </div>
   )

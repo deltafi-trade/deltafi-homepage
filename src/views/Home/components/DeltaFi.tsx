@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { LaunchButton, BoundedLiquidityIcon, CrossChainIcon, IntelligentMarketIcon } from 'components'
+import { Button, BoundedLiquidityIcon, CrossChainIcon, IntelligentMarketIcon } from 'components'
 
 import useDarkMode from 'hooks/useDarkMode'
 import { Container, Grid, Typography } from '@material-ui/core'
@@ -78,13 +78,19 @@ const DesktopDiv = styled.div<{bg: string}>`
     display: none;
   }
 `
-const MobileDiv = styled.div`
+const MobileDiv = styled.div<{bg: string}>`
   display: none;
+  border-top-right-radius: 18.1159px;
+  border-top-left-radius: 18.1159px;
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     order: 1;
     width: 100%;
-    height: 45%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ${(props) => props.bg};
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 `
 const Img = styled.img`
@@ -130,7 +136,8 @@ const CustomDiv = styled.div`
 `
 
 const DeltaFi: React.FC = () => {
-  const { isDark } = useDarkMode()
+  const { isDark } = useDarkMode();
+
   const CARD_LIST = [
     {
       icon: <img src="/images/homepage/intelligent-market.svg" />,
@@ -170,7 +177,7 @@ const DeltaFi: React.FC = () => {
         <Typography color="primary" variant="h6" paragraph>
           OUR MISSION
         </Typography>
-        <Typography variant="h2">Built for traders, market makers, and liquidity providers</Typography>
+        <Typography variant="h2">The DEX built for traders, market makers, and liquidity providers</Typography>
         <Typography color="inherit" variant="h5" paragraph className="subtitle">
           Machine Learning Design, Optimal User Experience
         </Typography>
@@ -178,6 +185,9 @@ const DeltaFi: React.FC = () => {
           {CARD_LIST.map((card, index) => (
             <Grid item key={`card-${index}`} xs={12}>
               <Card>
+                <MobileDiv bg={card.background}>
+                  <Img src={card.image} alt="Yields" />
+                </MobileDiv>
                 <CustomDiv>
                   <Typography paragraph>{card.icon}</Typography>
                   <Typography variant="h4" paragraph className="card-title">
@@ -190,17 +200,14 @@ const DeltaFi: React.FC = () => {
                 <DesktopDiv bg={card.background}>
                   <Img src={card.image} alt="Yields" />
                 </DesktopDiv>
-                <MobileDiv>
-                  <Img src={card.imageMobile} alt="Yields" />
-                </MobileDiv>
               </Card>
+              <br />
+              <br />
+              <br />
+              <br />
             </Grid>
           ))}
         </Grid>
-        <Typography variant="h6" paragraph className="deposit-text">
-          Deposit and Earn!
-        </Typography>
-        <LaunchButton cta />
       </StyledDiv>
     </Container>
   )

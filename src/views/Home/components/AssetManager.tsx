@@ -2,10 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, Grid, Theme, Typography } from '@material-ui/core'
 
-import { LaunchButton } from 'components'
+import { Button } from 'components'
 
 import useDarkMode from 'hooks/useDarkMode'
 import { makeStyles } from '@material-ui/styles'
+import { APP_LINK } from 'config/constants/constant'
 
 interface ContainerProps {
   isDark: boolean
@@ -88,7 +89,7 @@ const AssetManager: React.FC = () => {
                 High Yields, Deep Liquidity, and DAO Governed
               </Typography>
               <DesktopWrapper>
-                <LaunchButton cta color="secondary" />
+                <Button color="secondary" href={APP_LINK}>REQUEST A DEMO</Button>
               </DesktopWrapper>
             </Wrapper>
           </Grid>
