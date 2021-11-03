@@ -1,16 +1,5 @@
-import styled from 'styled-components'
-
 import { Box, Container, Grid, makeStyles, Theme, Typography } from '@material-ui/core'
 import { Button } from 'components'
-
-const DesktopWrapper = styled.div`
-  display: flex;
-  margin-top: ${({ theme }) => theme.spacing(4)}px;
-
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
-    display: none;
-  }
-`
 
 const useStyles = makeStyles(({ palette }: Theme) => ({
   root: {
