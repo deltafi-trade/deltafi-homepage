@@ -13,6 +13,7 @@ import {
   GITHUB_LINK,
   DISCORD_LINK,
   TELEGRAM_LINK,
+  WHITE_PAPER,
 } from 'config/constants/constant'
 import { GithubIcon, DiscordIcon, TwitterIcon, MediumIcon } from 'components'
 import useDarkMode from 'hooks/useDarkMode'
@@ -85,10 +86,18 @@ const useStyles = makeStyles(({ palette }: Theme) => ({
     color: palette.text.secondary,
   },
   listItem: {
+    padding: '0px !important',
     '&:hover': {
       textDecoration: 'none',
     },
   },
+  logo: {
+    paddingTop: '12px', 
+  },
+  logoTitle: {
+    maxWidth: '200px',
+    marginTop: '5px'
+  }
 }))
 
 const Footer: React.FC = () => {
@@ -99,11 +108,14 @@ const Footer: React.FC = () => {
     <div>
       <SiteMapWrapper>
         <Grid container justifyContent="space-between" className={classes.row}>
-          <Grid item>
+          <Grid item className={classes.logo}>
             <Logo href={HOMEPAGE_LINK} isDark={isDark} />
+            <Typography variant="subtitle2" paragraph className={classes.logoTitle}>
+              Building the Next Generation Cross-Chain DEX on Solana
+            </Typography>
           </Grid>
           <Grid item className={classes.column}>
-            <Typography variant="h6" align="center" paragraph className={classes.listTitle}>
+            <Typography variant="body1" align="center" paragraph className={classes.listTitle}>
               Company
             </Typography>
             <StyledLink
@@ -137,7 +149,7 @@ const Footer: React.FC = () => {
             </StyledLink>
           </Grid>
           <Grid item className={classes.column}>
-            <Typography variant="h6" align="center" paragraph className={classes.listTitle}>
+            <Typography variant="body1" paragraph className={classes.listTitle}>
               Resources
             </Typography>
             <StyledLink
@@ -152,7 +164,7 @@ const Footer: React.FC = () => {
             <br />
             <StyledLink
               color="inherit"
-              href={DISCORD_LINK}
+              href={WHITE_PAPER}
               target="_blank"
               rel="noreferrer noopener"
               className={classes.listItem}
@@ -161,7 +173,7 @@ const Footer: React.FC = () => {
             </StyledLink>
           </Grid>
           <Grid item className={classes.column}>
-            <Typography variant="h6" paragraph className={classes.listTitle}>
+            <Typography variant="body1" paragraph className={classes.listTitle}>
               About
             </Typography>
             <StyledLink

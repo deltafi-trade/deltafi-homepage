@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { Link, Typography } from '@material-ui/core'
-import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, TEAM_LINK } from 'config/constants/constant'
+import { Link, makeStyles, Theme, Typography } from '@material-ui/core'
+import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, TEAM_LINK, DISCORD_LINK, TELEGRAM_LINK, WHITE_PAPER } from 'config/constants/constant'
+import useOutsideClick from 'hooks/useOutsideClick'
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   padding: 0 10px;
 `
 
@@ -28,26 +29,99 @@ const CustomLink = styled(Link)`
   cursor: pointer;
 `
 
+const DropDownLink = styled(Link)`
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`
+
+const Divider = styled.div`
+  background: ${({ theme }) => theme.palette.gradient.cta};
+  height: 1px;
+  opacity: 0.16;
+  margin: 0 6px;
+`
+
+const useStyles = makeStyles((theme: Theme) => ({
+  dropDownContainer: {
+    marginRight: '20px',
+    position: 'relative',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  dropDown: {
+    position: 'absolute',
+    top: '40px',
+    backgroundColor: theme.palette.background.secondary,
+    padding: '10px',
+    borderRadius: '7px',
+  }
+}))
+
 const LinkList: React.FC = () => {
+  const [communityShow, setCommunityShow] = useState<boolean>(false);
+  const [resourcesShow, setResourcesShow] = useState<boolean>(false);
+  const classes = useStyles();
+  const communityContainerRef = useRef<HTMLDivElement>(null);
+  const resourcesContainerRef = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(
+    communityContainerRef,
+    useCallback(() => setCommunityShow(false), []),
+  );
+
+  useOutsideClick(
+    resourcesContainerRef,
+    useCallback(() => setResourcesShow(false), []),
+  );
+
   return (
     <StyledDiv>
       <CustomLink color="inherit" underline="none" href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
         Blog
       </CustomLink>
-      <CustomLink color="inherit" underline="none" href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
-        Community
-      </CustomLink>
-      <CustomLink color="inherit" underline="none">
-        Community&nbsp;
-        <img src="/images/homepage/arrow-down.svg" alt="arrow-down" />
-      </CustomLink>
-      <CustomLink color="inherit" underline="none">
-        Resources&nbsp;
-        <img src="/images/homepage/arrow-down.svg" alt="arrow-down" />
-      </CustomLink>
-      <CustomLink color="inherit" underline="none" href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
-        Whitepaper
-      </CustomLink>
+      <div ref={communityContainerRef} onClick={() => setCommunityShow(!communityShow)} className={classes.dropDownContainer}>
+        <Typography color="inherit" variant="subtitle1" className="subtitle">
+          Community&nbsp;&nbsp;
+          <img src="/images/homepage/arrow-down.svg" alt="arrow-down" />
+        </Typography>
+        {communityShow ? (
+          <div className={classes.dropDown}>
+            <DropDownLink color="inherit" underline="none" href={TWITTER_LINK}>
+              Twitter
+            </DropDownLink>
+            <Divider />
+            <DropDownLink color="inherit" underline="none" href={DISCORD_LINK}>
+              Discord
+            </DropDownLink>
+            <Divider />
+            <DropDownLink color="inherit" underline="none" href={TELEGRAM_LINK}>
+              Telegram
+            </DropDownLink>
+          </div>
+        ): null}
+      </div>
+
+      <div ref={resourcesContainerRef} onClick={() => setResourcesShow(!resourcesShow)} className={classes.dropDownContainer}>
+        <Typography color="inherit" variant="subtitle1" className="subtitle">
+          Resources&nbsp;&nbsp;
+          <img src="/images/homepage/arrow-down.svg" alt="arrow-down" />
+        </Typography>
+        {resourcesShow ? (
+           <div className={classes.dropDown}>
+            <DropDownLink color="inherit" underline="none" href={GITHUB_LINK}>
+              Github
+            </DropDownLink>
+            <Divider />
+            <DropDownLink color="inherit" underline="none" href={WHITE_PAPER}>
+              Whitepaper
+            </DropDownLink>
+          </div>
+        ): null}
+      </div>
       <CustomLink color="inherit" underline="none" href={TEAM_LINK} rel="noreferrer noopener">
         About
       </CustomLink>
