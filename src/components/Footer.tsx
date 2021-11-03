@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Grid, makeStyles, Theme, Typography } from '@material-ui/core'
+import { Grid, makeStyles, Theme, Typography } from '@material-ui/core'
 
 import Logo from './Logo'
-import { Button, TelegramIcon, ThemeButton } from 'components'
+import { TelegramIcon } from 'components'
 import { StyledLink } from './LinkList'
 
 import {
@@ -12,34 +12,11 @@ import {
   TWITTER_LINK,
   GITHUB_LINK,
   DISCORD_LINK,
-  YOUTUBE_LINK,
-  CAREERS_LINK,
-  PRIVACY_LINK,
   TELEGRAM_LINK,
-  DOC_LINK,
 } from 'config/constants/constant'
-import { BlogIcon, GithubIcon, DiscordIcon, TwitterIcon, MediumIcon } from 'components'
+import { GithubIcon, DiscordIcon, TwitterIcon, MediumIcon } from 'components'
 import useDarkMode from 'hooks/useDarkMode'
-import { PeopleTwoTone } from '@material-ui/icons'
 
-const Wrapper = styled.div`
-  font-family: 'Inter', sans-serif;
-  order: 2;
-  ${({ theme }) => theme.muibreakpoints.up('md')} {
-    order: 1;
-  }
-`
-const FlexWrapper = styled(Container)`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
-    flex-direction: column;
-  }
-`
 const SiteMapWrapper = styled.div`
   display: flex;
   align-items: flex-end;
@@ -66,9 +43,6 @@ const StyledDiv = styled.div`
     margin-bottom: 10px;
   }
 `
-const StyledDivMt = styled(StyledDiv)`
-  padding-top: 32px;
-`
 const CopyrightWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -84,7 +58,6 @@ const CopyrightWrapper = styled.div`
 `
 
 const CopyrightText = styled.div`
-  font-family: 'Stapel';
   margin-bottom: 20px;
 `
 
@@ -98,7 +71,7 @@ const IconWrapper = styled.div`
       padding-right: 0;
     }
   }
-`;
+`
 
 const useStyles = makeStyles(({ palette }: Theme) => ({
   row: {
@@ -113,13 +86,13 @@ const useStyles = makeStyles(({ palette }: Theme) => ({
   },
   listItem: {
     '&:hover': {
-      textDecoration: 'none'
-    }
-  }
-}));
+      textDecoration: 'none',
+    },
+  },
+}))
 
 const Footer: React.FC = () => {
-  const { isDark, toggleDarkMode } = useDarkMode()
+  const { isDark } = useDarkMode()
   const classes = useStyles()
 
   return (

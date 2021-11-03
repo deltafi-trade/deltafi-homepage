@@ -7,7 +7,7 @@ import LinkList from './LinkList'
 
 import { APP_LINK, HOMEPAGE_LINK } from 'config/constants/constant'
 
-import { Button, Menu, ThemeButton } from 'components'
+import { Button, Menu } from 'components'
 import useDarkMode from 'hooks/useDarkMode'
 
 interface ContainerProps {
@@ -21,7 +21,7 @@ const HeaderWrapper = styled(AppBar)<ContainerProps>`
   .theme-button {
     margin-left: ${({ theme }) => theme.spacing(1)}px;
   }
-`;
+`
 
 const DesktopSection = styled.div`
   display: flex;
@@ -29,9 +29,6 @@ const DesktopSection = styled.div`
   ${({ theme }) => theme.muibreakpoints.down('md')} {
     display: none;
   }
-`
-const FlexGrow = styled.div`
-  flex-grow: 1;
 `
 const MobileSection = styled.div`
   display: none;
@@ -45,12 +42,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-}));
+}))
 
 const Header: React.FC = () => {
-  const { isDark, toggleDarkMode } = useDarkMode()
+  const { isDark } = useDarkMode()
   const [isShrunk, setShrunk] = useState(false)
-  const classes = useStyles();
+  const classes = useStyles()
 
   useEffect(() => {
     const onScroll = () => {
@@ -78,7 +75,9 @@ const Header: React.FC = () => {
           <Logo href={HOMEPAGE_LINK} isDark={isDark} />
           <LinkList />
           <DesktopSection>
-            <Button color="primary" href={APP_LINK}>REQUEST A DEMO</Button>
+            <Button color="primary" href={APP_LINK}>
+              REQUEST A DEMO
+            </Button>
           </DesktopSection>
           <MobileSection>
             <Menu />

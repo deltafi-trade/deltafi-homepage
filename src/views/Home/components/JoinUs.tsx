@@ -1,8 +1,7 @@
-import { makeStyles, Theme, Typography } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { makeStyles, Theme, Typography } from '@material-ui/core'
 
-import { Button } from 'components';
-import { TWITTER_LINK } from 'config/constants/constant';
+import { Button } from 'components'
+import { TWITTER_LINK } from 'config/constants/constant'
 
 const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
   joinUsContainer: {
@@ -44,11 +43,10 @@ const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
     },
   },
   button: {},
-}));
+}))
 
 const JoinUs = () => {
-  const classes = useStyles();
-  const history = useHistory();
+  const classes = useStyles()
 
   return (
     <div className={classes.joinUsContainer}>
@@ -61,10 +59,12 @@ const JoinUs = () => {
             Our mission is to increase economic freedom in the world. Join us and make an impact at a global scale.
           </Typography>
         </div>
-        <Button className={classes.button} href={TWITTER_LINK}>Join Us</Button>
+        <Button className={classes.button} href={TWITTER_LINK}>
+          Join Us
+        </Button>
       </div>
     </div>
-  );
+  )
 }
 
 export default JoinUs

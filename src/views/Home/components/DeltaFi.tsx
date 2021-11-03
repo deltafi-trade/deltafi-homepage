@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Button, BoundedLiquidityIcon, CrossChainIcon, IntelligentMarketIcon } from 'components'
-
 import useDarkMode from 'hooks/useDarkMode'
 import { Container, Grid, Typography } from '@material-ui/core'
 
@@ -13,7 +11,6 @@ const StyledDiv = styled.div`
   align-items: center;
   padding: 98px 0 60px;
   text-align: center;
-  font-family: DM Sans;
 
   .subtitle {
     margin-top: 16px;
@@ -44,7 +41,6 @@ const Card = styled(Grid)`
   flex-direction: row;
 
   .card-title {
-    font-family: DM Sans;
     font-weight: bold;
 
     ${({ theme }) => theme.muibreakpoints.down('sm')} {
@@ -64,7 +60,7 @@ const Card = styled(Grid)`
     height: 500px;
   }
 `
-const DesktopDiv = styled.div<{bg: string}>`
+const DesktopDiv = styled.div<{ bg: string }>`
   display: flex;
   order: 2;
   width: 50%;
@@ -78,7 +74,7 @@ const DesktopDiv = styled.div<{bg: string}>`
     display: none;
   }
 `
-const MobileDiv = styled.div<{bg: string}>`
+const MobileDiv = styled.div<{ bg: string }>`
   display: none;
   border-top-right-radius: 18.1159px;
   border-top-left-radius: 18.1159px;
@@ -136,38 +132,44 @@ const CustomDiv = styled.div`
 `
 
 const DeltaFi: React.FC = () => {
-  const { isDark } = useDarkMode();
+  const { isDark } = useDarkMode()
 
   const CARD_LIST = [
     {
-      icon: <img src="/images/homepage/intelligent-market.svg" />,
+      icon: <img src="/images/homepage/intelligent-market.svg" alt="Intelligent Market Making" />,
       title: `Intelligent Market Making`,
       content: 'Adaptive algorithms are developed for efficient pricing under various market dynamics.',
-      image: isDark ? '/images/homepage/intelligent-market-desktop1.png' : '/images/homepage/intelligent-market-desktop1.png',
+      image: isDark
+        ? '/images/homepage/intelligent-market-desktop1.png'
+        : '/images/homepage/intelligent-market-desktop1.png',
       imageMobile: isDark
         ? '/images/intelligent-market-making-mobile-dark.png'
         : '/images/intelligent-market-making-mobile-light.png',
-      background: 'linear-gradient(314.49deg, #434BFF 0%, #FF4B81 97.42%)'
+      background: 'linear-gradient(314.49deg, #434BFF 0%, #FF4B81 97.42%)',
     },
     {
-      icon: <img src="/images/homepage/exchange.svg" />,
+      icon: <img src="/images/homepage/exchange.svg" alt="Cross Chain Trading" />,
       title: 'Cross Chain Trading',
       content: 'Ease of trading for any token builds the liquidity hub and optimal user experience.',
-      image: isDark ? '/images/homepage/intelligent-market-desktop1.png' : '/images/homepage/intelligent-market-desktop1.png',
+      image: isDark
+        ? '/images/homepage/intelligent-market-desktop1.png'
+        : '/images/homepage/intelligent-market-desktop1.png',
       imageMobile: isDark
         ? '/images/cross-chain-trading-mobile-dark.png'
         : '/images/cross-chain-trading-mobile-light.png',
-        background: 'linear-gradient(134.99deg, #94CB90 1.39%, #7061A3 109.29%)'
+      background: 'linear-gradient(134.99deg, #94CB90 1.39%, #7061A3 109.29%)',
     },
     {
-      icon: <img src="/images/homepage/chart.svg" />,
+      icon: <img src="/images/homepage/chart.svg" alt="Bounded Liquidity Risk" />,
       title: 'Bounded Liquidity Risk',
       content: 'Provisioned liquidity is protected from impermanent loss despite market volatilities.',
-      image: isDark ? '/images/homepage/intelligent-market-desktop1.png' : '/images/homepage/intelligent-market-desktop1.png',
+      image: isDark
+        ? '/images/homepage/intelligent-market-desktop1.png'
+        : '/images/homepage/intelligent-market-desktop1.png',
       imageMobile: isDark
         ? '/images/bounded-liquidity-risk-mobile-dark.png'
         : '/images/bounded-liquidity-risk-mobile-light.png',
-        background: 'linear-gradient(314.49deg, #E2CE85 0%, #FE316F 97.42%)'
+      background: 'linear-gradient(314.49deg, #E2CE85 0%, #FE316F 97.42%)',
     },
   ]
 

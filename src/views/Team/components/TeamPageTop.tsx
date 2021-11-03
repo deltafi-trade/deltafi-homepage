@@ -15,7 +15,6 @@ const Wrapper = styled.div`
   align-items: center;
 
   .asset-title {
-    font-family: DM Sans;
     font-weight: bold;
   }
 
@@ -28,14 +27,6 @@ const Wrapper = styled.div`
     ${({ theme }) => theme.muibreakpoints.down('sm')} {
       max-height: none;
     }
-  }
-`
-const MobileWrapper = styled.div`
-  display: none;
-
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
-    display: flex;
-    margin-bottom: ${({ theme }) => theme.spacing(4)}px;
   }
 `
 const DesktopWrapper = styled.div`
@@ -53,12 +44,12 @@ const useStyles = makeStyles(({ palette }: Theme) => ({
     lineHeight: '80px',
   },
   subTitle: {
-    maxWidth: '526px'
+    maxWidth: '526px',
   },
-}));
+}))
 
 const TeamPageTop = () => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <div>
@@ -71,7 +62,7 @@ const TeamPageTop = () => {
               </Typography>
               <br />
               <Typography variant="h2" align="center" className={classes.title}>
-              Creating a pathway to a new financial system
+                Creating a pathway to a new financial system
               </Typography>
               <DesktopWrapper>
                 <Button color="secondary">Learn more</Button>

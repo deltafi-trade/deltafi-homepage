@@ -12,8 +12,7 @@ interface ContainerProps {
   isDark: boolean
 }
 
-const Main = styled.div<ContainerProps>`
-`
+const Main = styled.div<ContainerProps>``
 
 const StyledDiv = styled(Container)`
   display: flex;
@@ -27,8 +26,7 @@ const Wrapper = styled.div`
   align-items: center;
 
   .asset-title {
-    font-family: DM Sans;
-    font-weight: bold;
+    font-weight: 600;
   }
 
   img {
@@ -40,14 +38,6 @@ const Wrapper = styled.div`
     ${({ theme }) => theme.muibreakpoints.down('sm')} {
       max-height: none;
     }
-  }
-`
-const MobileWrapper = styled.div`
-  display: none;
-
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
-    display: flex;
-    margin-bottom: ${({ theme }) => theme.spacing(4)}px;
   }
 `
 const DesktopWrapper = styled.div`
@@ -65,13 +55,13 @@ const useStyles = makeStyles(({ palette }: Theme) => ({
     lineHeight: '80px',
   },
   subTitle: {
-    maxWidth: '526px'
+    maxWidth: '526px',
   },
-}));
+}))
 
 const AssetManager: React.FC = () => {
-  const { isDark } = useDarkMode();
-  const classes = useStyles();
+  const { isDark } = useDarkMode()
+  const classes = useStyles()
 
   return (
     <Main isDark={isDark}>
@@ -89,7 +79,9 @@ const AssetManager: React.FC = () => {
                 High Yields, Deep Liquidity, and DAO Governed
               </Typography>
               <DesktopWrapper>
-                <Button color="secondary" href={APP_LINK}>REQUEST A DEMO</Button>
+                <Button color="secondary" href={APP_LINK}>
+                  REQUEST A DEMO
+                </Button>
               </DesktopWrapper>
             </Wrapper>
           </Grid>

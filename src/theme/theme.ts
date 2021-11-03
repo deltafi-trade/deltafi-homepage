@@ -1,8 +1,7 @@
 import { createTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { Theme } from '@material-ui/core'
 import { blue, pink } from '@material-ui/core/colors'
-
-import myFont from '../style/myFont';
+import '@fontsource/poppins'
 
 declare module '@material-ui/core/styles/createTheme' {
   export interface Theme {
@@ -31,20 +30,20 @@ declare module '@material-ui/core/styles/createPalette' {
   export interface TypeBackground {
     cta?: string
     investorBg?: string
-    primary?: React.CSSProperties['color'],
+    primary?: React.CSSProperties['color']
     secondary?: React.CSSProperties['color']
   }
   export interface TypeBackgroundOptions {
     cta?: string
     investorBg?: string
-    primary?: React.CSSProperties['color'],
+    primary?: React.CSSProperties['color']
     secondary?: React.CSSProperties['color']
   }
 }
 
 const baseTheme: Theme = createTheme({
   typography: {
-    fontFamily: 'Stapel'
+    fontFamily: 'Poppins',
   },
   status: {
     danger: '#ff0000',

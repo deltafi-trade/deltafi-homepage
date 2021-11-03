@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link, Typography } from '@material-ui/core'
-import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, DOC_LINK, TEAM_LINK } from 'config/constants/constant'
+import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, TEAM_LINK } from 'config/constants/constant'
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
@@ -19,14 +19,14 @@ const StyledDiv = styled(Typography)`
   ${({ theme }) => theme.muibreakpoints.down('md')} {
     display: none;
   }
-`;
+`
 
 const CustomLink = styled(Link)`
   margin-right: 20px;
   display: flex;
   align-items: center;
   cursor: pointer;
-`;
+`
 
 const LinkList: React.FC = () => {
   return (
