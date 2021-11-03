@@ -5,7 +5,7 @@ import { AppBar, Container, makeStyles, Toolbar, Theme } from '@material-ui/core
 import Logo from './Logo'
 import LinkList from './LinkList'
 
-import { HOMEPAGE_LINK } from 'config/constants/constant'
+import { APP_LINK, HOMEPAGE_LINK } from 'config/constants/constant'
 
 import { Button, Menu, ThemeButton } from 'components'
 import useDarkMode from 'hooks/useDarkMode'
@@ -14,6 +14,14 @@ interface ContainerProps {
   theme: any
   isShrunk: boolean
 }
+
+const HeaderWrapper = styled(AppBar)<ContainerProps>`
+  background-color: ${({ theme, isShrunk }) => (isShrunk ? theme.palette.background.primary : 'none')};
+  box-shadow: none;
+  .theme-button {
+    margin-left: ${({ theme }) => theme.spacing(1)}px;
+  }
+`;
 
 const DesktopSection = styled.div`
   display: flex;
@@ -32,14 +40,11 @@ const MobileSection = styled.div`
   }
 `
 const useStyles = makeStyles((theme: Theme) => ({
-  headerWrapper: {
-    boxShadow: 'none',
-  
-    '$.theme-button': {
-      marginLeft: theme.spacing(1),
-    }
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
-  toolbar: {},
 }));
 
 const Header: React.FC = () => {
@@ -67,22 +72,20 @@ const Header: React.FC = () => {
   }, [])
 
   return (
-    <AppBar position="fixed" color="transparent" className={classes.headerWrapper}>
+    <HeaderWrapper position="fixed" color="transparent" isShrunk={isShrunk}>
       <Container>
         <Toolbar disableGutters className={classes.toolbar}>
           <Logo href={HOMEPAGE_LINK} isDark={isDark} />
-          <FlexGrow />
           <LinkList />
-          <ThemeButton toggleDarkMode={toggleDarkMode} isDark={isDark} className="theme-button" />
           <DesktopSection>
-            <Button color="primary">REQUEST A DEMO</Button>
+            <Button color="primary" href={APP_LINK}>REQUEST A DEMO</Button>
           </DesktopSection>
           <MobileSection>
             <Menu />
           </MobileSection>
         </Toolbar>
       </Container>
-    </AppBar>
+    </HeaderWrapper>
   )
 }
 

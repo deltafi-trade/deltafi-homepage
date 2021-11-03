@@ -67,9 +67,16 @@ const Img = styled.img`
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     max-width: 236px;
   }
-`
+`;
 
-const Investors: React.FC = () => {
+interface IInvestorsProps {
+  title: string;
+  subTitle: string;
+  headerTitle: string;
+}
+
+const Investors: React.FC<IInvestorsProps> = (props: IInvestorsProps) => {
+  const { title, subTitle, headerTitle } = props;
   const { isDark } = useDarkMode()
   const JUMP_IMG_URL = isDark ? '/images/dark-jumpcaptal.png' : '/images/light-jumpcaptal.png'
   const HASHED_IMG_URL = isDark ? '/images/dark-hashed.svg' : '/images/light-hashed.svg'
@@ -79,13 +86,13 @@ const Investors: React.FC = () => {
     <StyledDiv>
       <Container>
         <Typography color="primary" variant="h6" paragraph>
-          OUR INVESTORS
+          {headerTitle}
         </Typography>
         <Typography variant="h2" paragraph>
-          Trusted by the best
+          {title}
         </Typography>
-        <Typography variant="subtitle2" paragraph>
-          We partner with leading funds & trading firms
+        <Typography variant="h6" paragraph>
+          {subTitle}
         </Typography>
         <br />
         <LogoWrapper>

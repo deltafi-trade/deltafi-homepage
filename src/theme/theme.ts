@@ -1,6 +1,9 @@
 import { createTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { Theme } from '@material-ui/core'
 import { blue, pink } from '@material-ui/core/colors'
+
+import myFont from '../style/myFont';
+
 declare module '@material-ui/core/styles/createTheme' {
   export interface Theme {
     status?: {
@@ -41,7 +44,7 @@ declare module '@material-ui/core/styles/createPalette' {
 
 const baseTheme: Theme = createTheme({
   typography: {
-    fontFamily: ['Inter', 'DM Sans', 'sans-serif'].join(','),
+    fontFamily: 'Stapel'
   },
   status: {
     danger: '#ff0000',
@@ -91,7 +94,6 @@ const darkTheme: Theme = createTheme({
     gradient: {
       cta: 'linear-gradient(90deg, #7A6FFF 0%, #B372CE 50.52%, #FF7586 100%)',
     },
-
   },
 })
 

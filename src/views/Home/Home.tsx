@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   return (
     <Page>
       <AssetManager />
-      <Investors />
+      <Investors headerTitle="Our Investors" title="Trusted by the best" subTitle="We partner with leading funds and trading firms" />
       <DeltaFi />
       <JoinUs />
     </Page>

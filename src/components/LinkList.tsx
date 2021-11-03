@@ -19,29 +19,38 @@ const StyledDiv = styled(Typography)`
   ${({ theme }) => theme.muibreakpoints.down('md')} {
     display: none;
   }
-`
+`;
+
+const CustomLink = styled(Link)`
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`;
 
 const LinkList: React.FC = () => {
   return (
     <StyledDiv>
-      <Link color="inherit" underline="none" href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
+      <CustomLink color="inherit" underline="none" href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
         Blog
-      </Link>
-      <Link color="inherit" underline="none" href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
-        Twitter
-      </Link>
-      <Link color="inherit" underline="none" href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">
-        Discord
-      </Link>
-      <Link color="inherit" underline="none" href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
-        Github
-      </Link>
-      <Link color="inherit" underline="none" href={TEAM_LINK} rel="noreferrer noopener">
-        Team
-      </Link>
-      <Link color="inherit" underline="none" href={DOC_LINK} target="_blank" rel="noreferrer noopener">
-        Docs
-      </Link>
+      </CustomLink>
+      <CustomLink color="inherit" underline="none" href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
+        Community
+      </CustomLink>
+      <CustomLink color="inherit" underline="none">
+        Community&nbsp;
+        <img src="/images/homepage/arrow-down.svg" alt="arrow-down" />
+      </CustomLink>
+      <CustomLink color="inherit" underline="none">
+        Resources&nbsp;
+        <img src="/images/homepage/arrow-down.svg" alt="arrow-down" />
+      </CustomLink>
+      <CustomLink color="inherit" underline="none" href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
+        Whitepaper
+      </CustomLink>
+      <CustomLink color="inherit" underline="none" href={TEAM_LINK} rel="noreferrer noopener">
+        About
+      </CustomLink>
     </StyledDiv>
   )
 }

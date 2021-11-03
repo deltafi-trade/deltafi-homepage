@@ -2,8 +2,6 @@ import React from 'react';
 import { Button as MUIButton, ButtonProps, Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { APP_LINK } from 'config/constants/constant'
-
 const useStyles = makeStyles(({ palette }: Theme) => ({
   ctaButton: {
     backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), ${palette.gradient.cta}`,
@@ -23,14 +21,15 @@ const useStyles = makeStyles(({ palette }: Theme) => ({
 
 interface IButtonProps extends ButtonProps {
   children: React.ReactNode;
+  href?: string;
 }
 
 const Button: React.FC<IButtonProps> = (props) => {
-  const { children } = props;
+  const { children, href } = props;
   const classes = useStyles(props);
 
   return (
-    <MUIButton variant="contained" className={classes.ctaButton} size="large" href={APP_LINK}>
+    <MUIButton variant="contained" className={classes.ctaButton} size="large" href={href}>
       {children}
     </MUIButton>
   );

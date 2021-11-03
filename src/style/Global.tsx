@@ -6,9 +6,11 @@ import { createGlobalStyle } from 'styled-components'
 //   export interface DefaultTheme extends AppTheme {}
 // }
 
+import stapel from '../assets/fonts/StapelText-Regular.otf';
+
 const GlobalStyle = createGlobalStyle`
   html, body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Stapel';
   }
 `
 
