@@ -1,34 +1,8 @@
 import styled from 'styled-components'
 
-import { Container, Grid, makeStyles, Theme, Typography } from '@material-ui/core'
+import { Box, Container, Grid, makeStyles, Theme, Typography } from '@material-ui/core'
 import { Button } from 'components'
 
-const StyledDiv = styled(Container)`
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  max-width: 652px;
-`
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .asset-title {
-    font-weight: bold;
-  }
-
-  img {
-    max-width: 100%;
-
-    ${({ theme }) => theme.muibreakpoints.down('md')} {
-      max-height: 328px;
-    }
-    ${({ theme }) => theme.muibreakpoints.down('sm')} {
-      max-height: none;
-    }
-  }
-`
 const DesktopWrapper = styled.div`
   display: flex;
   margin-top: ${({ theme }) => theme.spacing(4)}px;
@@ -39,39 +13,33 @@ const DesktopWrapper = styled.div`
 `
 
 const useStyles = makeStyles(({ palette }: Theme) => ({
-  title: {
-    fontSize: '78px',
-    lineHeight: '80px',
-  },
-  subTitle: {
-    maxWidth: '526px',
+  root: {
+    display: 'flex',
+    alignItems: 'center',
+    minHeight: '100vh',
+    maxWidth: 748,
   },
 }))
 
-const TeamPageTop = () => {
-  const classes = useStyles()
+const TeamPageTop: React.FC = (props) => {
+  const classes = useStyles(props)
 
   return (
-    <div>
-      <StyledDiv>
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
-          <Grid item sm={12} md={12}>
-            <Wrapper>
-              <Typography color="primary" variant="h6" paragraph>
-                OUR VISION
-              </Typography>
-              <br />
-              <Typography variant="h2" align="center" className={classes.title}>
-                Creating a pathway to a new financial system
-              </Typography>
-              <DesktopWrapper>
-                <Button color="secondary">Learn more</Button>
-              </DesktopWrapper>
-            </Wrapper>
-          </Grid>
+    <Container className={classes.root}>
+      <Grid container spacing={2} justifyContent="center" alignItems="center">
+        <Grid item sm={12} md={12}>
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
+            <Typography color="primary" variant="h6" paragraph>
+              OUR VISION
+            </Typography>
+            <Typography variant="h2" align="center" paragraph>
+              Creating a pathway to a new financial system
+            </Typography>
+            <Button color="secondary">Learn more</Button>
+          </Box>
         </Grid>
-      </StyledDiv>
-    </div>
+      </Grid>
+    </Container>
   )
 }
 

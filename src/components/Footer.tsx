@@ -23,7 +23,7 @@ const SiteMapWrapper = styled.div`
   justify-content: center;
   background-color: ${({ theme }) => theme.palette.background.primary};
   padding: ${({ theme }) => theme.spacing(3)}px;
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
+  ${({ theme }) => theme.muibreakpoints.down('sm')} {
     display: none;
   }
 `

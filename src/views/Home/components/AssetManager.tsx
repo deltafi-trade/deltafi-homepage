@@ -18,7 +18,11 @@ const StyledDiv = styled(Container)`
   display: flex;
   align-items: center;
   min-height: 100vh;
-  max-width: 652px;
+  max-width: 738px;
+  padding-top: 125px;
+  ${({ theme }) => theme.muibreakpoints.down('md')} {
+    padding-top: 65px;
+  }
 `
 const Wrapper = styled.div`
   display: flex;
@@ -50,10 +54,7 @@ const DesktopWrapper = styled.div`
 `
 
 const useStyles = makeStyles(({ palette }: Theme) => ({
-  title: {
-    fontSize: '78px',
-    lineHeight: '80px',
-  },
+  title: {},
   subTitle: {
     maxWidth: '526px',
   },

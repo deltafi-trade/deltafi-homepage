@@ -203,10 +203,6 @@ const DeltaFi: React.FC = () => {
                   <Img src={card.image} alt="Yields" />
                 </DesktopDiv>
               </Card>
-              <br />
-              <br />
-              <br />
-              <br />
             </Grid>
           ))}
         </Grid>
