@@ -28,9 +28,19 @@ const StyledLink = styled.a`
   text-decoration: none;
 `
 
-const useStyles = makeStyles(({ palette }: Theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   title: {
+    fontWeight: 'bold',
     lineHeight: '80px',
+    [theme.breakpoints.down("sm")]: {
+      fontSize: '2.5rem'
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      fontSize: '3.25rem'
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: '5rem'
+    },
   },
   subTitle: {
     maxWidth: '526px'
@@ -46,7 +56,7 @@ const TeamMember: React.FC = () => {
         <Typography color="primary" variant="h6" paragraph>
           WHO WE ARE
         </Typography>
-        <Typography variant="h2" align="center" className={classes.title}>
+        <Typography variant="h1" align="center" className={classes.title}>
           Meet Our Team
         </Typography>
         <br />

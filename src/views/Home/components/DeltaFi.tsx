@@ -175,30 +175,6 @@ const DeltaFi: React.FC = () => {
 
   const CARD_LIST = [
     {
-      icon: <img src="/images/homepage/intelligent-market.svg" alt="Intelligent Market Making" />,
-      title: `Intelligent Market Making`,
-      content: 'Adaptive algorithms are developed for efficient pricing under various market dynamics.',
-      image: isDark
-        ? '/images/homepage/intelligent-market-desktop1.png'
-        : '/images/homepage/intelligent-market-desktop1.png',
-      imageMobile: isDark
-        ? '/images/intelligent-market-making-mobile-dark.png'
-        : '/images/intelligent-market-making-mobile-light.png',
-      background: 'linear-gradient(314.49deg, #434BFF 0%, #FF4B81 97.42%)',
-    },
-    {
-      icon: <img src="/images/homepage/exchange.svg" alt="Cross Chain Trading" />,
-      title: 'Cross Chain Trading',
-      content: 'Ease of trading for any token builds the liquidity hub and optimal user experience.',
-      image: isDark
-        ? '/images/homepage/feature2.svg'
-        : '/images/homepage/intelligent-market-desktop1.png',
-      imageMobile: isDark
-        ? '/images/cross-chain-trading-mobile-dark.png'
-        : '/images/cross-chain-trading-mobile-light.png',
-      background: 'linear-gradient(134.99deg, #94CB90 1.39%, #7061A3 109.29%)',
-    },
-    {
       icon: <img src="/images/homepage/chart.svg" alt="Bounded Liquidity Risk" />,
       title: 'Bounded Liquidity Risk',
       content: 'Provisioned liquidity is protected from impermanent loss despite market volatilities.',
@@ -210,6 +186,30 @@ const DeltaFi: React.FC = () => {
         : '/images/bounded-liquidity-risk-mobile-light.png',
       background: 'linear-gradient(314.49deg, #E2CE85 0%, #FE316F 97.42%)',
     },
+    {
+      icon: <img src="/images/homepage/exchange.svg" alt="Cross Chain Trading" />,
+      title: 'Cross Chain Trading',
+      content: 'Ease of trading for any token builds the liquidity hub and optimal user experience.',
+      image: isDark
+        ? '/images/homepage/intelligent-market-desktop1.png'
+        : '/images/homepage/intelligent-market-desktop1.png',
+      imageMobile: isDark
+        ? '/images/cross-chain-trading-mobile-dark.png'
+        : '/images/cross-chain-trading-mobile-light.png',
+      background: 'linear-gradient(134.99deg, #94CB90 1.39%, #7061A3 109.29%)',
+    },
+    {
+      icon: <img src="/images/homepage/intelligent-market.svg" alt="Intelligent Market Making" />,
+      title: `Intelligent Market Making`,
+      content: 'Adaptive algorithms are developed for efficient pricing under various market dynamics.',
+      image: isDark
+        ? '/images/homepage/intelligent-market-desktop1.png'
+        : '/images/homepage/intelligent-market-desktop1.png',
+      imageMobile: isDark
+        ? '/images/intelligent-market-making-mobile-dark.png'
+        : '/images/intelligent-market-making-mobile-light.png',
+      background: 'linear-gradient(314.49deg, #434BFF 0%, #FF4B81 97.42%)',
+    },
   ]
 
   return (
@@ -220,7 +220,7 @@ const DeltaFi: React.FC = () => {
         </Typography>
         <Typography variant="h2" className={classes.title}>Built for traders, market makers, and liquidity providers</Typography>
         <Typography color="inherit" variant="h6" paragraph className="subtitle">
-          Machine Learning Design, Optimal User Experience
+          Optimal User Experience
         </Typography>
         <Grid container spacing={10} className={classes.gridContainer} >
           {CARD_LIST.map((card, index) => (
