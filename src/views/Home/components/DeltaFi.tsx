@@ -44,7 +44,7 @@ const Card = styled(Grid)`
     font-weight: bold;
 
     ${({ theme }) => theme.muibreakpoints.down('sm')} {
-      max-width: 70%;
+      max-width: 80%;
       font-size: 24px;
       text-align: center;
     }
@@ -94,6 +94,7 @@ const MobileDiv = styled.div<{ bg: string }>`
     justify-content: center;
     background: ${(props) => props.bg};
     padding: 50px 20px;
+    min-height: 240px;
   }
 
   img {
@@ -101,8 +102,8 @@ const MobileDiv = styled.div<{ bg: string }>`
   }
 `
 const Img = styled.img`
-  max-width: 329px;
-  max-height: 212px;
+  width: 342px;
+  height: auto;
   object-fit: cover;
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     border-radius: 10px 10px 0 0;
@@ -175,40 +176,40 @@ const DeltaFi: React.FC = () => {
 
   const CARD_LIST = [
     {
-      icon: <img src="/images/homepage/chart.svg" alt="Bounded Liquidity Risk" />,
-      title: 'Bounded Liquidity Risk',
-      content: 'Provisioned liquidity is protected from impermanent loss despite market volatilities.',
+      header: 'FOR TRADERS',
+      title: 'Low Price Slippage',
+      content: 'Adaptive algorithms are developed for efficient pricing resilient to various market dynamics.',
       image: isDark
-        ? '/images/homepage/intelligent-market-desktop1.png'
-        : '/images/homepage/intelligent-market-desktop1.png',
+        ? '/images/homepage/swap.png'
+        : '/images/homepage/swap.png',
       imageMobile: isDark
         ? '/images/bounded-liquidity-risk-mobile-dark.png'
         : '/images/bounded-liquidity-risk-mobile-light.png',
-      background: 'linear-gradient(314.49deg, #E2CE85 0%, #FE316F 97.42%)',
+      background: 'linear-gradient(314.49deg, #434BFF 0%, #FF4B81 97.42%)',
     },
     {
-      icon: <img src="/images/homepage/exchange.svg" alt="Cross Chain Trading" />,
-      title: 'Cross Chain Trading',
-      content: 'Ease of trading for any token builds the liquidity hub and optimal user experience.',
+      header: 'FOR LIQUIDITY PRODVIDERS',
+      title: 'Sustainable Profitability',
+      content: 'Liquidity risks are minimized with customized risk tolerances and institutional grade market making algorithms.',
       image: isDark
-        ? '/images/homepage/intelligent-market-desktop1.png'
-        : '/images/homepage/intelligent-market-desktop1.png',
+        ? '/images/homepage/stake.png'
+        : '/images/homepage/stake.png',
       imageMobile: isDark
         ? '/images/cross-chain-trading-mobile-dark.png'
         : '/images/cross-chain-trading-mobile-light.png',
       background: 'linear-gradient(134.99deg, #94CB90 1.39%, #7061A3 109.29%)',
     },
     {
-      icon: <img src="/images/homepage/intelligent-market.svg" alt="Intelligent Market Making" />,
-      title: `Intelligent Market Making`,
-      content: 'Adaptive algorithms are developed for efficient pricing under various market dynamics.',
+      header: 'FOR MARKET MAKERS',
+      title: 'Personalized Pools',
+      content: 'Malleable APIs offer market making flexibilities with bidirectional pricing, dynamic fees, and order history.',
       image: isDark
-        ? '/images/homepage/intelligent-market-desktop1.png'
-        : '/images/homepage/intelligent-market-desktop1.png',
+        ? '/images/homepage/deposit.png'
+        : '/images/homepage/deposit.png',
       imageMobile: isDark
         ? '/images/intelligent-market-making-mobile-dark.png'
         : '/images/intelligent-market-making-mobile-light.png',
-      background: 'linear-gradient(314.49deg, #434BFF 0%, #FF4B81 97.42%)',
+      background: 'linear-gradient(314.49deg, #E2CE85 0%, #FE316F 97.42%)',
     },
   ]
 
@@ -230,8 +231,8 @@ const DeltaFi: React.FC = () => {
                   <Img src={card.image} alt="Yields" />
                 </MobileDiv>
                 <CustomDiv>
-                  <Typography paragraph>{card.icon}</Typography>
-                  <Typography variant="h5" paragraph className="card-title">
+                  <Typography variant="h6" paragraph color="primary">{card.header}</Typography>
+                  <Typography variant="h4" paragraph className="card-title">
                     {card.title}
                   </Typography>
                   <Typography variant="subtitle1" paragraph className="card-content">
