@@ -1,6 +1,8 @@
 import { createTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { Theme } from '@material-ui/core'
 import { blue, pink } from '@material-ui/core/colors'
+import '@fontsource/poppins'
+
 declare module '@material-ui/core/styles/createTheme' {
   export interface Theme {
     status?: {
@@ -29,17 +31,19 @@ declare module '@material-ui/core/styles/createPalette' {
     cta?: string
     investorBg?: string
     primary?: React.CSSProperties['color']
+    secondary?: React.CSSProperties['color']
   }
   export interface TypeBackgroundOptions {
     cta?: string
     investorBg?: string
     primary?: React.CSSProperties['color']
+    secondary?: React.CSSProperties['color']
   }
 }
 
 const baseTheme: Theme = createTheme({
   typography: {
-    fontFamily: ['Inter', 'DM Sans', 'sans-serif'].join(','),
+    fontFamily: 'Poppins',
   },
   status: {
     danger: '#ff0000',
@@ -74,7 +78,7 @@ const darkTheme: Theme = createTheme({
   palette: {
     type: 'dark',
     primary: {
-      main: '#F43F5E',
+      main: '#FF7586',
     },
     secondary: {
       main: pink[500],
@@ -82,11 +86,12 @@ const darkTheme: Theme = createTheme({
     background: {
       cta: 'url(/images/dark-bg.png)',
       investorBg: 'url(/images/investors-bg-dark.png)',
-      primary: '#000000',
+      primary: '#13111A',
+      secondary: '#1D1A27',
       default: 'rgb(35, 36, 47)',
     },
     gradient: {
-      cta: 'linear-gradient(rgb(35, 36, 47) 0%, rgb(12, 12, 19) 100%)',
+      cta: 'linear-gradient(90deg, #7A6FFF 0%, #B372CE 50.52%, #FF7586 100%)',
     },
   },
 })

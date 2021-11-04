@@ -1,11 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
+import { styled } from '@material-ui/core/styles'
 import { Helmet } from 'react-helmet-async'
 import { DEFAULT_META } from 'config/constants/meta'
 
-const StyledPage = styled.div`
-  background: ${({ theme }) => theme.palette.background.default};
-`
+const StyledPage = styled('div')(({ theme }) => ({
+  backgroundColor: theme.palette.background.primary,
+  backgroundImage: 'url(/images/homepage/landing-bg.png)',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: '100% 100%',
+}))
 
 const PageMeta = () => {
   const { title, description } = { ...DEFAULT_META }

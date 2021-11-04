@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { LogoIcon } from 'components'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core';
 
 interface Props {
   isDark: boolean
@@ -11,6 +13,7 @@ interface Props {
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
+  text-decoration: none;
 
   .logo {
     width: 178px;
@@ -21,15 +24,26 @@ const StyledLink = styled(Link)`
       width: 137px;
     }
   }
-`
+`;
+
+const useStyles = makeStyles(({ palette }: Theme) => ({
+  logo: {
+    color: palette.text.primary,
+    fontWeight: 'bold',
+  },
+}));
 
 const StyledDiv = styled.div``
 
 const Logo: React.FC<Props> = ({ isDark, href }) => {
+  const classes = useStyles();
+
   return (
     <StyledDiv>
       <StyledLink to={href} aria-label="DeltaFi App">
-        <LogoIcon className="logo" isDark={isDark} />
+        <Typography variant="h4" align="center" className={classes.logo}>
+          DeltaFi
+        </Typography>
       </StyledLink>
     </StyledDiv>
   )

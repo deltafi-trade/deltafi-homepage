@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { AppBar, Container, Toolbar } from '@material-ui/core'
+import { AppBar, Container, makeStyles, Toolbar, Theme } from '@material-ui/core'
 
 import Logo from './Logo'
 import LinkList from './LinkList'
 
-import { HOMEPAGE_LINK } from 'config/constants/constant'
+import { APP_LINK, HOMEPAGE_LINK } from 'config/constants/constant'
 
-import { LaunchButton, Menu, ThemeButton } from 'components'
+import { Button, Menu } from 'components'
 import useDarkMode from 'hooks/useDarkMode'
 
 interface ContainerProps {
@@ -18,11 +18,11 @@ interface ContainerProps {
 const HeaderWrapper = styled(AppBar)<ContainerProps>`
   background-color: ${({ theme, isShrunk }) => (isShrunk ? theme.palette.background.primary : 'none')};
   box-shadow: none;
-
   .theme-button {
     margin-left: ${({ theme }) => theme.spacing(1)}px;
   }
 `
+
 const DesktopSection = styled.div`
   display: flex;
   margin-left: ${({ theme }) => theme.spacing(1)}px;
@@ -30,19 +30,25 @@ const DesktopSection = styled.div`
     display: none;
   }
 `
-const FlexGrow = styled.div`
-  flex-grow: 1;
-`
 const MobileSection = styled.div`
   display: none;
   ${({ theme }) => theme.muibreakpoints.down('md')} {
     display: flex;
   }
 `
+const useStyles = makeStyles((theme: Theme) => ({
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    minHeight: '100px'
+  },
+}))
 
 const Header: React.FC = () => {
-  const { isDark, toggleDarkMode } = useDarkMode()
+  const { isDark } = useDarkMode()
   const [isShrunk, setShrunk] = useState(false)
+  const classes = useStyles()
 
   useEffect(() => {
     const onScroll = () => {
@@ -66,13 +72,13 @@ const Header: React.FC = () => {
   return (
     <HeaderWrapper position="fixed" color="transparent" isShrunk={isShrunk}>
       <Container>
-        <Toolbar disableGutters>
+        <Toolbar disableGutters className={classes.toolbar}>
           <Logo href={HOMEPAGE_LINK} isDark={isDark} />
-          <FlexGrow />
           <LinkList />
-          <ThemeButton toggleDarkMode={toggleDarkMode} isDark={isDark} className="theme-button" />
           <DesktopSection>
-            <LaunchButton color="primary" />
+            <Button color="primary" href={APP_LINK}>
+              REQUEST A DEMO
+            </Button>
           </DesktopSection>
           <MobileSection>
             <Menu />

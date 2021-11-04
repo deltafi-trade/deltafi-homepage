@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Typography } from '@material-ui/core'
+import { Container, makeStyles, Theme, Typography } from '@material-ui/core'
 
 import useDarkMode from 'hooks/useDarkMode'
 
@@ -11,7 +11,6 @@ const StyledDiv = styled.div`
   align-items: center;
   padding: 80px 0;
   text-align: center;
-  background-image: ${({ theme }) => theme.palette.background.investorBg};
   background-size: cover;
 
   .subtitle {
@@ -38,10 +37,10 @@ const LogoWrapper = styled.div`
 const Card = styled.div`
   display: flex;
   align-items: center;
-  background-color: ${({ theme }) => theme.palette.background.primary};
+  background-color: ${({ theme }) => theme.palette.background.secondary};
   justify-content: center;
   box-shadow: ${({ theme }) => theme.shadows[3]};
-  border-radius: 5px;
+  border-radius: 22px;
   width: 284px;
   margin: 0 16px;
   height: 160px;
@@ -68,31 +67,59 @@ const Img = styled.img`
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     max-width: 236px;
   }
-`
+`;
 
-const Investors: React.FC = () => {
+const useStyles = makeStyles(( theme: Theme) => ({
+  title: {
+    fontWeight: 'bold',
+    [theme.breakpoints.down("sm")]: {
+      fontSize: '2.5rem'
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      fontSize: '3.25rem'
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: '5rem'
+    },
+  }
+}))
+
+
+interface IInvestorsProps {
+  title: string;
+  subTitle: string;
+  headerTitle: string;
+}
+
+const Investors: React.FC<IInvestorsProps> = (props: IInvestorsProps) => {
+  const { title, subTitle, headerTitle } = props;
   const { isDark } = useDarkMode()
-  // const JUMP_IMG_URL = isDark ? '/images/dark-jumpcaptal.png' : '/images/light-jumpcaptal.png'
+  const classes = useStyles()
+  const JUMP_IMG_URL = isDark ? '/images/dark-jumpcaptal.png' : '/images/light-jumpcaptal.png'
   const HASHED_IMG_URL = isDark ? '/images/dark-hashed.svg' : '/images/light-hashed.svg'
   const HASHKEY_IMG_URL = isDark ? '/images/dark-hashkey.svg' : '/images/light-hashkey.svg'
 
   return (
     <StyledDiv>
       <Container>
-        <Typography color="primary" variant="h6" paragraph>
-          OUR INVESTORS
+        <Typography color="primary" variant="h5" paragraph>
+          {headerTitle}
+        </Typography>
+        <Typography variant="h1" paragraph className={classes.title}>
+          {title}
         </Typography>
         <Typography variant="h5" paragraph>
-          Backed & Trusted
-          <span className="subtitle">{' by the best'}</span>
+          {subTitle}
         </Typography>
-        <Typography variant="subtitle2" paragraph>
-          We partner with leading funds & trading firms
-        </Typography>
+        <br />
+        <br />
+        <br />
         <LogoWrapper>
-          {/* <Card><Img src={JUMP_IMG_URL} alt="JUMPCAPITAL INVESTOR"/></Card> */}
           <Card>
-            <Img src={HASHED_IMG_URL} alt="HASHED INVESTOR" />
+            <Img src={JUMP_IMG_URL} alt="JUMP CAPITAL INVESTOR" />
+          </Card>
+          <Card>
+            <Img src={HASHED_IMG_URL} alt="HASHKEY INVESTOR" />
           </Card>
           <Card>
             <Img src={HASHKEY_IMG_URL} alt="HASHKEY INVESTOR" />

@@ -1,24 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Grid, Typography } from '@material-ui/core'
+import { Container, Grid, Theme, Typography } from '@material-ui/core'
 
-import { LaunchButton } from 'components'
+import { Button } from 'components'
 
 import useDarkMode from 'hooks/useDarkMode'
+import { makeStyles } from '@material-ui/styles'
+import { APP_LINK } from 'config/constants/constant'
 
 interface ContainerProps {
   isDark: boolean
 }
 
-const Main = styled.div<ContainerProps>`
-  background-image: ${({ theme }) => theme.palette.background.cta};
-  background-size: cover;
-`
+const Main = styled.div<ContainerProps>``
 
 const StyledDiv = styled(Container)`
   display: flex;
   align-items: center;
   min-height: 100vh;
+  max-width: 738px;
+  padding-top: 125px;
+  ${({ theme }) => theme.muibreakpoints.down('md')} {
+    padding-top: 65px;
+  }
 `
 const Wrapper = styled.div`
   display: flex;
@@ -26,8 +30,7 @@ const Wrapper = styled.div`
   align-items: center;
 
   .asset-title {
-    font-family: DM Sans;
-    font-weight: bold;
+    font-weight: 600;
   }
 
   img {
@@ -41,14 +44,6 @@ const Wrapper = styled.div`
     }
   }
 `
-const MobileWrapper = styled.div`
-  display: none;
-
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
-    display: flex;
-    margin-bottom: ${({ theme }) => theme.spacing(4)}px;
-  }
-`
 const DesktopWrapper = styled.div`
   display: flex;
   margin-top: ${({ theme }) => theme.spacing(4)}px;
@@ -58,38 +53,48 @@ const DesktopWrapper = styled.div`
   }
 `
 
+const useStyles = makeStyles((theme: Theme) => ({
+  title: {
+    fontWeight: 'bold',
+    [theme.breakpoints.down("sm")]: {
+      fontSize: '2.5rem'
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      fontSize: '3.25rem'
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: '5rem'
+    },
+  },
+  subTitle: {
+    maxWidth: '600px',
+  },
+}))
+
 const AssetManager: React.FC = () => {
   const { isDark } = useDarkMode()
+  const classes = useStyles()
 
   return (
     <Main isDark={isDark}>
       <StyledDiv>
         <Grid container spacing={2} justifyContent="center" alignItems="center">
-          <Grid item sm={12} md={6}>
+          <Grid item sm={12} md={12}>
             <Wrapper>
-              <Typography variant="subtitle1" paragraph>
-                POWERED BY SOLANA
+              <img src="/images/poweredby.png" alt="Powered by solala" />
+              <br />
+              <Typography variant="h1" align="center" className={classes.title}>
+                The world’s most efficient DEX
               </Typography>
-              <Typography variant="h1" color="primary" className="asset-title">
-                Trade
-              </Typography>
-              <Typography variant="h2" gutterBottom>
-                Everything
-              </Typography>
-              <Typography variant="h4" align="center" paragraph>
-                Lightning speed and DAO governed
+              <br />
+              <Typography variant="h5" align="center" paragraph className={classes.subTitle}>
+                High Yields, Deep Liquidity, and DAO Governed
               </Typography>
               <DesktopWrapper>
-                <LaunchButton cta color="secondary" />
+                <Button color="secondary" href={APP_LINK}>
+                  REQUEST A DEMO
+                </Button>
               </DesktopWrapper>
-            </Wrapper>
-          </Grid>
-          <Grid item sm={12} md={6}>
-            <Wrapper>
-              <MobileWrapper>
-                <LaunchButton cta color="secondary" />
-              </MobileWrapper>
-              <img src="/images/asset.png" alt="asset" />
             </Wrapper>
           </Grid>
         </Grid>

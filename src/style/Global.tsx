@@ -8,7 +8,6 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   html, body {
-    font-family: 'Inter', sans-serif;
   }
 `
 
