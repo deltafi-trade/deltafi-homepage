@@ -12,7 +12,7 @@ const StyledDiv = styled.div`
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  padding: 150px 0 98px;
+  padding: 0 0 98px;
 
   ${({ theme }) => theme.muibreakpoints.down('md')} {
     padding: 64px 0;
@@ -30,7 +30,6 @@ const StyledLink = styled.a`
 
 const useStyles = makeStyles(({ palette }: Theme) => ({
   title: {
-    fontSize: '78px',
     lineHeight: '80px',
   },
   subTitle: {
@@ -45,10 +44,10 @@ const TeamMember: React.FC = () => {
     <Container>
       <StyledDiv>
         <Typography color="primary" variant="h6" paragraph>
-          Who we are
+          WHO WE ARE
         </Typography>
         <Typography variant="h2" align="center" className={classes.title}>
-          Meet our team
+          Meet Our Team
         </Typography>
         <br />
         <br />
@@ -72,7 +71,7 @@ const TeamMember: React.FC = () => {
         <br />
         <br />
         <Typography color="primary" variant="h6" paragraph>
-          Advisors
+          ADVISORS
         </Typography>
         <br />
         <Grid container spacing={4} justifyContent="center">

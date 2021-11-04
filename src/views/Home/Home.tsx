@@ -10,8 +10,8 @@ const Home: React.FC = () => {
     <Page>
       <AssetManager />
       <Investors
-        headerTitle="Our Investors"
-        title="Trusted by the best"
+        headerTitle="OUR INVESTORS"
+        title="Trusted By The Best"
         subTitle="We partner with leading funds and trading firms"
       />
       <DeltaFi />

@@ -19,6 +19,9 @@ import {
   PRIVACY_LINK,
   APP_LINK,
   TELEGRAM_LINK,
+  DOC_LINK,
+  WHITE_PAPER,
+  TEAM_LINK,
 } from 'config/constants/constant'
 import useDarkMode from 'hooks/useDarkMode'
 
@@ -111,6 +114,7 @@ const Menu = ({ open, setOpen, ...props }) => {
   const isHidden = open ? true : false
   const { isDark, toggleDarkMode } = useDarkMode()
   const [community, setCommunity] = useState(false)
+  const [resources, setResources] = useState(false)
   const [about, setAbout] = useState(false)
 
   return (
@@ -131,6 +135,18 @@ const Menu = ({ open, setOpen, ...props }) => {
             className="expand-title"
           >
             REQUEST A DEMO
+          </StyledLink>
+          <ArrowRightAltIcon />
+        </ExpandMenu>
+        <ExpandMenu className="one-line" my="0px">
+          <StyledLink
+              color="inherit"
+              href={BLOG_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="expand-title"
+          >
+            BLOG
           </StyledLink>
           <ArrowRightAltIcon />
         </ExpandMenu>
@@ -178,27 +194,56 @@ const Menu = ({ open, setOpen, ...props }) => {
             </StyledLink>
           </SubMenu>
         )}
-        <ExpandMenu className="one-line" my={community ? '2px' : '0px 2px'} onClick={() => setAbout(!about)}>
-          <Typography variant="subtitle2">ABOUT</Typography>
-          {about ? <RemoveIcon /> : <AddIcon />}
+        <ExpandMenu className="one-line" my="2px" onClick={() => setResources(!resources)}>
+          <Typography variant="subtitle2">RESOUCES</Typography>
+          {resources ? <RemoveIcon /> : <AddIcon />}
         </ExpandMenu>
-        {about && (
+        {resources && (
           <SubMenu>
-            <StyledLink color="inherit" href={BLOG_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">
-              Blog
+            <StyledLink
+              color="inherit"
+              href={GITHUB_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="sub-menu"
+            >
+              Github
             </StyledLink>
-            <StyledLink color="inherit" href={CAREERS_LINK} className="sub-menu">
-              Careers
-            </StyledLink>
-            <StyledLink color="inherit" href={PRIVACY_LINK} className="sub-menu">
-              Privacy Policy
+            <StyledLink
+              color="inherit"
+              href={DOC_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="sub-menu"
+            >
+              Docs
             </StyledLink>
           </SubMenu>
         )}
-        <StyledDiv onClick={toggleDarkMode} className="one-line">
-          {isDark ? <SunIcon /> : <MoonIcon />}
-          <Typography variant="subtitle1">{isDark ? 'Light Mode' : 'Dark Mode'}</Typography>
-        </StyledDiv>
+        <ExpandMenu className="one-line" my="0px">
+          <StyledLink
+              color="inherit"
+              href={WHITE_PAPER}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="expand-title"
+          >
+            WHITEPAPER
+          </StyledLink>
+          <ArrowRightAltIcon />
+        </ExpandMenu>
+        <ExpandMenu className="one-line" my="0px">
+          <StyledLink
+              color="inherit"
+              href={TEAM_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="expand-title"
+          >
+            ABOUT
+          </StyledLink>
+          <ArrowRightAltIcon />
+        </ExpandMenu>
       </StyledMenu>
       {open && <BlurBackground onClick={() => setOpen(false)} />}
     </>

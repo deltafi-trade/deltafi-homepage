@@ -35,7 +35,7 @@ const StyledDiv = styled.div`
 `
 const Card = styled(Grid)`
   display: flex;
-  height: 600px;
+  height: 400px;
   box-shadow: ${({ theme }) => theme.shadows[3]};
   border-radius: 20px;
   flex-direction: row;
@@ -44,20 +44,28 @@ const Card = styled(Grid)`
     font-weight: bold;
 
     ${({ theme }) => theme.muibreakpoints.down('sm')} {
-      max-width: 50%;
+      max-width: 70%;
+      font-size: 24px;
+      text-align: center;
+    }
+  }
+
+  .card-content {
+    ${({ theme }) => theme.muibreakpoints.down('sm')} {
+      text-align: center;
     }
   }
 
   ${({ theme }) => theme.muibreakpoints.down('lg')} {
-    height: 530px;
+    height: 400px;
   }
   ${({ theme }) => theme.muibreakpoints.down('md')} {
-    height: 450px;
+    height: 400px;
   }
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     border-radius: 10px;
     flex-direction: column;
-    height: 500px;
+    height: auto;
   }
 `
 const DesktopDiv = styled.div<{ bg: string }>`
@@ -85,8 +93,11 @@ const MobileDiv = styled.div<{ bg: string }>`
     align-items: center;
     justify-content: center;
     background: ${(props) => props.bg};
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 50px 20px;
+  }
+
+  img {
+    max-width: 250px;
   }
 `
 const Img = styled.img`
@@ -95,6 +106,10 @@ const Img = styled.img`
   object-fit: cover;
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     border-radius: 10px 10px 0 0;
+  }
+
+  ${({ theme }) => theme.muibreakpoints.down('md')} {
+    max-width: 229px;
   }
 `
 const CustomDiv = styled.div`
@@ -108,13 +123,17 @@ const CustomDiv = styled.div`
   height: 100%;
   order: 1;
   border-radius: 20px 0 0 20px;
-  padding: 109.52px 54.35px;
+  padding: 0 60px;
 
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     order: 2;
     border-radius: 0 0 10px 10px;
     width: 100%;
     height: 55%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   svg {
@@ -131,10 +150,22 @@ const CustomDiv = styled.div`
   }
 `
 
-const useStyles = makeStyles(({ palette }: Theme) => ({
+const useStyles = makeStyles(( theme: Theme) => ({
   title: {
-    maxWidth: 592,
+    maxWidth: 850,
     marginBottom: 10,
+    fontWeight: 'bold',
+  },
+  gridContainer: {
+    [theme.breakpoints.down("xs")]: {
+      padding: '10px'
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      padding: '15px'
+    },
+    [theme.breakpoints.up("md")]: {
+      padding: '20px 40px'
+    },
   },
 }))
 
@@ -191,7 +222,7 @@ const DeltaFi: React.FC = () => {
         <Typography color="inherit" variant="h6" paragraph className="subtitle">
           Machine Learning Design, Optimal User Experience
         </Typography>
-        <Grid container spacing={3}>
+        <Grid container spacing={10} className={classes.gridContainer} >
           {CARD_LIST.map((card, index) => (
             <Grid item key={`card-${index}`} xs={12}>
               <Card>
@@ -200,10 +231,10 @@ const DeltaFi: React.FC = () => {
                 </MobileDiv>
                 <CustomDiv>
                   <Typography paragraph>{card.icon}</Typography>
-                  <Typography variant="h4" paragraph className="card-title">
+                  <Typography variant="h5" paragraph className="card-title">
                     {card.title}
                   </Typography>
-                  <Typography variant="h6" paragraph className="card-content">
+                  <Typography variant="subtitle1" paragraph className="card-content">
                     {card.content}
                   </Typography>
                 </CustomDiv>

@@ -8,6 +8,9 @@ const useStyles = makeStyles(({ palette }: Theme) => ({
     minHeight: '100vh',
     maxWidth: 748,
   },
+  title: {
+    fontWeight: 'bold',
+  }
 }))
 
 const TeamPageTop: React.FC = (props) => {
@@ -21,7 +24,7 @@ const TeamPageTop: React.FC = (props) => {
             <Typography color="primary" variant="h6" paragraph>
               OUR VISION
             </Typography>
-            <Typography variant="h2" align="center" paragraph>
+            <Typography variant="h2" align="center" paragraph className={classes.title}>
               Creating a pathway to a new financial system
             </Typography>
             <Button color="secondary">Learn more</Button>

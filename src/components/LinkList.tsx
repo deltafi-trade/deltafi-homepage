@@ -90,15 +90,15 @@ const LinkList: React.FC = () => {
         </Typography>
         {communityShow ? (
           <div className={classes.dropDown}>
-            <DropDownLink color="inherit" underline="none" href={TWITTER_LINK}>
+            <DropDownLink color="inherit" underline="none" href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
               Twitter
             </DropDownLink>
             <Divider />
-            <DropDownLink color="inherit" underline="none" href={DISCORD_LINK}>
+            <DropDownLink color="inherit" underline="none" href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">
               Discord
             </DropDownLink>
             <Divider />
-            <DropDownLink color="inherit" underline="none" href={TELEGRAM_LINK}>
+            <DropDownLink color="inherit" underline="none" href={TELEGRAM_LINK} target="_blank" rel="noreferrer noopener">
               Telegram
             </DropDownLink>
           </div>
@@ -112,17 +112,20 @@ const LinkList: React.FC = () => {
         </Typography>
         {resourcesShow ? (
            <div className={classes.dropDown}>
-            <DropDownLink color="inherit" underline="none" href={GITHUB_LINK}>
+            <DropDownLink color="inherit" underline="none" href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
               Github
             </DropDownLink>
             <Divider />
-            <DropDownLink color="inherit" underline="none" href={WHITE_PAPER}>
-              Whitepaper
+            <DropDownLink color="inherit" underline="none" href={WHITE_PAPER} target="_blank" rel="noreferrer noopener">
+              Docs
             </DropDownLink>
           </div>
         ): null}
       </div>
-      <CustomLink color="inherit" underline="none" href={TEAM_LINK} rel="noreferrer noopener">
+      <CustomLink color="inherit" underline="none" href={WHITE_PAPER} target="_blank" rel="noreferrer noopener">
+        Whitepaper
+      </CustomLink>
+      <CustomLink color="inherit" underline="none" href={TEAM_LINK}>
         About
       </CustomLink>
     </StyledDiv>

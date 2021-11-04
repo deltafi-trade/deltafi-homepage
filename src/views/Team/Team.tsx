@@ -10,7 +10,7 @@ const Team: React.FC = () => {
     <Page>
       <TeamPageTop />
       <TeamMember />
-      <Investors headerTitle="Investors" title="Our partners" subTitle="People with whim we’re proud to partner" />
+      <Investors headerTitle="INVESTORS" title="Our partners" subTitle="People with whom we’re proud to partner" />
     </Page>
   )
 }
