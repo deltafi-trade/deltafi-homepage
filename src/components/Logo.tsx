@@ -28,7 +28,6 @@ const StyledLink = styled(Link)`
 
 const useStyles = makeStyles(({ palette }: Theme) => ({
   logo: {
-    fontSize: '24px',
     color: palette.text.primary,
     fontWeight: 'bold',
   },

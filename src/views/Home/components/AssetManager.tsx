@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   subTitle: {
-    maxWidth: '526px',
+    maxWidth: '600px',
   },
 }))
 
@@ -84,7 +84,7 @@ const AssetManager: React.FC = () => {
               <img src="/images/poweredby.png" alt="Powered by solala" />
               <br />
               <Typography variant="h1" align="center" className={classes.title}>
-                The World’s Most Efficient DEX
+                The world’s most efficient DEX
               </Typography>
               <br />
               <Typography variant="h5" align="center" paragraph className={classes.subTitle}>
