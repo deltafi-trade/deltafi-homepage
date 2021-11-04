@@ -1,15 +1,24 @@
 import { Box, Container, Grid, makeStyles, Theme, Typography } from '@material-ui/core'
 import { Button } from 'components'
 
-const useStyles = makeStyles(({ palette }: Theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
     minHeight: '100vh',
-    maxWidth: 748,
+    maxWidth: 800,
   },
   title: {
     fontWeight: 'bold',
+    [theme.breakpoints.down("sm")]: {
+      fontSize: '2.5rem'
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      fontSize: '3.25rem'
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: '4rem'
+    },
   }
 }))
 
@@ -24,7 +33,7 @@ const TeamPageTop: React.FC = (props) => {
             <Typography color="primary" variant="h6" paragraph>
               OUR VISION
             </Typography>
-            <Typography variant="h2" align="center" paragraph className={classes.title}>
+            <Typography variant="h1" align="center" paragraph className={classes.title}>
               Creating a pathway to a new financial system
             </Typography>
             <Button color="secondary">Learn more</Button>
