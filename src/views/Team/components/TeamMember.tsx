@@ -18,11 +18,13 @@ const StyledDiv = styled.div`
     padding: 64px 0;
   }
 `
+
 const Img = styled.img`
   border-radius: 50%;
   width: 70%;
   object-fit: cover;
 `
+
 const StyledLink = styled.a`
   align-items: center;
   text-decoration: none;
@@ -57,7 +59,7 @@ const TeamMember: React.FC = () => {
           WHO WE ARE
         </Typography>
         <Typography variant="h1" align="center" className={classes.title}>
-          Meet Our Team
+          Meet our team
         </Typography>
         <br />
         <br />

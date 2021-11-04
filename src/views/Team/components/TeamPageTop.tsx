@@ -1,5 +1,6 @@
 import { Box, Container, Grid, makeStyles, Theme, Typography } from '@material-ui/core'
 import { Button } from 'components'
+import { DOC_LINK } from 'config/constants/constant'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -36,7 +37,7 @@ const TeamPageTop: React.FC = (props) => {
             <Typography variant="h1" align="center" paragraph className={classes.title}>
               Creating a pathway to a new financial system
             </Typography>
-            <Button color="secondary">Learn more</Button>
+            <Button color="secondary" href={DOC_LINK}>Learn more</Button>
           </Box>
         </Grid>
       </Grid>
