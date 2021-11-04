@@ -34,6 +34,7 @@ const DropDownLink = styled(Link)`
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin-right: 16px;
 `
 
 const Divider = styled.div`
