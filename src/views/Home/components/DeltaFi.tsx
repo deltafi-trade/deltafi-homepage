@@ -219,7 +219,7 @@ const DeltaFi: React.FC = () => {
           OUR MISSION
         </Typography>
         <Typography variant="h2" className={classes.title}>Built for traders, market makers, and liquidity providers</Typography>
-        <Typography color="inherit" variant="h6" paragraph className="subtitle">
+        <Typography color="inherit" variant="h5" paragraph className="subtitle">
           Optimal User Experience
         </Typography>
         <Grid container spacing={10} className={classes.gridContainer} >
