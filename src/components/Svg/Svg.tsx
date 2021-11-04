@@ -16,7 +16,7 @@ const spinStyle = css`
   animation: ${rotate} 2s linear infinite;
 `;
 
-const Svg = styled.svg<SvgProps>`
+const Svg = styled.div<SvgProps>`
   align-self: center; // Safari fix
   fill: ${({ theme, color }) => getThemeValue(`colors.${color}`, color)(theme)};
   flex-shrink: 0;

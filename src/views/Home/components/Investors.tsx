@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Typography } from '@material-ui/core'
+import { Container, makeStyles, Theme, Typography } from '@material-ui/core'
 
 import useDarkMode from 'hooks/useDarkMode'
 
@@ -69,6 +69,13 @@ const Img = styled.img`
   }
 `;
 
+const useStyles = makeStyles(({ palette }: Theme) => ({
+  title: {
+    fontWeight: 'bold',
+  }
+}))
+
+
 interface IInvestorsProps {
   title: string;
   subTitle: string;
@@ -78,6 +85,7 @@ interface IInvestorsProps {
 const Investors: React.FC<IInvestorsProps> = (props: IInvestorsProps) => {
   const { title, subTitle, headerTitle } = props;
   const { isDark } = useDarkMode()
+  const classes = useStyles()
   const JUMP_IMG_URL = isDark ? '/images/dark-jumpcaptal.png' : '/images/light-jumpcaptal.png'
   const HASHED_IMG_URL = isDark ? '/images/dark-hashed.svg' : '/images/light-hashed.svg'
   const HASHKEY_IMG_URL = isDark ? '/images/dark-hashkey.svg' : '/images/light-hashkey.svg'
@@ -88,7 +96,7 @@ const Investors: React.FC<IInvestorsProps> = (props: IInvestorsProps) => {
         <Typography color="primary" variant="h6" paragraph>
           {headerTitle}
         </Typography>
-        <Typography variant="h2" paragraph>
+        <Typography variant="h2" paragraph className={classes.title}>
           {title}
         </Typography>
         <Typography variant="h6" paragraph>

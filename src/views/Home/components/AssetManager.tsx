@@ -54,7 +54,9 @@ const DesktopWrapper = styled.div`
 `
 
 const useStyles = makeStyles(({ palette }: Theme) => ({
-  title: {},
+  title: {
+    fontWeight: 'bold',
+  },
   subTitle: {
     maxWidth: '526px',
   },

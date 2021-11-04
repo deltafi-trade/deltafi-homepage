@@ -17,14 +17,16 @@ const rotate = keyframes`
 
 const Container = styled.div`
   position: relative;
+  width: 100vw;
+  height: 100vh;
 `;
 
 const RotatingIcon = styled(DeltaIcon)`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 40%;
+  left: 40%;
   animation: ${rotate} 2s linear infinite;
-  transform: translate3d(0, 0, 0);
+  transform: translate(-50%, -50%);
 `;
 
 const Spinner: React.FC<SpinnerProps> = ({ size = 128 }) => {

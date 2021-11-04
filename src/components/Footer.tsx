@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Grid, makeStyles, Theme, Typography } from '@material-ui/core'
+import { Grid, makeStyles, Theme, Typography, Link } from '@material-ui/core'
 
 import Logo from './Logo'
 import { TelegramIcon } from 'components'
@@ -23,7 +23,7 @@ const SiteMapWrapper = styled.div`
   align-items: flex-end;
   justify-content: center;
   background-color: ${({ theme }) => theme.palette.background.primary};
-  padding: ${({ theme }) => theme.spacing(3)}px;
+  padding: ${({ theme }) => theme.spacing(6)}px;
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     display: none;
   }
@@ -34,6 +34,7 @@ const StyledDiv = styled.div`
   align-items: flex-end;
   order: 2;
   margin-bottom: 0;
+  margin-bottom: 10px;
 
   .launch-button,
   .theme-button {
@@ -44,6 +45,7 @@ const StyledDiv = styled.div`
     margin-bottom: 10px;
   }
 `
+
 const CopyrightWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -60,9 +62,15 @@ const CopyrightWrapper = styled.div`
 
 const CopyrightText = styled.div`
   margin-bottom: 20px;
+  order: 3;
 `
 
 const IconWrapper = styled.div`
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   &:first-child {
     margin-left: 0;
   }
@@ -74,9 +82,12 @@ const IconWrapper = styled.div`
   }
 `
 
+const SocialLink = styled(Link)`
+`;
+
 const useStyles = makeStyles(({ palette }: Theme) => ({
   row: {
-    maxWidth: '768px',
+    maxWidth: '1200px',
   },
   column: {
     display: 'flex',
@@ -96,7 +107,7 @@ const useStyles = makeStyles(({ palette }: Theme) => ({
   },
   logoTitle: {
     maxWidth: '200px',
-    marginTop: '5px'
+    marginTop: '14px'
   }
 }))
 
@@ -199,34 +210,34 @@ const Footer: React.FC = () => {
         </Grid>
       </SiteMapWrapper>
       <CopyrightWrapper>
-        <CopyrightText>© 2021 DeltaFi. All rights reserved</CopyrightText>
         <StyledDiv>
           <IconWrapper>
-            <StyledLink href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
-              <TwitterIcon isDark={isDark} width="40px" />
-            </StyledLink>
+            <SocialLink href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
+              <TwitterIcon isDark={isDark} width="40px" padding="5px" />
+            </SocialLink>
           </IconWrapper>
           <IconWrapper>
-            <StyledLink href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">
-              <DiscordIcon isDark={isDark} width="40px" />
-            </StyledLink>
+            <SocialLink href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">
+              <DiscordIcon isDark={isDark} width="40px" padding="5px" />
+            </SocialLink>
           </IconWrapper>
           <IconWrapper>
-            <StyledLink href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
-              <GithubIcon isDark={isDark} width="40px" />
-            </StyledLink>
+            <SocialLink href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
+              <GithubIcon isDark={isDark} width="40px" padding="5px" />
+            </SocialLink>
           </IconWrapper>
           <IconWrapper>
-            <StyledLink href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
-              <MediumIcon isDark={isDark} width="40px" />
-            </StyledLink>
+            <SocialLink href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
+              <MediumIcon isDark={isDark} width="40px" padding="5px" />
+            </SocialLink>
           </IconWrapper>
           <IconWrapper>
-            <StyledLink href={TELEGRAM_LINK} target="_blank" rel="noreferrer noopener">
-              <TelegramIcon isDark={isDark} width="40px" />
-            </StyledLink>
+            <SocialLink href={TELEGRAM_LINK} target="_blank" rel="noreferrer noopener">
+              <TelegramIcon isDark={isDark} width="40px" padding="5px" />
+            </SocialLink>
           </IconWrapper>
         </StyledDiv>
+        <CopyrightText>© 2021 DeltaFi. All rights reserved</CopyrightText>
       </CopyrightWrapper>
     </div>
   )
