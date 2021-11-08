@@ -69,6 +69,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   subTitle: {
     maxWidth: '600px',
   },
+  poweredby: {
+    width: 208,
+  }
 }))
 
 const AssetManager: React.FC = () => {
@@ -81,7 +84,7 @@ const AssetManager: React.FC = () => {
         <Grid container spacing={2} justifyContent="center" alignItems="center">
           <Grid item sm={12} md={12}>
             <Wrapper>
-              <img src="/images/poweredby.png" alt="Powered by solala" />
+              <img src="/images/homepage/poweredby.png" alt="Powered by solala" className={classes.poweredby} />
               <br />
               <Typography variant="h1" align="center" className={classes.title}>
                 The world’s most efficient DEX
