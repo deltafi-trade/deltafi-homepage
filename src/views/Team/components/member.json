@@ -19,6 +19,12 @@
   },
   {
     "avatar": "/avatar.jpg",
+    "role": "Head of Smart Contract",
+    "name": "Jason Wu",
+    "linkedin": "https://www.linkedin.com/in/bluejay1010/"
+  },
+  {
+    "avatar": "/avatar.jpg",
     "role": "Frontend Engineer Lead",
     "name": "Taylor Chen",
     "linkedin": "https://www.linkedin.com/in/taylor-chen-80a2311a7/"
