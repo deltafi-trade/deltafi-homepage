@@ -67,7 +67,7 @@ const TeamMember: React.FC = () => {
         <br />
         <Grid container spacing={4} justifyContent="center">
           {memberList.map((member, index) => (
-            <Grid item key={`card-${index}`} xs={6} sm={3}>
+            <Grid item key={`card-${index}`} xs={6} sm={4}>
               <StyledLink href={member.linkedin} target="_blank">
                 <Img src={member.avatar} alt="avatar" />
               </StyledLink>
@@ -88,7 +88,7 @@ const TeamMember: React.FC = () => {
         <br />
         <Grid container spacing={4} justifyContent="center">
           {advisorList.map((member, index) => (
-            <Grid item key={`card-${index}`} xs={6} sm={3}>
+            <Grid item key={`card-${index}`} xs={6} sm={4}>
               <StyledLink href={member.linkedin} target="_blank">
                 <Img src={member.avatar} alt="avatar" />
               </StyledLink>
