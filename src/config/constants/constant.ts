@@ -11,3 +11,42 @@ export const CAREERS_LINK = 'https://deltafi.medium.com/jobs-deltafi-280dd54f82d
 export const PRIVACY_LINK = '/privacy'
 export const DOC_LINK = 'https://docs.deltafi.ai'
 export const TEAM_LINK = '/team'
+
+export const menuItems = [
+  {
+    text: 'Blog',
+    to: BLOG_LINK,
+  },
+  {
+    text: 'Community',
+    children: [
+      {
+        text: 'Twitter',
+        to: TWITTER_LINK,
+      },
+      {
+        text: 'Discord',
+        to: DISCORD_LINK,
+      },
+      {
+        text: 'Telegram',
+        to: TELEGRAM_LINK,
+      },
+    ],
+  },
+  {
+    text: 'Resources',
+    children: [
+      {
+        text: 'Github',
+        to: GITHUB_LINK,
+      },
+      {
+        text: 'Docs',
+        to: DOC_LINK,
+      },
+    ],
+  },
+  { text: 'Whitepaper', to: WHITE_PAPER },
+  { text: 'About', to: TEAM_LINK },
+]

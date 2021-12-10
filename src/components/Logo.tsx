@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/styles';
-import { Theme } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles'
+import { Theme } from '@material-ui/core'
 
 interface Props {
   isDark: boolean
@@ -24,19 +24,19 @@ const StyledLink = styled(Link)`
       width: 137px;
     }
   }
-`;
+`
 
 const useStyles = makeStyles(({ palette }: Theme) => ({
   logo: {
     color: palette.text.primary,
-    fontWeight: 'bold',
+    fontWeight: 400,
   },
-}));
+}))
 
 const StyledDiv = styled.div``
 
 const Logo: React.FC<Props> = ({ isDark, href }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <StyledDiv>

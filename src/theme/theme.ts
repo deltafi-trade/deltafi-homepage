@@ -93,6 +93,7 @@ const darkTheme: Theme = createTheme({
     gradient: {
       cta: 'linear-gradient(90deg, #7A6FFF 0%, #B372CE 50.52%, #FF7586 100%)',
     },
+    divider: 'rgba(255,255,255,0.16)',
   },
 })
 
