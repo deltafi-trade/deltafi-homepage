@@ -45,7 +45,7 @@ const StyledMenu = styled.nav<MenuProps>`
   right: 0;
   transition: transform 0.3s ease-in-out;
   z-index: 999;
-  width: 275px;
+  width: '100%';
   ${({ theme }) => theme.muibreakpoints.up('sm')} {
     width: 320px;
   }
@@ -140,11 +140,11 @@ const Menu = ({ open, setOpen, ...props }) => {
         </ExpandMenu>
         <ExpandMenu className="one-line" my="0px">
           <StyledLink
-              color="inherit"
-              href={BLOG_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="expand-title"
+            color="inherit"
+            href={BLOG_LINK}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="expand-title"
           >
             BLOG
           </StyledLink>
@@ -209,24 +209,18 @@ const Menu = ({ open, setOpen, ...props }) => {
             >
               Github
             </StyledLink>
-            <StyledLink
-              color="inherit"
-              href={DOC_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="sub-menu"
-            >
+            <StyledLink color="inherit" href={DOC_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">
               Docs
             </StyledLink>
           </SubMenu>
         )}
         <ExpandMenu className="one-line" my="0px">
           <StyledLink
-              color="inherit"
-              href={WHITE_PAPER}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="expand-title"
+            color="inherit"
+            href={WHITE_PAPER}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="expand-title"
           >
             WHITEPAPER
           </StyledLink>
@@ -234,11 +228,11 @@ const Menu = ({ open, setOpen, ...props }) => {
         </ExpandMenu>
         <ExpandMenu className="one-line" my="0px">
           <StyledLink
-              color="inherit"
-              href={TEAM_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="expand-title"
+            color="inherit"
+            href={TEAM_LINK}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="expand-title"
           >
             ABOUT
           </StyledLink>

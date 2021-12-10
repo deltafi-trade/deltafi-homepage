@@ -8,6 +8,9 @@ const StyledPage = styled('div')(({ theme }) => ({
   backgroundImage: 'url(/images/homepage/landing-bg.png)',
   backgroundRepeat: 'no-repeat',
   backgroundSize: '100% 100%',
+  [theme.breakpoints.down('sm')]: {
+    backgroundSize: '1000px',
+  },
 }))
 
 const PageMeta = () => {

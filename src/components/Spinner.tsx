@@ -1,9 +1,11 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
-import { DeltaIcon } from "components";
+import React from 'react'
+import styled, { keyframes } from 'styled-components'
+import { DeltaIcon } from 'components'
+import { useTheme } from '@material-ui/core'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 interface SpinnerProps {
-  size?: number;
+  size?: number
 }
 
 const rotate = keyframes`
@@ -13,13 +15,13 @@ const rotate = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
+`
 
 const Container = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
-`;
+`
 
 const RotatingIcon = styled(DeltaIcon)`
   position: absolute;
@@ -27,14 +29,17 @@ const RotatingIcon = styled(DeltaIcon)`
   left: 40%;
   animation: ${rotate} 2s linear infinite;
   transform: translate(-50%, -50%);
-`;
+`
 
 const Spinner: React.FC<SpinnerProps> = ({ size = 128 }) => {
+  const theme = useTheme()
+  const matches = useMediaQuery(theme.breakpoints.down('sm'))
+
   return (
     <Container>
-      <RotatingIcon width={`${size}px`} />
+      <RotatingIcon width={`${matches ? 64 : size}px`} />
     </Container>
-  );
-};
+  )
+}
 
-export default Spinner;
+export default Spinner

@@ -1,18 +1,20 @@
-import { Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from 'components/Footer';
+import { Route } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from 'components/Footer'
 
-const CustomRoute = ({
-  component: Component,
-  ...rest
-}) => {
+const CustomRoute = ({ component: Component, ...rest }) => {
   return (
     <>
       <Header />
-      <Route {...rest} component={(props) => { return <Component {...props} /> }} />
+      <Route
+        {...rest}
+        component={(props) => {
+          return <Component {...props} />
+        }}
+      />
       <Footer />
     </>
-  );
+  )
 }
 
-export default CustomRoute;
+export default CustomRoute
