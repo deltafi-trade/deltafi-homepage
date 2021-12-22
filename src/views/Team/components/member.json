@@ -1,0 +1,32 @@
+[
+  {
+    "avatar": "/avatar.jpg",
+    "role": "Network Economist",
+    "name": "Xin Jin",
+    "linkedin": "https://www.linkedin.com/in/xin-jin-482638211/"
+  },
+  {
+    "avatar": "/avatar.jpg",
+    "role": "Head of Engineering",
+    "name": "Feng Sun",
+    "linkedin": "https://www.linkedin.com/in/feng-sun-483b0044/"
+  },
+  {
+    "avatar": "/avatar.jpg",
+    "role": "Smart Contract Lead",
+    "name": "Jesse Liu",
+    "linkedin": "https://www.linkedin.com/in/jesseliu-dk/"
+  },
+  {
+    "avatar": "/avatar.jpg",
+    "role": "Smart Contract Lead",
+    "name": "Jason Wu",
+    "linkedin": "https://www.linkedin.com/in/bluejay1010/"
+  },
+  {
+    "avatar": "/avatar.jpg",
+    "role": "Frontend Engineer Lead",
+    "name": "Kevin Lee",
+    "linkedin": "https://www.linkedin.com/in/kevin-dev725/"
+  }
+]
