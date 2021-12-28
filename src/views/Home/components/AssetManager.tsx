@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, Grid, Theme, Typography } from '@material-ui/core'
 
-import { Button } from 'components'
+import { RewardButton } from 'components'
 
 import useDarkMode from 'hooks/useDarkMode'
 import { makeStyles } from '@material-ui/styles'
-import { APP_LINK } from 'config/constants/constant'
+import { APP_LINK, REWARD_LINK } from 'config/constants/constant'
 
 interface ContainerProps {
   isDark: boolean
@@ -94,9 +94,9 @@ const AssetManager: React.FC = () => {
                 High Yields, Deep Liquidity, and DAO Governed
               </Typography>
               <DesktopWrapper>
-                <Button color="secondary" href={APP_LINK}>
-                  REQUEST A DEMO
-                </Button>
+                <RewardButton color="secondary" href={REWARD_LINK}>
+                  Invite and Earn
+                </RewardButton>
               </DesktopWrapper>
             </Wrapper>
           </Grid>

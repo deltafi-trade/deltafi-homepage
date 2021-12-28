@@ -1,5 +1,6 @@
 export const HOMEPAGE_LINK = process.env.REACT_HOMPAGE_URL || '/'
 export const APP_LINK = process.env.REACT_APP_URL || 'https://app.deltafi.ai'
+export const REWARD_LINK = 'https://app.deltafi.ai/rewards'
 export const BLOG_LINK = 'https://medium.com/deltafi'
 export const TWITTER_LINK = 'https://twitter.com/deltafi_ai'
 export const DISCORD_LINK = 'https://discord.gg/deltafi'
