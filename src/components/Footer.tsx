@@ -82,6 +82,12 @@ const IconWrapper = styled.div`
   }
 `
 
+export const LogoTextLink = styled(Link)`
+  text-decoration: none;
+  font-size: 32px;
+  padding: 0 10px;
+`
+
 const SocialLink = styled(Link)`
 `;
 
@@ -120,7 +126,15 @@ const Footer: React.FC = () => {
       <SiteMapWrapper>
         <Grid container justifyContent="space-between" className={classes.row}>
           <Grid item className={classes.logo}>
-            <Logo href={HOMEPAGE_LINK} isDark={isDark} />
+            <LogoTextLink
+              color="inherit"
+              href={HOMEPAGE_LINK}
+              target="_self"
+              rel="noreferrer noopener"
+              className={classes.listItem}
+            >
+              DeltaFi
+            </LogoTextLink>
             <Typography variant="subtitle2" paragraph className={classes.logoTitle}>
               Building the Next Generation Cross-Chain DEX on Solana
             </Typography>
