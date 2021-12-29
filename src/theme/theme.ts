@@ -20,11 +20,13 @@ declare module '@material-ui/core/styles/createPalette' {
   export interface Palette {
     gradient?: {
       cta: React.CSSProperties['color']
+      logo?: React.CSSProperties['color']
     }
   }
   export interface PaletteOptions {
     gradient?: {
       cta: React.CSSProperties['color']
+      logo?: React.CSSProperties['color']
     }
   }
   export interface TypeBackground {
@@ -92,6 +94,7 @@ const darkTheme: Theme = createTheme({
     },
     gradient: {
       cta: 'linear-gradient(90deg, #7A6FFF 0%, #B372CE 50.52%, #FF7586 100%)',
+      logo: 'linear-gradient(314.49deg, #4048FF 0%, #FF6492 97.42%)',
     },
     divider: 'rgba(255,255,255,0.16)',
   },
