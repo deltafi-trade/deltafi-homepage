@@ -7,6 +7,7 @@ import CustomRoute from './CustomRoute'
 
 const Home = lazy(() => import('./views/Home'))
 const Team = lazy(() => import('./views/Team'))
+const Tokenomics = lazy(() => import('./views/Tokenomics'))
 const NotFound = lazy(() => import('./views/NotFound'))
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Switch>
           <CustomRoute path="/" exact component={Home} />
           <CustomRoute path="/team" exact component={Team} />
+          <CustomRoute path="/tokenomics" exact component={Tokenomics} />
           <Route component={NotFound} />
         </Switch>
       </SuspenseWithChunkError>
