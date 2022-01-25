@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
-    minHeight: '195vh',
+    minHeight: '265vh',
     maxWidth: 1000,
   },
   title: {
