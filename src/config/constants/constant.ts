@@ -10,7 +10,6 @@ export const TELEGRAM_LINK = 'https://t.me/deltafi_labs'
 export const YOUTUBE_LINK = 'https://youtube.com'
 export const CAREERS_LINK = 'https://deltafi.medium.com/jobs-deltafi-280dd54f82de'
 export const PRIVACY_LINK = '/privacy'
-export const DOC_LINK = 'https://docs.deltafi.ai'
 export const TOKENOMICS_LINK = '/tokenomics'
 
 export const menuItems = [

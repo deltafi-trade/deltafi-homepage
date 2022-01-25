@@ -139,9 +139,6 @@ const LinkList: React.FC = () => {
               Github
             </DropDownLink>
             <Divider />
-            <DropDownLink color="inherit" underline="none" href={WHITE_PAPER} target="_blank" rel="noreferrer noopener">
-              Docs
-            </DropDownLink>
           </div>
         ): null}
       </div>

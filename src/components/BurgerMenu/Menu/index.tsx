@@ -208,9 +208,6 @@ const Menu = ({ open, setOpen, ...props }) => {
             >
               Github
             </StyledLink>
-            <StyledLink color="inherit" href={DOC_LINK} target="_blank" rel="noreferrer noopener" className="sub-menu">
-              Docs
-            </StyledLink>
           </SubMenu>
         )}
         <ExpandMenu className="one-line" my="0px">
