@@ -12,6 +12,7 @@ export const CAREERS_LINK = 'https://deltafi.medium.com/jobs-deltafi-280dd54f82d
 export const PRIVACY_LINK = '/privacy'
 export const DOC_LINK = 'https://docs.deltafi.ai'
 export const TEAM_LINK = '/team'
+export const TOKENOMICS_LINK = '/tokenomics'
 
 export const menuItems = [
   {
