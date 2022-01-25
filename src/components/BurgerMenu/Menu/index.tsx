@@ -19,7 +19,6 @@ import {
   PRIVACY_LINK,
   APP_LINK,
   TELEGRAM_LINK,
-  DOC_LINK,
   WHITE_PAPER,
 } from 'config/constants/constant'
 import useDarkMode from 'hooks/useDarkMode'

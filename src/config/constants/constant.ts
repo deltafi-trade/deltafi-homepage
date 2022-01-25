@@ -41,10 +41,6 @@ export const menuItems = [
         text: 'Github',
         to: GITHUB_LINK,
       },
-      {
-        text: 'Docs',
-        to: DOC_LINK,
-      },
     ],
   },
   { text: 'Whitepaper', to: WHITE_PAPER },
