@@ -21,7 +21,6 @@ import {
   TELEGRAM_LINK,
   DOC_LINK,
   WHITE_PAPER,
-  TEAM_LINK,
 } from 'config/constants/constant'
 import useDarkMode from 'hooks/useDarkMode'
 
@@ -223,18 +222,6 @@ const Menu = ({ open, setOpen, ...props }) => {
             className="expand-title"
           >
             WHITEPAPER
-          </StyledLink>
-          <ArrowRightAltIcon />
-        </ExpandMenu>
-        <ExpandMenu className="one-line" my="0px">
-          <StyledLink
-            color="inherit"
-            href={TEAM_LINK}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="expand-title"
-          >
-            ABOUT
           </StyledLink>
           <ArrowRightAltIcon />
         </ExpandMenu>
