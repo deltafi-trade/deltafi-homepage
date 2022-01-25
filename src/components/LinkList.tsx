@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { Link, makeStyles, Theme, Typography } from '@material-ui/core'
-import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, TEAM_LINK, DISCORD_LINK, TELEGRAM_LINK, WHITE_PAPER, TOKENOMICS_LINK } from 'config/constants/constant'
+import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, TELEGRAM_LINK, WHITE_PAPER, TOKENOMICS_LINK } from 'config/constants/constant'
 import useOutsideClick from 'hooks/useOutsideClick'
 
 export const StyledLink = styled(Link)`
@@ -147,9 +147,6 @@ const LinkList: React.FC = () => {
       </div>
       <CustomLink color="inherit" underline="none" href={WHITE_PAPER} target="_blank" rel="noreferrer noopener">
         Whitepaper
-      </CustomLink>
-      <CustomLink color="inherit" underline="none" href={TEAM_LINK}>
-        About
       </CustomLink>
     </StyledDiv>
   )
