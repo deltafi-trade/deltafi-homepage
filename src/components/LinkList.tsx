@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { Link, makeStyles, Theme, Typography } from '@material-ui/core'
-import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, TEAM_LINK, DISCORD_LINK, TELEGRAM_LINK, WHITE_PAPER } from 'config/constants/constant'
+import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, TELEGRAM_LINK, WHITE_PAPER, TOKENOMICS_LINK } from 'config/constants/constant'
 import useOutsideClick from 'hooks/useOutsideClick'
 
 export const StyledLink = styled(Link)`
@@ -65,9 +65,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 const LinkList: React.FC = () => {
   const [communityShow, setCommunityShow] = useState<boolean>(false);
   const [resourcesShow, setResourcesShow] = useState<boolean>(false);
+  const [blogShow, setBlogShow] = useState<boolean>(false)
   const classes = useStyles();
   const communityContainerRef = useRef<HTMLDivElement>(null);
   const resourcesContainerRef = useRef<HTMLDivElement>(null);
+  const blogContainerRef = useRef<HTMLDivElement>(null)
 
   useOutsideClick(
     communityContainerRef,
@@ -79,11 +81,31 @@ const LinkList: React.FC = () => {
     useCallback(() => setResourcesShow(false), []),
   );
 
+  useOutsideClick(
+    blogContainerRef,
+    useCallback(() => setBlogShow(false), []),
+  )
+
   return (
     <StyledDiv>
-      <CustomLink color="inherit" underline="none" href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
-        Blog
-      </CustomLink>
+      <div ref={blogContainerRef} onClick={() => setBlogShow(!blogShow)} className={classes.dropDownContainer}>
+        <Typography color="inherit" variant="subtitle1" className="subtitle">
+          Blog&nbsp;&nbsp;
+          <img src="/images/homepage/arrow-down.svg" alt="arrow-down" />
+        </Typography>
+        {blogShow ? (
+          <div className={classes.dropDown}>
+            <DropDownLink color="inherit" underline="none" href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
+              Medium
+            </DropDownLink>
+            <Divider />
+            <DropDownLink color="inherit" underline="none" href={TOKENOMICS_LINK}>
+              News
+            </DropDownLink>
+          </div>
+        ) : null}
+      </div>
+
       <div ref={communityContainerRef} onClick={() => setCommunityShow(!communityShow)} className={classes.dropDownContainer}>
         <Typography color="inherit" variant="subtitle1" className="subtitle">
           Community&nbsp;&nbsp;
@@ -122,9 +144,6 @@ const LinkList: React.FC = () => {
       </div>
       <CustomLink color="inherit" underline="none" href={WHITE_PAPER} target="_blank" rel="noreferrer noopener">
         Whitepaper
-      </CustomLink>
-      <CustomLink color="inherit" underline="none" href={TEAM_LINK}>
-        About
       </CustomLink>
     </StyledDiv>
   )
