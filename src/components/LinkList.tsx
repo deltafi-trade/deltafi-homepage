@@ -100,7 +100,7 @@ const LinkList: React.FC = () => {
             </DropDownLink>
             <Divider />
             <DropDownLink color="inherit" underline="none" href={TOKENOMICS_LINK}>
-              News
+              Token
             </DropDownLink>
           </div>
         ) : null}
