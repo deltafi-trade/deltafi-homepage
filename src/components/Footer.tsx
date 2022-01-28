@@ -251,7 +251,7 @@ const Footer: React.FC = () => {
             </SocialLink>
           </IconWrapper>
         </StyledDiv>
-        <CopyrightText>© 2021 DeltaFi. All rights reserved</CopyrightText>
+        <CopyrightText>© 2022 DeltaFi. All rights reserved</CopyrightText>
       </CopyrightWrapper>
     </div>
   )
