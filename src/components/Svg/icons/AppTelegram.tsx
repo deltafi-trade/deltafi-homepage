@@ -8,7 +8,6 @@ interface TelegramProps extends SvgProps {
 
 const Icon: React.FC<TelegramProps> = ({ isDark, ...props }) => {
   const textColor = isDark ? '#FFFFFF' : '#000000'
-  // const innerColor = isDark ? '#000000' : '#FFFFFF'
   return (
     <Svg width={19} height={16} {...props}>
       <path
