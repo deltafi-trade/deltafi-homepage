@@ -36,7 +36,7 @@ const Card = styled(Grid)`
 
   .card-content {
     font-weight: normal;
-    font-size: 18px;
+    font-size: 17px;
   }
 `
 
@@ -50,13 +50,13 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
   content: {
     display: 'flex',
     alignItems: 'center',
-    padding: `${spacing(5)}px 0px`,
-    maxWidth: '82%',
+    padding: `${spacing(9)}px 0px`,
+    maxWidth: '75%',
   },
   header: {
     fontFamily: 'rubik',
     fontWeight: 600,
-    fontSize: 42,
+    fontSize: 40,
     marginBottom: 40,
   },
   secondary: {
@@ -70,12 +70,7 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
     marginTop: 10,
     marginBottom: 10,
     fontSize: 20,
-  },
-  title: {
-    fontFamily: 'rubik',
-    fontWeight: 600,
-    fontSize: 30,
-    marginBottom: 40,
+    fontWeight: 'normal',
   },
   button: {
     backgroundImage: `linear-gradient(52.7deg, #1AFA9A -3.73%, #478EF0 48.34%, #9945FD 93.4%), ${palette.gradient.cta}`,
@@ -153,7 +148,7 @@ const Tokenomics: React.FC = (props) => {
             </MUIButton>
           </Box>
           <Grid item sm={12} md={12}>
-            <Typography variant="h1" align="center" paragraph className={classes.title}>
+            <Typography variant="h1" align="center" paragraph className={classes.header}>
               DELFI Token Utility
             </Typography>
             <Typography variant="h6" align="center" paragraph className={classes.secondary}>
@@ -191,11 +186,11 @@ const Tokenomics: React.FC = (props) => {
         </Grid>
       </Container>
       <Box justifyContent="center" alignItems="center" display="flex">
-        <img src="images/token allocation.png" className={classes.image} />
+        <img src="images/token allocation.svg" className={classes.image} />
       </Box>
       <Container className={classes.content}>
         <Grid container>
-          <Typography variant="h1" paragraph className={classes.title}>
+          <Typography variant="h1" paragraph className={classes.header}>
             Allocation Details
           </Typography>
           <img src="images/allocation table.svg" className={classes.image} />

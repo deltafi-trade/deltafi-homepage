@@ -34,12 +34,14 @@ declare module '@material-ui/core/styles/createPalette' {
     investorBg?: string
     primary?: React.CSSProperties['color']
     secondary?: React.CSSProperties['color']
+    lightBlack?: React.CSSProperties['color']
   }
   export interface TypeBackgroundOptions {
     cta?: string
     investorBg?: string
     primary?: React.CSSProperties['color']
     secondary?: React.CSSProperties['color']
+    lightBlack?: React.CSSProperties['color']
   }
 }
 
@@ -91,6 +93,7 @@ const darkTheme: Theme = createTheme({
       primary: '#13111A',
       secondary: '#1D1A27',
       default: 'rgb(35, 36, 47)',
+      lightBlack: '#15161D',
     },
     gradient: {
       cta: 'linear-gradient(90deg, #7A6FFF 0%, #B372CE 50.52%, #FF7586 100%)',

@@ -4,6 +4,7 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import SuspenseWithChunkError from './components/SuspenseWithChunkError'
 import PageLoader from './components/PageLoader'
 import CustomRoute from './CustomRoute'
+import AppRoute from './AppRoute'
 
 const Home = lazy(() => import('./views/Home'))
 const Tokenomics = lazy(() => import('./views/Tokenomics'))
@@ -15,7 +16,7 @@ const App: React.FC = () => {
       <SuspenseWithChunkError fallback={<PageLoader />}>
         <Switch>
           <CustomRoute path="/" exact component={Home} />
-          <CustomRoute path="/tokenomics" exact component={Tokenomics} />
+          <AppRoute path="/tokenomics" exact component={Tokenomics} />
           <Route component={NotFound} />
         </Switch>
       </SuspenseWithChunkError>
