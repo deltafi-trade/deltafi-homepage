@@ -4,10 +4,10 @@ import { Helmet } from 'react-helmet-async'
 import { DEFAULT_META } from 'config/constants/meta'
 
 const StyledPage = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette.background.primary,
-  backgroundImage: 'url(/images/homepage/landing-bg.png)',
+  backgroundImage: 'url(/images/homepage/landing-bg.png)', 
   backgroundRepeat: 'no-repeat',
-  backgroundSize: '100% 100%',
+  backgroundPosition: 'top',
+  backgroundSize: '100%',
   [theme.breakpoints.down('sm')]: {
     backgroundSize: '1000px',
   },

@@ -41,7 +41,7 @@ const Logo: React.FC<Props> = ({ isDark, href }) => {
   return (
     <StyledDiv>
       <StyledLink to={href} aria-label="DeltaFi App">
-        <img src="/horizontal 60.svg" className={classes.logo} />
+        <img src="/horizontal 60.svg" width={150} className={classes.logo} />
       </StyledLink>
     </StyledDiv>
   )

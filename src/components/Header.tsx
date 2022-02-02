@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    minHeight: '100px',
+    minHeight: '150px',
   },
   drawerPaper: {
     width: '100%',
@@ -82,7 +82,7 @@ const Header: React.FC = () => {
           <LinkList />
           <Hidden smDown implementation="css">
             <Button color="primary" href={APP_LINK}>
-              REQUEST A DEMO
+              Launch APP
             </Button>
           </Hidden>
           <Hidden smUp>
@@ -112,7 +112,7 @@ const Header: React.FC = () => {
               <List items={menuItems} className={classes.menu} />
               <Box display="flex" justifyContent="center">
                 <Button color="primary" href={APP_LINK}>
-                  REQUEST A DEMO
+                  Launch APP
                 </Button>
               </Box>
             </Box>
