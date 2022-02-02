@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Grid, makeStyles, Theme, Typography, Link } from '@material-ui/core'
 
-import Logo from './Logo'
-import { TelegramIcon } from 'components'
 import { StyledLink } from './LinkList'
 
 import {
@@ -16,14 +14,12 @@ import {
   WHITE_PAPER,
   APP_LINK,
 } from 'config/constants/constant'
-import { GithubIcon, DiscordIcon, TwitterIcon, MediumIcon } from 'components'
 import useDarkMode from 'hooks/useDarkMode'
 
 const SiteMapWrapper = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background-color: ${({ theme }) => theme.palette.background.primary};
   padding: ${({ theme }) => theme.spacing(6)}px;
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
     display: none;
@@ -47,40 +43,9 @@ const StyledDiv = styled.div`
   }
 `
 
-const CopyrightWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: ${({ theme }) => theme.palette.background.primary};
-  color: ${({ theme }) => theme.palette.text.primary};
-  padding: 24px 0;
-
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
-    flex-direction: column;
-  }
-`
-
 const CopyrightText = styled.div`
   margin-bottom: 20px;
   order: 3;
-`
-
-const IconWrapper = styled.div`
-  min-width: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &:first-child {
-    margin-left: 0;
-  }
-  &:last-child {
-    margin-right: 0;
-    a {
-      padding-right: 0;
-    }
-  }
 `
 
 export const LogoTextLink = styled(Link)`
@@ -109,6 +74,11 @@ const useStyles = makeStyles(({ palette }: Theme) => ({
       textDecoration: 'none',
     },
   },
+  logo: {
+    '&:hover': {
+      textDecoration: 'none',
+    },
+  },
   logoTitle: {
     maxWidth: '250px',
     marginTop: '30px',
@@ -131,7 +101,7 @@ const Footer: React.FC = () => {
               href={HOMEPAGE_LINK}
               target="_self"
               rel="noreferrer noopener"
-              className={classes.listItem}
+              className={classes.logo}
             >
               DeltaFi
             </LogoTextLink>
@@ -140,6 +110,7 @@ const Footer: React.FC = () => {
             </Typography>
             <CopyrightText style={{ marginTop: 100, fontSize: '17px' }}>Copyright © 2022. DeltaFi</CopyrightText>
           </Grid>
+          <br/>
           <Grid item className={classes.column}>
             <Typography variant="body1" align="center" paragraph className={classes.listTitle}>
               Company
@@ -165,7 +136,7 @@ const Footer: React.FC = () => {
               DeltaFi DEX
             </StyledLink>
             <br />
-            <StyledLink
+            {/* <StyledLink
               color="inherit"
               href={APP_LINK}
               target="_blank"
@@ -173,7 +144,7 @@ const Footer: React.FC = () => {
               className={classes.listItem}
             >
               Governance
-            </StyledLink>
+            </StyledLink> */}
           </Grid>
           <Grid item className={classes.column}>
             <Typography variant="body1" paragraph className={classes.listTitle}>

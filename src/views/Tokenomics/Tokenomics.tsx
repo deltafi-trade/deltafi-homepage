@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button as MUIButton, Box, Container, Grid, makeStyles, Theme, Typography, Link } from '@material-ui/core'
+import { Box, Container, Grid, makeStyles, Theme, Typography, Link } from '@material-ui/core'
 
 import { HOMEPAGE_LINK } from 'config/constants/constant'
+import { RewardButton } from 'components'
 
 const StyledPage = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.primary,
@@ -66,25 +67,6 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
     fontSize: 20,
     fontWeight: 'normal',
   },
-  button: {
-    backgroundImage: `linear-gradient(52.7deg, #1AFA9A -3.73%, #478EF0 48.34%, #9945FD 93.4%), ${palette.gradient.cta}`,
-    color: palette.text.primary,
-    borderRadius: 100,
-    border: 'solid 1px transparent',
-    backgroundOrigin: 'border-box',
-    boxShadow: `2px 1000px 1px ${palette.background.primary} inset`,
-
-    '&:hover': {
-      color: palette.text.primary,
-      boxShadow: 'none',
-    },
-
-    height: 55,
-    width: 200,
-    fontSize: 18,
-    fontWeight: 500,
-    textTransform: 'none',
-  },
   image: {
     margin: 'auto',
     alignSelf: 'center',
@@ -136,9 +118,9 @@ const Tokenomics: React.FC = (props) => {
             </Typography>
           </Grid>
           <Box marginTop={4} marginBottom={30}>
-            <MUIButton color="primary" href={HOMEPAGE_LINK} className={classes.button}>
+            <RewardButton color="primary" href={HOMEPAGE_LINK}>
               Learn More
-            </MUIButton>
+            </RewardButton>
           </Box>
           <Grid item sm={12} md={12}>
             <Typography variant="h1" align="center" paragraph className={classes.header}>

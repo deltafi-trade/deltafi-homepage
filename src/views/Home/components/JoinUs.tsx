@@ -121,7 +121,7 @@ const JoinUs = () => {
 
   const INVESTOR_LIST = [
     {
-      img: '/images/dark-jumpcaptal.png',
+      img: '/images/dark-jumpcapital.png',
     },
     {
       img: '/images/dark-hashed.svg',
@@ -160,7 +160,7 @@ const JoinUs = () => {
             <Grid item key={`card-${index}`} xs={4}>
               <InvestorCard>
                 <Box padding={5}>
-                  <img src={card.img}/>
+                  <img src={card.img} />
                 </Box>
               </InvestorCard>
             </Grid>
