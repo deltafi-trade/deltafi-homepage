@@ -5,9 +5,10 @@ import { DEFAULT_META } from 'config/constants/meta'
 
 const StyledPage = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.primary,
-  backgroundImage: 'url(/images/homepage/landing-bg.png)',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: '100% 100%',
+  backgroundImage: 'url(/images/homepage/landing-bg.png), url(/images/homepage/background.png)', 
+  backgroundRepeat: 'no-repeat, no-repeat',
+  backgroundPosition: 'top, bottom',
+  backgroundSize: '100%',
   [theme.breakpoints.down('sm')]: {
     backgroundSize: '1000px',
   },

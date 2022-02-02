@@ -2,6 +2,7 @@ import { createTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { Theme } from '@material-ui/core'
 import { blue, pink } from '@material-ui/core/colors'
 import '@fontsource/poppins'
+import 'typeface-rubik'
 
 declare module '@material-ui/core/styles/createTheme' {
   export interface Theme {
@@ -47,7 +48,7 @@ declare module '@material-ui/core/styles/createPalette' {
 
 const baseTheme: Theme = createTheme({
   typography: {
-    fontFamily: 'Poppins',
+    fontFamily: 'rubik',
   },
   status: {
     danger: '#ff0000',

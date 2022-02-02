@@ -4,8 +4,6 @@ import { Button as MUIButton, Box, Container, Grid, makeStyles, Theme, Typograph
 
 import { HOMEPAGE_LINK } from 'config/constants/constant'
 
-import 'typeface-rubik'
-
 const StyledPage = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.primary,
   backgroundImage: 'url(/images/homepage/banner.png)',
@@ -30,7 +28,6 @@ const Card = styled(Grid)`
   }
 
   .card-title {
-    font-family: rubik;
     font-weight: bold;
   }
 
@@ -54,19 +51,16 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
     maxWidth: '75%',
   },
   header: {
-    fontFamily: 'rubik',
     fontWeight: 600,
     fontSize: 40,
     marginBottom: 40,
   },
   secondary: {
-    fontFamily: 'rubik',
     fontWeight: 'normal',
     marginBottom: 10,
     fontSize: 17,
   },
   text: {
-    fontFamily: 'rubik',
     marginTop: 10,
     marginBottom: 10,
     fontSize: 20,
@@ -90,7 +84,6 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
     fontSize: 18,
     fontWeight: 500,
     textTransform: 'none',
-    fontFamily: 'rubik',
   },
   image: {
     margin: 'auto',
