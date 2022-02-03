@@ -34,7 +34,7 @@ const StyledDiv = styled.div`
   }
 `
 const Card = styled(Grid)`
-  height: 270px;
+  height: 280px;
   box-shadow: 2px 1000px 1px ${({ theme }) => theme.palette.background.primary} inset;
   border-radius: 10px;
   background-image: linear-gradient(52.7deg, #1afa9a -3.73%, #478ef0 48.34%, #9945fd 93.4%);
@@ -50,6 +50,10 @@ const Card = styled(Grid)`
 
   .card-title {
     font-weight: bold;
+  }
+
+  .card-content {
+    font-weight: normal;
   }
 `
 
