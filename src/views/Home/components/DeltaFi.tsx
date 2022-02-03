@@ -51,6 +51,10 @@ const Card = styled(Grid)`
   .card-title {
     font-weight: bold;
   }
+
+  .card-content {
+    font-weight: normal;
+  }
 `
 
 const ColoredCard = styled(Grid)`
