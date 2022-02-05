@@ -21,7 +21,8 @@ const StyledDiv = styled(Container)`
   align-items: center;
   padding-top: 400px;
   ${({ theme }) => theme.muibreakpoints.down('md')} {
-    padding-top: 65px;
+    padding-top: 190px;
+    padding-left: 20px;
   }
 `
 const Wrapper = styled.div`
@@ -49,7 +50,8 @@ const DesktopWrapper = styled.div`
   margin-top: ${({ theme }) => theme.spacing(4)}px;
 
   ${({ theme }) => theme.muibreakpoints.down('md')} {
-    display: none;
+    margin-top: ${({ theme }) => theme.spacing(2)}px;
+    max-width: 90%;
   }
 `
 
@@ -76,10 +78,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   title: {
     fontWeight: 'bold',
     fontSize: 50,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 33,
+    },
   },
   subTitle: {
     fontWeight: 'normal',
     maxWidth: '680px',
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '95%',
+      fontSize: 16,
+    },
   },
   poweredby: {
     height: 18,
@@ -88,6 +97,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   socialLinks: {
     paddingTop: 10,
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '55%',
+    },
   },
 }))
 
@@ -111,7 +123,6 @@ const AssetManager: React.FC = () => {
               <br />
               efficient DEX
             </Typography>
-            <br />
             <br />
             <Typography variant="h6" className={classes.subTitle}>
               Machine learning algorithms empower efficient automated market making with zero price slippage, minimized

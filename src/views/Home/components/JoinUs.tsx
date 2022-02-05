@@ -27,7 +27,7 @@ const StyledDiv = styled.div`
     }
   }
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
-    padding: 38px 0 24px;
+    padding: 0px 0 24px;
     .deposit-text {
       margin-top: 24px;
     }
@@ -41,10 +41,18 @@ const Card = styled(Grid)`
   background-image: linear-gradient(52.7deg, #1afa9a -3.73%, #478ef0 48.34%, #9945fd 93.4%);
   border: 1px solid transparent;
   background-origin: border-box;
+  margin: 10px;
+  ${({ theme }) => theme.muibreakpoints.down('sm')} {
+    height: 160px;
+    margin: 0px;
+  }
 
   .card-title {
     font-weight: bold;
     font-size: 20px;
+    ${({ theme }) => theme.muibreakpoints.down('sm')} {
+      font-size: 13px;
+    }
   }
 `
 
@@ -53,6 +61,9 @@ const InvestorCard = styled.div`
   align-items: center;
   justify-content: center;
   height: 160px;
+  ${({ theme }) => theme.muibreakpoints.down('sm')} {
+    height: 50px;
+  }
 `
 
 const Img = styled.img`
@@ -60,7 +71,8 @@ const Img = styled.img`
   width: 60px;
   height: 50px;
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
-    border-radius: 10px 10px 0 0;
+    width: 35px;
+    height: 35px;
   }
   ${({ theme }) => theme.muibreakpoints.down('md')} {
     max-width: 229px;
@@ -73,6 +85,10 @@ const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
     marginBottom: 10,
     fontWeight: 500,
     fontSize: 37,
+    [breakpoints.down('sm')]: {
+      fontSize: 25,
+      marginTop: 50,
+    },
   },
   button: {
     backgroundColor: `#7650F5`,
@@ -90,6 +106,24 @@ const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
     fontSize: 18,
     fontWeight: 500,
     textTransform: 'none',
+
+    [breakpoints.down('sm')]: {
+      height: 32,
+      width: 105,
+      fontSize: 12,
+    },
+  },
+  media: {
+    padding: 30,
+    [breakpoints.down('sm')]: {
+      padding: 20,
+    },
+  },
+  investor: {
+    [breakpoints.down('sm')]: {
+      height: 40,
+      maxWidth: 130,
+    },
   },
 }))
 
@@ -135,11 +169,11 @@ const JoinUs = () => {
     <Container>
       <StyledDiv>
         <Typography className={classes.title}>Join Our Growing Community</Typography>
-        <Grid container spacing={6} style={{ paddingTop: 40 }}>
+        <Grid container spacing={2} style={{ paddingTop: 40 }}>
           {MEDIA_LIST.map((card, index) => (
-            <Grid item key={`card-${index}`} xs={3}>
+            <Grid item key={`card-${index}`} xs={6} md={3}>
               <Card>
-                <Box padding={5}>
+                <Box className={classes.media}>
                   <Img src={card.img} />
                   <Typography variant="h5" align="center" paragraph className="card-title">
                     {card.title}
@@ -155,12 +189,12 @@ const JoinUs = () => {
       </StyledDiv>
       <StyledDiv>
         <Typography className={classes.title}>Backed by World-class Investors</Typography>
-        <Grid container spacing={1} style={{ paddingTop: 40 }}>
+        <Grid container spacing={1} style={{ paddingTop: 40, alignItems: 'center', justifyContent: 'center' }}>
           {INVESTOR_LIST.map((card, index) => (
-            <Grid item key={`card-${index}`} xs={4}>
+            <Grid item key={`card-${index}`} xs={"auto"} md={4}>
               <InvestorCard>
                 <Box padding={5}>
-                  <img src={card.img} />
+                  <img src={card.img} className={classes.investor}/>
                 </Box>
               </InvestorCard>
             </Grid>

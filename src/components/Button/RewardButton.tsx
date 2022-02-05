@@ -2,7 +2,7 @@ import React from 'react';
 import { Button as MUIButton, ButtonProps, Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(({ palette }: Theme) => ({
+const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
   ctaButton: {
     backgroundImage: `linear-gradient(52.7deg, #1AFA9A -3.73%, #478EF0 48.34%, #9945FD 93.4%), ${palette.gradient.cta}`,
     color: palette.text.primary,
@@ -19,6 +19,12 @@ const useStyles = makeStyles(({ palette }: Theme) => ({
     '&:hover': {
       color: palette.text.primary,
       boxShadow: 'none',
+    },
+
+    [breakpoints.down('sm')]: {
+      height: 45,
+      width: 150,
+      fontSize: 14,
     }
   },
 }));

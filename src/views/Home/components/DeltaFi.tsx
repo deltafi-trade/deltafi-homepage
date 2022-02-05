@@ -65,17 +65,30 @@ const ColoredCard = styled(Grid)`
   border: 1px solid transparent;
   background-origin: border-box;
 
+  ${({ theme }) => theme.muibreakpoints.down('sm')} {
+    height: 230px;
+    box-shadow: 0px 0px 10px 8px rgba(118, 80, 245, 0.3);
+  }
+
   .card-header {
     font-weight: bold;
     font-size: 29px;
     line-height: 0;
     padding-top: 35px;
+    ${({ theme }) => theme.muibreakpoints.down('sm')} {
+      font-size: 19px;
+      padding-top: 17px;
+    }
   }
 
   .card-title {
     font-weight: normal;
     padding-top: 10px;
     font-size: 22px;
+    ${({ theme }) => theme.muibreakpoints.down('sm')} {
+      font-size: 15px;
+      padding-top: 0px;
+    }
   }
 `
 
@@ -84,7 +97,7 @@ const Img = styled.img`
   height: auto;
   object-fit: cover;
   ${({ theme }) => theme.muibreakpoints.down('sm')} {
-    border-radius: 10px 10px 0 0;
+    width: 150px;
   }
   ${({ theme }) => theme.muibreakpoints.down('md')} {
     max-width: 229px;
@@ -97,9 +110,23 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: 10,
     fontWeight: 500,
     fontSize: 37,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 22,
+      width: '85%',
+    },
   },
   header: {
     paddingTop: 140,
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: 0,
+      fontWeight: 'normal',
+    },
+  },
+  cardGrid: {
+    paddingTop: 40,
+    [theme.breakpoints.down('sm')]: {
+      paddingBottom: 60,
+    },
   },
 }))
 
@@ -152,9 +179,9 @@ const DeltaFi: React.FC = () => {
           <br />
           and market makers
         </Typography>
-        <Grid container spacing={5} style={{ paddingTop: 40 }}>
+        <Grid container spacing={5} className={classes.cardGrid}>
           {MISSION_LIST.map((card, index) => (
-            <Grid item key={`card-${index}`} xs={4}>
+            <Grid item key={`card-${index}`} xs={"auto"} md={4}>
               <Card>
                 <Box padding={3}>
                   <Typography align="left" paragraph className="card-header">
@@ -175,9 +202,9 @@ const DeltaFi: React.FC = () => {
           Why DeltaFi?
         </Typography>
         <Typography className={classes.title}>High Yields, Deep Liquidity, and DAO Governed</Typography>
-        <Grid container spacing={4} style={{ paddingTop: 40 }}>
+        <Grid container spacing={4} className={classes.cardGrid}>
           {WHY_LIST.map((card, index) => (
-            <Grid item key={`card-${index}`} xs={6}>
+            <Grid item key={`card-${index}`} xs={12} md={6}>
               <ColoredCard>
                 <Box padding={3}>
                   <Typography variant="h4" paragraph className="card-header">
