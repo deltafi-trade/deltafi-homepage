@@ -15,7 +15,16 @@ export const TOKENOMICS_LINK = '/tokenomics'
 export const menuItems = [
   {
     text: 'Blog',
-    to: BLOG_LINK,
+    children: [
+      {
+        text: 'Medium',
+        to: BLOG_LINK,
+      },
+      {
+        text: 'Token',
+        to: TOKENOMICS_LINK,
+      },
+    ],
   },
   {
     text: 'Community',

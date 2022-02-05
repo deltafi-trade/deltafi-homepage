@@ -10,7 +10,7 @@ const StyledPage = styled('div')(({ theme }) => ({
   backgroundPosition: 'bottom',
   backgroundSize: '100%',
   [theme.breakpoints.down('sm')]: {
-    backgroundSize: '1000px',
+    backgroundSize: '500px',
   },
 }))
 

@@ -1,17 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Box, Container, Grid, makeStyles, Theme, Typography, Link } from '@material-ui/core'
+import { Box, Container, Grid, makeStyles, Theme, useTheme, Typography, useMediaQuery } from '@material-ui/core'
 
 import { HOMEPAGE_LINK } from 'config/constants/constant'
 import { RewardButton } from 'components'
+import { left } from 'styled-system'
 
-const StyledPage = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette.background.primary,
-  backgroundImage: 'url(/images/homepage/banner.png)',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: '100%',
-  backgroundPositionY: 0,
-}))
+const StyledDiv = styled.div`
+  background-color: ${({ theme }) => theme.palette.background.primary};
+  background-image: url(/images/homepage/banner.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+  ${({ theme }) => theme.muibreakpoints.down('sm')} {
+    background-size: 700px;
+  }
+`
 
 const Card = styled(Grid)`
   height: 230px;
@@ -20,6 +24,9 @@ const Card = styled(Grid)`
   background-image: linear-gradient(52.7deg, #1afa9a -3.73%, #478ef0 48.34%, #9945fd 93.4%);
   border: 1px solid transparent;
   background-origin: border-box;
+  ${({ theme }) => theme.muibreakpoints.down('sm')} {
+    height: 250px;
+  }
 
   .card-header {
     font-weight: normal;
@@ -44,28 +51,53 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
     alignItems: 'center',
     paddingTop: `${spacing(40)}px`,
     maxWidth: 1000,
+    [breakpoints.down('sm')]: {
+      paddingTop: `${spacing(30)}px`,
+    },
   },
   content: {
     display: 'flex',
     alignItems: 'center',
     padding: `${spacing(9)}px 0px`,
     maxWidth: '75%',
+    [breakpoints.down('sm')]: {
+      maxWidth: '90%',
+    },
   },
   header: {
     fontWeight: 600,
     fontSize: 40,
     marginBottom: 40,
   },
+  contentHeader: {
+    fontWeight: 600,
+    fontSize: 40,
+    marginBottom: 40,
+    [breakpoints.down('sm')]: {
+      fontSize: 25,
+    },
+  },
   secondary: {
     fontWeight: 'normal',
     marginBottom: 10,
     fontSize: 17,
+  },
+  description: {
+    fontWeight: 'normal',
+    marginBottom: 10,
+    fontSize: 17,
+    [breakpoints.down('sm')]: {
+      fontSize: 13,
+    },
   },
   text: {
     marginTop: 10,
     marginBottom: 10,
     fontSize: 20,
     fontWeight: 'normal',
+    [breakpoints.down('sm')]: {
+      fontSize: 18,
+    },
   },
   image: {
     margin: 'auto',
@@ -73,11 +105,23 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
     width: '100%',
     height: undefined,
     objectFit: 'contain',
+    marginBottom: 10,
+    [breakpoints.down('sm')]: {
+      maxWidth: '100%',
+    },
+  },
+  button: {
+    marginBottom: 200,
+    [breakpoints.down('sm')]: {
+      marginBottom: 80,
+    },
   },
 }))
 
 const Tokenomics: React.FC = (props) => {
   const classes = useStyles(props)
+  const theme = useTheme()
+  const mobileImg = useMediaQuery(theme.breakpoints.down('sm'))
 
   const CARD_LIST = [
     {
@@ -105,7 +149,7 @@ const Tokenomics: React.FC = (props) => {
   ]
 
   return (
-    <StyledPage>
+    <StyledDiv>
       <Container className={classes.top}>
         <Grid container spacing={2} justifyContent="center" alignItems="center">
           <Grid item sm={12} md={12}>
@@ -117,13 +161,13 @@ const Tokenomics: React.FC = (props) => {
               on Solana.
             </Typography>
           </Grid>
-          <Box marginTop={4} marginBottom={30}>
+          <Box marginTop={4} className={classes.button}>
             <RewardButton color="primary" href={HOMEPAGE_LINK}>
               Learn More
             </RewardButton>
           </Box>
           <Grid item sm={12} md={12}>
-            <Typography variant="h1" align="center" paragraph className={classes.header}>
+            <Typography variant="h1" align="center" paragraph className={classes.contentHeader}>
               DELFI Token Utility
             </Typography>
             <Typography variant="h6" align="center" paragraph className={classes.secondary}>
@@ -135,15 +179,15 @@ const Tokenomics: React.FC = (props) => {
       </Container>
       <Container className={classes.content}>
         <Grid container>
-          <Typography variant="h6" align="center" paragraph className={classes.secondary}>
+          <Typography variant="h6" paragraph className={classes.description}>
             The uses of the DELFI token include but not limited to
           </Typography>
 
-          <Grid container spacing={5}>
+          <Grid container spacing={3}>
             {CARD_LIST.map((card, index) => (
-              <Grid item key={`card-${index}`} xs={6}>
+              <Grid item key={`card-${index}`} xs={'auto'} md={6}>
                 <Card>
-                  <Box padding={5}>
+                  <Box padding={4}>
                     <Typography paragraph className="card-header">
                       {card.header}
                     </Typography>
@@ -161,20 +205,28 @@ const Tokenomics: React.FC = (props) => {
         </Grid>
       </Container>
       <Box justifyContent="center" alignItems="center" display="flex">
-        <img src="images/token allocation.svg" className={classes.image} />
+        {mobileImg ? (
+          <img src="images/Token chart.svg" className={classes.image} />
+        ) : (
+          <img src="images/token allocation.svg" className={classes.image} />
+        )}
       </Box>
       <Container className={classes.content}>
         <Grid container>
-          <Typography variant="h1" paragraph className={classes.header}>
+          <Typography variant="h1" paragraph className={classes.contentHeader}>
             Allocation Details
           </Typography>
-          <img src="images/allocation table.svg" className={classes.image} />
-          <Typography variant="h6" paragraph className={classes.text}>
+          {mobileImg ? (
+            <img src="images/Allocation Details.svg" className={classes.image} />
+          ) : (
+            <img src="images/allocation table.svg" className={classes.image} />
+          )}
+          <Typography variant="h6" paragraph className={classes.description}>
             <strong>Note: </strong>The above numbers are rounded to the closest percentage.
           </Typography>
         </Grid>
       </Container>
-    </StyledPage>
+    </StyledDiv>
   )
 }
 

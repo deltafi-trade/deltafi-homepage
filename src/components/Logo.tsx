@@ -26,10 +26,14 @@ const StyledLink = styled(Link)`
   }
 `
 
-const useStyles = makeStyles(({ palette }: Theme) => ({
+const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
   logo: {
     color: palette.text.primary,
     fontWeight: 400,
+    width: 150,
+    [breakpoints.down('sm')]: {
+      width: 100,
+    },
   },
 }))
 
@@ -41,7 +45,7 @@ const Logo: React.FC<Props> = ({ isDark, href }) => {
   return (
     <StyledDiv>
       <StyledLink to={href} aria-label="DeltaFi App">
-        <img src="/horizontal 60.svg" width={150} className={classes.logo} />
+        <img src="/horizontal 60.svg" className={classes.logo} />
       </StyledLink>
     </StyledDiv>
   )
