@@ -162,8 +162,8 @@ const DeltaFi: React.FC = () => {
       image: '/images/homepage/globe.png',
     },
     {
-      header: 'Cross Platform Solutions',
-      title: 'Mobile and desktop',
+      header: 'Community Driven Development',
+      title: 'Fully decentralized',
       image: '/images/homepage/hand.png',
     },
   ]
