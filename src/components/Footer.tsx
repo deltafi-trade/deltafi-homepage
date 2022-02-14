@@ -112,19 +112,9 @@ const Footer: React.FC = () => {
           </Grid>
           <br/>
           <Grid item className={classes.column}>
-            <Typography variant="body1" align="center" paragraph className={classes.listTitle}>
-              Company
+            <Typography variant="body1" paragraph className={classes.listTitle}>
+              Product
             </Typography>
-            <br />
-            <StyledLink
-              color="inherit"
-              href={APP_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              className={classes.listItem}
-            >
-              Mobile APP
-            </StyledLink>
             <br />
             <StyledLink
               color="inherit"
