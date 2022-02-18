@@ -19,7 +19,7 @@ const Main = styled.div<ContainerProps>``
 const StyledDiv = styled(Container)`
   display: flex;
   align-items: center;
-  padding-top: 400px;
+  padding-top: 330px;
   ${({ theme }) => theme.muibreakpoints.down('md')} {
     padding-top: 190px;
     padding-left: 20px;
