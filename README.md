@@ -1,6 +1,6 @@
-# DeltaFi Interface
+# DeltaFi Homepage
 
-An open source interface for DeltaFi.
+An open source homepage for DeltaFi.
 
 ## Available Scripts
 
