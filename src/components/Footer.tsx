@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Grid, makeStyles, Theme, Typography, Link } from '@material-ui/core'
-
-import { StyledLink } from './LinkList'
+import React from "react";
+import styled from "styled-components";
+import {
+  Grid, makeStyles, Theme, Typography, Link,
+} from "@material-ui/core";
 
 import {
   HOMEPAGE_LINK,
@@ -13,83 +13,63 @@ import {
   TELEGRAM_LINK,
   WHITE_PAPER,
   APP_LINK,
-} from 'config/constants/constant'
-import useDarkMode from 'hooks/useDarkMode'
+} from "config/constants/constant";
+import { StyledLink } from "./LinkList";
 
 const SiteMapWrapper = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
   padding: ${({ theme }) => theme.spacing(6)}px;
-  ${({ theme }) => theme.muibreakpoints.down('sm')} {
+  ${({ theme }) => theme.muibreakpoints.down("sm")} {
     display: none;
   }
-`
-
-const StyledDiv = styled.div`
-  display: flex;
-  align-items: flex-end;
-  order: 2;
-  margin-bottom: 0;
-  margin-bottom: 10px;
-
-  .launch-button,
-  .theme-button {
-    margin-left: ${({ theme }) => theme.spacing(1)}px;
-  }
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
-    order: 1;
-    margin-bottom: 10px;
-  }
-`
+`;
 
 const CopyrightText = styled.div`
   margin-bottom: 20px;
   order: 3;
-`
+`;
 
 export const LogoTextLink = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   font-size: 35px;
-`
-
-const SocialLink = styled(Link)``
+`;
 
 const useStyles = makeStyles(({ palette }: Theme) => ({
   row: {
-    maxWidth: '1200px',
+    maxWidth: "1200px",
   },
   column: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
   },
   listTitle: {
-    fontSize: '20px',
+    fontSize: "20px",
   },
   listItem: {
     color: palette.text.secondary,
-    padding: '0px !important',
-    '&:hover': {
-      textDecoration: 'none',
+    padding: "0px !important",
+    "&:hover": {
+      textDecoration: "none",
     },
   },
   logo: {
-    '&:hover': {
-      textDecoration: 'none',
+    "&:hover": {
+      textDecoration: "none",
     },
   },
   logoTitle: {
-    maxWidth: '250px',
-    marginTop: '30px',
-    fontSize: '16px',
-    fontWeight: 'normal',
+    maxWidth: "250px",
+    marginTop: "30px",
+    fontSize: "16px",
+    fontWeight: "normal",
   },
-}))
+}));
 
 const Footer: React.FC = () => {
-  const { isDark } = useDarkMode()
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <div>
@@ -108,9 +88,9 @@ const Footer: React.FC = () => {
             <Typography variant="subtitle2" paragraph className={classes.logoTitle}>
               Building the Next Generation Cross-Chain DEX on Solana
             </Typography>
-            <CopyrightText style={{ marginTop: 100, fontSize: '17px' }}>Copyright © 2022. DeltaFi</CopyrightText>
+            <CopyrightText style={{ marginTop: 100, fontSize: "17px" }}>Copyright © 2022. DeltaFi</CopyrightText>
           </Grid>
-          <br/>
+          <br />
           <Grid item className={classes.column}>
             <Typography variant="body1" paragraph className={classes.listTitle}>
               Product
@@ -209,7 +189,7 @@ const Footer: React.FC = () => {
         </Grid>
       </SiteMapWrapper>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

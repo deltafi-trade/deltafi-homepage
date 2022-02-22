@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 const useOutsideClick = (
   ref: React.RefObject<HTMLDivElement | HTMLTextAreaElement>,
@@ -11,9 +11,9 @@ const useOutsideClick = (
       }
     };
 
-    window.addEventListener('mousedown', handleClickOutside);
+    window.addEventListener("mousedown", handleClickOutside);
     return () => {
-      window.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener("mousedown", handleClickOutside);
     };
   }, [ref, handler]);
 };

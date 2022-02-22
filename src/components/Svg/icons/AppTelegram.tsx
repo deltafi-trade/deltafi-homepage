@@ -1,13 +1,13 @@
-import React from 'react'
-import Svg from '../Svg'
-import { SvgProps } from '../types'
+import React from "react";
+import Svg from "../Svg";
+import { SvgProps } from "../types";
 
 interface TelegramProps extends SvgProps {
   isDark: boolean
 }
 
 const Icon: React.FC<TelegramProps> = ({ isDark, ...props }) => {
-  const textColor = isDark ? '#FFFFFF' : '#000000'
+  const textColor = isDark ? "#FFFFFF" : "#000000";
   return (
     <Svg width={19} height={16} {...props}>
       <path
@@ -15,7 +15,7 @@ const Icon: React.FC<TelegramProps> = ({ isDark, ...props }) => {
         fill={textColor}
       />
     </Svg>
-  )
-}
+  );
+};
 
-export default Icon
+export default Icon;

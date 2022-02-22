@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { AppBar, Container, makeStyles, Toolbar, Theme, IconButton, Hidden, Drawer, Box } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import {
+  AppBar, Container, makeStyles, Toolbar, Theme, IconButton, Hidden, Drawer, Box,
+} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
 
-import Logo from './Logo'
-import LinkList from './LinkList'
-import List from './List'
-
-import { APP_LINK, HOMEPAGE_LINK, menuItems } from 'config/constants/constant'
-
-import { Button } from 'components'
-import useDarkMode from 'hooks/useDarkMode'
+import { APP_LINK, HOMEPAGE_LINK, menuItems } from "config/constants/constant";
+import { Button } from "components";
+import useDarkMode from "hooks/useDarkMode";
+import Logo from "./Logo";
+import LinkList from "./LinkList";
+import List from "./List";
 
 interface ContainerProps {
   theme: any
@@ -18,61 +18,61 @@ interface ContainerProps {
 }
 
 const HeaderWrapper = styled(AppBar)<ContainerProps>`
-  background-color: ${({ theme, isShrunk }) => (isShrunk ? theme.palette.background.primary : 'none')};
+  background-color: ${({ theme, isShrunk }) => (isShrunk ? theme.palette.background.primary : "none")};
   box-shadow: none;
   z-index: ${({ theme }) => theme.zIndex.modal + 1};
   .theme-button {
     margin-left: ${({ theme }) => theme.spacing(1)}px;
   }
-`
+`;
 
 const useStyles = makeStyles((theme: Theme) => ({
   toolbar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    minHeight: '150px',
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    minHeight: "150px",
   },
   drawerPaper: {
-    width: '100%',
+    width: "100%",
     backgroundColor: theme.palette.background.primary,
   },
   menu: {
     paddingLeft: theme.spacing(3),
     paddingRight: theme.spacing(3),
   },
-}))
+}));
 
 const Header: React.FC = () => {
-  const { isDark } = useDarkMode()
-  const classes = useStyles()
-  const [isShrunk, setShrunk] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const { isDark } = useDarkMode();
+  const classes = useStyles();
+  const [isShrunk, setShrunk] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen)
-  }
+    setMobileOpen(!mobileOpen);
+  };
 
   useEffect(() => {
     const onScroll = () => {
-      setShrunk((isShrunk) => {
-        if (!isShrunk && (document.body.scrollTop > 98 || document.documentElement.scrollTop > 98)) {
-          return true
+      setShrunk((_isShrunk) => {
+        if (!_isShrunk && (document.body.scrollTop > 98 || document.documentElement.scrollTop > 98)) {
+          return true;
         }
 
-        if (isShrunk && document.body.scrollTop < 4 && document.documentElement.scrollTop < 4) {
-          return false
+        if (_isShrunk && document.body.scrollTop < 4 && document.documentElement.scrollTop < 4) {
+          return false;
         }
 
-        return isShrunk
-      })
-    }
+        return _isShrunk;
+      });
+    };
 
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const container = window !== undefined ? () => window.document.body : undefined
+  const container = window !== undefined ? () => window.document.body : undefined;
 
   return (
     <HeaderWrapper position="fixed" color="transparent" isShrunk={isShrunk}>
@@ -120,7 +120,7 @@ const Header: React.FC = () => {
         </Drawer>
       </Hidden>
     </HeaderWrapper>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

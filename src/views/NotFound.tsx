@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { Button, Typography } from '@material-ui/core'
+import styled from "styled-components";
+import { Button, Typography } from "@material-ui/core";
 
 const StyledNotFound = styled.div`
   align-items: center;
@@ -7,16 +7,16 @@ const StyledNotFound = styled.div`
   flex-direction: column;
   height: 100vh;
   justify-content: center;
-`
+`;
 
-const NotFound = () => {
+function NotFound() {
   return (
     <StyledNotFound>
       <Typography variant="h5">404</Typography>
       <Typography variant="subtitle2">Oops, page not found.</Typography>
       <Button href="/">Back Home</Button>
     </StyledNotFound>
-  )
+  );
 }
 
-export default NotFound
+export default NotFound;
