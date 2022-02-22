@@ -50,10 +50,18 @@ const Card = styled(Grid)`
 
   .card-title {
     font-weight: bold;
+    font-size: min(1.9vw, 24px);
+    ${({ theme }) => theme.muibreakpoints.down('md')} {
+      font-size: 19px;
+    }
   }
 
   .card-content {
     font-weight: normal;
+    font-size: min(1.7vw, 19px);
+    ${({ theme }) => theme.muibreakpoints.down('md')} {
+      font-size: 19px;
+    }
   }
 `
 
@@ -72,9 +80,13 @@ const ColoredCard = styled(Grid)`
 
   .card-header {
     font-weight: bold;
-    font-size: 29px;
+    font-size: min(2.4vw, 29px);
     line-height: 0;
     padding-top: 35px;
+    ${({ theme }) => theme.muibreakpoints.down('md')} {
+      font-size: 27px;
+      padding-top: 17px;
+    }
     ${({ theme }) => theme.muibreakpoints.down('sm')} {
       font-size: 19px;
       padding-top: 17px;
