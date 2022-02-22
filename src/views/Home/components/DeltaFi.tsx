@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-
-import useDarkMode from 'hooks/useDarkMode'
-import { Container, Box, Grid, makeStyles, Theme, Typography } from '@material-ui/core'
+import React from "react";
+import styled from "styled-components";
+import {
+  Container, Box, Grid, makeStyles, Theme, Typography,
+} from "@material-ui/core";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -20,19 +20,19 @@ const StyledDiv = styled.div`
     margin-top: 48px;
   }
 
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
+  ${({ theme }) => theme.muibreakpoints.down("md")} {
     padding: 56px 0 36px;
     .deposit-text {
       margin-top: 32px;
     }
   }
-  ${({ theme }) => theme.muibreakpoints.down('sm')} {
+  ${({ theme }) => theme.muibreakpoints.down("sm")} {
     padding: 38px 0 24px;
     .deposit-text {
       margin-top: 24px;
     }
   }
-`
+`;
 const Card = styled(Grid)`
   height: 280px;
   box-shadow: 2px 1000px 1px ${({ theme }) => theme.palette.background.primary} inset;
@@ -63,7 +63,7 @@ const Card = styled(Grid)`
       font-size: 19px;
     }
   }
-`
+`;
 
 const ColoredCard = styled(Grid)`
   height: 365px;
@@ -73,7 +73,7 @@ const ColoredCard = styled(Grid)`
   border: 1px solid transparent;
   background-origin: border-box;
 
-  ${({ theme }) => theme.muibreakpoints.down('sm')} {
+  ${({ theme }) => theme.muibreakpoints.down("sm")} {
     height: 230px;
     box-shadow: 0px 0px 10px 8px rgba(118, 80, 245, 0.3);
   }
@@ -97,24 +97,24 @@ const ColoredCard = styled(Grid)`
     font-weight: normal;
     padding-top: 10px;
     font-size: 22px;
-    ${({ theme }) => theme.muibreakpoints.down('sm')} {
+    ${({ theme }) => theme.muibreakpoints.down("sm")} {
       font-size: 15px;
       padding-top: 0px;
     }
   }
-`
+`;
 
 const Img = styled.img`
   width: 250px;
   height: auto;
   object-fit: cover;
-  ${({ theme }) => theme.muibreakpoints.down('sm')} {
+  ${({ theme }) => theme.muibreakpoints.down("sm")} {
     width: 150px;
   }
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
+  ${({ theme }) => theme.muibreakpoints.down("md")} {
     max-width: 229px;
   }
-`
+`;
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
@@ -122,63 +122,62 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: 10,
     fontWeight: 500,
     fontSize: 37,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: 22,
-      width: '85%',
+      width: "85%",
     },
   },
   header: {
     paddingTop: 140,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       paddingTop: 0,
-      fontWeight: 'normal',
+      fontWeight: "normal",
     },
   },
   cardGrid: {
     paddingTop: 40,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       paddingBottom: 60,
     },
   },
-}))
+}));
 
 const DeltaFi: React.FC = () => {
-  const { isDark } = useDarkMode()
-  const classes = useStyles()
+  const classes = useStyles();
 
   const MISSION_LIST = [
     {
-      header: 'FOR TRADERS',
-      title: 'Low Price Slippage',
+      header: "FOR TRADERS",
+      title: "Low Price Slippage",
       content:
-        'Adaptive machine learning algorithms are developed for efficient pricing resilient to various market dynamics.',
+        "Adaptive machine learning algorithms are developed for efficient pricing resilient to various market dynamics.",
     },
     {
-      header: 'FOR LIQUIDITY PRODVIDERS',
-      title: 'Sustainable Profitability',
+      header: "FOR LIQUIDITY PRODVIDERS",
+      title: "Sustainable Profitability",
       content:
-        'Liquidity risks are minimized with customized risk tolerances and institutional grade market making algorithms.',
+        "Liquidity risks are minimized with customized risk tolerances and institutional grade market making algorithms.",
     },
     {
-      header: 'FOR MARKET MAKERS',
-      title: 'Personalized Pools',
+      header: "FOR MARKET MAKERS",
+      title: "Personalized Pools",
       content:
-        'Malleable APIs offer market making flexibilities with bidirectional pricing, dynamic fees, and order history.',
+        "Malleable APIs offer market making flexibilities with bidirectional pricing, dynamic fees, and order history.",
     },
-  ]
+  ];
 
   const WHY_LIST = [
     {
-      header: 'Institutional Grade Algorithms',
-      title: 'Machine learning and beyond',
-      image: '/images/homepage/globe.png',
+      header: "Institutional Grade Algorithms",
+      title: "Machine learning and beyond",
+      image: "/images/homepage/globe.png",
     },
     {
-      header: 'Community Driven Development',
-      title: 'Fully decentralized',
-      image: '/images/homepage/hand.png',
+      header: "Community Driven Development",
+      title: "Fully decentralized",
+      image: "/images/homepage/hand.png",
     },
-  ]
+  ];
 
   return (
     <Container>
@@ -193,7 +192,7 @@ const DeltaFi: React.FC = () => {
         </Typography>
         <Grid container spacing={5} className={classes.cardGrid}>
           {MISSION_LIST.map((card, index) => (
-            <Grid item key={`card-${index}`} xs={"auto"} md={4}>
+            <Grid item key={`card-${index}`} xs="auto" md={4}>
               <Card>
                 <Box padding={3}>
                   <Typography align="left" paragraph className="card-header">
@@ -234,7 +233,7 @@ const DeltaFi: React.FC = () => {
         {/* Video */}
       </StyledDiv>
     </Container>
-  )
-}
+  );
+};
 
-export default DeltaFi
+export default DeltaFi;

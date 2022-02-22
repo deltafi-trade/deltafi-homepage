@@ -1,9 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/styles";
+import { Theme } from "@material-ui/core";
 
 interface Props {
   isDark: boolean
@@ -17,38 +16,38 @@ const StyledLink = styled(Link)`
 
   .logo {
     width: 178px;
-    ${({ theme }) => theme.muibreakpoints.down('sm')} {
+    ${({ theme }) => theme.muibreakpoints.down("sm")} {
       width: 100px;
     }
-    ${({ theme }) => theme.muibreakpoints.down('md')} {
+    ${({ theme }) => theme.muibreakpoints.down("md")} {
       width: 137px;
     }
   }
-`
+`;
 
 const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
   logo: {
     color: palette.text.primary,
     fontWeight: 400,
     width: 150,
-    [breakpoints.down('sm')]: {
+    [breakpoints.down("sm")]: {
       width: 100,
     },
   },
-}))
+}));
 
-const StyledDiv = styled.div``
+const StyledDiv = styled.div``;
 
 const Logo: React.FC<Props> = ({ isDark, href }) => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <StyledDiv>
       <StyledLink to={href} aria-label="DeltaFi App">
-        <img src="/horizontal 60.svg" className={classes.logo} />
+        <img src="/horizontal 60.svg" alt="" className={classes.logo} />
       </StyledLink>
     </StyledDiv>
-  )
-}
+  );
+};
 
-export default React.memo(Logo, (prev, next) => prev.isDark === next.isDark)
+export default React.memo(Logo, (prev, next) => prev.isDark === next.isDark);

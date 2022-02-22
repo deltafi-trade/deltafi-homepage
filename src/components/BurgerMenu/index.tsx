@@ -1,18 +1,17 @@
-import React, { useState, useRef } from 'react'
-import FocusLock from 'react-focus-lock'
-import { IconButton } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
+import React, { useState, useRef } from "react";
+import FocusLock from "react-focus-lock";
+import { IconButton } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
 
-import Menu from './Menu'
-
-import { useOnClickOutside } from 'hooks'
+import { useOnClickOutside } from "hooks";
+import Menu from "./Menu";
 
 const BurgerMenu: React.FC = () => {
-  const [open, setOpen] = useState(false)
-  const node = useRef()
-  const menuId = 'main-menu'
+  const [open, setOpen] = useState(false);
+  const node = useRef();
+  const menuId = "main-menu";
 
-  useOnClickOutside(node, () => setOpen(false))
+  useOnClickOutside(node, () => setOpen(false));
 
   return (
     <div ref={node}>
@@ -23,7 +22,7 @@ const BurgerMenu: React.FC = () => {
         <Menu open={open} setOpen={setOpen} id={menuId} />
       </FocusLock>
     </div>
-  )
-}
+  );
+};
 
-export default BurgerMenu
+export default BurgerMenu;

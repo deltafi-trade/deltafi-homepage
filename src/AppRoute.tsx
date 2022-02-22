@@ -1,20 +1,18 @@
-import { Route } from 'react-router-dom'
-import Header from './components/Header'
-import AppFooter from 'components/AppFooter'
+import { Route } from "react-router-dom";
+import AppFooter from "components/AppFooter";
+import Header from "./components/Header";
 
-const CustomRoute = ({ component: Component, ...rest }) => {
+function CustomRoute({ component: Component, ...rest }) {
   return (
     <>
       <Header />
       <Route
         {...rest}
-        component={(props) => {
-          return <Component {...props} />
-        }}
+        component={(props) => <Component {...props} />}
       />
       <AppFooter />
     </>
-  )
+  );
 }
 
-export default CustomRoute
+export default CustomRoute;

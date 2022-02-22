@@ -1,10 +1,11 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Box, Container, Grid, makeStyles, Theme, useTheme, Typography, useMediaQuery } from '@material-ui/core'
+import React from "react";
+import styled from "styled-components";
+import {
+  Box, Container, Grid, makeStyles, Theme, useTheme, Typography, useMediaQuery,
+} from "@material-ui/core";
 
-import { HOMEPAGE_LINK } from 'config/constants/constant'
-import { RewardButton } from 'components'
-import { left } from 'styled-system'
+import { HOMEPAGE_LINK } from "config/constants/constant";
+import { RewardButton } from "components";
 
 const StyledDiv = styled.div`
   background-color: ${({ theme }) => theme.palette.background.primary};
@@ -12,10 +13,10 @@ const StyledDiv = styled.div`
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top;
-  ${({ theme }) => theme.muibreakpoints.down('sm')} {
+  ${({ theme }) => theme.muibreakpoints.down("sm")} {
     background-size: 700px;
   }
-`
+`;
 
 const Card = styled(Grid)`
   height: 230px;
@@ -24,7 +25,7 @@ const Card = styled(Grid)`
   background-image: linear-gradient(52.7deg, #1afa9a -3.73%, #478ef0 48.34%, #9945fd 93.4%);
   border: 1px solid transparent;
   background-origin: border-box;
-  ${({ theme }) => theme.muibreakpoints.down('sm')} {
+  ${({ theme }) => theme.muibreakpoints.down("sm")} {
     height: 250px;
   }
 
@@ -43,25 +44,25 @@ const Card = styled(Grid)`
     font-weight: normal;
     font-size: 17px;
   }
-`
+`;
 
 const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
   top: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     paddingTop: `${spacing(40)}px`,
     maxWidth: 1000,
-    [breakpoints.down('sm')]: {
+    [breakpoints.down("sm")]: {
       paddingTop: `${spacing(30)}px`,
     },
   },
   content: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     padding: `${spacing(9)}px 0px`,
-    maxWidth: '75%',
-    [breakpoints.down('sm')]: {
-      maxWidth: '90%',
+    maxWidth: "75%",
+    [breakpoints.down("sm")]: {
+      maxWidth: "90%",
     },
   },
   header: {
@@ -73,20 +74,20 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
     fontWeight: 600,
     fontSize: 40,
     marginBottom: 40,
-    [breakpoints.down('sm')]: {
+    [breakpoints.down("sm")]: {
       fontSize: 25,
     },
   },
   secondary: {
-    fontWeight: 'normal',
+    fontWeight: "normal",
     marginBottom: 10,
     fontSize: 17,
   },
   description: {
-    fontWeight: 'normal',
+    fontWeight: "normal",
     marginBottom: 10,
     fontSize: 17,
-    [breakpoints.down('sm')]: {
+    [breakpoints.down("sm")]: {
       fontSize: 13,
     },
   },
@@ -94,59 +95,59 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
     marginTop: 10,
     marginBottom: 10,
     fontSize: 20,
-    fontWeight: 'normal',
-    [breakpoints.down('sm')]: {
+    fontWeight: "normal",
+    [breakpoints.down("sm")]: {
       fontSize: 18,
     },
   },
   image: {
-    margin: 'auto',
-    alignSelf: 'center',
-    width: '100%',
+    margin: "auto",
+    alignSelf: "center",
+    width: "100%",
     height: undefined,
-    objectFit: 'contain',
+    objectFit: "contain",
     marginBottom: 10,
-    [breakpoints.down('sm')]: {
-      maxWidth: '100%',
+    [breakpoints.down("sm")]: {
+      maxWidth: "100%",
     },
   },
   button: {
     marginBottom: 200,
-    [breakpoints.down('sm')]: {
+    [breakpoints.down("sm")]: {
       marginBottom: 80,
     },
   },
-}))
+}));
 
 const Tokenomics: React.FC = (props) => {
-  const classes = useStyles(props)
-  const theme = useTheme()
-  const mobileImg = useMediaQuery(theme.breakpoints.down('sm'))
+  const classes = useStyles(props);
+  const theme = useTheme();
+  const mobileImg = useMediaQuery(theme.breakpoints.down("sm"));
 
   const CARD_LIST = [
     {
-      header: '01.',
-      title: 'Gas Metering',
-      content: 'Supporting the gas metering of smart contract execution',
+      header: "01.",
+      title: "Gas Metering",
+      content: "Supporting the gas metering of smart contract execution",
     },
     {
-      header: '02.',
-      title: 'Protocol Security',
+      header: "02.",
+      title: "Protocol Security",
       content:
-        'Incentivizing network participants and powering the mechanics around pricing and liquidity farming and so on',
+        "Incentivizing network participants and powering the mechanics around pricing and liquidity farming and so on",
     },
     {
-      header: '03.',
-      title: 'Onchain Governance',
+      header: "03.",
+      title: "Onchain Governance",
       content:
-        'Facilitating the on-chain governance mechanism including proposing referenda, electing council members, voting, etc.',
+        "Facilitating the on-chain governance mechanism including proposing referenda, electing council members, voting, etc.",
     },
     {
-      header: '04.',
-      title: 'Network Transactions',
-      content: 'Paying for transaction fees on the network',
+      header: "04.",
+      title: "Network Transactions",
+      content: "Paying for transaction fees on the network",
     },
-  ]
+  ];
 
   return (
     <StyledDiv>
@@ -185,7 +186,7 @@ const Tokenomics: React.FC = (props) => {
 
           <Grid container spacing={3}>
             {CARD_LIST.map((card, index) => (
-              <Grid item key={`card-${index}`} xs={'auto'} md={6}>
+              <Grid item key={`card-${index}`} xs="auto" md={6}>
                 <Card>
                   <Box padding={4}>
                     <Typography paragraph className="card-header">
@@ -206,9 +207,9 @@ const Tokenomics: React.FC = (props) => {
       </Container>
       <Box justifyContent="center" alignItems="center" display="flex">
         {mobileImg ? (
-          <img src="images/Token chart.svg" className={classes.image} />
+          <img src="images/Token chart.svg" alt="" className={classes.image} />
         ) : (
-          <img src="images/token allocation.svg" className={classes.image} />
+          <img src="images/token allocation.svg" alt="" className={classes.image} />
         )}
       </Box>
       <Container className={classes.content}>
@@ -217,17 +218,18 @@ const Tokenomics: React.FC = (props) => {
             Allocation Details
           </Typography>
           {mobileImg ? (
-            <img src="images/Allocation Details.svg" className={classes.image} />
+            <img src="images/Allocation Details.svg" alt="" className={classes.image} />
           ) : (
-            <img src="images/allocation table.svg" className={classes.image} />
+            <img src="images/allocation table.svg" alt="" className={classes.image} />
           )}
           <Typography variant="h6" paragraph className={classes.description}>
-            <strong>Note: </strong>The above numbers are rounded to the closest percentage.
+            <strong>Note: </strong>
+            The above numbers are rounded to the closest percentage.
           </Typography>
         </Grid>
       </Container>
     </StyledDiv>
-  )
-}
+  );
+};
 
-export default Tokenomics
+export default Tokenomics;

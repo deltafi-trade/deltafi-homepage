@@ -1,6 +1,8 @@
-import { Collapse, List as MuiList, ListItem, ListItemText, ListProps, makeStyles } from '@material-ui/core'
-import { ExpandLess, ExpandMore } from '@material-ui/icons'
-import { useState } from 'react'
+import {
+  Collapse, List as MuiList, ListItem, ListItemText, ListProps, makeStyles,
+} from "@material-ui/core";
+import { ExpandLess, ExpandMore } from "@material-ui/icons";
+import { useState } from "react";
 
 interface Item {
   text: string
@@ -19,13 +21,13 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(1),
     padding: 10,
   },
-}))
+}));
 
 const NestedListItem: React.FC<Item> = (props) => {
-  const [open, setOpen] = useState(false)
-  const classes = useStyles()
+  const [open, setOpen] = useState(false);
+  const classes = useStyles();
 
-  const handleClick = () => setOpen(!open)
+  const handleClick = () => setOpen(!open);
 
   return (
     <>
@@ -37,33 +39,27 @@ const NestedListItem: React.FC<Item> = (props) => {
         <List items={props.children} divider className={classes.nested} />
       </Collapse>
     </>
-  )
-}
+  );
+};
 
-const List: React.FC<Props> = ({ items, divider, ...rest }) => {
-  return (
-    <MuiList {...rest}>
-      {items.map((item, index) =>
-        item.children?.length > 0 ? (
-          <NestedListItem {...item} />
-        ) : (
-          <>
-            <ListItem
-              key={item.text}
-              button
-              divider={divider && index < items.length - 1}
-              component="a"
-              href={item.to}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <ListItemText primary={item.text} />
-            </ListItem>
-          </>
-        ),
-      )}
-    </MuiList>
-  )
-}
+const List: React.FC<Props> = ({ items, divider, ...rest }) => (
+  <MuiList {...rest}>
+    {items.map((item, index) => (item.children?.length > 0 ? (
+      <NestedListItem {...item} />
+    ) : (
+      <ListItem
+        key={item.text}
+        button
+        divider={divider && index < items.length - 1}
+        component="a"
+        href={item.to}
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <ListItemText primary={item.text} />
+      </ListItem>
+    )))}
+  </MuiList>
+);
 
-export default List
+export default List;

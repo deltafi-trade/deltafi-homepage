@@ -1,14 +1,18 @@
-import React, { useCallback, useRef, useState } from 'react'
-import styled from 'styled-components'
-import { Link, makeStyles, Theme, Typography } from '@material-ui/core'
-import { BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, TELEGRAM_LINK, WHITE_PAPER, TOKENOMICS_LINK } from 'config/constants/constant'
-import useOutsideClick from 'hooks/useOutsideClick'
+import React, { useCallback, useRef, useState } from "react";
+import styled from "styled-components";
+import {
+  Link, makeStyles, Theme, Typography,
+} from "@material-ui/core";
+import {
+  BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, TELEGRAM_LINK, WHITE_PAPER, TOKENOMICS_LINK,
+} from "config/constants/constant";
+import useOutsideClick from "hooks/useOutsideClick";
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 16px;
   padding: 0 10px;
-`
+`;
 
 const StyledDiv = styled(Typography)`
   display: flex;
@@ -17,17 +21,17 @@ const StyledDiv = styled(Typography)`
     display: flex;
     align-items: center;
   }
-  ${({ theme }) => theme.muibreakpoints.down('md')} {
+  ${({ theme }) => theme.muibreakpoints.down("md")} {
     display: none;
   }
-`
+`;
 
 const CustomLink = styled(Link)`
   margin-right: 20px;
   display: flex;
   align-items: center;
   cursor: pointer;
-`
+`;
 
 const DropDownLink = styled(Link)`
   padding: 8px 0;
@@ -35,41 +39,41 @@ const DropDownLink = styled(Link)`
   align-items: center;
   cursor: pointer;
   margin-right: 16px;
-`
+`;
 
 const Divider = styled.div`
   background: ${({ theme }) => theme.palette.gradient.cta};
   height: 1px;
   opacity: 0.16;
   margin: 0 6px;
-`
+`;
 
 const useStyles = makeStyles((theme: Theme) => ({
   dropDownContainer: {
-    marginRight: '20px',
-    position: 'relative',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
+    marginRight: "20px",
+    position: "relative",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   dropDown: {
-    position: 'absolute',
-    top: '40px',
+    position: "absolute",
+    top: "40px",
     backgroundColor: theme.palette.background.secondary,
-    padding: '10px',
-    borderRadius: '7px',
-  }
-}))
+    padding: "10px",
+    borderRadius: "7px",
+  },
+}));
 
 const LinkList: React.FC = () => {
   const [communityShow, setCommunityShow] = useState<boolean>(false);
   const [resourcesShow, setResourcesShow] = useState<boolean>(false);
-  const [blogShow, setBlogShow] = useState<boolean>(false)
+  const [blogShow, setBlogShow] = useState<boolean>(false);
   const classes = useStyles();
   const communityContainerRef = useRef<HTMLDivElement>(null);
   const resourcesContainerRef = useRef<HTMLDivElement>(null);
-  const blogContainerRef = useRef<HTMLDivElement>(null)
+  const blogContainerRef = useRef<HTMLDivElement>(null);
 
   useOutsideClick(
     communityContainerRef,
@@ -84,7 +88,7 @@ const LinkList: React.FC = () => {
   useOutsideClick(
     blogContainerRef,
     useCallback(() => setBlogShow(false), []),
-  )
+  );
 
   return (
     <StyledDiv>
@@ -125,7 +129,7 @@ const LinkList: React.FC = () => {
               Telegram
             </DropDownLink>
           </div>
-        ): null}
+        ) : null}
       </div>
 
       <div ref={resourcesContainerRef} onClick={() => setResourcesShow(!resourcesShow)} className={classes.dropDownContainer}>
@@ -134,18 +138,18 @@ const LinkList: React.FC = () => {
           <img src="/images/homepage/arrow-down.svg" alt="arrow-down" />
         </Typography>
         {resourcesShow ? (
-           <div className={classes.dropDown}>
+          <div className={classes.dropDown}>
             <DropDownLink color="inherit" underline="none" href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
               Github
             </DropDownLink>
           </div>
-        ): null}
+        ) : null}
       </div>
       <CustomLink color="inherit" underline="none" href={WHITE_PAPER} target="_blank" rel="noreferrer noopener">
         Whitepaper
       </CustomLink>
     </StyledDiv>
-  )
-}
+  );
+};
 
-export default LinkList
+export default LinkList;
