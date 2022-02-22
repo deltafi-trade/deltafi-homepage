@@ -130,7 +130,7 @@ const AssetManager: React.FC = () => {
             </Typography>
             <br />
             <Typography variant="h6" className={classes.subTitle}>
-              Machine learning algorithms empower efficient automated market making with zero price slippage, minimized
+              Intelligent algorithms empower efficient automated market making with zero price slippage, minimized
               liquidity risks and optimized capital efficiency.
             </Typography>
             <br />

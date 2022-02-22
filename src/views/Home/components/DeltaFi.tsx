@@ -150,7 +150,7 @@ const DeltaFi: React.FC = () => {
       header: "FOR TRADERS",
       title: "Low Price Slippage",
       content:
-        "Adaptive machine learning algorithms are developed for efficient pricing resilient to various market dynamics.",
+        "Adaptive intelligent algorithms are developed for efficient pricing resilient to various market dynamics.",
     },
     {
       header: "FOR LIQUIDITY PRODVIDERS",
@@ -169,7 +169,7 @@ const DeltaFi: React.FC = () => {
   const WHY_LIST = [
     {
       header: "Institutional Grade Algorithms",
-      title: "Machine learning and beyond",
+      title: "Intelligent algorithms and beyond",
       image: "/images/homepage/globe.png",
     },
     {
