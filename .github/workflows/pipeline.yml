@@ -21,7 +21,7 @@ jobs:
                   yarn install --silent --production=false
             - name: Linting
               run: |
-                  yarn lint
+                  yarn lint:ci
             - name: Yarn Build
               run: |
                   yarn build
