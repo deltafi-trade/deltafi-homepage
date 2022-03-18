@@ -124,14 +124,14 @@ const AssetManager: React.FC = () => {
               <img src="/images/homepage/solana.png" alt="Powered by solala" className={classes.poweredby} />
             </Box>
             <Typography variant="h1" className={classes.title}>
-              The world’s most
+              The world’s Most
               <br />
-              efficient DEX
+              Efficient Decentralized Exchange
             </Typography>
             <br />
             <Typography variant="h6" className={classes.subTitle}>
-              Intelligent algorithms empower efficient automated market making with zero price slippage, minimized
-              liquidity risks and optimized capital efficiency.
+              AMM 2.0 for efficient automated market making achieves minimized price slippage,
+              sustainable liquidity profitability and optimized capital efficiency.
             </Typography>
             <br />
             <DesktopWrapper>
