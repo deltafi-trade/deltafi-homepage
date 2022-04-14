@@ -1,23 +1,24 @@
-import { createTheme, responsiveFontSizes } from "@material-ui/core/styles";
-import { Theme } from "@material-ui/core";
-import { blue, pink } from "@material-ui/core/colors";
+import { createTheme, responsiveFontSizes, adaptV4Theme } from "@mui/material/styles";
+import { Theme } from "@mui/material";
+import { blue } from "@mui/material/colors";
 import "@fontsource/poppins";
+import "@fontsource/ibm-plex-mono";
 import "typeface-rubik";
 
-declare module "@material-ui/core/styles/createTheme" {
+declare module "@mui/material/styles/createTheme" {
   export interface Theme {
     status?: {
       danger: React.CSSProperties["color"]
     }
   }
-  export interface ThemeOptions {
+  export interface DeprecatedThemeOptions {
     status?: {
       danger: React.CSSProperties["color"]
     }
   }
 }
 
-declare module "@material-ui/core/styles/createPalette" {
+declare module "@mui/material/styles/createPalette" {
   export interface Palette {
     gradient?: {
       cta: React.CSSProperties["color"]
@@ -48,10 +49,19 @@ declare module "@material-ui/core/styles/createPalette" {
 
 const baseTheme: Theme = createTheme({
   typography: {
-    fontFamily: "rubik",
-  },
-  status: {
-    danger: "#ff0000",
+    fontFamily: "Rubik",
+    h1: {
+      fontFamily: "IBM Plex Mono",
+    },
+    h3: {
+      fontFamily: "IBM Plex Mono",
+    },
+    body2: {
+      fontSize: 14,
+    },
+    button: {
+      fontWeight: 700
+    }
   },
   breakpoints: {
     values: {
@@ -78,21 +88,21 @@ const baseTheme: Theme = createTheme({
   },
 });
 
-const darkTheme: Theme = createTheme({
+const darkTheme: Theme = createTheme(adaptV4Theme({
   ...responsiveFontSizes(baseTheme),
   palette: {
-    type: "dark",
+    mode: "dark",
     primary: {
-      main: "#FF7586",
+      main: "#D4FF00",
     },
     secondary: {
-      main: pink[500],
+      main: "#03F2A0",
     },
     background: {
       cta: "url(/images/dark-bg.png)",
       investorBg: "url(/images/investors-bg-dark.png)",
       primary: "#13111A",
-      secondary: "#1D1A27",
+      secondary: "#313131",
       default: "rgb(35, 36, 47)",
       lightBlack: "#15161D",
     },
@@ -102,12 +112,12 @@ const darkTheme: Theme = createTheme({
     },
     divider: "rgba(255,255,255,0.16)",
   },
-});
+}));
 
-const lightTheme: Theme = createTheme({
+const lightTheme: Theme = createTheme(adaptV4Theme({
   ...responsiveFontSizes(baseTheme),
   palette: {
-    type: "light",
+    mode: "light",
     primary: {
       main: "#F43F5E",
     },
@@ -124,6 +134,6 @@ const lightTheme: Theme = createTheme({
       cta: "linear-gradient(168.15deg, rgb(255, 255, 255) -145.84%, rgb(224, 219, 239) 148.53%)",
     },
   },
-});
+}));
 
 export { darkTheme, lightTheme };

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Typography } from "@material-ui/core";
+import { Button, Typography } from "@mui/material";
 
 const StyledNotFound = styled.div`
   align-items: center;

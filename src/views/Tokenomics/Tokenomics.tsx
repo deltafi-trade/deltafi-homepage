@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  Box, Container, Grid, makeStyles, Theme, useTheme, Typography, useMediaQuery,
-} from "@material-ui/core";
+import { Box, Container, Grid, Theme, useTheme, Typography, useMediaQuery } from "@mui/material";
+
+import makeStyles from "@mui/styles/makeStyles";
 
 import { HOMEPAGE_LINK } from "config/constants/constant";
 import { RewardButton } from "components";
@@ -50,16 +50,16 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
   top: {
     display: "flex",
     alignItems: "center",
-    paddingTop: `${spacing(40)}px`,
+    paddingTop: spacing(40),
     maxWidth: 1000,
     [breakpoints.down("sm")]: {
-      paddingTop: `${spacing(30)}px`,
+      paddingTop: spacing(30),
     },
   },
   content: {
     display: "flex",
     alignItems: "center",
-    padding: `${spacing(9)}px 0px`,
+    padding: `${spacing(9)} 0px`,
     maxWidth: "75%",
     [breakpoints.down("sm")]: {
       maxWidth: "90%",

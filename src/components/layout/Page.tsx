@@ -1,17 +1,12 @@
 import React from "react";
-import { styled } from "@material-ui/core/styles";
+import styled from "styled-components";
 import { Helmet } from "react-helmet-async";
 import { DEFAULT_META } from "config/constants/meta";
 
-const StyledPage = styled("div")(({ theme }) => ({
-  backgroundImage: "url(/images/homepage/landing-bg.png)",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "top",
-  backgroundSize: "100%",
-  [theme.breakpoints.down("sm")]: {
-    backgroundSize: "140%",
-  },
-}));
+const StyledDiv = styled.div`
+  position: relative;
+  background-color: ${({ theme }) => theme.palette.background.secondary}
+`
 
 function PageMeta() {
   const { title, description } = { ...DEFAULT_META };
@@ -28,7 +23,9 @@ function PageMeta() {
 const Page: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => (
   <>
     <PageMeta />
-    <StyledPage {...props}>{children}</StyledPage>
+    <StyledDiv {...props}>
+      {children}
+    </StyledDiv>
   </>
 );
 

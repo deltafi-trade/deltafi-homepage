@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import {
-  AppBar, Container, makeStyles, Toolbar, Theme, IconButton, Hidden, Drawer, Box,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import { AppBar, Container, Toolbar, Theme, IconButton, Hidden, Drawer, Box } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import MenuIcon from "@mui/icons-material/Menu";
 
 import { APP_LINK, HOMEPAGE_LINK, menuItems } from "config/constants/constant";
 import { Button } from "components";
@@ -14,13 +13,12 @@ import List from "./List";
 
 interface ContainerProps {
   theme: any
-  isShrunk: boolean
+  isshrunk: boolean
 }
 
 const HeaderWrapper = styled(AppBar)<ContainerProps>`
-  background-color: ${({ theme, isShrunk }) => (isShrunk ? theme.palette.background.primary : "none")};
+  background-color: ${({ theme, isshrunk }) => (isshrunk ? theme.palette.background.primary : "none")};
   box-shadow: none;
-  z-index: ${({ theme }) => theme.zIndex.modal + 1};
   .theme-button {
     margin-left: ${({ theme }) => theme.spacing(1)}px;
   }
@@ -31,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    minHeight: "150px",
+    minHeight: "90px",
   },
   drawerPaper: {
     width: "100%",
@@ -46,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 const Header: React.FC = () => {
   const { isDark } = useDarkMode();
   const classes = useStyles();
-  const [isShrunk, setShrunk] = useState(false);
+  const [isshrunk, setShrunk] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -75,24 +73,29 @@ const Header: React.FC = () => {
   const container = window !== undefined ? () => window.document.body : undefined;
 
   return (
-    <HeaderWrapper position="fixed" color="transparent" isShrunk={isShrunk}>
+    <HeaderWrapper position="fixed" color="inherit" isshrunk={isshrunk}>
       <Container>
         <Toolbar disableGutters className={classes.toolbar}>
           <Logo href={HOMEPAGE_LINK} isDark={isDark} />
           <LinkList />
-          <Hidden smDown implementation="css">
+          <Hidden mdDown implementation="css">
             <Button color="primary" href={APP_LINK}>
               Launch APP
             </Button>
           </Hidden>
-          <Hidden smUp>
-            <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle}>
+          <Hidden mdUp>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              size="large">
               <MenuIcon />
             </IconButton>
           </Hidden>
         </Toolbar>
       </Container>
-      <Hidden smUp implementation="css">
+      <Hidden mdUp implementation="css">
         <Drawer
           container={container}
           variant="temporary"

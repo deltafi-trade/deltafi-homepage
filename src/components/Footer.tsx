@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  Grid, makeStyles, Theme, Typography, Link,
-} from "@material-ui/core";
+import { Grid, Theme, Typography, Link } from "@mui/material";
+
+import makeStyles from "@mui/styles/makeStyles";
 
 import {
   HOMEPAGE_LINK,

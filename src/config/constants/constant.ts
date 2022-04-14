@@ -11,46 +11,35 @@ export const YOUTUBE_LINK = "https://youtube.com";
 export const CAREERS_LINK = "https://deltafi.medium.com/jobs-deltafi-280dd54f82de";
 export const PRIVACY_LINK = "/privacy";
 export const TOKENOMICS_LINK = "/tokenomics";
+export const CERTIK_LINK = "";
+export const SLOWMIST_LINK = "";
+export const SUBMITBUG_LINK = "";
+
 
 export const menuItems = [
   {
-    text: "Blog",
-    children: [
-      {
-        text: "Medium",
-        to: BLOG_LINK,
-      },
-      {
-        text: "Token",
-        to: TOKENOMICS_LINK,
-      },
-    ],
+    text: "Home", to: HOMEPAGE_LINK
   },
   {
-    text: "Community",
-    children: [
-      {
-        text: "Twitter",
-        to: TWITTER_LINK,
-      },
-      {
-        text: "Discord",
-        to: DISCORD_LINK,
-      },
-      {
-        text: "Telegram",
-        to: TELEGRAM_LINK,
-      },
-    ],
+    text: "Token", to: TOKENOMICS_LINK
   },
   {
-    text: "Resources",
+    text: "Audit Report",
     children: [
       {
-        text: "Github",
-        to: GITHUB_LINK,
+        text: "Certik",
+        to: CERTIK_LINK
       },
-    ],
+      {
+        text: "SlowMist",
+        to: SLOWMIST_LINK,
+        targetBlank: true,
+      }
+    ]
   },
-  { text: "Whitepaper", to: WHITE_PAPER },
+  {
+    text: "Whitepaper",
+    to: WHITE_PAPER,
+    targetBlank: true,
+  }
 ];

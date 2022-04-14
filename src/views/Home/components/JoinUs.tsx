@@ -1,10 +1,9 @@
-import {
-  Button as MUIButton, makeStyles, Theme, Typography, Container, Grid, Box,
-} from "@material-ui/core";
-import styled from "styled-components";
-import {
-  TWITTER_LINK, DISCORD_LINK, TELEGRAM_LINK, BLOG_LINK,
-} from "config/constants/constant";
+import { Theme, Container, Grid, Box } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import styled, { keyframes } from "styled-components";
+import Title from "components/Title";
+import { Button } from "components/Button";
+import { SUBMITBUG_LINK } from "config/constants/constant";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -29,55 +28,40 @@ const StyledDiv = styled.div`
     }
   }
   ${({ theme }) => theme.muibreakpoints.down("sm")} {
-    padding: 0px 0 24px;
+    padding: 56px 0 24px;
     .deposit-text {
       margin-top: 24px;
     }
   }
 `;
 
-const Card = styled(Grid)`
-  height: 230px;
-  box-shadow: 2px 1000px 1px ${({ theme }) => theme.palette.background.primary} inset;
-  border-radius: 10px;
-  background-image: linear-gradient(52.7deg, #1afa9a -3.73%, #478ef0 48.34%, #9945fd 93.4%);
-  border: 1px solid transparent;
-  background-origin: border-box;
-  margin: 10px;
-  ${({ theme }) => theme.muibreakpoints.down("sm")} {
-    height: 160px;
-    margin: 0px;
-  }
+const transition = keyframes`
+  0% {transform: translate3d(0, 0, 0);}
+  33.3% {transform: translate3d(-16.7%, 0, 0);}
+  66.6% {transform: translate3d(-33.3%, 0, 0);}
+  100% {transform: translate3d(-50%, 0, 0);}
+`
 
-  .card-title {
-    font-weight: bold;
-    font-size: 20px;
-    ${({ theme }) => theme.muibreakpoints.down("sm")} {
-      font-size: 13px;
-    }
+const AnimateContainer = styled.div`
+  overflow: hidden;
+  display: flex;
+  width: 200%;
+  min-width: 2000px;
+  ${({ theme }) => theme.muibreakpoints.down("sm")} {
+    min-width: 1000px;
   }
+  margin: 0 auto;
+  animation: ${transition} 20s ease-in-out infinite;
+
 `;
 
 const InvestorCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 160px;
+  padding: 24px 0;
   ${({ theme }) => theme.muibreakpoints.down("sm")} {
-    height: 50px;
-  }
-`;
-
-const Img = styled.img`
-  margin-bottom: 10px;
-  width: 60px;
-  height: 50px;
-  ${({ theme }) => theme.muibreakpoints.down("sm")} {
-    width: 35px;
-    height: 35px;
-  }
-  ${({ theme }) => theme.muibreakpoints.down("md")} {
-    max-width: 229px;
+    padding: 12px 0;
   }
 `;
 
@@ -115,45 +99,22 @@ const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
       fontSize: 12,
     },
   },
-  media: {
-    padding: 30,
-    [breakpoints.down("sm")]: {
-      padding: 20,
-    },
-  },
   investor: {
-    [breakpoints.down("sm")]: {
-      height: 40,
-      maxWidth: 130,
+    height: 80,
+    maxWidth: 300,
+    [breakpoints.down("md")]: { 
+      height: 60,
+      maxWidth: 225,
     },
+    [breakpoints.down("sm")]: { 
+      height: 40,
+      maxWidth: 150,
+    }
   },
 }));
 
 function JoinUs() {
   const classes = useStyles();
-
-  const MEDIA_LIST = [
-    {
-      img: "/images/SimpleTwitter.svg",
-      title: "Twitter",
-      link: TWITTER_LINK,
-    },
-    {
-      img: "/images/SimpleDiscord.svg",
-      title: "Discord",
-      link: DISCORD_LINK,
-    },
-    {
-      img: "/images/SimpleTelegram.svg",
-      title: "Telegram",
-      link: TELEGRAM_LINK,
-    },
-    {
-      img: "/images/SimpleMedium.svg",
-      title: "Medium",
-      link: BLOG_LINK,
-    },
-  ];
 
   const INVESTOR_LIST = [
     {
@@ -165,43 +126,60 @@ function JoinUs() {
     {
       img: "/images/dark-hashkey.svg",
     },
+    {
+      img: "/images/dark-jumpcapital.png",
+    },
+    {
+      img: "/images/dark-hashed.svg",
+    },
+    {
+      img: "/images/dark-hashkey.svg",
+    },
+    {
+      img: "/images/solana.svg",
+    },
+    {
+      img: "/images/pyth.svg",
+    },
+    {
+      img: "/images/wormhole.svg",
+    },
+    {
+      img: "/images/solana.svg",
+    },
+    {
+      img: "/images/pyth.svg",
+    },
+    {
+      img: "/images/wormhole.svg",
+    },
   ];
 
   return (
     <Container>
       <StyledDiv>
-        <Typography className={classes.title}>Join Our Growing Community</Typography>
-        <Grid container spacing={2} style={{ paddingTop: 40 }}>
-          {MEDIA_LIST.map((card, index) => (
-            <Grid item key={`card-${index}`} xs={6} md={3}>
-              <Card>
-                <Box className={classes.media}>
-                  <Img src={card.img} />
-                  <Typography variant="h5" align="center" paragraph className="card-title">
-                    {card.title}
-                  </Typography>
-                  <MUIButton color="primary" href={card.link} className={classes.button}>
-                    Follow
-                  </MUIButton>
-                </Box>
-              </Card>
+        <Title header="World-class Investors and Partners"/>
+        <Box sx={{ position: "relative" , overflow: "hidden", width: "100%", marginTop: "12px", marginBottom:"72px"}}>
+          <AnimateContainer>
+            <Grid container style={{ alignItems: "center", justifyContent: "center" }}>
+              {INVESTOR_LIST.map((card, index) => (
+                <Grid item key={`card-${index}`} xs={2} md={2}>
+                  <InvestorCard>
+                    <Box>
+                      <img src={card.img} alt="" className={classes.investor} />
+                    </Box>
+                  </InvestorCard>
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
-      </StyledDiv>
-      <StyledDiv>
-        <Typography className={classes.title}>Backed by World-class Investors</Typography>
-        <Grid container spacing={1} style={{ paddingTop: 40, alignItems: "center", justifyContent: "center" }}>
-          {INVESTOR_LIST.map((card, index) => (
-            <Grid item key={`card-${index}`} xs="auto" md={4}>
-              <InvestorCard>
-                <Box padding={5}>
-                  <img src={card.img} alt="" className={classes.investor} />
-                </Box>
-              </InvestorCard>
-            </Grid>
-          ))}
-        </Grid>
+          </AnimateContainer>
+        </Box>
+        <Title header="ImmuneFi Bug Bounty"/>
+        <Box sx={{ marginTop: "40px"}}>
+          <Button color="primary" href={SUBMITBUG_LINK}>
+            Submit a Bug
+          </Button>
+        </Box>
       </StyledDiv>
     </Container>
   );

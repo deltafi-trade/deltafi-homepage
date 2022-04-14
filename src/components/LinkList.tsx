@@ -1,12 +1,11 @@
-import React, { useCallback, useRef, useState } from "react";
 import styled from "styled-components";
+import { ButtonBase, Menu, MenuItem, Link, Theme, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 import {
-  Link, makeStyles, Theme, Typography,
-} from "@material-ui/core";
-import {
-  BLOG_LINK, TWITTER_LINK, GITHUB_LINK, DISCORD_LINK, TELEGRAM_LINK, WHITE_PAPER, TOKENOMICS_LINK,
+  HOMEPAGE_LINK, CERTIK_LINK, SLOWMIST_LINK, WHITE_PAPER, TOKENOMICS_LINK
 } from "config/constants/constant";
-import useOutsideClick from "hooks/useOutsideClick";
+import { useRef, useState } from "react";
+// import useOutsideClick from "hooks/useOutsideClick";
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
@@ -16,8 +15,11 @@ export const StyledLink = styled(Link)`
 
 const StyledDiv = styled(Typography)`
   display: flex;
+  margin-left: auto;
+  margin-right: 2rem;
+  font-weight: 700;
+  font-size: 18px;
   a {
-    margin-left: ${({ theme }) => theme.spacing(2)}px;
     display: flex;
     align-items: center;
   }
@@ -26,19 +28,24 @@ const StyledDiv = styled(Typography)`
   }
 `;
 
+const StyleButton = styled(ButtonBase)`
+  font: inherit;
+`
+
 const CustomLink = styled(Link)`
-  margin-right: 20px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   cursor: pointer;
+  ${({ theme }) => theme.muibreakpoints.down("lg")} {
+    padding: 0 10px;
+  }
 `;
 
 const DropDownLink = styled(Link)`
-  padding: 8px 0;
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-right: 16px;
 `;
 
 const Divider = styled.div`
@@ -50,102 +57,80 @@ const Divider = styled.div`
 
 const useStyles = makeStyles((theme: Theme) => ({
   dropDownContainer: {
-    marginRight: "20px",
+    padding: "0 20px",
     position: "relative",
     cursor: "pointer",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   dropDown: {
-    position: "absolute",
-    top: "40px",
-    backgroundColor: theme.palette.background.secondary,
     padding: "10px",
     borderRadius: "7px",
   },
+  hoverUnderscore: {
+    position: "relative",
+    "&::before": {
+      content: "''",
+      position: "absolute",
+      width: "100%",
+      height: "3px",
+      bottom: "-10px",
+      left: "0",
+      visibility: "hidden",
+      backgroundColor: "#693EFF",
+      borderRadius: "20px"
+    },
+    "&:hover": {
+      "&::before": {
+        visibility: "visible",
+      }
+    }
+  }
 }));
 
-const LinkList: React.FC = () => {
-  const [communityShow, setCommunityShow] = useState<boolean>(false);
-  const [resourcesShow, setResourcesShow] = useState<boolean>(false);
-  const [blogShow, setBlogShow] = useState<boolean>(false);
-  const classes = useStyles();
-  const communityContainerRef = useRef<HTMLDivElement>(null);
-  const resourcesContainerRef = useRef<HTMLDivElement>(null);
-  const blogContainerRef = useRef<HTMLDivElement>(null);
+const LinkList: React.FC = (props) => {
+  const [auditAuditReportEl, setAuditReportEl] = useState<null | HTMLElement>(null);
+  const auditAuditReportOpen = Boolean(auditAuditReportEl);
+  const auditReportRef = useRef();
+  const handleAuditReportClick = () => {
+    console.log(auditReportRef)
+    setAuditReportEl(auditReportRef.current);
+  };
+  const handleAuditReportClose = () => {
+    setAuditReportEl(null);
+  };
 
-  useOutsideClick(
-    communityContainerRef,
-    useCallback(() => setCommunityShow(false), []),
-  );
+  const classes = useStyles(props);
 
-  useOutsideClick(
-    resourcesContainerRef,
-    useCallback(() => setResourcesShow(false), []),
-  );
-
-  useOutsideClick(
-    blogContainerRef,
-    useCallback(() => setBlogShow(false), []),
-  );
 
   return (
-    <StyledDiv>
-      <div ref={blogContainerRef} onClick={() => setBlogShow(!blogShow)} className={classes.dropDownContainer}>
-        <Typography color="inherit" variant="subtitle1" className="subtitle">
-          Blog&nbsp;&nbsp;
-          <img src="/images/homepage/arrow-down.svg" alt="arrow-down" />
-        </Typography>
-        {blogShow ? (
-          <div className={classes.dropDown}>
-            <DropDownLink color="inherit" underline="none" href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
-              Medium
+    <StyledDiv variant="h3">
+      <CustomLink color="inherit" underline="none" href={HOMEPAGE_LINK} className={classes.hoverUnderscore}>
+        Home
+      </CustomLink>
+      <CustomLink color="inherit" underline="none" href={TOKENOMICS_LINK} className={classes.hoverUnderscore}>
+        Token
+      </CustomLink>
+      <div id="audit-report-menu" className={`${classes.hoverUnderscore} ${classes.dropDownContainer}`}>
+        <StyleButton ref={auditReportRef} onClick={handleAuditReportClick} >
+          Audit Report
+        </StyleButton>
+        <Menu className={classes.dropDown} anchorEl={auditAuditReportEl} open={auditAuditReportOpen} onClose={handleAuditReportClose}>
+          <MenuItem onClick={handleAuditReportClose}>
+            <DropDownLink key="Certik" color="inherit" underline="none" href={CERTIK_LINK} target="_blank" rel="noreferrer noopener">
+              Certik
             </DropDownLink>
-            <Divider />
-            <DropDownLink color="inherit" underline="none" href={TOKENOMICS_LINK}>
-              Token
+          </MenuItem>
+          <Divider />
+          <MenuItem key="SlowMist" onClick={handleAuditReportClose}>
+            <DropDownLink color="inherit" underline="none" href={SLOWMIST_LINK} target="_blank" rel="noreferrer noopener">
+            SlowMist
             </DropDownLink>
-          </div>
-        ) : null}
+          </MenuItem>
+        </Menu>
       </div>
-
-      <div ref={communityContainerRef} onClick={() => setCommunityShow(!communityShow)} className={classes.dropDownContainer}>
-        <Typography color="inherit" variant="subtitle1" className="subtitle">
-          Community&nbsp;&nbsp;
-          <img src="/images/homepage/arrow-down.svg" alt="arrow-down" />
-        </Typography>
-        {communityShow ? (
-          <div className={classes.dropDown}>
-            <DropDownLink color="inherit" underline="none" href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
-              Twitter
-            </DropDownLink>
-            <Divider />
-            <DropDownLink color="inherit" underline="none" href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">
-              Discord
-            </DropDownLink>
-            <Divider />
-            <DropDownLink color="inherit" underline="none" href={TELEGRAM_LINK} target="_blank" rel="noreferrer noopener">
-              Telegram
-            </DropDownLink>
-          </div>
-        ) : null}
-      </div>
-
-      <div ref={resourcesContainerRef} onClick={() => setResourcesShow(!resourcesShow)} className={classes.dropDownContainer}>
-        <Typography color="inherit" variant="subtitle1" className="subtitle">
-          Resources&nbsp;&nbsp;
-          <img src="/images/homepage/arrow-down.svg" alt="arrow-down" />
-        </Typography>
-        {resourcesShow ? (
-          <div className={classes.dropDown}>
-            <DropDownLink color="inherit" underline="none" href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
-              Github
-            </DropDownLink>
-          </div>
-        ) : null}
-      </div>
-      <CustomLink color="inherit" underline="none" href={WHITE_PAPER} target="_blank" rel="noreferrer noopener">
+      <CustomLink color="inherit" underline="none" href={WHITE_PAPER} {... true?{target :"_blank", rel:"noreferrer noopener"}: {}} className={classes.hoverUnderscore}>
         Whitepaper
       </CustomLink>
     </StyledDiv>

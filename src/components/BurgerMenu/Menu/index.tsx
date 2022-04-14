@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { IconButton, Typography } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
-import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
-import CloseIcon from "@material-ui/icons/Close";
-import RemoveIcon from "@material-ui/icons/Remove";
+import { IconButton, Typography } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import CloseIcon from "@mui/icons-material/Close";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 import { StyledLink } from "components/LinkList";
 import { Logo } from "components";
@@ -106,116 +106,114 @@ function Menu({ open, setOpen, ...props }) {
   const [community, setCommunity] = useState(false);
   const [resources, setResources] = useState(false);
 
-  return (
-    <>
-      <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-        <MenuHeader className="one-line">
-          <Logo href={HOMEPAGE_LINK} isDark={isDark} />
-          <IconButton onClick={() => setOpen(false)}>
-            <CloseIcon />
-          </IconButton>
-        </MenuHeader>
-        <ExpandMenu className="one-line" my="0px">
+  return <>
+    <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
+      <MenuHeader className="one-line">
+        <Logo href={HOMEPAGE_LINK} isDark={isDark} />
+        <IconButton onClick={() => setOpen(false)} size="large">
+          <CloseIcon />
+        </IconButton>
+      </MenuHeader>
+      <ExpandMenu className="one-line" my="0px">
+        <StyledLink
+          color="inherit"
+          href={APP_LINK}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="expand-title"
+        >
+          REQUEST A DEMO
+        </StyledLink>
+        <ArrowRightAltIcon />
+      </ExpandMenu>
+      <ExpandMenu className="one-line" my="0px">
+        <StyledLink
+          color="inherit"
+          href={BLOG_LINK}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="expand-title"
+        >
+          BLOG
+        </StyledLink>
+        <ArrowRightAltIcon />
+      </ExpandMenu>
+      <ExpandMenu className="one-line" my="2px" onClick={() => setCommunity(!community)}>
+        <Typography variant="subtitle2">COMMUNITY</Typography>
+        {community ? <RemoveIcon /> : <AddIcon />}
+      </ExpandMenu>
+      {community && (
+        <SubMenu>
           <StyledLink
             color="inherit"
-            href={APP_LINK}
+            href={GITHUB_LINK}
             target="_blank"
             rel="noreferrer noopener"
-            className="expand-title"
+            className="sub-menu"
           >
-            REQUEST A DEMO
+            Github
           </StyledLink>
-          <ArrowRightAltIcon />
-        </ExpandMenu>
-        <ExpandMenu className="one-line" my="0px">
           <StyledLink
             color="inherit"
-            href={BLOG_LINK}
+            href={TWITTER_LINK}
             target="_blank"
             rel="noreferrer noopener"
-            className="expand-title"
+            className="sub-menu"
           >
-            BLOG
+            Twitter
           </StyledLink>
-          <ArrowRightAltIcon />
-        </ExpandMenu>
-        <ExpandMenu className="one-line" my="2px" onClick={() => setCommunity(!community)}>
-          <Typography variant="subtitle2">COMMUNITY</Typography>
-          {community ? <RemoveIcon /> : <AddIcon />}
-        </ExpandMenu>
-        {community && (
-          <SubMenu>
-            <StyledLink
-              color="inherit"
-              href={GITHUB_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="sub-menu"
-            >
-              Github
-            </StyledLink>
-            <StyledLink
-              color="inherit"
-              href={TWITTER_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="sub-menu"
-            >
-              Twitter
-            </StyledLink>
-            <StyledLink
-              color="inherit"
-              href={DISCORD_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="sub-menu"
-            >
-              Discord
-            </StyledLink>
-            <StyledLink
-              color="inherit"
-              href={TELEGRAM_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="sub-menu"
-            >
-              Telegram
-            </StyledLink>
-          </SubMenu>
-        )}
-        <ExpandMenu className="one-line" my="2px" onClick={() => setResources(!resources)}>
-          <Typography variant="subtitle2">RESOUCES</Typography>
-          {resources ? <RemoveIcon /> : <AddIcon />}
-        </ExpandMenu>
-        {resources && (
-          <SubMenu>
-            <StyledLink
-              color="inherit"
-              href={GITHUB_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="sub-menu"
-            >
-              Github
-            </StyledLink>
-          </SubMenu>
-        )}
-        <ExpandMenu className="one-line" my="0px">
           <StyledLink
             color="inherit"
-            href={WHITE_PAPER}
+            href={DISCORD_LINK}
             target="_blank"
             rel="noreferrer noopener"
-            className="expand-title"
+            className="sub-menu"
           >
-            WHITEPAPER
+            Discord
           </StyledLink>
-          <ArrowRightAltIcon />
-        </ExpandMenu>
-      </StyledMenu>
-      {open && <BlurBackground onClick={() => setOpen(false)} />}
-    </>
-  );
+          <StyledLink
+            color="inherit"
+            href={TELEGRAM_LINK}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="sub-menu"
+          >
+            Telegram
+          </StyledLink>
+        </SubMenu>
+      )}
+      <ExpandMenu className="one-line" my="2px" onClick={() => setResources(!resources)}>
+        <Typography variant="subtitle2">RESOUCES</Typography>
+        {resources ? <RemoveIcon /> : <AddIcon />}
+      </ExpandMenu>
+      {resources && (
+        <SubMenu>
+          <StyledLink
+            color="inherit"
+            href={GITHUB_LINK}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="sub-menu"
+          >
+            Github
+          </StyledLink>
+        </SubMenu>
+      )}
+      <ExpandMenu className="one-line" my="0px">
+        <StyledLink
+          color="inherit"
+          href={WHITE_PAPER}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="expand-title"
+        >
+          WHITEPAPER
+        </StyledLink>
+        <ArrowRightAltIcon />
+      </ExpandMenu>
+    </StyledMenu>
+    {open && <BlurBackground onClick={() => setOpen(false)} />}
+  </>;
 }
 
 export default Menu;

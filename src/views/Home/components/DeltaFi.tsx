@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  Container, Box, Grid, makeStyles, Theme, Typography,
-} from "@material-ui/core";
+import { Container, Grid, Typography } from "@mui/material";
+import Title from "components/Title";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -11,14 +10,6 @@ const StyledDiv = styled.div`
   align-items: center;
   padding: 98px 0 60px;
   text-align: center;
-
-  .subtitle {
-    margin-top: 16px;
-    margin-bottom: 68px;
-  }
-  .deposit-text {
-    margin-top: 48px;
-  }
 
   ${({ theme }) => theme.muibreakpoints.down("md")} {
     padding: 56px 0 36px;
@@ -33,204 +24,52 @@ const StyledDiv = styled.div`
     }
   }
 `;
-const Card = styled(Grid)`
-  height: 280px;
-  box-shadow: 2px 1000px 1px ${({ theme }) => theme.palette.background.primary} inset;
-  border-radius: 10px;
-  background-image: linear-gradient(52.7deg, #1afa9a -3.73%, #478ef0 48.34%, #9945fd 93.4%);
-  border: 1px solid transparent;
-  background-origin: border-box;
 
-  .card-header {
-    font-weight: normal;
-    color: limegreen;
-    line-height: 0;
-    padding-top: 30px;
-  }
-
-  .card-title {
-    font-weight: bold;
-    font-size: min(1.9vw, 24px);
-    ${({ theme }) => theme.muibreakpoints.down("md")} {
-      font-size: 19px;
-    }
-  }
-
-  .card-content {
-    font-weight: normal;
-    font-size: min(1.7vw, 19px);
-    ${({ theme }) => theme.muibreakpoints.down("md")} {
-      font-size: 19px;
-    }
-  }
-`;
-
-const ColoredCard = styled(Grid)`
-  height: 365px;
-  box-shadow: 0px 0px 25px 10px rgba(118, 80, 245, 0.3);
-  border-radius: 10px;
-  background-image: linear-gradient(52.7deg, #1afa9a -3.73%, #478ef0 48.34%, #9945fd 93.4%);
-  border: 1px solid transparent;
-  background-origin: border-box;
-
-  ${({ theme }) => theme.muibreakpoints.down("sm")} {
-    height: 230px;
-    box-shadow: 0px 0px 10px 8px rgba(118, 80, 245, 0.3);
-  }
-
-  .card-header {
-    font-weight: bold;
-    font-size: min(2.4vw, 29px);
-    line-height: 0;
-    padding-top: 35px;
-    ${({ theme }) => theme.muibreakpoints.down("md")} {
-      font-size: 27px;
-      padding-top: 17px;
-    }
-    ${({ theme }) => theme.muibreakpoints.down("sm")} {
-      font-size: 19px;
-      padding-top: 17px;
-    }
-  }
-
-  .card-title {
-    font-weight: normal;
-    padding-top: 10px;
-    font-size: 22px;
-    ${({ theme }) => theme.muibreakpoints.down("sm")} {
-      font-size: 15px;
-      padding-top: 0px;
-    }
-  }
-`;
-
-const Img = styled.img`
-  width: 250px;
-  height: auto;
-  object-fit: cover;
-  ${({ theme }) => theme.muibreakpoints.down("sm")} {
-    width: 150px;
-  }
+const StyledImg = styled.img`
+  width: 100%;
+  
+  margin: 36px 0 16px;
   ${({ theme }) => theme.muibreakpoints.down("md")} {
-    max-width: 229px;
+    margin: auto;
+    margin-bottom: 16px;
+    max-width: 580px;
   }
-`;
-
-const useStyles = makeStyles((theme: Theme) => ({
-  title: {
-    maxWidth: 850,
-    marginBottom: 10,
-    fontWeight: 500,
-    fontSize: 37,
-    [theme.breakpoints.down("sm")]: {
-      fontSize: 22,
-      width: "85%",
-    },
-  },
-  header: {
-    paddingTop: 140,
-    [theme.breakpoints.down("sm")]: {
-      paddingTop: 0,
-      fontWeight: "normal",
-    },
-  },
-  cardGrid: {
-    paddingTop: 40,
-    [theme.breakpoints.down("sm")]: {
-      paddingBottom: 60,
-    },
-  },
-}));
+`
 
 const DeltaFi: React.FC = () => {
-  const classes = useStyles();
-
-  const MISSION_LIST = [
-    {
-      header: "FOR TRADERS",
-      title: "Low Price Slippage",
-      content:
-        "Adaptive intelligent algorithms are developed for efficient pricing resilient to various market dynamics.",
-    },
-    {
-      header: "FOR LIQUIDITY PRODVIDERS",
-      title: "Sustainable Profitability",
-      content:
-        "Liquidity risks are minimized with customized risk tolerances and institutional grade market making algorithms.",
-    },
-    {
-      header: "FOR MARKET MAKERS",
-      title: "Personalized Pools",
-      content:
-        "Malleable APIs offer market making flexibilities with bidirectional pricing, dynamic fees, and order history.",
-    },
-  ];
 
   const WHY_LIST = [
     {
-      header: "Institutional Grade Algorithms",
-      title: "Intelligent algorithms and beyond",
-      image: "/images/homepage/globe.png",
+      header: "Efficient Pricing Algorithm",
+      title: "No Liquidity Loss",
+      image: "/images/algorithms.png",
     },
     {
       header: "Community Driven Development",
       title: "Fully decentralized",
-      image: "/images/homepage/hand.png",
+      image: "/images/development.png",
     },
   ];
 
   return (
     <Container>
       <StyledDiv>
-        <Typography variant="h6" paragraph className={classes.header}>
-          Our Mission
-        </Typography>
-        <Typography className={classes.title}>
-          Built for traders, liquidity providers
-          <br />
-          and market makers
-        </Typography>
-        <Grid container spacing={5} className={classes.cardGrid}>
-          {MISSION_LIST.map((card, index) => (
-            <Grid item key={`card-${index}`} xs="auto" md={4}>
-              <Card>
-                <Box padding={3}>
-                  <Typography align="left" paragraph className="card-header">
-                    {card.header}
-                  </Typography>
-                  <Typography variant="h5" align="left" paragraph className="card-title">
-                    {card.title}
-                  </Typography>
-                  <Typography variant="h6" align="left" paragraph className="card-content">
-                    {card.content}
-                  </Typography>
-                </Box>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-        <Typography variant="h6" paragraph className={classes.header}>
-          Why DeltaFi?
-        </Typography>
-        <Typography className={classes.title}>High Yields, Deep Liquidity, and DAO Governed</Typography>
-        <Grid container spacing={4} className={classes.cardGrid}>
+        <Title
+          header="Why DeltaFi?"
+          title="High Yields, Deep Liquidity, and DAO Governed" />
+        <Grid container spacing={3}>
           {WHY_LIST.map((card, index) => (
             <Grid item key={`card-${index}`} xs={12} md={6}>
-              <ColoredCard>
-                <Box padding={3}>
-                  <Typography variant="h4" paragraph className="card-header">
-                    {card.header}
-                  </Typography>
-                  <Typography variant="h5" paragraph className="card-title">
-                    {card.title}
-                  </Typography>
-                  <Img src={card.image} />
-                </Box>
-              </ColoredCard>
+              <StyledImg src={card.image}/>
+              <Typography variant="h5" fontWeight={600}>
+                {card.header}
+              </Typography>
+              <Typography variant="subtitle2" textTransform="capitalize" fontWeight={400} sx={{marginTop: 1.5}}>
+                {card.title}
+              </Typography>
             </Grid>
           ))}
         </Grid>
-        {/* Video */}
       </StyledDiv>
     </Container>
   );

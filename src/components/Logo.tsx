@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/styles";
-import { Theme } from "@material-ui/core";
+import { makeStyles } from "@mui/styles";
+import { Theme } from "@mui/material";
 
 interface Props {
   isDark: boolean
@@ -13,38 +13,33 @@ const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-
-  .logo {
-    width: 178px;
-    ${({ theme }) => theme.muibreakpoints.down("sm")} {
-      width: 100px;
-    }
-    ${({ theme }) => theme.muibreakpoints.down("md")} {
-      width: 137px;
-    }
-  }
 `;
 
 const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
   logo: {
     color: palette.text.primary,
     fontWeight: 400,
-    width: 150,
+    width: 180,
+    [breakpoints.down("md")]: {
+      width: 140,
+    },
     [breakpoints.down("sm")]: {
       width: 100,
     },
   },
 }));
 
-const StyledDiv = styled.div``;
+const StyledDiv = styled.div`
+  margin-right: 2rem;
+`;
 
-const Logo: React.FC<Props> = ({ isDark, href }) => {
+const Logo: React.FC<Props> = ({ href }) => {
   const classes = useStyles();
 
   return (
     <StyledDiv>
       <StyledLink to={href} aria-label="DeltaFi App">
-        <img src="/horizontal 60.svg" alt="" className={classes.logo} />
+        <img src="/images/deltafi-logo.svg" alt="" className={classes.logo} />
       </StyledLink>
     </StyledDiv>
   );

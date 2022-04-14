@@ -1,7 +1,6 @@
-import {
-  Collapse, List as MuiList, ListItem, ListItemText, ListProps, makeStyles,
-} from "@material-ui/core";
-import { ExpandLess, ExpandMore } from "@material-ui/icons";
+import { Collapse, List as MuiList, ListItem, ListItemText, ListProps } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { useState } from "react";
 
 interface Item {
@@ -45,7 +44,7 @@ const NestedListItem: React.FC<Item> = (props) => {
 const List: React.FC<Props> = ({ items, divider, ...rest }) => (
   <MuiList {...rest}>
     {items.map((item, index) => (item.children?.length > 0 ? (
-      <NestedListItem {...item} />
+      <NestedListItem {...item}/>
     ) : (
       <ListItem
         key={item.text}
