@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Theme } from "@mui/material";
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 
 const useStyles = makeStyles(({ palette, spacing, transitions }: Theme) => ({
   root: {

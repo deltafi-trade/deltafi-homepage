@@ -24,6 +24,7 @@ export const menuItems = [
     text: "Token", to: TOKENOMICS_LINK
   },
   {
+    id:"auditReport",
     text: "Audit Report",
     children: [
       {

@@ -33,6 +33,7 @@ const NestedListItem: React.FC<Item> = (props) => {
       <ListItem onClick={handleClick}>
         <ListItemText primary={props.text} />
         {open ? <ExpandLess /> : <ExpandMore />}
+        
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List items={props.children} divider className={classes.nested} />
@@ -44,7 +45,7 @@ const NestedListItem: React.FC<Item> = (props) => {
 const List: React.FC<Props> = ({ items, divider, ...rest }) => (
   <MuiList {...rest}>
     {items.map((item, index) => (item.children?.length > 0 ? (
-      <NestedListItem {...item}/>
+      <NestedListItem key={item.text} {...item}/>
     ) : (
       <ListItem
         key={item.text}

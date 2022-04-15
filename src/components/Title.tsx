@@ -4,7 +4,6 @@ import { Theme, Typography } from "@mui/material";
 const useStyles = makeStyles((theme: Theme) => ({
     title: {
         fontFamily: "Rubik",
-        maxWidth: 850,
         margin: "0 auto 10px",
         fontWeight: 500,
         fontSize: 20,
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 interface TitleProp {
     title?: string,
-    header: string
+    header?: string
 }
 
 
@@ -32,9 +31,9 @@ function Title(props: TitleProp) {
     const classes = useStyles();
     return (
         <>
-            <Typography variant="h3" paragraph className={classes.header}>
+            {props.header ? <Typography variant="h3" paragraph className={classes.header}>
                 {props.header}
-            </Typography>
+            </Typography> : null}
             {props.title ? <Typography className={classes.title}>
                 {props.title}
             </Typography> : null}

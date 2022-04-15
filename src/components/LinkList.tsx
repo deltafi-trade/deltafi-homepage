@@ -46,27 +46,36 @@ const DropDownLink = styled(Link)`
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
 `;
 
 const Divider = styled.div`
-  background: ${({ theme }) => theme.palette.gradient.cta};
+  background: ${({ theme }) => theme.palette.background.primary};
   height: 1px;
-  opacity: 0.16;
-  margin: 0 6px;
 `;
 
 const useStyles = makeStyles((theme: Theme) => ({
   dropDownContainer: {
-    padding: "0 20px",
+    padding: "0 10px",
     position: "relative",
     cursor: "pointer",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    maxWdith: "200px"
   },
   dropDown: {
-    padding: "10px",
+    width: "200px",
     borderRadius: "7px",
+    marginTop: "10px",
+  },
+  dropDownMenuItem: {
+    padding: "10px 20px",
+    width: "200px",
+    "&:hover": {
+      color: theme.palette.primary.main
+    }
   },
   hoverUnderscore: {
     position: "relative",
@@ -117,13 +126,13 @@ const LinkList: React.FC = (props) => {
           Audit Report
         </StyleButton>
         <Menu className={classes.dropDown} anchorEl={auditAuditReportEl} open={auditAuditReportOpen} onClose={handleAuditReportClose}>
-          <MenuItem onClick={handleAuditReportClose}>
-            <DropDownLink key="Certik" color="inherit" underline="none" href={CERTIK_LINK} target="_blank" rel="noreferrer noopener">
+          <MenuItem className={classes.dropDownMenuItem} key="Certik" onClick={handleAuditReportClose}>
+            <DropDownLink color="inherit" underline="none" href={CERTIK_LINK} target="_blank" rel="noreferrer noopener">
               Certik
             </DropDownLink>
           </MenuItem>
           <Divider />
-          <MenuItem key="SlowMist" onClick={handleAuditReportClose}>
+          <MenuItem className={classes.dropDownMenuItem} key="SlowMist" onClick={handleAuditReportClose}>
             <DropDownLink color="inherit" underline="none" href={SLOWMIST_LINK} target="_blank" rel="noreferrer noopener">
             SlowMist
             </DropDownLink>

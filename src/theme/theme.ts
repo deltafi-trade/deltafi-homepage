@@ -60,8 +60,10 @@ const baseTheme: Theme = createTheme({
       fontSize: 14,
     },
     button: {
-      fontWeight: 700
-    }
+      fontWeight: 700,
+      fontSize: "18px",
+      textTransform: "none"
+    },
   },
   breakpoints: {
     values: {

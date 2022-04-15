@@ -1,4 +1,4 @@
-import { Theme, Container, Grid, Box } from "@mui/material";
+import { Theme, Container, Grid, Box, Link } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import styled, { keyframes } from "styled-components";
 import Title from "components/Title";
@@ -51,8 +51,10 @@ const AnimateContainer = styled.div`
     min-width: 1000px;
   }
   margin: 0 auto;
-  animation: ${transition} 20s ease-in-out infinite;
-
+  animation: ${transition} 20s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
 `;
 
 const InvestorCard = styled.div`
@@ -119,39 +121,27 @@ function JoinUs() {
   const INVESTOR_LIST = [
     {
       img: "/images/dark-jumpcapital.png",
+      href: "https://jumpcap.com/"
     },
     {
       img: "/images/dark-hashed.svg",
-    },
-    {
-      img: "/images/dark-hashkey.svg",
-    },
-    {
-      img: "/images/dark-jumpcapital.png",
-    },
-    {
-      img: "/images/dark-hashed.svg",
-    },
-    {
-      img: "/images/dark-hashkey.svg",
-    },
-    {
-      img: "/images/solana.svg",
-    },
-    {
-      img: "/images/pyth.svg",
+      href:"https://www.hashed.com/"
     },
     {
       img: "/images/wormhole.svg",
+      href:"https://wormholenetwork.com"
     },
     {
       img: "/images/solana.svg",
+      href:"https://solana.com/"
     },
     {
       img: "/images/pyth.svg",
+      href:"https://pyth.network/"
     },
     {
-      img: "/images/wormhole.svg",
+      img: "/images/dark-hashkey.svg",
+      href:"https://www.hashkey.com/"
     },
   ];
 
@@ -162,12 +152,14 @@ function JoinUs() {
         <Box sx={{ position: "relative" , overflow: "hidden", width: "100%", marginTop: "12px", marginBottom:"72px"}}>
           <AnimateContainer>
             <Grid container style={{ alignItems: "center", justifyContent: "center" }}>
-              {INVESTOR_LIST.map((card, index) => (
+              {[...INVESTOR_LIST.slice(0,3), ...INVESTOR_LIST.slice(0,3), ...INVESTOR_LIST.slice(3,6),...INVESTOR_LIST.slice(3,6),...INVESTOR_LIST.slice(6,-1)].map((card, index) => (
                 <Grid item key={`card-${index}`} xs={2} md={2}>
                   <InvestorCard>
-                    <Box>
+                    <Link href={card.href}
+              target="_blank"
+              rel="noreferrer noopener">
                       <img src={card.img} alt="" className={classes.investor} />
-                    </Box>
+                    </Link>
                   </InvestorCard>
                 </Grid>
               ))}
