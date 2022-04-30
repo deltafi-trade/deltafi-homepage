@@ -120,7 +120,7 @@ function JoinUs() {
 
   const INVESTOR_LIST = [
     {
-      img: "/images/dark-jumpcapital.png",
+      img: "/images/jump-capital.svg",
       href: "https://jumpcap.com/"
     },
     {

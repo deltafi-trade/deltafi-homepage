@@ -1,5 +1,6 @@
-import { Container, Grid, Paper, Typography } from "@mui/material"
+import { Container, Grid, Paper, Typography, Theme } from "@mui/material"
 import styled from "styled-components";
+import makeStyles from "@mui/styles/makeStyles";
 
 const Item = styled(Paper)`
     padding: ${({ theme }) => theme.spacing(1)};
@@ -9,23 +10,27 @@ const Item = styled(Paper)`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    ${({ theme }) => theme.muibreakpoints.down("md")} {
+    ${({ theme }) => theme.muibreakpoints.down("sm")} {
         margin: auto;
         max-width: 580px;
+        height: 160px
     }
     background-repeat: no-repeat;
-    background-size: cover;
+    background: #313131;
+    border-radius: 12px;
     &.odd {
         background-image: url(/images/volume-bg-2.svg);
         h1 {
             color: ${({ theme }) => theme.palette.primary.main}
         }
+        background-position: 16% 70%;
     }
     &.even {
         h1 {
             color: ${({ theme }) => theme.palette.secondary.main}
         }
         background-image: url(/images/volume-bg.svg);
+        background-position: 100% 70%;
     }
     h1 {
         font-weight: 700;
@@ -38,26 +43,44 @@ const StyledContainer = styled(Container)`
     }
 `
 
-function Numbers() {
+const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
+    number: {
+        [breakpoints.down("sm")]: {
+            fontSize: "3rem"
+        },
+        [breakpoints.down("sm")]: {
+            fontSize: "2rem"
+        }
+    },
+    text: {
+        [breakpoints.down("sm")]: {
+            fontSize: 14
+        }
+    }
+}))
+
+function Numbers(props) {
+    const classes = useStyles(props);
+
     return (
         <StyledContainer>
             <Grid container spacing={3}>
-                <Grid item md={6} xs={12}>
+                <Grid item xs={6}>
                     <Item className="odd">
-                        <Typography variant="h1" component="h1">
+                        <Typography className={classes.number} variant="h1">
                             $1.32B
                         </Typography>
-                        <Typography variant="h5" fontWeight={600} >
+                        <Typography className={classes.text} variant="h5" fontWeight={600} >
                             Total assets supplied
                         </Typography>
                     </Item>
                 </Grid>
-                <Grid item md={6} xs={12}>
+                <Grid item xs={6}>
                     <Item className="even">
-                        <Typography variant="h1" component="h1">
+                        <Typography className={classes.number} variant="h1">
                             $51M
                         </Typography>
-                        <Typography variant="h5" fontWeight={600} >
+                        <Typography className={classes.text} variant="h5" fontWeight={600} >
                             Total Trading Volume
                         </Typography>
                     </Item>

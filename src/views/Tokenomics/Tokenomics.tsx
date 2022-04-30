@@ -84,7 +84,8 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
       paddingTop: spacing(20),
       paddingBottom: spacing(20),
     },
-    [breakpoints.down("sm")]: {
+    [breakpoints.down("md")]: {
+      marginTop: "60px",
       paddingTop: spacing(10),
       paddingBottom: spacing(10),
     },
@@ -188,7 +189,7 @@ const Tokenomics: React.FC = (props) => {
 
   const ALLOCATION_LIST = [
     { title: "Total Supply", content: "1 billion tokens will be minted on Solana network." },
-    { title: "Inflation", content: "There will be inflation. The total supply has a hard cap of 1 billion in total." },
+    { title: "Inflation", content: "There will be no inflation. The total supply has a hard cap of 1 billion in total." },
     { title: "Initial Circulating Supply", content: "1% for public sale to the reward the initial community. " },
   ]
 

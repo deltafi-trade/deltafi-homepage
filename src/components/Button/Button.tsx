@@ -14,7 +14,6 @@ const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
     fontSize: 18,
     fontWeight: 600,
     textTransform: "none",
-    boxShadow: "0px 6px 12px rgba(118, 80, 245, 0.3)",
 
     "&:hover": {
       color: palette.text.primary,

@@ -4,21 +4,21 @@ import SectionContainer from "components/SectionContainer";
 import Title from "components/Title";
 
 const boxes = [{
-    purpose: "FOR RETAIL TRADING",
+    purpose: "FOR TRADERS",
     title: "Oracle Centered Pricing",
     color: "#D4FF00",
     content: "Powered by Pyth Network, realtime oracles achieves efficient token pricing.",
     image: "/images/scale.png"
 },
 {
-    purpose: "FOR LIQUIDITY PROVISION",
+    purpose: "FOR LIQUIDITY PROVIDERS",
     title: "Sustainable Profitaility",
     color: "#693EFF",
     content: "Innovative bond curve eliminates impermanent loss with pool rebalancing.",
     image: "/images/coin.png"
 },
 {
-    purpose: "FOR MARKET MAKING",
+    purpose: "FOR MARKET MAKERS",
     title: "Customized Pools",
     color: "#03F2A0",
     content: "Professional market makers create customized pools for.",

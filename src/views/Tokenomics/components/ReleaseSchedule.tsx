@@ -115,7 +115,7 @@ const ReleaseSchedule: React.FC = () => {
     return (
         <Container>
             <Title header="Release Schedule" />
-            <Box sx={{ display: { sm: "block", xl: "none" } }}>
+            <Box sx={{ display: { sm: "block"} }}>
                 <StyledCt width="100%" height={450}>
                     <AreaChart
                         data={data}
@@ -134,7 +134,7 @@ const ReleaseSchedule: React.FC = () => {
                             formatter={(decimal) => `${Number(decimal).toFixed(2)}%`}
                             labelStyle={{ display: "none" }}
                         />
-                        <Legend wrapperStyle={{top:(isMobile?30:50)}} verticalAlign="top" align="left" height={50} content={renderLegend} />
+                        <Legend wrapperStyle={{top:(isMobile?30:40)}} verticalAlign="top" align="left" height={isMobile?80:50} content={renderLegend} />
                         <Area type="monotone" stackId="1" name="Public Scale" dataKey="ps" stroke="#2F80ED" fill="rgba(47, 128, 237, 0.2)" />
                         <Area type="monotone" stackId="1" name="Private Investors" dataKey="pi" stroke="#D4FF00" fill="rgba(212, 255, 0, 0.2)" />
                         <Area type="monotone" stackId="1" name="Team & Advisors" dataKey="ta" stroke="#03F2A0" fill="rgba(26, 250, 154, 0.2)" />

@@ -4,6 +4,7 @@ import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { useState } from "react";
 
 interface Item {
+  targetBlank?: boolean
   text: string
   to?: string
   children?: Array<Item>
@@ -53,7 +54,7 @@ const List: React.FC<Props> = ({ items, divider, ...rest }) => (
         divider={divider && index < items.length - 1}
         component="a"
         href={item.to}
-        target="_blank"
+        target={item.targetBlank?"_blank":"_self"}
         rel="noreferrer noopener"
       >
         <ListItemText primary={item.text} />

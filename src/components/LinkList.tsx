@@ -26,14 +26,18 @@ const StyledDiv = styled(Typography)`
   ${({ theme }) => theme.muibreakpoints.down("md")} {
     display: none;
   }
+  ${({ theme }) => theme.muibreakpoints.up("lg")} {
+    margin-right: 2.5%;
+  }
 `;
 
 const StyleButton = styled(ButtonBase)`
   font: inherit;
+
 `
 
 const CustomLink = styled(Link)`
-  padding: 0 20px;
+  padding: 0 32px;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -53,6 +57,7 @@ const DropDownLink = styled(Link)`
 const Divider = styled.div`
   background: ${({ theme }) => theme.palette.background.primary};
   height: 1px;
+  margin: 0 18px;
 `;
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -63,15 +68,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    maxWdith: "200px"
+    maxWdith: "200px",
+    [theme.breakpoints.up("lg")]: {
+      padding: "0 32px",
+    },
   },
   dropDown: {
     width: "200px",
     borderRadius: "7px",
     marginTop: "10px",
+    boxShadow: "0px 5px 20px rgba(0, 0, 0, 0.15)",
+    marginLeft: "-18px",
   },
   dropDownMenuItem: {
-    padding: "10px 20px",
+    padding: "12px 28px",
     width: "200px",
     "&:hover": {
       color: theme.palette.primary.main
@@ -103,7 +113,6 @@ const LinkList: React.FC = (props) => {
   const auditAuditReportOpen = Boolean(auditAuditReportEl);
   const auditReportRef = useRef();
   const handleAuditReportClick = () => {
-    console.log(auditReportRef)
     setAuditReportEl(auditReportRef.current);
   };
   const handleAuditReportClose = () => {
@@ -123,7 +132,7 @@ const LinkList: React.FC = (props) => {
       </CustomLink>
       <div id="audit-report-menu" className={`${classes.hoverUnderscore} ${classes.dropDownContainer}`}>
         <StyleButton ref={auditReportRef} onClick={handleAuditReportClick} >
-          Audit Report
+          Audit
         </StyleButton>
         <Menu className={classes.dropDown} anchorEl={auditAuditReportEl} open={auditAuditReportOpen} onClose={handleAuditReportClose}>
           <MenuItem className={classes.dropDownMenuItem} key="Certik" onClick={handleAuditReportClose}>
