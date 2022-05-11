@@ -45,7 +45,7 @@ const DesktopWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   max-width: 500px;
-  margin: ${({ theme }) => theme.spacing(4)} auto ${({ theme }) => theme.spacing(8)};
+  margin: ${({ theme }) => theme.spacing(5.5)} auto;
 
   ${({ theme }) => theme.muibreakpoints.down("sm")} {
     margin-top: ${({ theme }) => theme.spacing(2)};
@@ -62,11 +62,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down("sm")]: {
       fontSize: 33,
     },
+    marginTop: 16,
     textTransform: "capitalize",
   },
   subTitle: {
     textTransform: "capitalize",
-
     [theme.breakpoints.down("sm")]: {
       maxWidth: "95%",
       fontSize: 16,
@@ -105,7 +105,7 @@ const AssetManager: React.FC = () => {
             </Typography>
             <br />
             <Typography variant="h6" className={classes.subTitle} sx={{ fontSize:20, fontWeight: 500 }}>
-              trade to Earn, Farm with no Loss
+              Earn Sustainable Yields through Oracle Concentrated Liquidity
             </Typography>
             <DesktopWrapper>
               <Button color="secondary" href={APP_LINK}>

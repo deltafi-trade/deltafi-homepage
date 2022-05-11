@@ -4,24 +4,21 @@ import SectionContainer from "components/SectionContainer";
 import Title from "components/Title";
 
 const boxes = [{
-    purpose: "FOR TRADERS",
     title: "Oracle Centered Pricing",
     color: "#D4FF00",
-    content: "Powered by Pyth Network, realtime oracles achieves efficient token pricing.",
+    content: "Pyth Network realtime oracles are used for fair prices.",
     image: "/images/scale.png"
 },
 {
-    purpose: "FOR LIQUIDITY PROVIDERS",
-    title: "Sustainable Profitaility",
+    title: "Sustainable Liquidity Yields",
     color: "#693EFF",
-    content: "Innovative bond curve eliminates impermanent loss with pool rebalancing.",
+    content: "Risk adjusted bond curve eliminates liquidity loss.",
     image: "/images/coin.png"
 },
 {
-    purpose: "FOR MARKET MAKERS",
-    title: "Customized Pools",
+    title: "Native to Native Swap",
     color: "#03F2A0",
-    content: "Professional market makers create customized pools for.",
+    content: "Wormhole protocol empowers cross chain swap.",
     image: "/images/shakehand.png"
 }]
 
@@ -37,8 +34,8 @@ const Mission: React.FC = () => {
     return (
         <SectionContainer>
             <Title
-                header="Our Mission"
-                title="Built for traders, liquidity providers and market makers" />
+                header="Swap & Earn!"
+                title="DeltaFi is built for traders and liquidity providers." />
             <Grid container  spacing={2}>
                 {boxes.map((box, i) =>
                 <StyledItem key={i} container item md={4} xs={12}>
@@ -52,11 +49,6 @@ const Mission: React.FC = () => {
                             component="img"
                             src={box.image}
                         />
-                    </ Grid>
-                    <Grid item xs={12}>
-                        <Typography variant="h6" fontWeight={400} >
-                            {box.purpose}
-                        </Typography>
                     </ Grid>
                     <Grid item xs={12}>
                         <Box

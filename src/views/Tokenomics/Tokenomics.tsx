@@ -75,18 +75,16 @@ const useStyles = makeStyles(({ palette, breakpoints, spacing }: Theme) => ({
   top: {
     backgroundImage: "url(/images/token-bg.png)",
     backgroundRepeat: "no-repeat",
-    marginTop: "90px",
     backgroundPosition: "center",
     backgroundSize: "cover",
-    paddingTop: spacing(30),
+    paddingTop: spacing(40),
     paddingBottom: spacing(30),
     [breakpoints.down("md")]: {
       paddingTop: spacing(20),
       paddingBottom: spacing(20),
     },
     [breakpoints.down("md")]: {
-      marginTop: "60px",
-      paddingTop: spacing(10),
+      paddingTop: spacing(20),
       paddingBottom: spacing(10),
     },
   },

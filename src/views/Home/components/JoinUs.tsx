@@ -51,7 +51,8 @@ const AnimateContainer = styled.div`
     min-width: 1000px;
   }
   margin: 0 auto;
-  animation: ${transition} 20s linear infinite;
+  animation: ${transition} 15s infinite;
+
   &:hover {
     animation-play-state: paused;
   }
@@ -148,7 +149,7 @@ function JoinUs() {
   return (
     <Container>
       <StyledDiv>
-        <Title header="World-class Investors and Partners"/>
+        <Title header="Strategic Investors and Partners"/>
         <Box sx={{ position: "relative" , overflow: "hidden", width: "100%", marginTop: "12px", marginBottom:"72px"}}>
           <AnimateContainer>
             <Grid container style={{ alignItems: "center", justifyContent: "center" }}>

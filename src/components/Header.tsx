@@ -13,7 +13,7 @@ import List from "./List";
 
 
 const HeaderWrapper = styled(AppBar)`
-  background-color: rgba(49, 49, 49, 0.45);
+  background-color: rgba(49, 49, 49, 0.6);
   padding: 0 24px;
   box-shadow: none;
   .theme-button {
