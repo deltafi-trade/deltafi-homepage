@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { DeltaIcon } from "components";
-import { useTheme } from "@material-ui/core";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 interface SpinnerProps {
   size?: number

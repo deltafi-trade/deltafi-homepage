@@ -1,6 +1,6 @@
 import React from "react";
 import { SunIcon, MoonIcon } from "components";
-import { IconButtonProps, IconButton } from "@material-ui/core";
+import { IconButtonProps, IconButton } from "@mui/material";
 
 interface Props extends IconButtonProps {
   isDark: boolean
@@ -10,7 +10,7 @@ interface Props extends IconButtonProps {
 const ThemeButton: React.FC<Props> = (props) => {
   const { isDark, toggleDarkMode } = props;
   return (
-    <IconButton {...props} onClick={toggleDarkMode}>
+    <IconButton {...props} onClick={toggleDarkMode} size="large">
       {isDark ? <SunIcon /> : <MoonIcon />}
     </IconButton>
   );

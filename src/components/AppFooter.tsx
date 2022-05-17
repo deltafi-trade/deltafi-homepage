@@ -1,150 +1,76 @@
 import React from "react";
-import styled from "styled-components";
-import {
-  Box, Container, makeStyles, Theme, Typography, IconButton,
-} from "@material-ui/core";
-
-import {
-  BLOG_LINK, TWITTER_LINK, TELEGRAM_LINK, DISCORD_LINK, GITHUB_LINK,
-} from "config/constants/constant";
-import {
-  AppTwitterIcon, AppTelegramIcon, AppMediumIcon, AppGithubIcon, AppDiscordIcon,
-} from "components";
-import useDarkMode from "hooks/useDarkMode";
+import { Container, Box, Theme, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import SocialLinks from "./SocialLinks";
+import { Button } from "./Button";
+import { SUBMITBUG_LINK } from "config/constants/constant";
+import Page from "./layout/Page";
 
 const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) => ({
-  root: {
-    background: palette.background.lightBlack,
-  },
   container: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingTop: spacing(3),
-    paddingBottom: spacing(3),
 
-    [breakpoints.down("sm")]: {
+    [breakpoints.down("md")]: {
       flexDirection: "column",
+      textAlign: "center",
       justifyContent: "center",
     },
   },
-  iconButton: {
-    width: 38.17,
-    height: 38.17,
-    borderRadius: "50%",
-    backgroundColor: "rgba(242, 242, 242, 0.1)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+  socailCt: {
+    width: "280px",
+    [breakpoints.down("md")]: {
+      marginLeft: "auto",
+      marginRight: "auto",
+      width: "100%",
+    },
+  },
+  solana: {
+    [breakpoints.down("md")]: {
+      marginLeft: "2rem",
+    },
+    marginRight: "2rem",
+    fontWeight: 600,
+  },
+  logo: {
+    color: palette.text.primary,
+    fontWeight: 400,
+    width: 180,
+    [breakpoints.down("md")]: {
+      width: 140,
+    },
+    [breakpoints.down("sm")]: {
+      width: 100,
+    },
   },
 }));
 
-const StyledDiv = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 0;
-  ${({ theme }) => theme.muibreakpoints.down("sm")} {
-    margin-bottom: 10px;
-  }
-`;
-const IconWrapper = styled.div`
-  margin: 0 16px;
-  ${({ theme }) => theme.muibreakpoints.down("lg")} {
-    margin: 0 6px;
-  }
-  &:first-child {
-    margin-left: 0;
-  }
-  &:last-child {
-    margin-right: 0;
-  }
-  a {
-    padding: 0;
-  }
-`;
-
 const Footer: React.FC = (props) => {
-  const { isDark } = useDarkMode();
   const classes = useStyles(props);
+
   return (
-    <Box className={classes.root}>
-      <Container className={classes.container}>
-        <StyledDiv>
-          <IconWrapper>
-            <IconButton
-              component="a"
-              href={TWITTER_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              data-amp-analytics-on="click"
-              data-amp-analytics-name="click"
-              data-amp-analytics-attrs="page: Footer, target: Twitter"
-              className={classes.iconButton}
-            >
-              <AppTwitterIcon isDark={isDark} />
-            </IconButton>
-          </IconWrapper>
-          <IconWrapper>
-            <IconButton
-              component="a"
-              href={DISCORD_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              data-amp-analytics-on="click"
-              data-amp-analytics-name="click"
-              data-amp-analytics-attrs="page: Footer, target: Discord"
-              className={classes.iconButton}
-            >
-              <AppDiscordIcon isDark={isDark} />
-            </IconButton>
-          </IconWrapper>
-          <IconWrapper>
-            <IconButton
-              component="a"
-              href={GITHUB_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              data-amp-analytics-on="click"
-              data-amp-analytics-name="click"
-              data-amp-analytics-attrs="page: Footer, target: Github"
-              className={classes.iconButton}
-            >
-              <AppGithubIcon isDark={isDark} />
-            </IconButton>
-          </IconWrapper>
-          <IconWrapper>
-            <IconButton
-              component="a"
-              href={BLOG_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              data-amp-analytics-on="click"
-              data-amp-analytics-name="click"
-              data-amp-analytics-attrs="page: Footer, target: Medium"
-              className={classes.iconButton}
-            >
-              <AppMediumIcon />
-            </IconButton>
-          </IconWrapper>
-          <IconWrapper>
-            <IconButton
-              component="a"
-              href={TELEGRAM_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-              data-amp-analytics-on="click"
-              data-amp-analytics-name="click"
-              data-amp-analytics-attrs="page: Footer, target: Telegram"
-              className={classes.iconButton}
-            >
-              <AppTelegramIcon isDark={isDark} />
-            </IconButton>
-          </IconWrapper>
-        </StyledDiv>
-        <Typography>© 2022 DeltaFi. All rights reserved</Typography>
+    <Page>
+      <Container>
+          <Box className={classes.container}>
+            <Box mt={4} className={classes.socailCt}>
+              <SocialLinks />
+            </Box>
+            <Box mt={4}>
+              <Button color="primary" href={SUBMITBUG_LINK}>
+                Submit a Bug
+              </Button>
+            </Box>
+          </Box>
+          <Box pb={4} className={classes.container}>
+            <Box mt={4} className={classes.solana}>Building the Next Generation Cross-Chain DEX on Solana</Box>
+            <Box mt={4}>
+              <Typography variant="body2">Copyright © 2022. DeltaFi</Typography>
+            </Box>
+          </Box>
       </Container>
-    </Box>
+    </Page>
   );
 };
 

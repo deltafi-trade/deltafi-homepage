@@ -1,19 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  Box, Container, Grid, Theme, Typography, Link,
-} from "@material-ui/core";
-
-import {
-  Button, RewardButton, TelegramIcon, DiscordIcon, TwitterIcon, MediumIcon,
-} from "components";
-
+import { Box, Container, Grid, Theme, Typography } from "@mui/material";
+import { Button, RewardButton } from "components";
 import useDarkMode from "hooks/useDarkMode";
-import { makeStyles } from "@material-ui/styles";
-
-import {
-  APP_LINK, REWARD_LINK, TWITTER_LINK, DISCORD_LINK, TELEGRAM_LINK, BLOG_LINK,
-} from "config/constants/constant";
+import { makeStyles } from "@mui/styles";
+import { APP_LINK, REWARD_LINK } from "config/constants/constant";
+import SocialLinks from "components/SocialLinks";
 
 interface ContainerProps {
   isDark: boolean
@@ -22,16 +14,17 @@ interface ContainerProps {
 const Main = styled.div<ContainerProps>``;
 
 const StyledDiv = styled(Container)`
+  position: relative;
   display: flex;
   align-items: center;
-  padding-top: 330px;
+  padding: 230px 120px 160px;
   ${({ theme }) => theme.muibreakpoints.down("md")} {
-    padding-top: 190px;
-    padding-left: 20px;
+    padding: 190px 20px 100px
   }
 `;
 const Wrapper = styled.div`
   flex-direction: column;
+  text-align: center;
 
   .asset-title {
     font-weight: 600;
@@ -50,34 +43,17 @@ const Wrapper = styled.div`
 `;
 const DesktopWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  max-width: 65%;
-  margin-top: ${({ theme }) => theme.spacing(4)}px;
+  justify-content: space-evenly;
+  max-width: 500px;
+  margin: ${({ theme }) => theme.spacing(5.5)} auto;
 
-  ${({ theme }) => theme.muibreakpoints.down("md")} {
-    margin-top: ${({ theme }) => theme.spacing(2)}px;
+  ${({ theme }) => theme.muibreakpoints.down("sm")} {
+    margin-top: ${({ theme }) => theme.spacing(2)};
+    margin-bottom: ${({ theme }) => theme.spacing(2)};
     max-width: 90%;
   }
 `;
 
-const IconWrapper = styled.div`
-  min-width: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &:first-child {
-    margin-left: 0;
-  }
-  &:last-child {
-    margin-right: 0;
-    a {
-      padding-right: 0;
-    }
-  }
-`;
-
-const SocialLink = styled(Link)``;
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
@@ -86,10 +62,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down("sm")]: {
       fontSize: 33,
     },
+    marginTop: 16,
+    textTransform: "capitalize",
   },
   subTitle: {
-    fontWeight: "normal",
-    maxWidth: "680px",
+    textTransform: "capitalize",
     [theme.breakpoints.down("sm")]: {
       maxWidth: "95%",
       fontSize: 16,
@@ -100,12 +77,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: 7,
     marginLeft: 15,
   },
-  socialLinks: {
-    paddingTop: 10,
-    [theme.breakpoints.down("sm")]: {
-      maxWidth: "55%",
-    },
-  },
+
 }));
 
 const AssetManager: React.FC = () => {
@@ -115,25 +87,26 @@ const AssetManager: React.FC = () => {
   return (
     <Main isDark={isDark}>
       <StyledDiv>
-        <Grid container spacing={2}>
+        <Grid container alignItems="center" justifyContent="center">
           <Wrapper>
-            <Box display="flex" justifyContent="flex-start">
-              <Typography variant="h6" paragraph className={classes.subTitle}>
-                Built on
+            <Box display="flex" justifyContent="center" alignItems="baseline">
+              <Typography sx={{
+                fontFamily: "Poppins",
+                fontSize: 20,
+                fontWeight: 600,
+                textAlign: "right"
+              }}>
+                Built On
               </Typography>
               <img src="/images/homepage/solana.png" alt="Powered by solala" className={classes.poweredby} />
             </Box>
             <Typography variant="h1" className={classes.title}>
-              The world’s Most
-              <br />
-              Efficient Decentralized Exchange
+              Automated Market Maker Evolved
             </Typography>
             <br />
-            <Typography variant="h6" className={classes.subTitle}>
-              AMM 2.0 for efficient automated market making achieves minimized price slippage,
-              sustainable liquidity profitability and optimized capital efficiency.
+            <Typography variant="h6" className={classes.subTitle} sx={{ fontSize:20, fontWeight: 500 }}>
+              Earn Sustainable Yields through Oracle Concentrated Liquidity
             </Typography>
-            <br />
             <DesktopWrapper>
               <Button color="secondary" href={APP_LINK}>
                 Launch APP
@@ -142,29 +115,7 @@ const AssetManager: React.FC = () => {
                 Invite and Earn
               </RewardButton>
             </DesktopWrapper>
-            <br />
-            <Box display="flex" className={classes.socialLinks}>
-              <IconWrapper>
-                <SocialLink href={TWITTER_LINK} target="_blank" rel="noreferrer noopener">
-                  <TwitterIcon isDark={isDark} width="55px" />
-                </SocialLink>
-              </IconWrapper>
-              <IconWrapper>
-                <SocialLink href={DISCORD_LINK} target="_blank" rel="noreferrer noopener">
-                  <DiscordIcon isDark={isDark} width="55px" />
-                </SocialLink>
-              </IconWrapper>
-              <IconWrapper>
-                <SocialLink href={TELEGRAM_LINK} target="_blank" rel="noreferrer noopener">
-                  <TelegramIcon isDark={isDark} width="55px" />
-                </SocialLink>
-              </IconWrapper>
-              <IconWrapper>
-                <SocialLink href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
-                  <MediumIcon isDark={isDark} width="55px" />
-                </SocialLink>
-              </IconWrapper>
-            </Box>
+            <SocialLinks />
           </Wrapper>
         </Grid>
       </StyledDiv>

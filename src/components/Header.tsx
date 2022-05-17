@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import {
-  AppBar, Container, makeStyles, Toolbar, Theme, IconButton, Hidden, Drawer, Box,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import { AppBar, Toolbar, Theme, IconButton, Hidden, Drawer, Box } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import MenuIcon from "@mui/icons-material/Menu";
 
 import { APP_LINK, HOMEPAGE_LINK, menuItems } from "config/constants/constant";
 import { Button } from "components";
@@ -12,17 +11,16 @@ import Logo from "./Logo";
 import LinkList from "./LinkList";
 import List from "./List";
 
-interface ContainerProps {
-  theme: any
-  isShrunk: boolean
-}
 
-const HeaderWrapper = styled(AppBar)<ContainerProps>`
-  background-color: ${({ theme, isShrunk }) => (isShrunk ? theme.palette.background.primary : "none")};
+const HeaderWrapper = styled(AppBar)`
+  background-color: rgba(49, 49, 49, 0.6);
+  padding: 0 24px;
   box-shadow: none;
-  z-index: ${({ theme }) => theme.zIndex.modal + 1};
   .theme-button {
     margin-left: ${({ theme }) => theme.spacing(1)}px;
+  }
+  ${({ theme }) => theme.muibreakpoints.up("lg")} {
+    padding: 0 1.875%;
   }
 `;
 
@@ -31,7 +29,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    minHeight: "150px",
+    minHeight: "90px",
+    [theme.breakpoints.down("md")]: {
+      minHeight: "60px",
+    },
   },
   drawerPaper: {
     width: "100%",
@@ -46,53 +47,36 @@ const useStyles = makeStyles((theme: Theme) => ({
 const Header: React.FC = () => {
   const { isDark } = useDarkMode();
   const classes = useStyles();
-  const [isShrunk, setShrunk] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  useEffect(() => {
-    const onScroll = () => {
-      setShrunk((_isShrunk) => {
-        if (!_isShrunk && (document.body.scrollTop > 98 || document.documentElement.scrollTop > 98)) {
-          return true;
-        }
-
-        if (_isShrunk && document.body.scrollTop < 4 && document.documentElement.scrollTop < 4) {
-          return false;
-        }
-
-        return _isShrunk;
-      });
-    };
-
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const container = window !== undefined ? () => window.document.body : undefined;
 
   return (
-    <HeaderWrapper position="fixed" color="transparent" isShrunk={isShrunk}>
-      <Container>
+    <HeaderWrapper position="fixed" color="inherit" >
         <Toolbar disableGutters className={classes.toolbar}>
           <Logo href={HOMEPAGE_LINK} isDark={isDark} />
           <LinkList />
-          <Hidden smDown implementation="css">
+          <Hidden mdDown implementation="css">
             <Button color="primary" href={APP_LINK}>
               Launch APP
             </Button>
           </Hidden>
-          <Hidden smUp>
-            <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle}>
+          <Hidden mdUp>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              size="large">
               <MenuIcon />
             </IconButton>
           </Hidden>
         </Toolbar>
-      </Container>
-      <Hidden smUp implementation="css">
+      <Hidden mdUp implementation="css">
         <Drawer
           container={container}
           variant="temporary"
@@ -107,8 +91,18 @@ const Header: React.FC = () => {
           }}
         >
           <Box height="100%" display="flex" flex={1} flexDirection="column">
-            <div className={classes.toolbar} />
             <Box flex={1}>
+              <Box display="flex"><IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              size="large"
+              sx={{marginLeft:"auto", marginRight:4, marginTop: 1}}
+              >
+              <MenuIcon />
+            </IconButton></Box>
+               
               <List items={menuItems} className={classes.menu} />
               <Box display="flex" justifyContent="center">
                 <Button color="primary" href={APP_LINK}>

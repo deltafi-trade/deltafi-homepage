@@ -1,29 +1,29 @@
 import React from "react";
-import { Button as MUIButton, ButtonProps, Theme } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Button as MUIButton, ButtonProps, Theme, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
 
-const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
+const useStyles = makeStyles(({ breakpoints }: Theme) => ({
   ctaButton: {
-    backgroundImage: `linear-gradient(52.7deg, #1AFA9A -3.73%, #478EF0 48.34%, #9945FD 93.4%), ${palette.gradient.cta}`,
-    color: palette.text.primary,
+    color: "#D4FF00",
     borderRadius: 100,
-    border: "solid 1px transparent",
+    border: "solid 2px #D4FF00",
     backgroundOrigin: "border-box",
-    height: 55,
+    height: 48,
     width: 200,
-    fontSize: 17,
+    fontSize: 18,
     fontWeight: 600,
     textTransform: "none",
-    boxShadow: `2px 1000px 1px ${palette.background.primary} inset`,
 
     "&:hover": {
-      color: palette.text.primary,
+      color: "#313131",
       boxShadow: "none",
+      background: "transparent",
+      backgroundColor: "#D4FF00",
     },
 
     [breakpoints.down("sm")]: {
       height: 45,
-      width: 150,
+      width: 160,
       fontSize: 14,
     },
   },
@@ -39,8 +39,8 @@ const RewardButton: React.FC<IButtonProps> = (props) => {
   const classes = useStyles(props);
 
   return (
-    <MUIButton variant="contained" className={classes.ctaButton} size="large" href={href}>
-      {children}
+    <MUIButton className={classes.ctaButton} size="large" href={href}>
+      <Typography variant="button">{children}</Typography>
     </MUIButton>
   );
 };

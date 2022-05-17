@@ -1,10 +1,10 @@
-import {
-  Collapse, List as MuiList, ListItem, ListItemText, ListProps, makeStyles,
-} from "@material-ui/core";
-import { ExpandLess, ExpandMore } from "@material-ui/icons";
+import { Collapse, List as MuiList, ListItem, ListItemText, ListProps } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { useState } from "react";
 
 interface Item {
+  targetBlank?: boolean
   text: string
   to?: string
   children?: Array<Item>
@@ -34,6 +34,7 @@ const NestedListItem: React.FC<Item> = (props) => {
       <ListItem onClick={handleClick}>
         <ListItemText primary={props.text} />
         {open ? <ExpandLess /> : <ExpandMore />}
+        
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List items={props.children} divider className={classes.nested} />
@@ -45,7 +46,7 @@ const NestedListItem: React.FC<Item> = (props) => {
 const List: React.FC<Props> = ({ items, divider, ...rest }) => (
   <MuiList {...rest}>
     {items.map((item, index) => (item.children?.length > 0 ? (
-      <NestedListItem {...item} />
+      <NestedListItem key={item.text} {...item}/>
     ) : (
       <ListItem
         key={item.text}
@@ -53,7 +54,7 @@ const List: React.FC<Props> = ({ items, divider, ...rest }) => (
         divider={divider && index < items.length - 1}
         component="a"
         href={item.to}
-        target="_blank"
+        target={item.targetBlank?"_blank":"_self"}
         rel="noreferrer noopener"
       >
         <ListItemText primary={item.text} />
