@@ -11,22 +11,23 @@ import Trades from "./components/Trades";
 
 // import VideoContainer from "./components/VideoContainer";
 
-const Home: React.FC = () =>{
+const Home: React.FC = () => {
   return (
-  <>
-    <Page>
-      <LandingVideo />
-      <AssetManager />
-    </Page>
-    <Trades></Trades>
-    <Numbers />
-    <Page>
-      <Mission/>
-    </Page>
-    {/* <DeltaFi/> */}
-    {/* <VideoContainer/> */}
-    <JoinUs />
-  </>
-)};
+    <>
+      <Page>
+        <LandingVideo />
+        <AssetManager />
+      </Page>
+      <Trades></Trades>
+      <Numbers />
+      <Page>
+        <Mission />
+      </Page>
+      {/* <DeltaFi/> */}
+      {/* <VideoContainer/> */}
+      <JoinUs />
+    </>
+  );
+};
 
 export default Home;

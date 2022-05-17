@@ -13,34 +13,36 @@ export const PRIVACY_LINK = "/privacy";
 export const TOKENOMICS_LINK = "/tokenomics";
 export const CERTIK_LINK = "";
 export const SLOWMIST_LINK = "";
+// TODO add "submit but link"
 export const SUBMITBUG_LINK = "";
-
 
 export const menuItems = [
   {
-    text: "Home", to: HOMEPAGE_LINK
+    text: "Home",
+    to: HOMEPAGE_LINK,
   },
   {
-    text: "Token", to: TOKENOMICS_LINK
+    text: "Token",
+    to: TOKENOMICS_LINK,
   },
   {
-    id:"auditReport",
+    id: "auditReport",
     text: "Audit Report",
     children: [
       {
         text: "Certik",
-        to: CERTIK_LINK
+        to: CERTIK_LINK,
       },
       {
         text: "SlowMist",
         to: SLOWMIST_LINK,
         targetBlank: true,
-      }
-    ]
+      },
+    ],
   },
   {
     text: "Whitepaper",
     to: WHITE_PAPER,
     targetBlank: true,
-  }
+  },
 ];
