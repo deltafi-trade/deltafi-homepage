@@ -18,11 +18,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 700,
     textAlign: "center",
   },
+  smallHeader: {
+    color: theme.palette.primary.main,
+    fontWeight: 700,
+    textAlign: "center",
+    fontSize: 36,
+  },
 }));
 
 interface TitleProp {
   title?: string;
   header?: string;
+  size?: string;
 }
 
 function Title(props: TitleProp) {
@@ -30,7 +37,7 @@ function Title(props: TitleProp) {
   return (
     <>
       {props.header ? (
-        <Typography variant="h3" paragraph className={classes.header}>
+        <Typography variant="h3" paragraph className={props.size === "small" ? classes.smallHeader : classes.header}>
           {props.header}
         </Typography>
       ) : null}

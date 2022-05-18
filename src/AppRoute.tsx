@@ -11,10 +11,7 @@ function CustomRoute({ component: Component, ...rest }) {
   return (
     <StyledPage>
       <Header />
-      <Route
-        {...rest}
-        component={(props) => <Component {...props} />}
-      />
+      <Route {...rest} component={(props) => <Component {...props} />} />
       <AppFooter />
     </StyledPage>
   );

@@ -27,10 +27,10 @@ const boxes = [
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
     fontFamily: "'Poppins'",
-    margin: "0 auto 10px",
     fontWeight: 400,
     fontSize: 16,
     textAlign: "center",
+    marginBottom: -48,
     [theme.breakpoints.down("md")]: {
       width: "85%",
       fontSize: 16,
@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.primary.main,
     fontWeight: 700,
     textAlign: "center",
+    fontSize: 36,
   },
 }));
 
@@ -66,8 +67,8 @@ const Mission: React.FC = () => {
             <Grid item>
               <Box
                 sx={{
-                  maxHeight: 384,
-                  maxWidth: 384,
+                  maxHeight: 380,
+                  maxWidth: 380,
                   width: "100%",
                 }}
                 component="img"
@@ -83,7 +84,8 @@ const Mission: React.FC = () => {
                   fontSize: 24,
                   lineHeight: 1.1,
                   display: "flex",
-                  height: 60,
+                  height: 30,
+                  marginTop: -4,
                   alignItems: "center",
                   justifyContent: "center",
                 }}
@@ -92,19 +94,19 @@ const Mission: React.FC = () => {
               </Box>
             </Grid>
             <Grid item xs={12}>
-              <Typography
-                variant="body2"
-                textTransform="capitalize"
+              <Box
                 sx={{
                   lineHeight: 1.1,
-                  height: 48,
+                  height: 20,
                   maxWidth: 400,
-                  margin: "auto",
+                  marginTop: 1.5,
+                  textAlign: "center",
                   fontFamily: "'Roboto'",
+                  fontSize: 14,
                 }}
               >
                 {box.content}
-              </Typography>
+              </Box>
             </Grid>
           </StyledItem>
         ))}

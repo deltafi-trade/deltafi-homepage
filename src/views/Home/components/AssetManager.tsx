@@ -8,7 +8,7 @@ import { APP_LINK, REWARD_LINK } from "config/constants/constant";
 import SocialLinks from "components/SocialLinks";
 
 interface ContainerProps {
-  isDark: boolean
+  isDark: boolean;
 }
 
 const Main = styled.div<ContainerProps>``;
@@ -17,10 +17,11 @@ const StyledDiv = styled(Container)`
   position: relative;
   display: flex;
   align-items: center;
-  padding: 230px 120px 160px;
+  padding: 200px 120px;
   ${({ theme }) => theme.muibreakpoints.down("md")} {
-    padding: 190px 20px 100px
+    padding: 150px 20px;
   }
+  height: 700px;
 `;
 const Wrapper = styled.div`
   flex-direction: column;
@@ -45,7 +46,8 @@ const DesktopWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   max-width: 500px;
-  margin: ${({ theme }) => theme.spacing(5.5)} auto;
+  margin: ${({ theme }) => theme.spacing(5)} auto;
+  lineheight: 40px;
 
   ${({ theme }) => theme.muibreakpoints.down("sm")} {
     margin-top: ${({ theme }) => theme.spacing(2)};
@@ -54,11 +56,10 @@ const DesktopWrapper = styled.div`
   }
 `;
 
-
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
-    fontWeight: "bold",
-    fontSize: 50,
+    fontWeight: 700,
+    fontSize: 56,
     [theme.breakpoints.down("sm")]: {
       fontSize: 33,
     },
@@ -67,17 +68,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   subTitle: {
     textTransform: "capitalize",
+    fontWeight: 400,
+    fontSize: 16,
+    lineHeight: 1.4,
     [theme.breakpoints.down("sm")]: {
       maxWidth: "95%",
-      fontSize: 16,
     },
   },
   poweredby: {
     height: 18,
-    marginTop: 7,
-    marginLeft: 15,
+    marginLeft: 8,
   },
-
 }));
 
 const AssetManager: React.FC = () => {
@@ -89,30 +90,23 @@ const AssetManager: React.FC = () => {
       <StyledDiv>
         <Grid container alignItems="center" justifyContent="center">
           <Wrapper>
-            <Box display="flex" justifyContent="center" alignItems="baseline">
-              <Typography sx={{
-                fontFamily: "Poppins",
-                fontSize: 20,
-                fontWeight: 600,
-                textAlign: "right"
-              }}>
-                Built On
-              </Typography>
-              <img src="/images/homepage/solana.png" alt="Powered by solala" className={classes.poweredby} />
+            <Box display="flex" justifyContent="center" alignItems="center">
+              <Typography className={classes.subTitle}>Built On</Typography>
+              <img src="/images/solana.svg" alt="Powered by solala" className={classes.poweredby} />
             </Box>
             <Typography variant="h1" className={classes.title}>
               Automated Market Maker Evolved
             </Typography>
             <br />
-            <Typography variant="h6" className={classes.subTitle} sx={{ fontSize:20, fontWeight: 500 }}>
+            <Typography variant="h6" className={classes.subTitle} sx={{ fontSize: 20, fontWeight: 500 }}>
               Earn Sustainable Yields through Oracle Concentrated Liquidity
             </Typography>
             <DesktopWrapper>
               <Button color="secondary" href={APP_LINK}>
-                Launch APP
+                <Box lineHeight={2}>Launch APP</Box>
               </Button>
               <RewardButton color="secondary" href={REWARD_LINK}>
-                Invite and Earn
+                <Box lineHeight={2}>Invite and Earn</Box>
               </RewardButton>
             </DesktopWrapper>
             <SocialLinks />

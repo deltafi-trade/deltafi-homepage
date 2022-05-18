@@ -27,17 +27,16 @@ const StyledDiv = styled.div`
 
 const StyledImg = styled.img`
   width: 100%;
-  
+
   margin: 36px 0 16px;
   ${({ theme }) => theme.muibreakpoints.down("md")} {
     margin: auto;
     margin-bottom: 16px;
     max-width: 580px;
   }
-`
+`;
 
 const DeltaFi: React.FC = () => {
-
   const WHY_LIST = [
     {
       header: "Efficient Pricing Algorithm",
@@ -54,17 +53,15 @@ const DeltaFi: React.FC = () => {
   return (
     <Container>
       <StyledDiv>
-        <Title
-          header="Why DeltaFi?"
-          title="High Yields, Deep Liquidity, and DAO Governed" />
+        <Title header="Why DeltaFi?" title="High Yields, Deep Liquidity, and DAO Governed" />
         <Grid container spacing={3}>
           {WHY_LIST.map((card, index) => (
             <Grid item key={`card-${index}`} xs={12} md={6}>
-              <StyledImg src={card.image}/>
+              <StyledImg src={card.image} />
               <Typography variant="h5" fontWeight={600}>
                 {card.header}
               </Typography>
-              <Typography variant="subtitle2" textTransform="capitalize" fontWeight={400} sx={{marginTop: 1.5}}>
+              <Typography variant="subtitle2" textTransform="capitalize" fontWeight={400} sx={{ marginTop: 1.5 }}>
                 {card.title}
               </Typography>
             </Grid>
