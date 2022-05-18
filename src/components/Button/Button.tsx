@@ -1,5 +1,5 @@
 import React from "react";
-import { Button as MUIButton, ButtonProps, Theme, Typography } from "@mui/material";
+import { Button as MUIButton, ButtonProps, Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 
 const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
@@ -9,11 +9,12 @@ const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
     borderRadius: 100,
     border: "solid 1px transparent",
     backgroundOrigin: "border-box",
-    height: 48,
     width: 200,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 600,
     textTransform: "none",
+    paddingTop: 10,
+    paddingBottom: 10,
 
     "&:hover": {
       color: palette.text.primary,
@@ -39,7 +40,7 @@ const Button: React.FC<IButtonProps> = (props) => {
 
   return (
     <MUIButton variant="contained" className={classes.ctaButton} size="large" href={href}>
-      <Typography  variant="button">{children}</Typography>
+      {children}
     </MUIButton>
   );
 };

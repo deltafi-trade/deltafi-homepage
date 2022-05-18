@@ -4,10 +4,10 @@ import styled from "styled-components";
 const StyledVideo = styled.video`
   position: absolute;
   right: 0;
-  height: 100%;
+  height: 700px;
   min-width: 100%;
   object-fit: cover;
-  bottom: 0;
+  top: 0;
 `;
 
 const Video: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => (

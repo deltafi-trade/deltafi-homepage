@@ -6,7 +6,7 @@ import { Button } from "./Button";
 import { SUBMITBUG_LINK } from "config/constants/constant";
 import Page from "./layout/Page";
 
-const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) => ({
+const useStyles = makeStyles(({ breakpoints, palette }: Theme) => ({
   container: {
     display: "flex",
     flexDirection: "row",
@@ -32,7 +32,8 @@ const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) => ({
       marginLeft: "2rem",
     },
     marginRight: "2rem",
-    fontWeight: 600,
+    fontWeight: 400,
+    fontSize: 14,
   },
   logo: {
     color: palette.text.primary,
@@ -52,23 +53,23 @@ const Footer: React.FC = (props) => {
 
   return (
     <Page>
-      <Container>
-          <Box className={classes.container}>
-            <Box mt={4} className={classes.socailCt}>
-              <SocialLinks />
-            </Box>
-            <Box mt={4}>
-              <Button color="primary" href={SUBMITBUG_LINK}>
-                Submit a Bug
-              </Button>
-            </Box>
+      <Container sx={{ paddingTop: 3 }}>
+        <Box className={classes.container}>
+          <Box className={classes.socailCt}>
+            <SocialLinks />
           </Box>
-          <Box pb={4} className={classes.container}>
-            <Box mt={4} className={classes.solana}>Building the Next Generation Cross-Chain DEX on Solana</Box>
-            <Box mt={4}>
-              <Typography variant="body2">Copyright © 2022. DeltaFi</Typography>
-            </Box>
+          <Box>
+            <Button color="primary" href={SUBMITBUG_LINK}>
+              <Box lineHeight="24px">Submit a Bug</Box>
+            </Button>
           </Box>
+        </Box>
+        <Box pb={3} mt={0.5} className={classes.container}>
+          <Box className={classes.solana}>Building the Next Generation Cross-Chain DEX on Solana</Box>
+          <Box>
+            <Typography variant="body2">Copyright © 2022. DeltaFi</Typography>
+          </Box>
+        </Box>
       </Container>
     </Page>
   );

@@ -149,7 +149,7 @@ function JoinUs() {
   return (
     <Container>
       <StyledDiv>
-        <Title header="Strategic Investors and Partners" />
+        <Title size="small" header="Strategic Investors and Partners" />
         <Box sx={{ position: "relative", overflow: "hidden", width: "100%", marginTop: "12px", marginBottom: "72px" }}>
           <AnimateContainer>
             <Grid container style={{ alignItems: "center", justifyContent: "center" }}>
