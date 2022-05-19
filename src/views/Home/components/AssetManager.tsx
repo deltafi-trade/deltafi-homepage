@@ -67,7 +67,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     textTransform: "capitalize",
   },
   subTitle: {
-    textTransform: "capitalize",
     fontWeight: 400,
     fontSize: 16,
     lineHeight: 1.4,
@@ -103,7 +102,7 @@ const AssetManager: React.FC = () => {
             </Typography>
             <DesktopWrapper>
               <Button color="secondary" href={APP_LINK}>
-                <Box lineHeight={2}>Launch APP</Box>
+                <Box lineHeight={2}>Launch App</Box>
               </Button>
               <RewardButton color="secondary" href={REWARD_LINK}>
                 <Box lineHeight={2}>Invite and Earn</Box>

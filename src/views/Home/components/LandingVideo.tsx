@@ -12,7 +12,7 @@ const StyledVideo = styled.video`
 
 const Video: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => (
   <StyledVideo autoPlay muted loop id="myVideo">
-    <source src="/videos/landing-bg.mp4" type="video/mp4" />
+    <source src="/images/landing-bg.mp4" type="video/mp4" />
   </StyledVideo>
 );
 

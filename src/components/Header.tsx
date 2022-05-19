@@ -85,7 +85,7 @@ const Header: React.FC = () => {
         <Hidden mdDown implementation="css">
           <Button color="primary" href={APP_LINK}>
             <Box fontSize={14} lineHeight="16px">
-              Launch APP
+              Launch App
             </Box>
           </Button>
         </Hidden>
@@ -127,7 +127,7 @@ const Header: React.FC = () => {
               <List items={menuItems} className={classes.menu} />
               <Box display="flex" justifyContent="center">
                 <Button color="primary" href={APP_LINK}>
-                  Launch APP
+                  Launch App
                 </Button>
               </Box>
             </Box>
