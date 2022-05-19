@@ -103,12 +103,8 @@ const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
     },
   },
   investor: {
-    height: 80,
-    maxWidth: 300,
-    [breakpoints.down("md")]: {
-      height: 60,
-      maxWidth: 225,
-    },
+    height: 60,
+    maxWidth: 225,
     [breakpoints.down("sm")]: {
       height: 40,
       maxWidth: 150,
@@ -152,7 +148,7 @@ function JoinUs() {
         <Title size="small" header="Strategic Investors and Partners" />
         <Box sx={{ position: "relative", overflow: "hidden", width: "100%", marginTop: "12px", marginBottom: "72px" }}>
           <AnimateContainer>
-            <Grid container style={{ alignItems: "center", justifyContent: "center" }}>
+            <Grid container spacing={4} style={{ alignItems: "center", justifyContent: "center" }}>
               {[
                 ...INVESTOR_LIST.slice(0, 3),
                 ...INVESTOR_LIST.slice(0, 3),

@@ -1,6 +1,6 @@
 import React, { SVGProps } from "react";
 import { Box } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 import { DeltaIcon as SVGLogo } from "./Svg";
 
 const useStyles = makeStyles((theme) => ({
