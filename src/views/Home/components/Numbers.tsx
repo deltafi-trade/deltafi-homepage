@@ -73,7 +73,7 @@ function Numbers(props) {
               $1.32B
             </Typography>
             <Typography className={classes.text} variant="h5" fontWeight={600}>
-              Total assets supplied
+              Total Assets Supplied
             </Typography>
           </Item>
         </Grid>
