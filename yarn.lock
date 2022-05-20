@@ -1254,6 +1254,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/exo-2@^4.5.8":
+  version "4.5.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/exo-2/-/exo-2-4.5.8.tgz#0ecf830e74725978803d695e2bd24f343cefbbaa"
+  integrity sha512-UHffqkk27vKuz2ApNWP/ySwsftEiRnNODyPLSU+SwL510kPiqf2TVszfYk0WTRscN14xIgb5nvBxgnWuxu6b3w==
+
 "@fontsource/ibm-plex-mono@^4.5.7":
   version "4.5.7"
   resolved "https://registry.yarnpkg.com/@fontsource/ibm-plex-mono/-/ibm-plex-mono-4.5.7.tgz#0e3cec0cc0bd3d7203bdb6f49a0f7076ea574979"
@@ -1263,6 +1268,11 @@
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-4.5.2.tgz#6da10064b938e66055025122ef8fedc1bdfa3053"
   integrity sha512-J0ri6LpKck+Bh7ltINNoI6ETvJbMM9vTWzFyVuAp67ybtGjVXPK3mPJFjJkDtmkE0FJ0nUupa5beO0+9tOXRTw==
+
+"@fontsource/roboto@^4.5.7":
+  version "4.5.7"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.7.tgz#292740a52fa2bac61b89f92e1c588037defe65cb"
+  integrity sha512-m57UMER23Mk6Drg9OjtHW1Y+0KPGyZfE5XJoPTOsLARLar6013kJj4X2HICt+iFLJqIgTahA/QAvSn9lwF1EEw==
 
 "@gar/promisify@^1.0.1":
   version "1.1.3"

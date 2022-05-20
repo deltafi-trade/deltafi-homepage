@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
-import { AppBar, Toolbar, Theme, IconButton, Hidden, Drawer, Box } from "@mui/material";
+import { AppBar, Toolbar, Theme, IconButton, Hidden, Drawer, Box, Collapse } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -51,8 +51,26 @@ const Header: React.FC = () => {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isShrunk, setShrunk] = useState(false);
-
+  const [isScrolling, setScrolling] = useState(false);
+  const headerRef = useRef(null);
+  const MENUTIMEOUT = 5000;
   useEffect(() => {
+    const timeout = {
+      current: setTimeout(() => {
+        timeoutHandler();
+      }, MENUTIMEOUT),
+    };
+
+    const timeoutHandler = () => {
+      if (!headerRef.current.matches(":hover")) {
+        setScrolling(false);
+      }
+    };
+    const resetTimeout = () => {
+      clearTimeout(timeout.current);
+      timeout.current = setTimeout(timeoutHandler, MENUTIMEOUT);
+    };
+
     const handler = () => {
       setShrunk((shrunk) => {
         if (!shrunk && (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)) {
@@ -63,13 +81,30 @@ const Header: React.FC = () => {
           return false;
         }
 
+        resetTimeout();
+        setScrolling(true);
         return shrunk;
       });
     };
-
     window.addEventListener("scroll", handler);
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
+
+    const mouseenterHandler = () => {
+      clearTimeout(timeout.current);
+      setScrolling(true);
+    };
+    headerRef.current.addEventListener("mouseenter", mouseenterHandler);
+
+    const mouseleaveHandler = () => {
+      resetTimeout();
+    };
+    headerRef.current.addEventListener("mouseleave", mouseleaveHandler);
+    return () => {
+      window.removeEventListener("scroll", handler);
+      window.removeEventListener("mouseenter", mouseenterHandler);
+      window.removeEventListener("mouseleave", mouseleaveHandler);
+      if (timeout.current) clearTimeout(timeout.current);
+    };
+  });
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -78,63 +113,73 @@ const Header: React.FC = () => {
   const container = window !== undefined ? () => window.document.body : undefined;
 
   return (
-    <HeaderWrapper position="fixed" color="inherit" className={`${isShrunk && "isShrunk"}`}>
-      <Toolbar disableGutters className={classes.toolbar}>
-        <Logo href={HOMEPAGE_LINK} isDark={isDark} />
-        <LinkList />
-        <Hidden mdDown implementation="css">
-          <Button color="primary" href={APP_LINK}>
-            <Box fontSize={14} lineHeight="16px">
-              Launch App
-            </Box>
-          </Button>
-        </Hidden>
-        <Hidden mdUp>
-          <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} size="large">
-            <MenuIcon />
-          </IconButton>
-        </Hidden>
-      </Toolbar>
-      <Hidden mdUp implementation="css">
-        <Drawer
-          container={container}
-          variant="temporary"
-          anchor="right"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-        >
-          <Box height="100%" display="flex" flex={1} flexDirection="column">
-            <Box flex={1}>
-              <Box display="flex">
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  edge="start"
-                  onClick={handleDrawerToggle}
-                  size="large"
-                  sx={{ marginLeft: "auto", marginRight: 4, marginTop: 1 }}
-                >
-                  <MenuIcon />
-                </IconButton>
-              </Box>
-
-              <List items={menuItems} className={classes.menu} />
-              <Box display="flex" justifyContent="center">
-                <Button color="primary" href={APP_LINK}>
+    <div ref={headerRef}>
+      <HeaderWrapper position="fixed" color="inherit" className={`${isShrunk && "isShrunk"}`}>
+        <Collapse in={!isShrunk || isScrolling} timeout={{ enter: 500, exit: 2000 }}>
+          <Toolbar disableGutters className={classes.toolbar}>
+            <Logo href={HOMEPAGE_LINK} isDark={isDark} />
+            <LinkList />
+            <Hidden mdDown implementation="css">
+              <Button color="primary" href={APP_LINK}>
+                <Box fontSize={14} lineHeight="16px">
                   Launch App
-                </Button>
+                </Box>
+              </Button>
+            </Hidden>
+            <Hidden mdUp>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                size="large"
+              >
+                <MenuIcon />
+              </IconButton>
+            </Hidden>
+          </Toolbar>
+        </Collapse>
+        <Hidden mdUp implementation="css">
+          <Drawer
+            container={container}
+            variant="temporary"
+            anchor="right"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+          >
+            <Box height="100%" display="flex" flex={1} flexDirection="column">
+              <Box flex={1}>
+                <Box display="flex">
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    edge="start"
+                    onClick={handleDrawerToggle}
+                    size="large"
+                    sx={{ marginLeft: "auto", marginRight: 4, marginTop: 1 }}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </Box>
+
+                <List items={menuItems} className={classes.menu} />
+                <Box display="flex" justifyContent="center">
+                  <Button color="primary" href={APP_LINK}>
+                    Launch App
+                  </Button>
+                </Box>
               </Box>
             </Box>
-          </Box>
-        </Drawer>
-      </Hidden>
-    </HeaderWrapper>
+          </Drawer>
+        </Hidden>
+      </HeaderWrapper>
+    </div>
   );
 };
 
