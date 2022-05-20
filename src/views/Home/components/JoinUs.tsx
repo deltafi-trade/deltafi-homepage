@@ -10,25 +10,20 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 98px 0 60px;
+  padding: 40px 0 30px;
   text-align: center;
 
-  .subtitle {
-    margin-top: 16px;
-    margin-bottom: 68px;
-  }
   .deposit-text {
     margin-top: 48px;
   }
 
   ${({ theme }) => theme.muibreakpoints.down("md")} {
-    padding: 56px 0 36px;
     .deposit-text {
       margin-top: 32px;
     }
   }
   ${({ theme }) => theme.muibreakpoints.down("sm")} {
-    padding: 56px 0 24px;
+    padding: 20px 0 15px;
     .deposit-text {
       margin-top: 24px;
     }
@@ -146,7 +141,7 @@ function JoinUs() {
     <Container>
       <StyledDiv>
         <Title size="small" header="Strategic Investors and Partners" />
-        <Box sx={{ position: "relative", overflow: "hidden", width: "100%", marginTop: "12px", marginBottom: "72px" }}>
+        <Box sx={{ position: "relative", overflow: "hidden", width: "100%", marginTop: "12px", }}>
           <AnimateContainer>
             <Grid container spacing={4} style={{ alignItems: "center", justifyContent: "center" }}>
               {[
