@@ -1,4 +1,4 @@
-import { Box, Avatar, Container } from "@mui/material";
+import { Box, Avatar } from "@mui/material";
 import styled, { keyframes } from "styled-components";
 
 const mockPools = [
@@ -27,7 +27,7 @@ const mockPools = [
         apy: 10
     },
 ]
-const pools = [...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools]
+const pools = [...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools]
 const GradientCt = styled(Box)`
     padding: 1px;
     border-radius: 10px;
@@ -52,19 +52,12 @@ const StyledAvatar = styled(Avatar)`
 `
 const transition = keyframes`
   0% {transform: translate3d(0, 0, 0);}
-  45% {transform: translate3d(-960px, 0, 0);}
-  90% {transform: translate3d(-1920px, 0, 0);}
-  100% {transform: translate3d(0, 0, 0);}
+  100% {transform: translate3d(-1920px, 0, 0);}
 `
 const AnimateContainer = styled(Box)`
-  overflow: hidden;
   display: flex;
-  width: 200%;
-  min-width: 3000px;
-  ${({ theme }) => theme.muibreakpoints.down("sm")} {
-    min-width: 1000px;
-  }
-  animation: ${transition} 20s infinite;
+  width: 3840px;
+  animation: ${transition} 20s linear infinite;
 
   &:hover {
     animation-play-state: paused;
@@ -72,7 +65,7 @@ const AnimateContainer = styled(Box)`
 `;
 
 const Trades = () => (
-    <Container sx={{ overflow: "hidden" }}>
+    <Box position="relative">
         <AnimateContainer flexWrap="nowrap" gap={2.5} mt={{ xs: 1.5, md: 2.5 }}>
             {pools.map((poolConfig, idx) =>
                 <GradientCt key={idx} height={90} sx={{ minWidth: 300 }} fontSize={12} fontWeight={500} textAlign="end">
@@ -97,7 +90,7 @@ const Trades = () => (
                 </GradientCt>
             )}
         </AnimateContainer>
-    </Container>
+    </Box>
 );
 
 export default Trades;
