@@ -15,6 +15,7 @@ import {
   DISCORD_LINK,
   APP_LINK,
   TELEGRAM_LINK,
+  WHITE_PAPER,
 } from "config/constants/constant";
 import useDarkMode from "hooks/useDarkMode";
 
@@ -200,7 +201,7 @@ function Menu({ open, setOpen, ...props }) {
       <ExpandMenu className="one-line" my="0px">
         <StyledLink
           color="inherit"
-          href= "/whitepaper.pdf"
+          href= {WHITE_PAPER}
           target="_blank"
           rel="noreferrer noopener"
           className="expand-title"

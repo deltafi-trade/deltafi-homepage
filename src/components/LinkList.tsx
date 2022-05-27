@@ -7,6 +7,7 @@ import {
   SLOWMIST_LINK,
   TOKENOMICS_LINK,
   BLOG_LINK,
+  WHITE_PAPER,
 } from "config/constants/constant";
 import { useRef, useState } from "react";
 // import useOutsideClick from "hooks/useOutsideClick";
@@ -162,7 +163,7 @@ const LinkList: React.FC = (props) => {
         </StyleButton>
         <Menu className={classes.dropDown} anchorEl={resourceEl} open={resourceOpen} onClose={handleResourceClose}>
           <MenuItem className={classes.dropDownMenuItem} key="Whitepaper" onClick={handleResourceClose}>
-            <DropDownLink color="inherit" underline="none" href="/whitepaper.pdf" target="_blank" rel="noreferrer noopener">
+            <DropDownLink color="inherit" underline="none" href={WHITE_PAPER} target="_blank" rel="noreferrer noopener">
               Whitepaper
             </DropDownLink>
           </MenuItem>
