@@ -42,7 +42,7 @@ export const menuItems = [
   },
   {
     text: "Whitepaper",
-    to: "/docs/whitepaper.pdf",
+    to: "/whitepaper.pdf",
     targetBlank: true,
   },
 ];

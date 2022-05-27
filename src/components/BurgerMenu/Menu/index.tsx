@@ -200,7 +200,7 @@ function Menu({ open, setOpen, ...props }) {
       <ExpandMenu className="one-line" my="0px">
         <StyledLink
           color="inherit"
-          href= "/docs/whitepaper.pdf"
+          href= "/whitepaper.pdf"
           target="_blank"
           rel="noreferrer noopener"
           className="expand-title"

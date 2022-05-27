@@ -162,7 +162,7 @@ const LinkList: React.FC = (props) => {
         </StyleButton>
         <Menu className={classes.dropDown} anchorEl={resourceEl} open={resourceOpen} onClose={handleResourceClose}>
           <MenuItem className={classes.dropDownMenuItem} key="Whitepaper" onClick={handleResourceClose}>
-            <DropDownLink color="inherit" underline="none" href="/docs/whitepaper.pdf" target="_blank" rel="noreferrer noopener">
+            <DropDownLink color="inherit" underline="none" href="/whitepaper.pdf" target="_blank" rel="noreferrer noopener">
               Whitepaper
             </DropDownLink>
           </MenuItem>
