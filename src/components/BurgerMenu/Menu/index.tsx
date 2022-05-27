@@ -5,6 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import CloseIcon from "@mui/icons-material/Close";
 import RemoveIcon from "@mui/icons-material/Remove";
+
 import { StyledLink } from "components/LinkList";
 import { Logo } from "components";
 import {
@@ -15,6 +16,7 @@ import {
   DISCORD_LINK,
   APP_LINK,
   TELEGRAM_LINK,
+  WHITE_PAPER,
 } from "config/constants/constant";
 import useDarkMode from "hooks/useDarkMode";
 
@@ -200,7 +202,7 @@ function Menu({ open, setOpen, ...props }) {
       <ExpandMenu className="one-line" my="0px">
         <StyledLink
           color="inherit"
-          href= "/docs/whitepaper.pdf"
+          href={WHITE_PAPER}
           target="_blank"
           rel="noreferrer noopener"
           className="expand-title"
