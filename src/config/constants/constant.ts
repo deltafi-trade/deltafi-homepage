@@ -12,10 +12,10 @@ export const YOUTUBE_LINK = "https://youtube.com";
 export const CAREERS_LINK = "https://deltafi.medium.com/jobs-deltafi-280dd54f82de";
 export const PRIVACY_LINK = "/privacy";
 export const TOKENOMICS_LINK = "/tokenomics";
+export const GOVERNANCE_LINK = "/governance";
 export const CERTIK_LINK = "https://www.certik.com/projects/deltafi";
-export const SLOWMIST_LINK = "";
-// TODO add "submit but link"
-export const SUBMITBUG_LINK = "";
+export const SLOWMIST_LINK = "/unavailable"; // TODO: add real slowmist link
+export const SUBMITBUG_LINK = "/submit-bug";
 
 export const menuItems = [
   {

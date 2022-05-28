@@ -9,6 +9,7 @@ import {
   BLOG_LINK,
   WHITE_PAPER,
   DOCS_LINK,
+  GOVERNANCE_LINK,
 } from "config/constants/constant";
 import { useRef, useState } from "react";
 // import useOutsideClick from "hooks/useOutsideClick";
@@ -155,7 +156,7 @@ const LinkList: React.FC = (props) => {
       <CustomLink color="inherit" underline="none" href={TOKENOMICS_LINK} className={classes.hoverUnderscore}>
         Token
       </CustomLink>
-      <CustomLink color="inherit" underline="none" href="#" className={classes.hoverUnderscore}>
+      <CustomLink color="inherit" underline="none" href={GOVERNANCE_LINK} className={classes.hoverUnderscore}>
         Governance
       </CustomLink>
       <div id="resources-menu" className={`${classes.hoverUnderscore} ${classes.dropDownContainer}`}>

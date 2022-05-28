@@ -10,6 +10,8 @@ const Tokenomics = lazy(() => import("./views/Tokenomics"));
 const NotFound = lazy(() => import("./views/NotFound"));
 
 const App: React.FC = () => (
+  // TODO: add governance page
+  // TODO: add submit a bug page
   <BrowserRouter>
     <SuspenseWithChunkError fallback={<PageLoader />}>
       <Switch>
