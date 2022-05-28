@@ -13,7 +13,7 @@ const boxes = [
   {
     title: "Sustainable Liquidity Yields",
     color: "#693EFF",
-    content: "Risk adjusted bond curve eliminates liquidity loss.",
+    content: "Predictive bond curve eliminates liquidity loss.",
     image: "/images/coin.png",
   },
   {
