@@ -1,0 +1,105 @@
+{
+   "apiVersion": "v1",
+   "items": [
+      {
+         "apiVersion": "apps/v1",
+         "kind": "Deployment",
+         "metadata": {
+            "name": "deltafi-homepage",
+            "namespace": "deltafi-homepage"
+         },
+         "spec": {
+            "replicas": 2,
+            "selector": {
+               "matchLabels": {
+                  "app": "deltafi-homepage"
+               }
+            },
+            "template": {
+               "metadata": {
+                  "labels": {
+                     "app": "deltafi-homepage"
+                  }
+               },
+               "spec": {
+                  "containers": [
+                     {
+                        "image": "077918681028.dkr.ecr.us-west-2.amazonaws.com/deltafi-homepage:prod-3a65978-20220527-190012",
+                        "name": "main",
+                        "ports": [
+                           {
+                              "containerPort": 80
+                           }
+                        ]
+                     }
+                  ]
+               }
+            }
+         }
+      },
+      {
+         "apiVersion": "v1",
+         "kind": "Service",
+         "metadata": {
+            "name": "deltafi-homepage",
+            "namespace": "deltafi-homepage"
+         },
+         "spec": {
+            "ports": [
+               {
+                  "port": 80,
+                  "protocol": "TCP",
+                  "targetPort": 80
+               }
+            ],
+            "selector": {
+               "app": "deltafi-homepage"
+            }
+         }
+      },
+      {
+         "apiVersion": "networking.k8s.io/v1",
+         "kind": "Ingress",
+         "metadata": {
+            "annotations": {
+               "cert-manager.io/cluster-issuer": "letsencrypt-prod"
+            },
+            "name": "deltafi-homepage",
+            "namespace": "deltafi-homepage"
+         },
+         "spec": {
+            "ingressClassName": "nginx",
+            "rules": [
+               {
+                  "host": "www.k8s.deltafi.trade",
+                  "http": {
+                     "paths": [
+                        {
+                           "backend": {
+                              "service": {
+                                 "name": "deltafi-homepage",
+                                 "port": {
+                                    "number": 80
+                                 }
+                              }
+                           },
+                           "path": "/",
+                           "pathType": "Prefix"
+                        }
+                     ]
+                  }
+               }
+            ],
+            "tls": [
+               {
+                  "hosts": [
+                     "www.k8s.deltafi.trade"
+                  ],
+                  "secretName": "deltafi-homepage-tls"
+               }
+            ]
+         }
+      }
+   ],
+   "kind": "List"
+}
