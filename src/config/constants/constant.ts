@@ -14,7 +14,7 @@ export const PRIVACY_LINK = "/privacy";
 export const TOKENOMICS_LINK = "/tokenomics";
 export const GOVERNANCE_LINK = "/governance";
 export const CERTIK_LINK = "https://www.certik.com/projects/deltafi";
-export const SLOWMIST_LINK = "";
+export const SLOWMIST_LINK = "/unavailable"; // TODO: add real slowmist link
 // TODO add "submit but link"
 export const SUBMITBUG_LINK = "";
 
