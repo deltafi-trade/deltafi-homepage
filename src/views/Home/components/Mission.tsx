@@ -8,7 +8,7 @@ const boxes = [
     title: "Oracle Centered Pricing",
     color: "#D4FF00",
     content: "Pyth Network oracles are used for fair prices.",
-    image: "/images/scale.png",
+    image: "/images/balance.png",
   },
   {
     title: "Sustainable Liquidity Yields",
