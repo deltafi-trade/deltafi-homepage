@@ -14,8 +14,7 @@ export const PRIVACY_LINK = "/privacy";
 export const TOKENOMICS_LINK = "/tokenomics";
 export const CERTIK_LINK = "";
 export const SLOWMIST_LINK = "";
-// TODO add "submit but link"
-export const SUBMITBUG_LINK = "";
+export const SUBMITBUG_LINK = process.env.PUBLIC_URL + "/submit-bug";
 
 export const menuItems = [
   {
