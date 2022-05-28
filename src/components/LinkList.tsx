@@ -5,9 +5,10 @@ import {
   HOMEPAGE_LINK,
   CERTIK_LINK,
   SLOWMIST_LINK,
-  WHITE_PAPER,
   TOKENOMICS_LINK,
   BLOG_LINK,
+  WHITE_PAPER,
+  DOCS_LINK,
 } from "config/constants/constant";
 import { useRef, useState } from "react";
 // import useOutsideClick from "hooks/useOutsideClick";
@@ -169,14 +170,8 @@ const LinkList: React.FC = (props) => {
           </MenuItem>
           <Divider />
           <MenuItem className={classes.dropDownMenuItem} key="Tokenomics" onClick={handleResourceClose}>
-            <DropDownLink color="inherit" underline="none" href="" target="_blank" rel="noreferrer noopener">
+            <DropDownLink color="inherit" underline="none" href={TOKENOMICS_LINK} target="_blank" rel="noreferrer noopener">
               Tokenomics
-            </DropDownLink>
-          </MenuItem>
-          <Divider />
-          <MenuItem className={classes.dropDownMenuItem} key="Litepaper" onClick={handleResourceClose}>
-            <DropDownLink color="inherit" underline="none" href="" target="_blank" rel="noreferrer noopener">
-              Litepaper
             </DropDownLink>
           </MenuItem>
           <Divider />
@@ -187,7 +182,7 @@ const LinkList: React.FC = (props) => {
           </MenuItem>
           <Divider />
           <MenuItem className={classes.dropDownMenuItem} key="Docs" onClick={handleResourceClose}>
-            <DropDownLink color="inherit" underline="none" href="" target="_blank" rel="noreferrer noopener">
+            <DropDownLink color="inherit" underline="none" href={DOCS_LINK} target="_blank" rel="noreferrer noopener">
               Docs
             </DropDownLink>
           </MenuItem>

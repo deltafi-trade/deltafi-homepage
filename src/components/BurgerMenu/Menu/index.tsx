@@ -5,7 +5,6 @@ import AddIcon from "@mui/icons-material/Add";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import CloseIcon from "@mui/icons-material/Close";
 import RemoveIcon from "@mui/icons-material/Remove";
-
 import { StyledLink } from "components/LinkList";
 import { Logo } from "components";
 import {
@@ -202,7 +201,7 @@ function Menu({ open, setOpen, ...props }) {
       <ExpandMenu className="one-line" my="0px">
         <StyledLink
           color="inherit"
-          href={WHITE_PAPER}
+          href= {WHITE_PAPER}
           target="_blank"
           rel="noreferrer noopener"
           className="expand-title"

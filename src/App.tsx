@@ -13,7 +13,7 @@ const App: React.FC = () => (
   <BrowserRouter>
     <SuspenseWithChunkError fallback={<PageLoader />}>
       <Switch>
-        <AppRoute path="/" exact component={Home} />
+        <AppRoute exact path="/" component={Home} />
         <AppRoute path="/tokenomics" exact component={Tokenomics} />
         <Route component={NotFound} />
       </Switch>
