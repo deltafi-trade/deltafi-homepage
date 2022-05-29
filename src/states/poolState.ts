@@ -1,9 +1,16 @@
+
+import { createAsyncThunk, createReducer } from "@reduxjs/toolkit";
 import fullDeploymentConfigV2 from "../config/constants/fullDeployConfigV2.json";
 import { Connection, clusterApiUrl, Cluster } from "@solana/web3.js";
 
+const initialState = {
+  pools: [],
+};
+
+
 const deploymentName = "mainnet-test";
 
-export function parseDeploymentConfig() {
+export async function getPoolsData() {
   const deploymentConfig = fullDeploymentConfigV2[deploymentName];
   const connection = new Connection(clusterApiUrl(deploymentConfig.network as Cluster), "confirmed");
   const symbolToUrlMap = {};
@@ -29,5 +36,17 @@ export function parseDeploymentConfig() {
     });
   });
 
-  return result;
+  return { pools: result };
 }
+
+export const fetchPoolStateThunk = createAsyncThunk("homepage/fetchPoolState", getPoolsData);
+
+export function calculatePoolLiquidity() {
+}
+
+export const poolStateReducer = createReducer(initialState, (builder) => {
+  builder.addCase(fetchPoolStateThunk.fulfilled, (state, action) => {
+    state.pools = action.payload.pools;
+  })
+});
+
