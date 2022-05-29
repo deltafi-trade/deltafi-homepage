@@ -25,10 +25,7 @@ const VideoWrapper = styled.div`
 const VideoContainer: React.FC = () => {
   return (
     <StyledContainer>
-      <Title
-        header="Swap & Earn!"
-        title="DeltaFi makes it easy for you to swap and earn on the Solana blockchain."
-      />
+      <Title header="Swap & Earn!" title="DeltaFi makes it easy for you to swap and earn on the Solana blockchain." />
       <VideoWrapper>
         <iframe
           width="100%"

@@ -10,13 +10,7 @@ const Icon: React.FC<LogoProps> = ({ isDark, ...props }) => {
   const textColor = isDark ? "#FFFFFF" : "#393939";
   return (
     <Svg viewBox="0 0 179 43" {...props}>
-      <svg
-        width="179"
-        height="43"
-        viewBox="0 0 179 43"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg width="179" height="43" viewBox="0 0 179 43" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -61,14 +55,7 @@ const Icon: React.FC<LogoProps> = ({ isDark, ...props }) => {
           fill="white"
         />
         <defs>
-          <linearGradient
-            id="paint0_linear"
-            x1="21.5"
-            y1="0"
-            x2="21.5"
-            y2="43"
-            gradientUnits="userSpaceOnUse"
-          >
+          <linearGradient id="paint0_linear" x1="21.5" y1="0" x2="21.5" y2="43" gradientUnits="userSpaceOnUse">
             <stop stopColor="#FF5E79" />
             <stop offset="1" stopColor="#DC0640" />
           </linearGradient>

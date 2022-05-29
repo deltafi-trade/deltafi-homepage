@@ -97,11 +97,7 @@ const AssetManager: React.FC = () => {
               Automated Market Maker Evolved
             </Typography>
             <br />
-            <Typography
-              variant="h6"
-              className={classes.subTitle}
-              sx={{ fontSize: 20, fontWeight: 500 }}
-            >
+            <Typography variant="h6" className={classes.subTitle} sx={{ fontSize: 20, fontWeight: 500 }}>
               Earn Sustainable Yields through Oracle Concentrated Liquidity
             </Typography>
             <DesktopWrapper>

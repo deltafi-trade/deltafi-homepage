@@ -10,13 +10,7 @@ const Icon: React.FC<PinterestProps> = ({ isDark, ...props }) => {
   const textColor = isDark ? "#FFFFFF" : "#000000";
   return (
     <Svg viewBox="0 0 49 49" {...props}>
-      <svg
-        width="49"
-        height="49"
-        viewBox="0 0 49 49"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           opacity="0.1"
           fillRule="evenodd"

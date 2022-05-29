@@ -1,16 +1,7 @@
 import { Box, Container, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Title from "components/Title";
 import CustomTooltip from "components/CustomTooltip";
-import {
-  CartesianGrid,
-  Legend,
-  Area,
-  AreaChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { CartesianGrid, Legend, Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import styled from "styled-components";
 
 interface Data {
@@ -23,12 +14,10 @@ interface Data {
 }
 const labels = [2022, 2023, 2024, 2025, 2026, 2027, 2028]
   .flatMap((year) =>
-    ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"].map(
-      (month) => ({
-        year,
-        month,
-      }),
-    ),
+    ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"].map((month) => ({
+      year,
+      month,
+    })),
   )
   .slice(2, 74); //generated label from 2022 MAR to 2028 FEB (total 6 * 12 invest)
 
@@ -147,22 +136,9 @@ const ReleaseSchedule: React.FC = () => {
               bottom: 100,
             }}
           >
-            <CartesianGrid
-              strokeDasharray="3 3"
-              vertical={false}
-              stroke="rgba(255, 255, 255, 0.2)"
-            />
-            <XAxis
-              tick={<CustomizedAxisTick />}
-              interval="preserveStart"
-              tickLine={false}
-              dataKey="label"
-            />
-            <YAxis
-              axisLine={false}
-              tickLine={false}
-              tickFormatter={(decimal) => toPercent(decimal, 2)}
-            />
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255, 255, 255, 0.2)" />
+            <XAxis tick={<CustomizedAxisTick />} interval="preserveStart" tickLine={false} dataKey="label" />
+            <YAxis axisLine={false} tickLine={false} tickFormatter={(decimal) => toPercent(decimal, 2)} />
             <Tooltip
               content={<CustomTooltip />}
               formatter={(decimal) => `${Number(decimal).toFixed(2)}%`}

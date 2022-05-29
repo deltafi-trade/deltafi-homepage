@@ -1,11 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { ThemeProvider as SCThemeProvider } from "styled-components";
-import {
-  CssBaseline,
-  ThemeProvider as MuiThemeProvider,
-  Theme,
-  StyledEngineProvider,
-} from "@mui/material";
+import { CssBaseline, ThemeProvider as MuiThemeProvider, Theme, StyledEngineProvider } from "@mui/material";
 import StylesProvider from "@mui/styles/StylesProvider";
 import { darkTheme, lightTheme } from "theme";
 import GlobalStyle from "style/Global";

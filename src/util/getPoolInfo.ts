@@ -5,10 +5,7 @@ const deploymentName = "mainnet-test";
 
 export function parseDeploymentConfig() {
   const deploymentConfig = fullDeploymentConfigV2[deploymentName];
-  const connection = new Connection(
-    clusterApiUrl(deploymentConfig.network as Cluster),
-    "confirmed",
-  );
+  const connection = new Connection(clusterApiUrl(deploymentConfig.network as Cluster), "confirmed");
   const symbolToUrlMap = {};
 
   deploymentConfig.tokenInfoList.forEach((tokenInfo) => {

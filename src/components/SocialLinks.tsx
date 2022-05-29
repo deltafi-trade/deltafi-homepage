@@ -1,12 +1,6 @@
 import { Box, Link, Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import {
-  TWITTER_LINK,
-  DISCORD_LINK,
-  TELEGRAM_LINK,
-  BLOG_LINK,
-  GITHUB_LINK,
-} from "config/constants/constant";
+import { TWITTER_LINK, DISCORD_LINK, TELEGRAM_LINK, BLOG_LINK, GITHUB_LINK } from "config/constants/constant";
 import useDarkMode from "hooks/useDarkMode";
 import { TelegramIcon, DiscordIcon, TwitterIcon, MediumIcon, GithubIcon } from "components";
 import styled from "styled-components";

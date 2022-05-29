@@ -37,11 +37,7 @@ function Title(props: TitleProp) {
   return (
     <>
       {props.header ? (
-        <Typography
-          variant="h3"
-          paragraph
-          className={props.size === "small" ? classes.smallHeader : classes.header}
-        >
+        <Typography variant="h3" paragraph className={props.size === "small" ? classes.smallHeader : classes.header}>
           {props.header}
         </Typography>
       ) : null}

@@ -266,9 +266,9 @@ const Tokenomics: React.FC = (props) => {
           DELFI Token Utility
         </Typography>
         <Typography className={classes.title}>
-          As a decentralized financial market. DeltaFi requires the DELFI token to function. This
-          token is central to the design of DeltaFi and cannot be removed without sacrificing
-          essential functionality.The uses of the DELFI token include but not limited to
+          As a decentralized financial market. DeltaFi requires the DELFI token to function. This token is central to
+          the design of DeltaFi and cannot be removed without sacrificing essential functionality.The uses of the DELFI
+          token include but not limited to
         </Typography>
         <Grid container columnSpacing={3}>
           {CARD_LIST.map((card, index) => (
@@ -362,17 +362,15 @@ const Tokenomics: React.FC = (props) => {
       </Container>
       <Container className={classes.content}>
         <Box fontSize={12} fontWeight={400} textAlign="center">
-          All information made available, including claims, content, designs, algorithms, estimates,
-          roadmaps, specifications, and performance measurements described in this project are
-          provided for informational purposes only. It is up to the reader to check and validate the
-          accuracy and truthfulness. Furthermore, nothing in this project information constitutes a
-          solicitation for investment. No developer or entity involved in creating the DeltaFi
-          protocol or authoring this information will be liable for any claims or damages whatsoever
-          associated with your use, inability to use, or your interaction with other users of, the
-          DeltaFi protocol or any information made available on this website, including any direct,
-          indirect, incidental, special, exemplary, punitive or consequential damages, or loss of
-          profits, cryptocurrencies, tokens, or anything else of value. All information contained
-          herein is subject to modification without notice.
+          All information made available, including claims, content, designs, algorithms, estimates, roadmaps,
+          specifications, and performance measurements described in this project are provided for informational purposes
+          only. It is up to the reader to check and validate the accuracy and truthfulness. Furthermore, nothing in this
+          project information constitutes a solicitation for investment. No developer or entity involved in creating the
+          DeltaFi protocol or authoring this information will be liable for any claims or damages whatsoever associated
+          with your use, inability to use, or your interaction with other users of, the DeltaFi protocol or any
+          information made available on this website, including any direct, indirect, incidental, special, exemplary,
+          punitive or consequential damages, or loss of profits, cryptocurrencies, tokens, or anything else of value.
+          All information contained herein is subject to modification without notice.
         </Box>
       </Container>
     </StyledDiv>
