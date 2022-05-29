@@ -69,7 +69,7 @@ const AnimateContainer = styled(Box)`
 `;
 
 const Trades = () => (
-  <Box position="relative">
+  <Box position="relative" overflow="hidden">
     <AnimateContainer flexWrap="nowrap" gap={2.5} mt={{ xs: 1.5, md: 2.5 }}>
       {pools.map((poolConfig, idx) => (
         <GradientCt key={idx} height={90} sx={{ minWidth: 300 }} fontSize={12} fontWeight={500} textAlign="end">
