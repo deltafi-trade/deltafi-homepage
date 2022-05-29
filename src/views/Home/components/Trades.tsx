@@ -32,7 +32,7 @@ const mockPools = [
     apy: 10,
   },
 ];
-// const pools = [...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools]
+// const pools = [...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools];
 const GradientCt = styled(Box)`
   padding: 1px;
   border-radius: 10px;
