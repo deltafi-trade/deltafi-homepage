@@ -65,7 +65,7 @@ const DropDownLink = styled(Link)`
 `;
 
 const Divider = styled.div`
-  background: #3C3C3C;
+  background: #3c3c3c;
   height: 1px;
   margin: 0 18px;
 `;
@@ -150,46 +150,104 @@ const LinkList: React.FC = (props) => {
 
   return (
     <StyledDiv>
-      <CustomLink color="inherit" underline="none" href={HOMEPAGE_LINK} className={classes.hoverUnderscore}>
+      <CustomLink
+        color="inherit"
+        underline="none"
+        href={HOMEPAGE_LINK}
+        className={classes.hoverUnderscore}
+      >
         Home
       </CustomLink>
-      <CustomLink color="inherit" underline="none" href={TOKENOMICS_LINK} className={classes.hoverUnderscore}>
+      <CustomLink
+        color="inherit"
+        underline="none"
+        href={TOKENOMICS_LINK}
+        className={classes.hoverUnderscore}
+      >
         Token
       </CustomLink>
-      <CustomLink color="inherit" underline="none" href={GOVERNANCE_LINK} className={classes.hoverUnderscore}>
+      <CustomLink
+        color="inherit"
+        underline="none"
+        href={GOVERNANCE_LINK}
+        className={classes.hoverUnderscore}
+      >
         Governance
       </CustomLink>
-      <div id="resources-menu" className={`${classes.hoverUnderscore} ${classes.dropDownContainer}`}>
+      <div
+        id="resources-menu"
+        className={`${classes.hoverUnderscore} ${classes.dropDownContainer}`}
+      >
         <StyleButton ref={resourceRef} onClick={handleresourceClick}>
           Resources
         </StyleButton>
-        <Menu className={classes.dropDown} anchorEl={resourceEl} open={resourceOpen} onClose={handleResourceClose}>
-          <MenuItem className={classes.dropDownMenuItem} key="Whitepaper" onClick={handleResourceClose}>
-            <DropDownLink color="inherit" underline="none" href={WHITE_PAPER} target="_blank" rel="noreferrer noopener">
+        <Menu
+          className={classes.dropDown}
+          anchorEl={resourceEl}
+          open={resourceOpen}
+          onClose={handleResourceClose}
+        >
+          <MenuItem
+            className={classes.dropDownMenuItem}
+            key="Whitepaper"
+            onClick={handleResourceClose}
+          >
+            <DropDownLink
+              color="inherit"
+              underline="none"
+              href={WHITE_PAPER}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Whitepaper
             </DropDownLink>
           </MenuItem>
           <Divider />
-          <MenuItem className={classes.dropDownMenuItem} key="Tokenomics" onClick={handleResourceClose}>
-            <DropDownLink color="inherit" underline="none" href={TOKENOMICS_LINK} target="_blank" rel="noreferrer noopener">
+          <MenuItem
+            className={classes.dropDownMenuItem}
+            key="Tokenomics"
+            onClick={handleResourceClose}
+          >
+            <DropDownLink
+              color="inherit"
+              underline="none"
+              href={TOKENOMICS_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Tokenomics
             </DropDownLink>
           </MenuItem>
           <Divider />
           <MenuItem className={classes.dropDownMenuItem} key="Blog" onClick={handleResourceClose}>
-            <DropDownLink color="inherit" underline="none" href={BLOG_LINK} target="_blank" rel="noreferrer noopener">
+            <DropDownLink
+              color="inherit"
+              underline="none"
+              href={BLOG_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Blog
             </DropDownLink>
           </MenuItem>
           <Divider />
           <MenuItem className={classes.dropDownMenuItem} key="Docs" onClick={handleResourceClose}>
-            <DropDownLink color="inherit" underline="none" href={DOCS_LINK} target="_blank" rel="noreferrer noopener">
+            <DropDownLink
+              color="inherit"
+              underline="none"
+              href={DOCS_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Docs
             </DropDownLink>
           </MenuItem>
         </Menu>
       </div>
-      <div id="audit-report-menu" className={`${classes.hoverUnderscore} ${classes.dropDownContainer}`}>
+      <div
+        id="audit-report-menu"
+        className={`${classes.hoverUnderscore} ${classes.dropDownContainer}`}
+      >
         <StyleButton ref={auditReportRef} onClick={handleAuditReportClick}>
           Audits
         </StyleButton>
@@ -199,7 +257,11 @@ const LinkList: React.FC = (props) => {
           open={auditAuditReportOpen}
           onClose={handleAuditReportClose}
         >
-          <MenuItem className={classes.dropDownMenuItem} key="Certik" onClick={handleAuditReportClose}>
+          <MenuItem
+            className={classes.dropDownMenuItem}
+            key="Certik"
+            onClick={handleAuditReportClose}
+          >
             <DropDownLink
               color="inherit"
               underline="none"
@@ -211,7 +273,11 @@ const LinkList: React.FC = (props) => {
             </DropDownLink>
           </MenuItem>
           <Divider />
-          <MenuItem className={classes.dropDownMenuItem} key="SlowMist" onClick={handleAuditReportClose}>
+          <MenuItem
+            className={classes.dropDownMenuItem}
+            key="SlowMist"
+            onClick={handleAuditReportClose}
+          >
             <DropDownLink
               color="inherit"
               underline="none"

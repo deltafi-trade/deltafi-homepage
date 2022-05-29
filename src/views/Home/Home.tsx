@@ -13,7 +13,7 @@ import { parseDeploymentConfig } from "util/getPoolInfo";
 // import VideoContainer from "./components/VideoContainer";
 
 const Home: React.FC = () => {
-  parseDeploymentConfig()
+  parseDeploymentConfig();
   return (
     <>
       <Page>

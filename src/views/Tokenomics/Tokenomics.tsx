@@ -58,7 +58,7 @@ const StyledTbCl = styled(TableCell)`
   }
   ${({ theme }) => theme.muibreakpoints.down("sm")} {
     padding: ${({ theme }) => theme.spacing(1)};
-      overflow-wrap: break-word;
+    overflow-wrap: break-word;
   }
   &:first-child {
     padding-left: ${({ theme }) => theme.spacing(8)};
@@ -213,7 +213,10 @@ const Tokenomics: React.FC = (props) => {
       title: "Inflation",
       content: "There will be no inflation. The total supply has a hard cap of 1 billion in total.",
     },
-    { title: "Initial Circulating Supply", content: "1% for public sale to the reward the initial community. " },
+    {
+      title: "Initial Circulating Supply",
+      content: "1% for public sale to the reward the initial community. ",
+    },
   ];
 
   const ALLOCATION_TABLE = [
@@ -263,9 +266,9 @@ const Tokenomics: React.FC = (props) => {
           DELFI Token Utility
         </Typography>
         <Typography className={classes.title}>
-          As a decentralized financial market. DeltaFi requires the DELFI token to function. This token is central to
-          the design of DeltaFi and cannot be removed without sacrificing essential functionality.The uses of the DELFI
-          token include but not limited to
+          As a decentralized financial market. DeltaFi requires the DELFI token to function. This
+          token is central to the design of DeltaFi and cannot be removed without sacrificing
+          essential functionality.The uses of the DELFI token include but not limited to
         </Typography>
         <Grid container columnSpacing={3}>
           {CARD_LIST.map((card, index) => (
@@ -328,7 +331,7 @@ const Tokenomics: React.FC = (props) => {
             <TableBody>
               {ALLOCATION_TABLE.map((row, idx) => (
                 <TableRow key={`row-${idx}`}>
-                  <StyledTbCl sx={{ border: 0}}>
+                  <StyledTbCl sx={{ border: 0 }}>
                     <Typography variant="body2" fontWeight={400} color="#D4FF00">
                       {row.allocation}
                     </Typography>
@@ -338,12 +341,12 @@ const Tokenomics: React.FC = (props) => {
                       {row.amount}
                     </Typography>
                   </StyledTbCl>
-                  <StyledTbCl sx={{ border: 0}}>
+                  <StyledTbCl sx={{ border: 0 }}>
                     <Typography variant="body2" fontWeight={400}>
                       {row["%"]}
                     </Typography>
                   </StyledTbCl>
-                  <StyledTbCl sx={{ border: 0}}>
+                  <StyledTbCl sx={{ border: 0 }}>
                     <Typography variant="body2" fontWeight={400}>
                       {row.description}
                     </Typography>
@@ -359,15 +362,17 @@ const Tokenomics: React.FC = (props) => {
       </Container>
       <Container className={classes.content}>
         <Box fontSize={12} fontWeight={400} textAlign="center">
-          All information made available, including claims, content, designs, algorithms, estimates, roadmaps,
-          specifications, and performance measurements described in this project are provided for informational purposes
-          only. It is up to the reader to check and validate the accuracy and truthfulness. Furthermore, nothing in this
-          project information constitutes a solicitation for investment. No developer or entity involved in creating the
-          DeltaFi protocol or authoring this information will be liable for any claims or damages whatsoever associated
-          with your use, inability to use, or your interaction with other users of, the DeltaFi protocol or any
-          information made available on this website, including any direct, indirect, incidental, special, exemplary,
-          punitive or consequential damages, or loss of profits, cryptocurrencies, tokens, or anything else of value.
-          All information contained herein is subject to modification without notice.
+          All information made available, including claims, content, designs, algorithms, estimates,
+          roadmaps, specifications, and performance measurements described in this project are
+          provided for informational purposes only. It is up to the reader to check and validate the
+          accuracy and truthfulness. Furthermore, nothing in this project information constitutes a
+          solicitation for investment. No developer or entity involved in creating the DeltaFi
+          protocol or authoring this information will be liable for any claims or damages whatsoever
+          associated with your use, inability to use, or your interaction with other users of, the
+          DeltaFi protocol or any information made available on this website, including any direct,
+          indirect, incidental, special, exemplary, punitive or consequential damages, or loss of
+          profits, cryptocurrencies, tokens, or anything else of value. All information contained
+          herein is subject to modification without notice.
         </Box>
       </Container>
     </StyledDiv>

@@ -60,7 +60,9 @@ const Mission: React.FC = () => {
       <Typography variant="h3" paragraph className={classes.header}>
         Swap & Earn!
       </Typography>
-      <Typography className={classes.title}>DeltaFi is built for traders and liquidity providers.</Typography>
+      <Typography className={classes.title}>
+        DeltaFi is built for traders and liquidity providers.
+      </Typography>
       <Grid container spacing={2}>
         {boxes.map((box, i) => (
           <StyledItem key={i} container item md={4} xs={12}>

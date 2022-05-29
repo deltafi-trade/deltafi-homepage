@@ -4,9 +4,7 @@ import { ThemeContextProvider } from "contexts/ThemeContext";
 
 const Providers: React.FC = ({ children }) => (
   <HelmetProvider>
-    <ThemeContextProvider>
-      {children}
-    </ThemeContextProvider>
+    <ThemeContextProvider>{children}</ThemeContextProvider>
   </HelmetProvider>
 );
 

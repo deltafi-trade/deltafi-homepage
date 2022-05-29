@@ -61,7 +61,12 @@ const DeltaFi: React.FC = () => {
               <Typography variant="h5" fontWeight={600}>
                 {card.header}
               </Typography>
-              <Typography variant="subtitle2" textTransform="capitalize" fontWeight={400} sx={{ marginTop: 1.5 }}>
+              <Typography
+                variant="subtitle2"
+                textTransform="capitalize"
+                fontWeight={400}
+                sx={{ marginTop: 1.5 }}
+              >
                 {card.title}
               </Typography>
             </Grid>

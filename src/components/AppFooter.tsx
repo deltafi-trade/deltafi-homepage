@@ -65,7 +65,9 @@ const Footer: React.FC = (props) => {
           </Box>
         </Box>
         <Box pb={3} mt={0.5} className={classes.container}>
-          <Box className={classes.solana}>Building the Next Generation Cross-Chain Decentralized Exchange</Box>
+          <Box className={classes.solana}>
+            Building the Next Generation Cross-Chain Decentralized Exchange
+          </Box>
           <Box>
             <Typography variant="body2">Copyright © 2022. DeltaFi</Typography>
           </Box>

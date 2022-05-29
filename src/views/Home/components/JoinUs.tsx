@@ -141,7 +141,7 @@ function JoinUs() {
     <Container>
       <StyledDiv>
         <Title size="small" header="Strategic Investors and Partners" />
-        <Box sx={{ position: "relative", overflow: "hidden", width: "100%", marginTop: "12px", }}>
+        <Box sx={{ position: "relative", overflow: "hidden", width: "100%", marginTop: "12px" }}>
           <AnimateContainer>
             <Grid container spacing={4} style={{ alignItems: "center", justifyContent: "center" }}>
               {[

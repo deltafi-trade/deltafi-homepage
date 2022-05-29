@@ -3,8 +3,8 @@ import { SunIcon, MoonIcon } from "components";
 import { IconButtonProps, IconButton } from "@mui/material";
 
 interface Props extends IconButtonProps {
-  isDark: boolean
-  toggleDarkMode: () => void
+  isDark: boolean;
+  toggleDarkMode: () => void;
 }
 
 const ThemeButton: React.FC<Props> = (props) => {
