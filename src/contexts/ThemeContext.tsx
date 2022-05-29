@@ -5,20 +5,15 @@ import StylesProvider from "@mui/styles/StylesProvider";
 import { darkTheme, lightTheme } from "theme";
 import GlobalStyle from "style/Global";
 
-
-
 declare module "@mui/styles/defaultTheme" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {}
 }
 
-
-
 declare module "@mui/styles/defaultTheme" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {}
 }
-
 
 const ThemeContext = React.createContext({ isDark: null, toggleDarkMode: () => null });
 

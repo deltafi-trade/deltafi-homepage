@@ -5,7 +5,7 @@ import { useTheme } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 interface SpinnerProps {
-  size?: number
+  size?: number;
 }
 
 const rotate = keyframes`

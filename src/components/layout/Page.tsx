@@ -5,8 +5,8 @@ import { DEFAULT_META } from "config/constants/meta";
 
 const StyledDiv = styled.div`
   position: relative;
-  background-color: ${({ theme }) => theme.palette.background.secondary}
-`
+  background-color: ${({ theme }) => theme.palette.background.secondary};
+`;
 
 function PageMeta() {
   const { title, description } = { ...DEFAULT_META };
@@ -23,9 +23,7 @@ function PageMeta() {
 const Page: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => (
   <>
     <PageMeta />
-    <StyledDiv {...props}>
-      {children}
-    </StyledDiv>
+    <StyledDiv {...props}>{children}</StyledDiv>
   </>
 );
 
