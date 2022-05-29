@@ -117,18 +117,6 @@ function Menu({ open, setOpen, ...props }) {
         <ExpandMenu className="one-line" my="0px">
           <StyledLink
             color="inherit"
-            href={APP_LINK}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="expand-title"
-          >
-            REQUEST A DEMO
-          </StyledLink>
-          <ArrowRightAltIcon />
-        </ExpandMenu>
-        <ExpandMenu className="one-line" my="0px">
-          <StyledLink
-            color="inherit"
             href={BLOG_LINK}
             target="_blank"
             rel="noreferrer noopener"
