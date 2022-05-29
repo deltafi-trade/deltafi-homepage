@@ -98,7 +98,6 @@ const Mission: React.FC = () => {
                 sx={{
                   lineHeight: 1.1,
                   height: 20,
-                  maxWidth: 400,
                   marginTop: 1.5,
                   textAlign: "center",
                   fontFamily: "'Roboto'",

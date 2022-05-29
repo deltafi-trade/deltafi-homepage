@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {isMobile} from "react-device-detect";
 
 const StyledVideo = styled.video`
   position: absolute;
@@ -12,7 +13,7 @@ const StyledVideo = styled.video`
 
 const Video: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => (
   <StyledVideo autoPlay muted loop id="myVideo">
-    <source src="/images/landingbg.mp4" type="video/mp4" />
+    <source src={isMobile?"/images/mobilelandingbg.mp4":"/images/landingbg.mp4"} type="video/mp4" />
   </StyledVideo>
 );
 
