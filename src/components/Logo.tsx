@@ -5,8 +5,8 @@ import { makeStyles } from "@mui/styles";
 import { Theme } from "@mui/material";
 
 interface Props {
-  isDark: boolean
-  href: string
+  isDark: boolean;
+  href: string;
 }
 
 const StyledLink = styled(Link)`

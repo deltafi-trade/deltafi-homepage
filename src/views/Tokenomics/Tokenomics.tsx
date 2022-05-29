@@ -58,7 +58,7 @@ const StyledTbCl = styled(TableCell)`
   }
   ${({ theme }) => theme.muibreakpoints.down("sm")} {
     padding: ${({ theme }) => theme.spacing(1)};
-      overflow-wrap: break-word;
+    overflow-wrap: break-word;
   }
   &:first-child {
     padding-left: ${({ theme }) => theme.spacing(8)};
@@ -328,7 +328,7 @@ const Tokenomics: React.FC = (props) => {
             <TableBody>
               {ALLOCATION_TABLE.map((row, idx) => (
                 <TableRow key={`row-${idx}`}>
-                  <StyledTbCl sx={{ border: 0}}>
+                  <StyledTbCl sx={{ border: 0 }}>
                     <Typography variant="body2" fontWeight={400} color="#D4FF00">
                       {row.allocation}
                     </Typography>
@@ -338,12 +338,12 @@ const Tokenomics: React.FC = (props) => {
                       {row.amount}
                     </Typography>
                   </StyledTbCl>
-                  <StyledTbCl sx={{ border: 0}}>
+                  <StyledTbCl sx={{ border: 0 }}>
                     <Typography variant="body2" fontWeight={400}>
                       {row["%"]}
                     </Typography>
                   </StyledTbCl>
-                  <StyledTbCl sx={{ border: 0}}>
+                  <StyledTbCl sx={{ border: 0 }}>
                     <Typography variant="body2" fontWeight={400}>
                       {row.description}
                     </Typography>

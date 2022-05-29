@@ -65,7 +65,7 @@ const DropDownLink = styled(Link)`
 `;
 
 const Divider = styled.div`
-  background: #3C3C3C;
+  background: #3c3c3c;
   height: 1px;
   margin: 0 18px;
 `;
@@ -171,7 +171,13 @@ const LinkList: React.FC = (props) => {
           </MenuItem>
           <Divider />
           <MenuItem className={classes.dropDownMenuItem} key="Tokenomics" onClick={handleResourceClose}>
-            <DropDownLink color="inherit" underline="none" href={TOKENOMICS_LINK} target="_blank" rel="noreferrer noopener">
+            <DropDownLink
+              color="inherit"
+              underline="none"
+              href={TOKENOMICS_LINK}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Tokenomics
             </DropDownLink>
           </MenuItem>
@@ -200,13 +206,7 @@ const LinkList: React.FC = (props) => {
           onClose={handleAuditReportClose}
         >
           <MenuItem className={classes.dropDownMenuItem} key="Certik" onClick={handleAuditReportClose}>
-            <DropDownLink
-              color="inherit"
-              underline="none"
-              href={CERTIK_LINK}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <DropDownLink color="inherit" underline="none" href={CERTIK_LINK} target="_blank" rel="noreferrer noopener">
               Certik
             </DropDownLink>
           </MenuItem>
