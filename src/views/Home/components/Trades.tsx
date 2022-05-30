@@ -42,9 +42,11 @@ const AnimateContainer = styled(Box)`
   }
 `;
 
+const deploymentMode = process.env.REACT_HOMEPAGE_DEPLOYMENT_MODE ?? "mainnet-prod";
+
 const Trades = () => {
   const dispatch = useDispatch();
-  useEffect(() => scheduleWithInterval(() => dispatch(fetchPoolStateThunk("testnet")), 5 * 1000), [dispatch]);
+  useEffect(() => scheduleWithInterval(() => dispatch(fetchPoolStateThunk(deploymentMode)), 5 * 1000), [dispatch]);
 
   const pools = useSelector(poolStateSelector);
   return (
