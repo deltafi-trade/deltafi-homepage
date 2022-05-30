@@ -42,7 +42,10 @@ const AnimateContainer = styled(Box)`
   }
 `;
 
-const deploymentMode = process.env.REACT_HOMEPAGE_DEPLOYMENT_MODE ?? "mainnet-prod";
+console.log(process.env);
+
+const deploymentMode = process.env.REACT_APP_DEPLOYMENT_MODE || "mainnet-prod";
+console.log(deploymentMode);
 
 const Trades = () => {
   const dispatch = useDispatch();

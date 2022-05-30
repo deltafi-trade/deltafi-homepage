@@ -1,4 +1,4 @@
-export const HOMEPAGE_LINK = process.env.REACT_HOMPAGE_URL || "/";
+export const HOMEPAGE_LINK = process.env.REACT_APP_HOMPAGE_URL || "/";
 export const APP_LINK = process.env.REACT_APP_URL || "https://app.deltafi.trade";
 export const REWARD_LINK = "https://app.deltafi.trade/rewards";
 export const BLOG_LINK = "https://medium.com/deltafi";

@@ -63,10 +63,10 @@
     "prettier": "^2.5.1"
   },
   "scripts": {
-    "start": "DISABLE_ESLINT_PLUGIN=true REACT_HOMEPAGE_DEPLOYMENT_MODE=testnet react-scripts start",
-    "start-prod": "react-scripts REACT_HOMEPAGE_DEPLOYMENT_MODE=mainnet-prod start",
-    "build": "react-scripts REACT_HOMEPAGE_DEPLOYMENT_MODE=mainnet-prod build",
-    "build-test": "react-scripts DISABLE_ESLINT_PLUGIN=true REACT_HOMEPAGE_DEPLOYMENT_MODE=mainnet-test build",
+    "start": "REACT_APP_DEPLOYMENT_MODE=testnet DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "start-prod": "REACT_APP_DEPLOYMENT_MODE=mainnet-prod react-scripts start",
+    "build": "REACT_APP_DEPLOYMENT_MODE=mainnet-prod react-scripts build",
+    "build-test": "DISABLE_ESLINT_PLUGIN=true REACT_APP_DEPLOYMENT_MODE=mainnet-test react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
