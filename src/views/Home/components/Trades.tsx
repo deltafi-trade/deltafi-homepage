@@ -1,9 +1,9 @@
 import { Box, Avatar } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPoolStateThunk } from "states/poolState";
+import { fetchPoolStateThunk, PoolStateInfo } from "states/poolState";
 import { poolStateSelector } from "states/store";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { scheduleWithInterval } from "util/utils";
 
 const GradientCt = styled(Box)`
@@ -28,23 +28,32 @@ const StyledAvatar = styled(Avatar)`
   width: 30px;
   height: 30px;
 `;
-// const transition = keyframes`
-//   0% {transform: translate3d(0, 0, 0);}
-//   100% {transform: translate3d(-1920px, 0, 0);}
-// `;
-// const AnimateContainer = styled(Box)`
-//   display: flex;
-//   width: 3840px;
-//   animation: ${transition} 20s linear infinite;
-
-//   &:hover {
-//     animation-play-state: paused;
-//   }
-// `;
-
+const transition = keyframes`
+  0% {transform: translate3d(0, 0, 0);}
+  100% {transform: translate3d(-1920px, 0, 0);}
+`;
 const AnimateContainer = styled(Box)`
   display: flex;
+  width: 3840px;
+  animation: ${transition} 20s linear infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
 `;
+
+// const AnimateContainer = styled(Box)`
+//   display: flex;
+// `;
+
+const filledUpPoolList = (poolStateList: PoolStateInfo[]) => {
+  if (!poolStateList || poolStateList.length === 0) {
+    return [];
+  }
+  const repeat = Math.floor(14 / poolStateList.length);
+  console.log(repeat);
+  return new Array(repeat).fill(poolStateList).flat();
+};
 
 const deploymentMode = process.env.REACT_APP_DEPLOYMENT_MODE || "mainnet-prod";
 
@@ -53,10 +62,11 @@ const Trades = () => {
   useEffect(() => scheduleWithInterval(() => dispatch(fetchPoolStateThunk(deploymentMode)), 5 * 1000), [dispatch]);
 
   const pools = useSelector(poolStateSelector);
+  const fullPoolsList = filledUpPoolList(pools);
   return (
     <Box position="relative">
       <AnimateContainer flexWrap="nowrap" gap={2.5} mt={{ xs: 1.5, md: 2.5 }}>
-        {pools.map((poolConfig, idx) => (
+        {fullPoolsList.map((poolConfig, idx) => (
           <GradientCt key={idx} height={90} sx={{ minWidth: 300 }} fontSize={12} fontWeight={500} textAlign="end">
             <GradientContent display="flex" justifyContent="space-between" alignContent="space-between">
               <Box display="flex" justifyContent="space-between" flexDirection="column">
