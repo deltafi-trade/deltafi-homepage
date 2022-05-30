@@ -1,6 +1,10 @@
 import { Box, Avatar } from "@mui/material";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPoolStateThunk } from "states/poolState";
+import { poolStateSelector } from "states/store";
 import styled, { keyframes } from "styled-components";
-import { parseDeploymentConfig } from "util/getPoolInfo";
+import { scheduleWithInterval } from "util/utils";
 
 const mockPools = [
   {
@@ -70,7 +74,10 @@ const AnimateContainer = styled(Box)`
 `;
 
 const Trades = () => {
-  const pools = parseDeploymentConfig();
+  const dispatch = useDispatch();
+  useEffect(() => scheduleWithInterval(() => dispatch(fetchPoolStateThunk("testnet")), 5 * 1000), [dispatch]);
+
+  const pools = useSelector(poolStateSelector);
   return (
     <Box position="relative">
       <AnimateContainer flexWrap="nowrap" gap={2.5} mt={{ xs: 1.5, md: 2.5 }}>
@@ -92,7 +99,7 @@ const Trades = () => {
               </Box>
               <Box display="flex" justifyContent="space-between" flexDirection="column">
                 <Box color="#BDFF00">APY {poolConfig.apy}%</Box>
-                <Box>Liquidity {poolConfig.liquidity}M</Box>
+                <Box>Liquidity {poolConfig.liquidity} </Box>
               </Box>
             </GradientContent>
           </GradientCt>

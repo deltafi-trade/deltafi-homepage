@@ -8,12 +8,10 @@ import Numbers from "./components/Numbers";
 import LandingVideo from "./components/LandingVideo";
 import Mission from "./components/Mission";
 import Trades from "./components/Trades";
-import { parseDeploymentConfig } from "util/getPoolInfo";
 
 // import VideoContainer from "./components/VideoContainer";
 
 const Home: React.FC = () => {
-  parseDeploymentConfig();
   return (
     <>
       <Page>
