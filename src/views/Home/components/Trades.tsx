@@ -73,7 +73,7 @@ const Trades = () => {
                 </Box>
               </Box>
               <Box display="flex" justifyContent="space-between" flexDirection="column">
-                {/* <Box color="#BDFF00">APY {poolConfig.apy}%</Box> */}
+                <Box color="#BDFF00">APY {poolConfig.apy}</Box>
                 <Box>Liquidity {poolConfig.liquidity} </Box>
               </Box>
             </GradientContent>

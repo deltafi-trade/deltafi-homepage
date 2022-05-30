@@ -15,7 +15,7 @@ export interface PoolStateInfo {
   baseToken: PoolTokenInfo;
   quoteToken: PoolTokenInfo;
   liquidity: string;
-  apy: number;
+  apy: string;
 }
 
 const initialState: {
@@ -64,7 +64,7 @@ export async function getPoolStateData(deploymentName: string) {
         symbolToTokenInfoMap[poolInfo.base].price,
         symbolToTokenInfoMap[poolInfo.quote].price,
       ),
-      apy: 0, // TODO: add apy calculation
+      apy: "TBD", // TODO: add apy calculation
     });
   }
 
