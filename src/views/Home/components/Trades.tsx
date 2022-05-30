@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPoolStateThunk } from "states/poolState";
 import { poolStateSelector } from "states/store";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { scheduleWithInterval } from "util/utils";
 
 const GradientCt = styled(Box)`
@@ -28,24 +28,25 @@ const StyledAvatar = styled(Avatar)`
   width: 30px;
   height: 30px;
 `;
-const transition = keyframes`
-  0% {transform: translate3d(0, 0, 0);}
-  100% {transform: translate3d(-1920px, 0, 0);}
-`;
+// const transition = keyframes`
+//   0% {transform: translate3d(0, 0, 0);}
+//   100% {transform: translate3d(-1920px, 0, 0);}
+// `;
+// const AnimateContainer = styled(Box)`
+//   display: flex;
+//   width: 3840px;
+//   animation: ${transition} 20s linear infinite;
+
+//   &:hover {
+//     animation-play-state: paused;
+//   }
+// `;
+
 const AnimateContainer = styled(Box)`
   display: flex;
-  width: 3840px;
-  animation: ${transition} 20s linear infinite;
-
-  &:hover {
-    animation-play-state: paused;
-  }
 `;
 
-console.log(process.env);
-
 const deploymentMode = process.env.REACT_APP_DEPLOYMENT_MODE || "mainnet-prod";
-console.log(deploymentMode);
 
 const Trades = () => {
   const dispatch = useDispatch();

@@ -24,9 +24,7 @@ const initialState: {
   pools: [],
 };
 
-// const deploymentName = "mainnet-test";
-
-export async function getPoolsData(deploymentName: string) {
+export async function getPoolStateData(deploymentName: string) {
   const deploymentConfig = fullDeploymentConfigV2[deploymentName];
   const connection = new Connection(clusterApiUrl(deploymentConfig.network as Cluster), "confirmed");
   const program = getDeltafiDexV2(new PublicKey(deploymentConfig.programId), makeProvider(connection, {}));
@@ -70,12 +68,10 @@ export async function getPoolsData(deploymentName: string) {
     });
   }
 
-  console.log(result);
-
   return { pools: result };
 }
 
-export const fetchPoolStateThunk = createAsyncThunk("homepage/fetchPoolState", getPoolsData);
+export const fetchPoolStateThunk = createAsyncThunk("homepage/fetchPoolState", getPoolStateData);
 
 export function calculatePoolLiquidity(swapInfo: SwapInfo, basePrice: number, quotePrice: number) {
   const baseAmountDecimalFactor = new BigNumber(10).pow(swapInfo.mintBaseDecimals);
