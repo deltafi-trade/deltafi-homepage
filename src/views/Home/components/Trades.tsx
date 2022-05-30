@@ -42,7 +42,7 @@ const AnimateContainer = styled(Box)`
   }
 `;
 
-
+// TODO?: use dynamic length instead of a fix 14
 const filledUpPoolList = (poolStateList: PoolStateInfo[]) => {
   if (!poolStateList || poolStateList.length === 0) {
     return [];
