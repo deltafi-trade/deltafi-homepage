@@ -59,11 +59,11 @@ const Trades = () => {
   useEffect(() => scheduleWithInterval(() => dispatch(fetchPoolStateThunk(deploymentMode)), 5 * 1000), [dispatch]);
 
   const pools = useSelector(poolStateSelector);
-  const fullPoolsList = filledUpPoolList(pools);
+  const fullPoolList = filledUpPoolList(pools);
   return (
     <Box position="relative">
       <AnimateContainer flexWrap="nowrap" gap={2.5} mt={{ xs: 1.5, md: 2.5 }}>
-        {fullPoolsList.map((poolConfig, idx) => (
+        {fullPoolList.map((poolConfig, idx) => (
           <GradientCt key={idx} height={90} sx={{ minWidth: 300 }} fontSize={12} fontWeight={500} textAlign="end">
             <GradientContent display="flex" justifyContent="space-between" alignContent="space-between">
               <Box display="flex" justifyContent="space-between" flexDirection="column">

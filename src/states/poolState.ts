@@ -6,7 +6,7 @@ import { getDeltafiDexV2, makeProvider } from "anchor/anchor_utils";
 import { SwapInfo } from "anchor/type_definitions";
 import BigNumber from "bignumber.js";
 
-export interface PoolTokenInfo {
+interface PoolTokenInfo {
   logoURI: string;
   symbol: string;
 }
@@ -24,7 +24,7 @@ const initialState: {
   pools: [],
 };
 
-export async function getPoolStateData(deploymentName: string) {
+async function getPoolStateData(deploymentName: string) {
   const deploymentConfig = fullDeploymentConfigV2[deploymentName];
   const connection = new Connection(clusterApiUrl(deploymentConfig.network as Cluster), "confirmed");
   const program = getDeltafiDexV2(new PublicKey(deploymentConfig.programId), makeProvider(connection, {}));
@@ -32,9 +32,11 @@ export async function getPoolStateData(deploymentName: string) {
 
   const result: PoolStateInfo[] = [];
 
+  // fetch token price info from pyth price accounts
   const priceData = await connection.getMultipleAccountsInfo(
     deploymentConfig.tokenInfoList.map((tokenInfo) => new PublicKey(tokenInfo.pyth.price)),
   );
+  // fetch pool reserve info from our swapinfo accounts
   const swapInfoData = await program.account.swapInfo.fetchMultiple(
     deploymentConfig.poolInfoList.map(({ swapInfo }) => new PublicKey(swapInfo)),
   );
@@ -73,7 +75,8 @@ export async function getPoolStateData(deploymentName: string) {
 
 export const fetchPoolStateThunk = createAsyncThunk("homepage/fetchPoolState", getPoolStateData);
 
-export function calculatePoolLiquidity(swapInfo: SwapInfo, basePrice: number, quotePrice: number) {
+// calculate pool liquidity value from the token reserve and pyth price
+function calculatePoolLiquidity(swapInfo: SwapInfo, basePrice: number, quotePrice: number) {
   const baseAmountDecimalFactor = new BigNumber(10).pow(swapInfo.mintBaseDecimals);
   const quoteAmountDecimalFactor = new BigNumber(10).pow(swapInfo.mintQuoteDecimals);
 
@@ -90,6 +93,7 @@ export function calculatePoolLiquidity(swapInfo: SwapInfo, basePrice: number, qu
   const million = 100_000;
   const thousand = 1000;
 
+  // different display based on the amount of pool reserves
   if (totalValue.isGreaterThan(billion)) {
     return "$" + totalValue.dividedBy(billion).toFixed(2) + "B";
   } else if (totalValue.isGreaterThan(million)) {
