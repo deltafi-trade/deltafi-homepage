@@ -2326,5 +2326,8 @@
       "name": "InvalidSerumData",
       "msg": "InvalidSerumData"
     }
-  ]
+  ],
+  "metadata": {
+    "address": "HcWvS1XyweYMrCvY8TEeDxXgbWJagizUZXxCSLC2E89N"
+  }
 }
