@@ -6,37 +6,6 @@ import { poolStateSelector } from "states/store";
 import styled, { keyframes } from "styled-components";
 import { scheduleWithInterval } from "util/utils";
 
-const mockPools = [
-  {
-    baseToken: {
-      logoURI:
-        "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
-      symbol: "USDC",
-    },
-    quoteToken: {
-      logoURI:
-        "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
-      symbol: "SOL",
-    },
-    liquidity: 1233,
-    apy: 10,
-  },
-  {
-    baseToken: {
-      logoURI:
-        "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
-      symbol: "USDC",
-    },
-    quoteToken: {
-      logoURI:
-        "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
-      symbol: "SOL",
-    },
-    liquidity: 1233,
-    apy: 10,
-  },
-];
-// const pools = [...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools];
 const GradientCt = styled(Box)`
   padding: 1px;
   border-radius: 10px;

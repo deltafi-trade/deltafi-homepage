@@ -1,7 +1,7 @@
 import { createAsyncThunk, createReducer } from "@reduxjs/toolkit";
 import fullDeploymentConfigV2 from "anchor/fullDeployConfigV2.json";
 import { Connection, clusterApiUrl, Cluster, PublicKey } from "@solana/web3.js";
-import { parsePriceData, PriceData } from "@pythnetwork/client";
+import { parsePriceData } from "@pythnetwork/client";
 import { getDeltafiDexV2, makeProvider } from "anchor/anchor_utils";
 import { SwapInfo } from "anchor/type_definitions";
 import BigNumber from "bignumber.js";
