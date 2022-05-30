@@ -42,9 +42,6 @@ const AnimateContainer = styled(Box)`
   }
 `;
 
-// const AnimateContainer = styled(Box)`
-//   display: flex;
-// `;
 
 const filledUpPoolList = (poolStateList: PoolStateInfo[]) => {
   if (!poolStateList || poolStateList.length === 0) {
