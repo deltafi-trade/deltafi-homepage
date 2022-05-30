@@ -64,7 +64,7 @@ export async function getPoolStateData(deploymentName: string) {
         symbolToTokenInfoMap[poolInfo.base].price,
         symbolToTokenInfoMap[poolInfo.quote].price,
       ),
-      apy: 0,
+      apy: 0, // TODO: add apy calculation
     });
   }
 
@@ -98,7 +98,7 @@ export function calculatePoolLiquidity(swapInfo: SwapInfo, basePrice: number, qu
     return "$" + totalValue.dividedBy(thousand).toFixed(2) + "K";
   }
 
-  return "$" + totalValue.dividedBy(million).toFixed(2);
+  return "$" + totalValue.toFixed(2);
 }
 
 export const poolStateReducer = createReducer(initialState, (builder) => {
