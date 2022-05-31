@@ -1,37 +1,11 @@
 import { Box, Avatar } from "@mui/material";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPoolStateThunk, PoolStateInfo } from "states/poolState";
+import { poolStateSelector } from "states/store";
 import styled, { keyframes } from "styled-components";
+import { scheduleWithInterval } from "util/utils";
 
-const mockPools = [
-  {
-    baseToken: {
-      logoURI:
-        "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
-      symbol: "USDC",
-    },
-    quoteToken: {
-      logoURI:
-        "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
-      symbol: "SOL",
-    },
-    liquidity: 1233,
-    apy: 10,
-  },
-  {
-    baseToken: {
-      logoURI:
-        "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
-      symbol: "USDC",
-    },
-    quoteToken: {
-      logoURI:
-        "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
-      symbol: "SOL",
-    },
-    liquidity: 1233,
-    apy: 10,
-  },
-];
-const pools = [...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools, ...mockPools];
 const GradientCt = styled(Box)`
   padding: 1px;
   border-radius: 10px;
@@ -68,34 +42,53 @@ const AnimateContainer = styled(Box)`
   }
 `;
 
-const Trades = () => (
-  <Box position="relative" overflow="hidden">
-    <AnimateContainer flexWrap="nowrap" gap={2.5} mt={{ xs: 1.5, md: 2.5 }}>
-      {pools.map((poolConfig, idx) => (
-        <GradientCt key={idx} height={90} sx={{ minWidth: 300 }} fontSize={12} fontWeight={500} textAlign="end">
-          <GradientContent display="flex" justifyContent="space-between" alignContent="space-between">
-            <Box display="flex" justifyContent="space-between" flexDirection="column">
-              <Box display="flex" alignItems="self-start">
-                <GradientCt className="avatarBorder">
-                  <StyledAvatar src={poolConfig.baseToken.logoURI} />
-                </GradientCt>
-                <GradientCt ml={-0.5} className="avatarBorder" zIndex={30}>
-                  <StyledAvatar src={poolConfig.quoteToken.logoURI} />
-                </GradientCt>
+// TODO?: use dynamic length instead of a fix 14
+const filledUpPoolList = (poolStateList: PoolStateInfo[]) => {
+  if (!poolStateList || poolStateList.length === 0) {
+    return [];
+  }
+  const repeat = Math.floor(14 / poolStateList.length);
+  console.log(repeat);
+  return new Array(repeat).fill(poolStateList).flat();
+};
+
+const deploymentMode = process.env.REACT_APP_DEPLOYMENT_MODE || "mainnet-prod";
+
+const Trades = () => {
+  const dispatch = useDispatch();
+  useEffect(() => scheduleWithInterval(() => dispatch(fetchPoolStateThunk(deploymentMode)), 5 * 1000), [dispatch]);
+
+  const pools = useSelector(poolStateSelector);
+  const fullPoolList = filledUpPoolList(pools);
+  return (
+    <Box position="relative">
+      <AnimateContainer flexWrap="nowrap" gap={2.5} mt={{ xs: 1.5, md: 2.5 }}>
+        {fullPoolList.map((poolConfig, idx) => (
+          <GradientCt key={idx} height={90} sx={{ minWidth: 300 }} fontSize={12} fontWeight={500} textAlign="end">
+            <GradientContent display="flex" justifyContent="space-between" alignContent="space-between">
+              <Box display="flex" justifyContent="space-between" flexDirection="column">
+                <Box display="flex" alignItems="self-start">
+                  <GradientCt className="avatarBorder">
+                    <StyledAvatar src={poolConfig.baseToken.logoURI} />
+                  </GradientCt>
+                  <GradientCt ml={-0.5} className="avatarBorder" zIndex={30}>
+                    <StyledAvatar src={poolConfig.quoteToken.logoURI} />
+                  </GradientCt>
+                </Box>
+                <Box>
+                  {poolConfig.baseToken.symbol} - {poolConfig.quoteToken.symbol}
+                </Box>
               </Box>
-              <Box>
-                {poolConfig.baseToken.symbol} - {poolConfig.quoteToken.symbol}
+              <Box display="flex" justifyContent="space-between" flexDirection="column">
+                <Box color="#BDFF00">APY {poolConfig.apy}</Box>
+                <Box>Liquidity {poolConfig.liquidity} </Box>
               </Box>
-            </Box>
-            <Box display="flex" justifyContent="space-between" flexDirection="column">
-              <Box color="#BDFF00">APY {poolConfig.apy}%</Box>
-              <Box>Liquidity {poolConfig.liquidity}M</Box>
-            </Box>
-          </GradientContent>
-        </GradientCt>
-      ))}
-    </AnimateContainer>
-  </Box>
-);
+            </GradientContent>
+          </GradientCt>
+        ))}
+      </AnimateContainer>
+    </Box>
+  );
+};
 
 export default Trades;

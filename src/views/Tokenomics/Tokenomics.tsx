@@ -213,7 +213,10 @@ const Tokenomics: React.FC = (props) => {
       title: "Inflation",
       content: "There will be no inflation. The total supply has a hard cap of 1 billion in total.",
     },
-    { title: "Initial Circulating Supply", content: "1% for public sale to the reward the initial community. " },
+    {
+      title: "Initial Circulating Supply",
+      content: "1% for public sale to the reward the initial community. ",
+    },
   ];
 
   const ALLOCATION_TABLE = [

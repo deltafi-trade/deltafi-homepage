@@ -13,7 +13,6 @@ import {
   TWITTER_LINK,
   GITHUB_LINK,
   DISCORD_LINK,
-  APP_LINK,
   TELEGRAM_LINK,
   WHITE_PAPER,
 } from "config/constants/constant";
