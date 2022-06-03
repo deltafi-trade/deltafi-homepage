@@ -1,5 +1,5 @@
 import { Box, Avatar } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPoolStateThunk, PoolStateInfo } from "states/poolState";
 import { poolStateSelector } from "states/store";
@@ -23,31 +23,30 @@ const GradientContent = styled(Box)`
   background: #1c1c1c;
 `;
 
-const StyledAvatar = styled(Avatar)`
-  background: #fff;
-  width: 30px;
-  height: 30px;
-`;
 const transition = keyframes`
   0% {transform: translate3d(0, 0, 0);}
-  100% {transform: translate3d(-1920px, 0, 0);}
-`;
+  100% {transform: translate3d(-50%, 0, 0);}
+  `;
+
 const AnimateContainer = styled(Box)`
   display: flex;
-  width: 3840px;
   animation: ${transition} 20s linear infinite;
-
   &:hover {
     animation-play-state: paused;
   }
 `;
 
-// TODO?: use dynamic length instead of a fix 14
-const filledUpPoolList = (poolStateList: PoolStateInfo[]) => {
+const StyledAvatar = styled(Avatar)`
+  background: #fff;
+  width: 30px;
+  height: 30px;
+`;
+
+const filledUpPoolList = (poolStateList: PoolStateInfo[], length) => {
   if (!poolStateList || poolStateList.length === 0) {
     return [];
   }
-  const repeat = Math.floor(14 / poolStateList.length);
+  const repeat = Math.ceil(length / poolStateList.length);
   console.log(repeat);
   return new Array(repeat).fill(poolStateList).flat();
 };
@@ -59,10 +58,15 @@ const Trades = () => {
   useEffect(() => scheduleWithInterval(() => dispatch(fetchPoolStateThunk(deploymentMode)), 5 * 1000), [dispatch]);
 
   const pools = useSelector(poolStateSelector);
-  const fullPoolList = filledUpPoolList(pools);
+  const ref = useRef<HTMLDivElement>();
+  const [fullPoolList, setFullPoolList] = useState([]);
+
+  useEffect(() => {
+    setFullPoolList(filledUpPoolList(pools, Math.ceil(ref.current.clientWidth / 320) * 2));
+  }, [pools]);
   return (
-    <Box position="relative">
-      <AnimateContainer flexWrap="nowrap" gap={2.5} mt={{ xs: 1.5, md: 2.5 }}>
+    <Box position="relative" overflow="hidden" ref={ref}>
+      <AnimateContainer flexWrap="nowrap" gap={2.5} mt={{ xs: 1.5, md: 2.5 }} width={320 * fullPoolList.length} sx={{}}>
         {fullPoolList.map((poolConfig, idx) => (
           <GradientCt key={idx} height={90} sx={{ minWidth: 300 }} fontSize={12} fontWeight={500} textAlign="end">
             <GradientContent display="flex" justifyContent="space-between" alignContent="space-between">

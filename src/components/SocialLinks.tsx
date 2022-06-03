@@ -1,9 +1,18 @@
 import { Box, Link, Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { TWITTER_LINK, DISCORD_LINK, TELEGRAM_LINK, BLOG_LINK, GITHUB_LINK } from "config/constants/constant";
+import {
+  TWITTER_LINK,
+  DISCORD_LINK,
+  TELEGRAM_LINK,
+  BLOG_LINK,
+  GITHUB_LINK,
+  YOUTUBE_LINK,
+} from "config/constants/constant";
 import useDarkMode from "hooks/useDarkMode";
 import { TelegramIcon, DiscordIcon, TwitterIcon, MediumIcon, GithubIcon } from "components";
 import styled from "styled-components";
+import { YoutubeIcon } from "./Svg";
+import Spotify from "./Svg/icons/Spotify";
 
 const useStyles = makeStyles((theme: Theme) => ({
   socialLinks: {
@@ -12,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: "auto",
     [theme.breakpoints.down("sm")]: {
       margin: "auto",
-      maxWidth: "55%",
+      justifyContent: "center",
     },
   },
 }));
@@ -63,6 +72,16 @@ const SocialLinks: React.FC = () => {
       <IconWrapper>
         <Link href={GITHUB_LINK} target="_blank" rel="noreferrer noopener">
           <GithubIcon isDark={isDark} width="36px" />
+        </Link>
+      </IconWrapper>
+      <IconWrapper>
+        <Link href={"TODO_ADD_SPOTIFY_LINK"} target="_blank" rel="noreferrer noopener">
+          <Spotify />
+        </Link>
+      </IconWrapper>
+      <IconWrapper>
+        <Link href={YOUTUBE_LINK} target="_blank" rel="noreferrer noopener">
+          <YoutubeIcon />
         </Link>
       </IconWrapper>
     </Box>
