@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Box, Theme, Typography } from "@mui/material";
+import { Box, Theme, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import SocialLinks from "./SocialLinks";
 import { Button } from "./Button";
