@@ -65,8 +65,8 @@
   "scripts": {
     "start": "REACT_APP_DEPLOYMENT_MODE=testnet DISABLE_ESLINT_PLUGIN=true react-scripts start",
     "start-prod": "REACT_APP_DEPLOYMENT_MODE=mainnet-prod react-scripts start",
-    "build": "REACT_APP_DEPLOYMENT_MODE=mainnet-prod react-scripts build",
-    "build-test": "DISABLE_ESLINT_PLUGIN=true REACT_APP_DEPLOYMENT_MODE=mainnet-test react-scripts build",
+    "build": "DISABLE_ESLINT_PLUGIN=true REACT_APP_DEPLOYMENT_MODE=mainnet-prod react-scripts build",
+    "build-dev": "DISABLE_ESLINT_PLUGIN=true REACT_APP_DEPLOYMENT_MODE=mainnet-test react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
