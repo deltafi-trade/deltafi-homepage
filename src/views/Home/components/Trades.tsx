@@ -63,7 +63,7 @@ const Trades = (props) => {
   useEffect(() => {
     setFullPoolList(filledUpPoolList(pools, Math.ceil(ref.current.clientWidth / 320) * 2));
   }, [pools]);
-  
+
   return (
     <Box position="relative" overflow="hidden" ref={ref}>
       <AnimateContainer flexWrap="nowrap" gap={2.5} mt={{ xs: 1.5, md: 2.5 }} width={320 * fullPoolList.length} sx={{}}>
