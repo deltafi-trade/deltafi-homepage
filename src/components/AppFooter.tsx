@@ -53,7 +53,11 @@ const Footer: React.FC = (props) => {
 
   return (
     <Page>
-      <Container sx={{ paddingTop: 3 }}>
+      <Box
+        sx={{ paddingTop: 3 }}
+        paddingLeft={{ xs: "24px", lg: "1.875%" }}
+        paddingRight={{ xs: "24px", lg: "1.875%" }}
+      >
         <Box className={classes.container}>
           <Box className={classes.socailCt}>
             <SocialLinks />
@@ -70,7 +74,7 @@ const Footer: React.FC = (props) => {
             <Typography variant="body2">Copyright © 2022. DeltaFi</Typography>
           </Box>
         </Box>
-      </Container>
+      </Box>
     </Page>
   );
 };
