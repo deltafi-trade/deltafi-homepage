@@ -1,10 +1,10 @@
 import { Box, Avatar } from "@mui/material";
+import BigNumber from "bignumber.js";
 import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchPoolStateThunk, PoolStateInfo } from "states/poolState";
-import { poolStateSelector } from "states/store";
 import styled, { keyframes } from "styled-components";
-import { scheduleWithInterval } from "util/utils";
+import { scheduleWithInterval, valueToDisplayFormat } from "util/utils";
 
 const GradientCt = styled(Box)`
   padding: 1px;
@@ -47,23 +47,23 @@ const filledUpPoolList = (poolStateList: PoolStateInfo[], length) => {
     return [];
   }
   const repeat = Math.ceil(length / poolStateList.length);
-  console.log(repeat);
   return new Array(repeat).fill(poolStateList).flat();
 };
 
 const deploymentMode = process.env.REACT_APP_DEPLOYMENT_MODE || "mainnet-prod";
 
-const Trades = () => {
+const Trades = (props) => {
+  const { pools } = props;
   const dispatch = useDispatch();
   useEffect(() => scheduleWithInterval(() => dispatch(fetchPoolStateThunk(deploymentMode)), 5 * 1000), [dispatch]);
 
-  const pools = useSelector(poolStateSelector);
   const ref = useRef<HTMLDivElement>();
   const [fullPoolList, setFullPoolList] = useState([]);
 
   useEffect(() => {
     setFullPoolList(filledUpPoolList(pools, Math.ceil(ref.current.clientWidth / 320) * 2));
   }, [pools]);
+  
   return (
     <Box position="relative" overflow="hidden" ref={ref}>
       <AnimateContainer flexWrap="nowrap" gap={2.5} mt={{ xs: 1.5, md: 2.5 }} width={320 * fullPoolList.length} sx={{}}>
@@ -85,7 +85,7 @@ const Trades = () => {
               </Box>
               <Box display="flex" justifyContent="space-between" flexDirection="column">
                 <Box color="#BDFF00">APY {poolConfig.apy}</Box>
-                <Box>Liquidity {poolConfig.liquidity} </Box>
+                <Box>Liquidity {valueToDisplayFormat(new BigNumber(poolConfig.liquidity))} </Box>
               </Box>
             </GradientContent>
           </GradientCt>
