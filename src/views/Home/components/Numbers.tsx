@@ -62,6 +62,7 @@ const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
 }));
 
 function Numbers(props) {
+  const { totalAssetsSupplied, totalTradingVolume } = props;
   const classes = useStyles(props);
 
   return (
@@ -70,7 +71,7 @@ function Numbers(props) {
         <Grid item xs={6}>
           <Item className="odd">
             <Typography className={classes.number} variant="h1">
-              $1.32B
+              {totalAssetsSupplied}
             </Typography>
             <Typography className={classes.text} variant="h5" fontWeight={600}>
               Total Assets Supplied
@@ -80,7 +81,7 @@ function Numbers(props) {
         <Grid item xs={6}>
           <Item className="even">
             <Typography className={classes.number} variant="h1">
-              $51M
+              {totalTradingVolume}
             </Typography>
             <Typography className={classes.text} variant="h5" fontWeight={600}>
               Total Trading Volume

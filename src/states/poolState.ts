@@ -15,6 +15,7 @@ export interface PoolStateInfo {
   baseToken: PoolTokenInfo;
   quoteToken: PoolTokenInfo;
   liquidity: string;
+  tradingVolume: string;
   apy: string;
 }
 
@@ -51,7 +52,11 @@ async function getPoolStateData(deploymentName: string) {
   for (let i = 0; i < deploymentConfig.poolInfoList.length; i++) {
     const poolInfo = deploymentConfig.poolInfoList[i];
     const swapInfo = swapInfoData[i] as SwapInfo;
-
+    const { tradingVolume, liquidity } = calculatePoolLiquidityAndTradingVolume(
+      swapInfo,
+      symbolToTokenInfoMap[poolInfo.base].price,
+      symbolToTokenInfoMap[poolInfo.quote].price,
+    );
     result.push({
       baseToken: {
         logoURI: symbolToTokenInfoMap[poolInfo.base].logoURI,
@@ -61,11 +66,8 @@ async function getPoolStateData(deploymentName: string) {
         logoURI: symbolToTokenInfoMap[poolInfo.quote].logoURI,
         symbol: poolInfo.quote,
       },
-      liquidity: calculatePoolLiquidity(
-        swapInfo,
-        symbolToTokenInfoMap[poolInfo.base].price,
-        symbolToTokenInfoMap[poolInfo.quote].price,
-      ),
+      liquidity,
+      tradingVolume,
       apy: "TBD", // TODO: add apy calculation
     });
   }
@@ -76,7 +78,7 @@ async function getPoolStateData(deploymentName: string) {
 export const fetchPoolStateThunk = createAsyncThunk("homepage/fetchPoolState", getPoolStateData);
 
 // calculate pool liquidity value from the token reserve and pyth price
-function calculatePoolLiquidity(swapInfo: SwapInfo, basePrice: number, quotePrice: number) {
+function calculatePoolLiquidityAndTradingVolume(swapInfo: SwapInfo, basePrice: number, quotePrice: number) {
   const baseAmountDecimalFactor = new BigNumber(10).pow(swapInfo.mintBaseDecimals);
   const quoteAmountDecimalFactor = new BigNumber(10).pow(swapInfo.mintQuoteDecimals);
 
@@ -86,23 +88,20 @@ function calculatePoolLiquidity(swapInfo: SwapInfo, basePrice: number, quotePric
   const quoteValue = new BigNumber(swapInfo.poolState.quoteReserve.toString())
     .multipliedBy(quotePrice)
     .dividedBy(quoteAmountDecimalFactor);
+  const liquidity = baseValue.plus(quoteValue).toString();
 
-  const totalValue = baseValue.plus(quoteValue);
+  const baseTradingVolume = new BigNumber(swapInfo.poolState.totalTradedBase.toString())
+    .multipliedBy(basePrice)
+    .dividedBy(baseAmountDecimalFactor);
+  const quoteTradingVolume = new BigNumber(swapInfo.poolState.totalTradedQuote.toString())
+    .multipliedBy(quotePrice)
+    .dividedBy(quoteAmountDecimalFactor);
+  const tradingVolume = baseTradingVolume.plus(quoteTradingVolume).toString();
 
-  const billion = 100_000_000;
-  const million = 100_000;
-  const thousand = 1000;
-
-  // different display based on the amount of pool reserves
-  if (totalValue.isGreaterThan(billion)) {
-    return "$" + totalValue.dividedBy(billion).toFixed(2) + "B";
-  } else if (totalValue.isGreaterThan(million)) {
-    return "$" + totalValue.dividedBy(million).toFixed(2) + "M";
-  } else if (totalValue.isGreaterThan(thousand)) {
-    return "$" + totalValue.dividedBy(thousand).toFixed(2) + "K";
-  }
-
-  return "$" + totalValue.toFixed(2);
+  return {
+    liquidity,
+    tradingVolume,
+  };
 }
 
 export const poolStateReducer = createReducer(initialState, (builder) => {

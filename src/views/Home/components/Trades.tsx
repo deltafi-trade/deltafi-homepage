@@ -1,10 +1,10 @@
 import { Box, Avatar } from "@mui/material";
+import BigNumber from "bignumber.js";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchPoolStateThunk, PoolStateInfo } from "states/poolState";
-import { poolStateSelector } from "states/store";
 import styled, { keyframes } from "styled-components";
-import { scheduleWithInterval } from "util/utils";
+import { scheduleWithInterval, valueToDisplayFormat } from "util/utils";
 
 const GradientCt = styled(Box)`
   padding: 1px;
@@ -48,17 +48,16 @@ const filledUpPoolList = (poolStateList: PoolStateInfo[]) => {
     return [];
   }
   const repeat = Math.floor(14 / poolStateList.length);
-  console.log(repeat);
   return new Array(repeat).fill(poolStateList).flat();
 };
 
 const deploymentMode = process.env.REACT_APP_DEPLOYMENT_MODE || "mainnet-prod";
 
-const Trades = () => {
+const Trades = (props) => {
+  const { pools } = props;
   const dispatch = useDispatch();
   useEffect(() => scheduleWithInterval(() => dispatch(fetchPoolStateThunk(deploymentMode)), 5 * 1000), [dispatch]);
 
-  const pools = useSelector(poolStateSelector);
   const fullPoolList = filledUpPoolList(pools);
   return (
     <Box position="relative">
@@ -81,7 +80,7 @@ const Trades = () => {
               </Box>
               <Box display="flex" justifyContent="space-between" flexDirection="column">
                 <Box color="#BDFF00">APY {poolConfig.apy}</Box>
-                <Box>Liquidity {poolConfig.liquidity} </Box>
+                <Box>Liquidity {valueToDisplayFormat(new BigNumber(poolConfig.liquidity))} </Box>
               </Box>
             </GradientContent>
           </GradientCt>
