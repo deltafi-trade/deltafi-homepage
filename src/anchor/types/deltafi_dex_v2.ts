@@ -2763,6 +2763,11 @@ export type DeltafiDexV2 = {
       name: "InvalidSerumMarketTokenRatio";
       msg: "InvalidSerumMarketTokenRatio";
     },
+    {
+      code: 6069;
+      name: "DepeggedQuotePrice";
+      msg: "DepeggedQuotePrice";
+    },
   ];
 };
 
@@ -5530,6 +5535,11 @@ export const IDL: DeltafiDexV2 = {
       code: 6068,
       name: "InvalidSerumMarketTokenRatio",
       msg: "InvalidSerumMarketTokenRatio",
+    },
+    {
+      code: 6069,
+      name: "DepeggedQuotePrice",
+      msg: "DepeggedQuotePrice",
     },
   ],
 };
