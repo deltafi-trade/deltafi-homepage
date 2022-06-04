@@ -24,7 +24,7 @@
                "spec": {
                   "containers": [
                      {
-                        "image": "077918681028.dkr.ecr.us-west-2.amazonaws.com/deltafi-homepage:dev-c95eba9-20220603-165258",
+                        "image": "077918681028.dkr.ecr.us-west-2.amazonaws.com/deltafi-homepage:dev-8bd94e9-20220603-170846",
                         "name": "main",
                         "ports": [
                            {
