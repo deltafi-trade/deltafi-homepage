@@ -32,6 +32,17 @@
                            }
                         ]
                      }
+                  ],
+                  "nodeSelector": {
+                     "kubernetes.io/arch": "arm64"
+                  },
+                  "tolerations": [
+                     {
+                        "effect": "NoSchedule",
+                        "key": "arch",
+                        "operator": "Equal",
+                        "value": "arm64"
+                     }
                   ]
                }
             }
