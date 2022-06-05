@@ -24,13 +24,24 @@
                "spec": {
                   "containers": [
                      {
-                        "image": "077918681028.dkr.ecr.us-west-2.amazonaws.com/deltafi-homepage:dev-8bd94e9-20220603-170846",
+                        "image": "077918681028.dkr.ecr.us-west-2.amazonaws.com/deltafi-homepage:dev-cb4610a-20220604-163254",
                         "name": "main",
                         "ports": [
                            {
                               "containerPort": 80
                            }
                         ]
+                     }
+                  ],
+                  "nodeSelector": {
+                     "kubernetes.io/arch": "arm64"
+                  },
+                  "tolerations": [
+                     {
+                        "effect": "NoSchedule",
+                        "key": "arch",
+                        "operator": "Equal",
+                        "value": "arm64"
                      }
                   ]
                }

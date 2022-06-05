@@ -57,6 +57,7 @@ async function getPoolStateData(deploymentName: string) {
       symbolToTokenInfoMap[poolInfo.base].price,
       symbolToTokenInfoMap[poolInfo.quote].price,
     );
+
     result.push({
       baseToken: {
         logoURI: symbolToTokenInfoMap[poolInfo.base].logoURI,

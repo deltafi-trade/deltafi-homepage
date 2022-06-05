@@ -7,8 +7,8 @@ export function scheduleWithInterval(func: () => void, delay: number) {
 }
 
 export function valueToDisplayFormat(value: BigNumber) {
-  const billion = 100_000_000;
-  const million = 100_000;
+  const billion = 1000_000_000;
+  const million = 1000_000;
   const thousand = 1000;
 
   // different display based on the amount of pool reserves

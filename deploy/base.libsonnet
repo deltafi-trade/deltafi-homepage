@@ -3,9 +3,22 @@
   domainName:: error 'domainName is not set',
   replicas:: 2,
 
-  local dockerRegistry = "077918681028.dkr.ecr.us-west-2.amazonaws.com",
+  local dockerRegistry = '077918681028.dkr.ecr.us-west-2.amazonaws.com',
   local namespace = 'deltafi-homepage',
   local appName = 'deltafi-homepage',
+
+  local tolerations = [
+    {
+      key: 'arch',
+      operator: 'Equal',
+      value: 'arm64',
+      effect: 'NoSchedule',
+    },
+  ],
+
+  local nodeSelector = {
+    'kubernetes.io/arch': 'arm64',
+  },
 
   apiVersion: 'v1',
   kind: 'List',
@@ -40,8 +53,10 @@
                     containerPort: 80,
                   },
                 ],
-              }
+              },
             ],
+            tolerations: tolerations,
+            nodeSelector: nodeSelector,
           },
         },
       },
