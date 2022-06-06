@@ -1,6 +1,7 @@
 import { Container, Grid, Paper, Typography, Theme } from "@mui/material";
 import styled from "styled-components";
 import makeStyles from "@mui/styles/makeStyles";
+import { CircularProgress } from "@material-ui/core";
 
 const Item = styled(Paper)`
   padding: ${({ theme }) => theme.spacing(1)};
@@ -71,7 +72,7 @@ function Numbers(props) {
         <Grid item xs={6}>
           <Item className="odd">
             <Typography className={classes.number} variant="h1">
-              {totalAssetsSupplied}
+              {totalAssetsSupplied || <CircularProgress size={36} color="inherit" />}
             </Typography>
             <Typography className={classes.text} variant="h5" fontWeight={600}>
               Total Assets Supplied
@@ -81,7 +82,7 @@ function Numbers(props) {
         <Grid item xs={6}>
           <Item className="even">
             <Typography className={classes.number} variant="h1">
-              {totalTradingVolume}
+              {totalTradingVolume || <CircularProgress size={36} color="inherit" />}
             </Typography>
             <Typography className={classes.text} variant="h5" fontWeight={600}>
               Total Trading Volume
