@@ -83,7 +83,8 @@ const Trades = (props) => {
                 </Box>
               </Box>
               <Box display="flex" justifyContent="space-between" flexDirection="column">
-                <Box color="#BDFF00">APY {poolConfig.apy}</Box>
+                {/* <Box color="#BDFF00">APY {poolConfig.apy}</Box> */}
+                <Box color="#BDFF00"></Box>
                 <Box>Liquidity {valueToDisplayFormat(new BigNumber(poolConfig.liquidity))} </Box>
               </Box>
             </GradientContent>

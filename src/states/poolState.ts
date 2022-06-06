@@ -52,10 +52,16 @@ async function getPoolStateData(deploymentName: string) {
   for (let i = 0; i < deploymentConfig.poolInfoList.length; i++) {
     const poolInfo = deploymentConfig.poolInfoList[i];
     const swapInfo = swapInfoData[i] as SwapInfo;
-    const { tradingVolume, liquidity } = calculatePoolLiquidityAndTradingVolume(
-      swapInfo,
-      symbolToTokenInfoMap[poolInfo.base].price,
-      symbolToTokenInfoMap[poolInfo.quote].price,
+    const basePrice = symbolToTokenInfoMap[poolInfo.base].price;
+    const quotePrice = symbolToTokenInfoMap[poolInfo.quote].price;
+
+    const { tradingVolume, liquidity } = calculatePoolLiquidityAndTradingVolume(swapInfo, basePrice, quotePrice);
+    const lastDaytradingVolume = getLastDayTradingVolume();
+
+    const apy = calculateApy(
+      lastDaytradingVolume, // hard code to 0
+      new BigNumber(swapInfo.swapConfig.tradeFeeNumerator).dividedBy(swapInfo.swapConfig.tradeFeeDenominator),
+      new BigNumber(liquidity),
     );
 
     result.push({
@@ -69,7 +75,7 @@ async function getPoolStateData(deploymentName: string) {
       },
       liquidity,
       tradingVolume,
-      apy: "TBD", // TODO: add apy calculation
+      apy,
     });
   }
 
@@ -103,6 +109,23 @@ function calculatePoolLiquidityAndTradingVolume(swapInfo: SwapInfo, basePrice: n
     liquidity,
     tradingVolume,
   };
+}
+
+function getDelfiPrice(): BigNumber {
+  return new BigNumber(0.2); // TODO: fetch it from gate.io
+}
+
+function getLastDayTradingVolume(): BigNumber {
+  return new BigNumber(0); // TODO: get record trading volume and get it
+}
+
+function calculateApy(lastDaytradingVolume: BigNumber, feeRate: BigNumber, liquidity: BigNumber): string {
+  const DAYS_OF_YEAR = 365;
+  const delfiPrice = getDelfiPrice();
+  const dailyRewardRate = lastDaytradingVolume.multipliedBy(feeRate).multipliedBy(delfiPrice).dividedBy(liquidity);
+  const apy = dailyRewardRate.multipliedBy(DAYS_OF_YEAR);
+
+  return apy.multipliedBy(100).toFixed(2) + "%";
 }
 
 export const poolStateReducer = createReducer(initialState, (builder) => {
