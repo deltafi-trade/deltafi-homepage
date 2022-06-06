@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Page from "components/layout/Page";
 
 import AssetManager from "./components/AssetManager";
@@ -17,12 +17,26 @@ import { valueToDisplayFormat } from "util/utils";
 
 const Home: React.FC = () => {
   const pools = useSelector(poolStateSelector);
-  let totalAssetsSupplied = new BigNumber(0);
-  let totalTradingVolume = new BigNumber(0);
-  pools.forEach((pool) => {
-    totalAssetsSupplied = totalAssetsSupplied.plus(pool.liquidity);
-    totalTradingVolume = totalTradingVolume.plus(pool.tradingVolume);
-  });
+
+  const { totalAssetsSupplied, totalTradingVolume } = useMemo(() => {
+    if (!pools) {
+      return {
+        totalAssetsSupplied: new BigNumber(NaN),
+        totalTradingVolume: new BigNumber(NaN),
+      };
+    }
+    let totalAssetsSuppliedRes = new BigNumber(0);
+    let totalTradingVolumeRes = new BigNumber(0);
+    pools.forEach((pool) => {
+      totalAssetsSuppliedRes = totalAssetsSuppliedRes.plus(pool.liquidity);
+      totalTradingVolumeRes = totalTradingVolumeRes.plus(pool.tradingVolume);
+    });
+
+    return {
+      totalAssetsSupplied: totalAssetsSuppliedRes,
+      totalTradingVolume: totalTradingVolumeRes,
+    };
+  }, [pools]);
 
   return (
     <>

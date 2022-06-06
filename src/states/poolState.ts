@@ -22,7 +22,7 @@ export interface PoolStateInfo {
 const initialState: {
   pools: PoolStateInfo[];
 } = {
-  pools: [],
+  pools: null,
 };
 
 async function getPoolStateData(deploymentName: string) {
