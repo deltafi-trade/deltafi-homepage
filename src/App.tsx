@@ -1,9 +1,10 @@
 import React, { lazy } from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 
 import SuspenseWithChunkError from "./components/SuspenseWithChunkError";
 import PageLoader from "./components/PageLoader";
 import AppRoute from "./AppRoute";
+import { WHITE_PAPER } from "config/constants/constant";
 
 const Home = lazy(() => import("./views/Home"));
 const Tokenomics = lazy(() => import("./views/Tokenomics"));
@@ -17,6 +18,14 @@ const App: React.FC = () => (
       <Switch>
         <AppRoute exact path="/" component={Home} />
         <AppRoute path="/tokenomics" exact component={Tokenomics} />
+        <Route
+          exact
+          path="/whitepaper"
+          render={() => {
+            window.location.href = WHITE_PAPER;
+            return null;
+          }}
+        />
         <Route component={NotFound} />
       </Switch>
     </SuspenseWithChunkError>
