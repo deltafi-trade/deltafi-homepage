@@ -1,5 +1,5 @@
 import React, { lazy } from "react";
-import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 import SuspenseWithChunkError from "./components/SuspenseWithChunkError";
 import PageLoader from "./components/PageLoader";
