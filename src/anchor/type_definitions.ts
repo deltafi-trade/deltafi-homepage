@@ -64,6 +64,9 @@ export interface SwapConfig {
   tradeRewardCap: anchor.BN;
   tradeRewardMaxReserve: anchor.BN;
   slope: anchor.BN;
+  disableStablePriceDiffCheck: boolean;
+  disableQuoteTokenPriceCheck: boolean;
+  reservedU8: Array<any>;
   reservedU64: Array<any>;
 }
 
@@ -79,8 +82,8 @@ export interface DeltafiUser {
   configKey: PublicKey;
   owner: PublicKey;
   referrer: PublicKey;
-  owedSwapRewards: anchor.BN;
-  claimedSwapRewards: anchor.BN;
+  owedTradeRewards: anchor.BN;
+  claimedTradeRewards: anchor.BN;
   owedReferralRewards: anchor.BN;
   claimedReferralRewards: anchor.BN;
   reserved: Array<any>;
