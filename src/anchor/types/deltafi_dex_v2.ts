@@ -1757,6 +1757,78 @@ export type DeltafiDexV2 = {
       args: [];
     },
     {
+      name: "claimTradeRewards";
+      accounts: [
+        {
+          name: "marketConfig";
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: "deltafiUser";
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: "userDeltafiToken";
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: "swapDeltafiToken";
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: "owner";
+          isMut: false;
+          isSigner: true;
+        },
+        {
+          name: "tokenProgram";
+          isMut: false;
+          isSigner: false;
+        },
+      ];
+      args: [];
+    },
+    {
+      name: "claimReferralRewards";
+      accounts: [
+        {
+          name: "marketConfig";
+          isMut: false;
+          isSigner: false;
+        },
+        {
+          name: "deltafiUser";
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: "userDeltafiToken";
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: "swapDeltafiToken";
+          isMut: true;
+          isSigner: false;
+        },
+        {
+          name: "owner";
+          isMut: false;
+          isSigner: true;
+        },
+        {
+          name: "tokenProgram";
+          isMut: false;
+          isSigner: false;
+        },
+      ];
+      args: [];
+    },
+    {
       name: "createFarmUser";
       accounts: [
         {
@@ -1821,11 +1893,11 @@ export type DeltafiDexV2 = {
             type: "publicKey";
           },
           {
-            name: "owedSwapRewards";
+            name: "owedTradeRewards";
             type: "u64";
           },
           {
-            name: "claimedSwapRewards";
+            name: "claimedTradeRewards";
             type: "u64";
           },
           {
@@ -2377,9 +2449,23 @@ export type DeltafiDexV2 = {
             type: "u128";
           },
           {
+            name: "disableStablePriceDiffCheck";
+            type: "bool";
+          },
+          {
+            name: "disableQuoteTokenPriceCheck";
+            type: "bool";
+          },
+          {
+            name: "reservedU8";
+            type: {
+              array: ["u8", 6];
+            };
+          },
+          {
             name: "reservedU64";
             type: {
-              array: ["u64", 16];
+              array: ["u64", 15];
             };
           },
         ];
@@ -2767,6 +2853,16 @@ export type DeltafiDexV2 = {
       code: 6069;
       name: "DepeggedQuotePrice";
       msg: "DepeggedQuotePrice";
+    },
+    {
+      code: 6070;
+      name: "InvalidWithdrawalAmount";
+      msg: "Invalid withdrawal amount";
+    },
+    {
+      code: 6071;
+      name: "InvalidStakingAmount";
+      msg: "Invalid staking amount";
     },
   ];
 };
@@ -4530,6 +4626,78 @@ export const IDL: DeltafiDexV2 = {
       args: [],
     },
     {
+      name: "claimTradeRewards",
+      accounts: [
+        {
+          name: "marketConfig",
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: "deltafiUser",
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: "userDeltafiToken",
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: "swapDeltafiToken",
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: "owner",
+          isMut: false,
+          isSigner: true,
+        },
+        {
+          name: "tokenProgram",
+          isMut: false,
+          isSigner: false,
+        },
+      ],
+      args: [],
+    },
+    {
+      name: "claimReferralRewards",
+      accounts: [
+        {
+          name: "marketConfig",
+          isMut: false,
+          isSigner: false,
+        },
+        {
+          name: "deltafiUser",
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: "userDeltafiToken",
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: "swapDeltafiToken",
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: "owner",
+          isMut: false,
+          isSigner: true,
+        },
+        {
+          name: "tokenProgram",
+          isMut: false,
+          isSigner: false,
+        },
+      ],
+      args: [],
+    },
+    {
       name: "createFarmUser",
       accounts: [
         {
@@ -4594,11 +4762,11 @@ export const IDL: DeltafiDexV2 = {
             type: "publicKey",
           },
           {
-            name: "owedSwapRewards",
+            name: "owedTradeRewards",
             type: "u64",
           },
           {
-            name: "claimedSwapRewards",
+            name: "claimedTradeRewards",
             type: "u64",
           },
           {
@@ -5150,9 +5318,23 @@ export const IDL: DeltafiDexV2 = {
             type: "u128",
           },
           {
+            name: "disableStablePriceDiffCheck",
+            type: "bool",
+          },
+          {
+            name: "disableQuoteTokenPriceCheck",
+            type: "bool",
+          },
+          {
+            name: "reservedU8",
+            type: {
+              array: ["u8", 6],
+            },
+          },
+          {
             name: "reservedU64",
             type: {
-              array: ["u64", 16],
+              array: ["u64", 15],
             },
           },
         ],
@@ -5540,6 +5722,16 @@ export const IDL: DeltafiDexV2 = {
       code: 6069,
       name: "DepeggedQuotePrice",
       msg: "DepeggedQuotePrice",
+    },
+    {
+      code: 6070,
+      name: "InvalidWithdrawalAmount",
+      msg: "Invalid withdrawal amount",
+    },
+    {
+      code: 6071,
+      name: "InvalidStakingAmount",
+      msg: "Invalid staking amount",
     },
   ],
 };

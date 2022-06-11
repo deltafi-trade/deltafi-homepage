@@ -1,6 +1,6 @@
 export const HOMEPAGE_LINK = process.env.REACT_APP_HOMPAGE_URL || "/";
 export const APP_LINK = process.env.REACT_APP_URL || "https://app.deltafi.trade";
-export const REWARD_LINK = "https://app.deltafi.trade/rewards";
+export const REWARD_LINK = "https://app.deltafi.trade/dashboard";
 export const BLOG_LINK = "https://medium.com/deltafi";
 export const DOCS_LINK = "https://docs.deltafi.trade/";
 export const TWITTER_LINK = "https://twitter.com/deltafi_trade";
