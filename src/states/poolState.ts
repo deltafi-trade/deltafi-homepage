@@ -51,7 +51,6 @@ async function getPoolStateData(deploymentName: string) {
       const tokenPriceData = parsePriceData(priceData[i].data as Buffer);
       symbolToTokenInfoMap[tokenInfo.symbol] = { logoURI: tokenInfo.logoURI, price: tokenPriceData.price };
     }
-
   }
 
   for (let i = 0; i < deploymentConfig.poolInfoList.length; i++) {
