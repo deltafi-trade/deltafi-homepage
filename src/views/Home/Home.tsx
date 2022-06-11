@@ -28,6 +28,10 @@ const Home: React.FC = () => {
     let totalAssetsSuppliedRes = new BigNumber(0);
     let totalTradingVolumeRes = new BigNumber(0);
     pools.forEach((pool) => {
+      if (!pool.liquidity || !pool.tradingVolume) {
+        // in case the data is not loaded completely
+        return;
+      }
       totalAssetsSuppliedRes = totalAssetsSuppliedRes.plus(pool.liquidity);
       totalTradingVolumeRes = totalTradingVolumeRes.plus(pool.tradingVolume);
     });
