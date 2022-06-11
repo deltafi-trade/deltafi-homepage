@@ -44,9 +44,14 @@ async function getPoolStateData(deploymentName: string) {
 
   for (let i = 0; i < deploymentConfig.tokenInfoList.length; i++) {
     const tokenInfo = deploymentConfig.tokenInfoList[i];
-    const tokenPriceData = parsePriceData(priceData[i].data as Buffer);
 
-    symbolToTokenInfoMap[tokenInfo.symbol] = { logoURI: tokenInfo.logoURI, price: tokenPriceData.price };
+    if (tokenInfo.pyth.productName.startsWith("Mock")) {
+      symbolToTokenInfoMap[tokenInfo.symbol] = { logoURI: tokenInfo.logoURI, price: tokenInfo.pyth.mockPrice };
+    } else {
+      const tokenPriceData = parsePriceData(priceData[i].data as Buffer);
+      symbolToTokenInfoMap[tokenInfo.symbol] = { logoURI: tokenInfo.logoURI, price: tokenPriceData.price };
+    }
+
   }
 
   for (let i = 0; i < deploymentConfig.poolInfoList.length; i++) {
