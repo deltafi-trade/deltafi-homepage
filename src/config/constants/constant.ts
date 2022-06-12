@@ -12,6 +12,7 @@ export const YOUTUBE_LINK = "https://www.youtube.com/channel/UCVs_ZIdnPKdxy30eWr
 export const CAREERS_LINK = "https://deltafi.medium.com/jobs-deltafi-280dd54f82de";
 export const PRIVACY_LINK = "/privacy";
 export const TOKENOMICS_LINK = "/tokenomics";
+export const TOKEN_LINK = "https://coinmarketcap.com/currencies/deltafi/";
 export const GOVERNANCE_LINK = "/governance";
 export const CERTIK_LINK = "https://www.certik.com/projects/deltafi";
 export const SLOWMIST_LINK = process.env.PUBLIC_URL + "/v2-audit-SlowMist.pdf";
@@ -24,7 +25,7 @@ export const menuItems = [
   },
   {
     text: "Token",
-    to: TOKENOMICS_LINK,
+    to: TOKEN_LINK,
   },
   {
     id: "auditReport",
