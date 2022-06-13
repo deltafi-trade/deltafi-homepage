@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Button, Typography } from "@mui/material";
 
-const StyledNotFound = styled.div`
+const StyledComingSoon = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -11,11 +11,13 @@ const StyledNotFound = styled.div`
 
 function ComingSoon() {
   return (
-    <StyledNotFound>
-      <Typography variant="h5">Comming Soon</Typography>
+    <StyledComingSoon>
+      <Typography variant="h2" margin={2}>
+        Coming Soon {`\n`}
+      </Typography>
       <Typography variant="subtitle2">This page is under active developement</Typography>
       <Button href="/">Back Home</Button>
-    </StyledNotFound>
+    </StyledComingSoon>
   );
 }
 
