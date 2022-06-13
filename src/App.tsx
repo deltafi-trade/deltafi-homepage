@@ -5,6 +5,7 @@ import SuspenseWithChunkError from "./components/SuspenseWithChunkError";
 import PageLoader from "./components/PageLoader";
 import AppRoute from "./AppRoute";
 import { WHITE_PAPER } from "config/constants/constant";
+import ComingSoon from "views/CommingSoon";
 
 const Home = lazy(() => import("./views/Home"));
 const Tokenomics = lazy(() => import("./views/Tokenomics"));
@@ -26,6 +27,8 @@ const App: React.FC = () => (
             return null;
           }}
         />
+        <AppRoute exact path="/governance" component={ComingSoon} />
+        <AppRoute exact path="/submit-bug" component={ComingSoon} />
         <Route component={NotFound} />
       </Switch>
     </SuspenseWithChunkError>
