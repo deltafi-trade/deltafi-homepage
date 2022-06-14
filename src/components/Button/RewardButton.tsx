@@ -1,5 +1,5 @@
 import React from "react";
-import { Button as MUIButton, ButtonProps, Theme, Typography } from "@mui/material";
+import { Button as MUIButton, ButtonProps, Theme, Box } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 
 const useStyles = makeStyles(({ breakpoints }: Theme) => ({
@@ -23,8 +23,8 @@ const useStyles = makeStyles(({ breakpoints }: Theme) => ({
 
     [breakpoints.down("sm")]: {
       height: 45,
-      width: 160,
-      fontSize: 14,
+      width: 140,
+      fontSize: 12,
     },
   },
 }));
@@ -40,7 +40,7 @@ const RewardButton: React.FC<IButtonProps> = (props) => {
 
   return (
     <MUIButton className={classes.ctaButton} size="large" href={href}>
-      <Typography variant="button">{children}</Typography>
+      <Box>{children}</Box>
     </MUIButton>
   );
 };
