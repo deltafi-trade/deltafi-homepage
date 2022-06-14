@@ -5,7 +5,7 @@ import SuspenseWithChunkError from "./components/SuspenseWithChunkError";
 import PageLoader from "./components/PageLoader";
 import AppRoute from "./AppRoute";
 import { WHITE_PAPER } from "config/constants/constant";
-import ComingSoon from "views/CommingSoon";
+import ComingSoon from "views/ComingSoon";
 
 const Home = lazy(() => import("./views/Home"));
 const Tokenomics = lazy(() => import("./views/Tokenomics"));
