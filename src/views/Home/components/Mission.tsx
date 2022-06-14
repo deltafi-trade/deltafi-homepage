@@ -81,7 +81,10 @@ const Mission: React.FC = () => {
                   color: box.color,
                   fontStyle: "normal",
                   fontWeight: 600,
-                  fontSize: 24,
+                  fontSize: {
+                    xs: 16,
+                    md: 24,
+                  },
                   lineHeight: 1.1,
                   display: "flex",
                   height: 30,

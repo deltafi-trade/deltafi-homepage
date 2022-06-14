@@ -4,7 +4,7 @@ import makeStyles from "@mui/styles/makeStyles";
 
 const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
   ctaButton: {
-    backgroundColor: "#D4FF00",
+    backgroundColor: "linear-gradient(111.31deg, rgba(212, 255, 0) 15.34%, rgba(189, 255, 0) 95.74%)",
     color: "#313131",
     borderRadius: 100,
     border: "solid 1px transparent",
@@ -17,14 +17,14 @@ const useStyles = makeStyles(({ palette, breakpoints }: Theme) => ({
     paddingBottom: 10,
 
     "&:hover": {
-      color: palette.text.primary,
       boxShadow: "none",
+      backgroundColor: "linear-gradient(111.31deg, rgba(212, 255, 0, 0.4) 15.34%, rgba(189, 255, 0, 0.4) 95.74%)",
     },
 
     [breakpoints.down("sm")]: {
       height: 45,
-      width: 160,
-      fontSize: 15,
+      width: 140,
+      fontSize: 12,
     },
   },
 }));
