@@ -98,7 +98,7 @@ const AssetManager: React.FC = () => {
             </Typography>
             <br />
             <Typography variant="h6" className={classes.subTitle} sx={{ fontSize: 20, fontWeight: 500 }}>
-              Earn Sustainable Yields through Oracle Concentrated Liquidity
+              Earn Sustainable Yields through Realtime Oracles
             </Typography>
             <DesktopWrapper>
               <Button color="secondary" href={APP_LINK}>
