@@ -35,7 +35,7 @@ interface IButtonProps extends ButtonProps {
 }
 
 const Button: React.FC<IButtonProps> = (props) => {
-  const { children, href, onClick } = props;
+  const { children, onClick } = props;
   const classes = useStyles(props);
 
   return (
