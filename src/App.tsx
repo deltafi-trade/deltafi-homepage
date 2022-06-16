@@ -28,7 +28,6 @@ const App: React.FC = () => (
           }}
         />
         <AppRoute exact path="/governance" component={ComingSoon} />
-        <AppRoute exact path="/submit-bug" component={ComingSoon} />
         <Route component={NotFound} />
       </Switch>
     </SuspenseWithChunkError>
