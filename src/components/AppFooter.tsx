@@ -63,7 +63,7 @@ const Footer: React.FC = (props) => {
             <SocialLinks />
           </Box>
           <Box mt={{ xs: 2.5, md: 0 }}>
-            <Button color="primary" href={SUBMITBUG_LINK}>
+            <Button color="primary" onClick={() => window.open(SUBMITBUG_LINK)}>
               <Box lineHeight="24px">Submit a Bug</Box>
             </Button>
           </Box>

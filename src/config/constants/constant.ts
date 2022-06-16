@@ -16,7 +16,7 @@ export const TOKEN_LINK = "https://coinmarketcap.com/currencies/deltafi/";
 export const GOVERNANCE_LINK = "/governance";
 export const CERTIK_LINK = "https://www.certik.com/projects/deltafi";
 export const SLOWMIST_LINK = process.env.PUBLIC_URL + "/v2-audit-SlowMist.pdf";
-export const SUBMITBUG_LINK = "/submit-bug";
+export const SUBMITBUG_LINK = "https://forms.gle/oskeakWmLKeM8tdRA ";
 
 export const menuItems = [
   {
