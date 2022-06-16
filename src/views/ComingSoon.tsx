@@ -13,7 +13,7 @@ function ComingSoon() {
   return (
     <StyledComingSoon>
       <Typography variant="h2" margin={2}>
-        Coming Soon {`\n`}
+        Coming Soon {"\n"}
       </Typography>
       <Typography variant="subtitle2">This page is under active developement</Typography>
       <Button href="/">Back Home</Button>

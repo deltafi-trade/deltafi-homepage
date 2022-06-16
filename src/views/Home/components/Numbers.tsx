@@ -1,4 +1,4 @@
-import { Container, Grid, Paper, Typography, Theme, Box } from "@mui/material";
+import { Container, Grid, Paper, Typography, Theme } from "@mui/material";
 import styled from "styled-components";
 import makeStyles from "@mui/styles/makeStyles";
 import { CircularProgress } from "@material-ui/core";
