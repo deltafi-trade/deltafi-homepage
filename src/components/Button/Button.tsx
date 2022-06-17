@@ -35,11 +35,11 @@ interface IButtonProps extends ButtonProps {
 }
 
 const Button: React.FC<IButtonProps> = (props) => {
-  const { children, onClick } = props;
+  const { children, onClick, href } = props;
   const classes = useStyles(props);
 
   return (
-    <MUIButton variant="contained" className={classes.ctaButton} size="large" onClick={onClick}>
+    <MUIButton variant="contained" className={classes.ctaButton} size="large" onClick={onClick} href={href}>
       {children}
     </MUIButton>
   );
