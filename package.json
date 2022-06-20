@@ -22,7 +22,7 @@
     "@solana/spl-token-registry": "^0.2.303",
     "@solana/web3.js": "^1.43.2",
     "@testing-library/jest-dom": "^5.16.2",
-    "ansi-html": "0.0.8",
+    "ansi-html": "^0.0.8",
     "ansi-regex": "4.1.1",
     "async": "2.6.4",
     "bignumber.js": "^9.0.1",
